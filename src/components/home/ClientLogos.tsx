@@ -1,22 +1,38 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import styles from "./ClientLogos.module.css";
 
+import img1 from "@/assets/CLImg/img1.jpg";
+import img2 from "@/assets/CLImg/img2.png";
+import img3 from "@/assets/CLImg/img3.jpg";
+import img4 from "@/assets/CLImg/img4.png";
+import img5 from "@/assets/CLImg/img5.png";
+import img6 from "@/assets/CLImg/img6.jpg";
+import img7 from "@/assets/CLImg/img7.png";
+import img8 from "@/assets/CLImg/img8.png";
+import img9 from "@/assets/CLImg/img9.png";
+import img10 from "@/assets/CLImg/img10.png";
+import img11 from "@/assets/CLImg/img11.png";
+import img12 from "@/assets/CLImg/img12.png";
+import img13 from "@/assets/CLImg/img13.jpg";
+import img14 from "@/assets/CLImg/img14.png";
+import img16 from "@/assets/CLImg/img16.png";
+
 const logos = [
-  { src: "/src/assets/CLImg/img1.jpg", alt: "Client Logo 1" },
-  { src: "/src/assets/CLImg/img2.png", alt: "Client Logo 2" },
-  { src: "/src/assets/CLImg/img3.jpg", alt: "Client Logo 3" },
-  { src: "/src/assets/CLImg/img4.png", alt: "Client Logo 4" },
-  { src: "/src/assets/CLImg/img5.png", alt: "Client Logo 5" },
-  { src: "/src/assets/CLImg/img6.jpg", alt: "Client Logo 6" },
-  { src: "/src/assets/CLImg/img7.png", alt: "Client Logo 7" },
-  { src: "/src/assets/CLImg/img8.png", alt: "Client Logo 8" },
-  { src: "/src/assets/CLImg/img9.png", alt: "Client Logo 9" },
-  { src: "/src/assets/CLImg/img10.png", alt: "Client Logo 10" },
-  { src: "/src/assets/CLImg/img11.png", alt: "Client Logo 11" },
-  { src: "/src/assets/CLImg/img12.png", alt: "Client Logo 12" },
-  { src: "/src/assets/CLImg/img13.jpg", alt: "Client Logo 13" },
-  { src: "/src/assets/CLImg/img14.png", alt: "Client Logo 14" },
-  { src: "/src/assets/CLImg/img16.png", alt: "Client Logo 16" },
+  { src: img1, alt: "Client Logo 1" },
+  { src: img2, alt: "Client Logo 2" },
+  { src: img3, alt: "Client Logo 3" },
+  { src: img4, alt: "Client Logo 4" },
+  { src: img5, alt: "Client Logo 5" },
+  { src: img6, alt: "Client Logo 6" },
+  { src: img7, alt: "Client Logo 7" },
+  { src: img8, alt: "Client Logo 8" },
+  { src: img9, alt: "Client Logo 9" },
+  { src: img10, alt: "Client Logo 10" },
+  { src: img11, alt: "Client Logo 11" },
+  { src: img12, alt: "Client Logo 12" },
+  { src: img13, alt: "Client Logo 13" },
+  { src: img14, alt: "Client Logo 14" },
+  { src: img16, alt: "Client Logo 16" },
 ];
 
 export function ClientLogos() {
