@@ -29,7 +29,7 @@ export function TopBanner() {
         <div className="flex items-center">
           <Button
             variant="white"
-            size="md"
+            size="sm"
             asChild
             className="hover:scale-105 transition-transform duration-300 px-3 py-2 text-sm"
           >

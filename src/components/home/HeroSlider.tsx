@@ -4,15 +4,9 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import styles from "./HeroSlider.module.css";
 
-import hero1 from "@/assets/HPImg/Cover_img4.jpg";
-import hero2 from "@/assets/HPImg/Cover_img6.jpg";
-import hero3 from "@/assets/HPImg/Cover_img3.jpg";
-import hero4 from "@/assets/HPImg/Cover_img5.jpg";
-import hero5 from "@/assets/HPImg/Cover_img1.jpg";
-
 const slides = [
   {
-    image: hero1,
+    image: "/src/assets/HPImg/Cover_img4.jpg",
     title: "Paraplanning Services ",
     subtitle: "Expert Assistance",
     description:
@@ -20,7 +14,7 @@ const slides = [
     link: "/services/paraplanning",
   },
   {
-    image: hero2,
+    image: "/src/assets/HPImg/Cover_img6.jpg",
     title: "Client Support Officers",
     subtitle: "Financial Precision",
     description:
@@ -28,7 +22,7 @@ const slides = [
     link: "/services/accounting",
   },
   {
-    image: hero3,
+    image: "/src/assets/HPImg/Cover_img3.jpg",
     title: "Accounting & Bookkeeping",
     subtitle: "Property Finance",
     description:
@@ -36,7 +30,7 @@ const slides = [
     link: "/services/mortgage",
   },
   {
-    image: hero4,
+    image: "/src/assets/HPImg/Cover_img5.jpg",
     title: "SMSF",
     subtitle: "Scale your SMSF operations with dependable offshore expertise ",
     description:
@@ -44,7 +38,7 @@ const slides = [
     link: "/services/mortgage",
   },
   {
-    image: hero5,
+    image: "/src/assets/HPImg/Cover_img1.jpg",
     title: "Mortgage Support ",
     subtitle: "Property Finance",
     description:
