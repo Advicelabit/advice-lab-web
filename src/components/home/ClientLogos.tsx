@@ -1,19 +1,19 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import styles from "./ClientLogos.module.css";
 
-import img1 from "@/assets/CLImg/img1.jpg";
+import img1 from "@/assets/CLImg/img1.png";
 import img2 from "@/assets/CLImg/img2.png";
-import img3 from "@/assets/CLImg/img3.jpg";
+import img3 from "@/assets/CLImg/img3.png";
 import img4 from "@/assets/CLImg/img4.png";
 import img5 from "@/assets/CLImg/img5.png";
-import img6 from "@/assets/CLImg/img6.jpg";
+import img6 from "@/assets/CLImg/img6.png";
 import img7 from "@/assets/CLImg/img7.png";
 import img8 from "@/assets/CLImg/img8.png";
 import img9 from "@/assets/CLImg/img9.png";
 import img10 from "@/assets/CLImg/img10.png";
 import img11 from "@/assets/CLImg/img11.png";
 import img12 from "@/assets/CLImg/img12.png";
-import img13 from "@/assets/CLImg/img13.jpg";
+import img13 from "@/assets/CLImg/img13.png";
 import img14 from "@/assets/CLImg/img14.png";
 import img16 from "@/assets/CLImg/img16.png";
 
@@ -52,7 +52,7 @@ export function ClientLogos() {
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-14 w-44 h-12 p-4 bg-white rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+              className="flex-shrink-0 mx-14 w-44 h-12 p-4 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center"
             >
               <img
                 src={logo.src}
