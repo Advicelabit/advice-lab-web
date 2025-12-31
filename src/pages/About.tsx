@@ -1,7 +1,26 @@
 import { Layout } from "@/components/layout/Layout";
-import { Users, Target, Award, Globe } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Users,
+  ThumbsUp,
+  UserCircle,
+  FileText,
+  Trophy,
+  Briefcase,
+  Settings,
+  MessageCircle,
+  Heart,
+  Handshake,
+} from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import styles from "./About.module.css";
+
+import hero1 from "@/assets/HPImg/Cover_img4.jpg";
+import hero2 from "@/assets/HPImg/Cover_img6.jpg";
+import hero3 from "@/assets/HPImg/Cover_img3.jpg";
+import hero4 from "@/assets/HPImg/Cover_img5.jpg";
+import hero5 from "@/assets/HPImg/Cover_img1.jpg";
 
 const stats = [
   { value: "150+", label: "Australian Advisors" },
@@ -12,51 +31,85 @@ const stats = [
 
 const team = [
   {
-    name: "Sarah Mitchell",
-    role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    name: "Paraplanning Services",
+    image: hero1,
   },
   {
-    name: "James Chen",
-    role: "Head of Operations",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    name: "Client Support Officers",
+    image: hero2,
   },
   {
-    name: "Emily Thompson",
-    role: "Client Success Director",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    name: "Accounting & Bookkeeping",
+    image: hero3,
   },
   {
-    name: "Michael Rodriguez",
-    role: "Head of Paraplanning",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    name: "SMSF",
+    image: hero4,
+  },
+  {
+    name: "Mortgage Support",
+    image: hero5,
   },
 ];
 
 const values = [
   {
-    icon: Target,
-    title: "Excellence",
-    description: "We deliver exceptional quality in every task, exceeding expectations consistently.",
+    icon: Handshake,
+    title: "Integrity",
+  },
+  {
+    icon: ThumbsUp,
+    title: "Quality",
+  },
+  {
+    icon: UserCircle,
+    title: "Accountability",
+  },
+  {
+    icon: FileText,
+    title: "Compliance",
+  },
+  {
+    icon: Trophy,
+    title: "Initiative",
   },
   {
     icon: Users,
-    title: "Partnership",
-    description: "We become an extension of your team, aligned with your goals and values.",
+    title: "Team Work",
   },
   {
-    icon: Award,
-    title: "Integrity",
-    description: "Transparency and honesty guide every interaction and decision.",
+    icon: Briefcase,
+    title: "Entrepreneurial",
   },
   {
-    icon: Globe,
-    title: "Innovation",
-    description: "We continuously evolve our processes to deliver better results.",
+    icon: Settings,
+    title: "Adaptability",
+  },
+  {
+    icon: MessageCircle,
+    title: "Communication",
+  },
+  {
+    icon: Heart,
+    title: "Passion",
   },
 ];
 
 const About = () => {
+  const [currentTeamSlide, setCurrentTeamSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTeamSlide((prev) => (prev + 1) % team.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () =>
+    setCurrentTeamSlide((prev) => (prev + 1) % team.length);
+  const prevSlide = () =>
+    setCurrentTeamSlide((prev) => (prev - 1 + team.length) % team.length);
+
   return (
     <Layout>
       {/* Hero */}
@@ -64,84 +117,150 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimation animation="fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              About Advice Lab
+              About Us
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-              We're on a mission to help Australian financial advisors scale their practices through expert offshore support.
+              At Advice Lab, our culture is just like the work we deliver,
+              grounded in integrity, quality, initiative, and teamwork. We're
+              committed to two things: elevating Australian financial advisers
+              with dependable outsourced solutions, and opening doors to
+              rewarding careers in Sri Lanka and the Philippines.
             </p>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-background">
+      {/* Quote Section */}
+      <section className="py-10 bg-blue-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <ScrollAnimation key={index} animation="scale" delay={index * 100}>
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-display font-bold gradient-text">{stat.value}</p>
-                  <p className="text-muted-foreground mt-2">{stat.label}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
+          <ScrollAnimation animation="fade-up">
+            <div className="text-center max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal text-foreground mb-4">
+                Talent wins you games, but teamwork wins you championships
+              </h2>
+              <p className="text-lg text-muted-foreground">Michael Jordan</p>
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/*Mission */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center justify-items-center">
+            <ScrollAnimation animation="fade-right">
+              <div className="relative max-w-md">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=400&fit=crop"
+                  alt="Team collaboration"
+                  className="rounded-2xl w-full h-auto object-cover"
+                />
+              </div>
+            </ScrollAnimation>
+            <ScrollAnimation animation="fade-left" delay={200}>
+              <div>
+                <h3 className="text-xl md:text-2xl font-display mb-6">
+                  <span className="font-bold text-foreground">
+                    Our Mission:
+                  </span>{" "}
+                  <span className="text-primary text-2xl md:text-3xl font-bold">
+                    Helping Australian Financial Advisers grow better
+                  </span>
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Better growth beats bigger growth. Our back-office support is
+                  built to elevate our clients' success, because a win for them
+                  is a win for us
+                </p>
+              </div>
+            </ScrollAnimation>
           </div>
+        </div>
+      </section>
+
+      {/*Vision */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8 flex justify-center">
+          <ScrollAnimation animation="fade-up">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 max-w-5xl">
+              <h3 className="text-2xl md:text-3xl font-display font-normal whitespace-nowrap">
+                Our vision:
+              </h3>
+              <div className="flex-1">
+                <p className="text-xl md:text-2xl text-foreground leading-relaxed">
+                  Our Vision, to be a global leader in back-office solutions for
+                  the financial planning industry.
+                </p>
+                <div className="h-1 bg-primary w-full mt-4"></div>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Story */}
-      <section className="py-24 bg-secondary">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <ScrollAnimation animation="fade-right">
-              <div>
-                <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>Our Story</span>
-                <h2 className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}>
-                  Built by Advisors, for Advisors
+      <section className="py-0 bg-white">
+        <div className="grid lg:grid-cols-2 gap-0">
+          <ScrollAnimation animation="fade-right">
+            <div className="gradient-primary text-white py-16 px-4 lg:px-8 flex items-center h-full">
+              <div className="container mx-auto max-w-2xl">
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
+                  Our Story
                 </h2>
-                <p className="text-muted-foreground mb-4">
-                  Founded in 2014, Advice Lab was born from a simple observation: Australian financial advisors were spending too much time on administrative tasks and not enough time with their clients.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  Our founders, having worked in the financial advisory space for decades, set out to create a solution that would give advisors back their most valuable resource—time.
-                </p>
-                <p className="text-muted-foreground">
-                  Today, we've grown to support over 150 advisory practices across Australia, with a dedicated team of 500+ professionals delivering paraplanning, accounting, and mortgage support services.
+                <p className="text-lg leading-relaxed">
+                  Prad's experience in the Australian financial planning market
+                  revealed a clear gap in the industry. Advisers were struggling
+                  to hire and retain skilled talent, making it difficult to
+                  scale their practices efficiently. To bridge that gap, Prad
+                  built Advice Lab — a dependable back-office support partner
+                  designed to help advisory practices operate smoothly, grow
+                  sustainably, and focus on delivering quality financial advice.
                 </p>
               </div>
-            </ScrollAnimation>
-            <ScrollAnimation animation="fade-left" delay={200}>
-              <div className="relative">
-                <div className="aspect-square rounded-3xl gradient-primary opacity-20 absolute inset-0" />
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-left" delay={200}>
+            <div className="relative bg-gray-100 flex items-end justify-center py-8 px-4 lg:px-8 h-full">
+              <div className="text-center">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=800&fit=crop"
-                  alt="Team collaboration"
-                  className="relative rounded-3xl w-full h-auto hover:scale-105 transition-transform duration-500"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=600&fit=crop"
+                  alt="Prad Navaratnam"
+                  className="w-80 h-96 object-cover object-top rounded-2xl mx-auto mb-4"
                 />
+                <p className="text-xl font-display font-normal text-foreground">
+                  Prad Navaratnam - Managing Director
+                </p>
               </div>
-            </ScrollAnimation>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
-              <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>Our Values</span>
-              <h2 className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}>What Drives Us</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+                OUR VALUES
+              </h2>
+              <p className="text-xl text-muted-foreground">What Drives Us</p>
             </div>
           </ScrollAnimation>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {values.map((value, index) => (
-              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
-                <div className="text-center p-6 hover-lift rounded-2xl transition-all duration-300 hover:bg-secondary/50">
-                  <div className="w-16 h-16 mx-auto rounded-2xl gradient-primary flex items-center justify-center mb-6">
-                    <value.icon className="w-8 h-8 text-primary-foreground" />
+              <ScrollAnimation
+                key={index}
+                animation="fade-up"
+                delay={index * 100}
+              >
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+                    <value.icon className="w-10 h-10 text-primary" />
                   </div>
-                  <h3 className="text-xl font-display font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
+                  <h3 className="text-lg font-display font-normal text-foreground">
+                    {value.title}
+                  </h3>
                 </div>
               </ScrollAnimation>
             ))}
@@ -150,30 +269,45 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section id="team" className="py-24 bg-secondary">
-        <div className="container mx-auto px-4 lg:px-8">
-          <ScrollAnimation animation="fade-up">
-            <div className="text-center mb-16">
-              <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>Meet Our Team</span>
-              <h2 className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}>Leadership</h2>
-            </div>
-          </ScrollAnimation>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <ScrollAnimation key={index} animation="scale" delay={index * 100}>
-                <div className="text-center group">
-                  <div className="relative mb-6 overflow-hidden rounded-3xl hover-lift">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 gradient-primary opacity-0 group-hover:opacity-20 transition-opacity" />
-                  </div>
-                  <h3 className="text-lg font-display font-bold">{member.name}</h3>
-                  <p className="text-muted-foreground text-sm">{member.role}</p>
+      <section id="team" className="py-0 bg-white">
+        <div className="grid lg:grid-cols-2 gap-0 relative h-[50vh] min-h-[30px]">
+          {/* Left side - Blue background with team member name */}
+          <div className="gradient-primary text-white flex items-center justify-center px-4 lg:px-8">
+            <div className="container mx-auto max-w-2xl">
+              {team.map((member, index) => (
+                <div
+                  key={index}
+                  className={`transition-all duration-700 ${
+                    index === currentTeamSlide
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8 absolute"
+                  }`}
+                >
+                  {index === currentTeamSlide && (
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium">
+                      Team {member.name}
+                    </h2>
+                  )}
                 </div>
-              </ScrollAnimation>
+              ))}
+            </div>
+          </div>
+
+          {/* Right side - Team member image */}
+          <div className="relative bg-gray-100 overflow-hidden">
+            {team.map((member, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentTeamSlide ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             ))}
           </div>
         </div>

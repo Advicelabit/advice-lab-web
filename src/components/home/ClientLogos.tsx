@@ -57,7 +57,7 @@ export function ClientLogos() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-10 max-w-20 object-contain"
+                className="max-h-12 max-w-22 object-contain"
               />
             </div>
           ))}
