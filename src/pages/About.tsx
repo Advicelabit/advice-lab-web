@@ -155,7 +155,8 @@ const About = () => {
               <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-normal text-primary mb-4">
                   <span className="font-medium">
-                    "Talent wins you games, but teamwork wins you championships"
+                    "Talent wins you games, but teamwork wins you
+                    championships."
                   </span>
                 </h2>
                 <p className="text-lg">— Michael Jordan</p>
