@@ -11,6 +11,8 @@ import Accounting from "./pages/services/Accounting";
 import Mortgage from "./pages/services/Mortgage";
 import Resources from "./pages/Resources";
 import Careers from "./pages/Careers";
+import PhilippinesVacancies from "./pages/careers/PhilippinesVacancies";
+import SriLankaVacancies from "./pages/careers/SriLankaVacancies";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +33,11 @@ const App = () => (
           <Route path="/services/mortgage" element={<Mortgage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/careers" element={<Careers />} />
+          <Route
+            path="/careers/philippines"
+            element={<PhilippinesVacancies />}
+          />
+          <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

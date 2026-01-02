@@ -117,7 +117,7 @@ const About = () => {
       <div className="overflow-x-hidden">
         {/* Hero */}
         <section className="py-0 gradient-primary">
-          <div className="grid lg:grid-cols-[1fr_0.8fr] gap-0 min-h-[200px]">
+          <div className="grid lg:grid-cols-2 gap-0 min-h-[200px]">
             <div className="py-16 px-4 lg:px-8 flex items-center">
               <div className="container mx-auto max-w-3xl">
                 <ScrollAnimation animation="fade-up">
@@ -151,8 +151,8 @@ const About = () => {
         <section className="py-8 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
             <ScrollAnimation animation="fade-up">
-              <div className="text-center max-w-4xl mx-auto">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-normal text-primary mb-4">
+              <div className="text-center w-full">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-normal text-primary mb-4 w-full">
                   <span className="font-medium">
                     "Talent wins you games, but teamwork wins you
                     championships."
@@ -164,50 +164,44 @@ const About = () => {
           </div>
         </section>
 
-        {/*Mission */}
+        {/*Mission & Vision */}
         <section className="py-0 bg-white">
-          <div className="grid lg:grid-cols-2 gap-0">
+          <div className="grid lg:grid-cols-2 gap-0 min-h-[350px]">
             <ScrollAnimation animation="fade-right">
-              <div className="relative h-full">
+              <div className="relative h-full min-h-[350px] flex">
                 <img
                   src={missionImg}
                   alt="Team collaboration"
-                  className="w-full h-full object-cover max-h-[280px]"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </ScrollAnimation>
             <ScrollAnimation animation="fade-left" delay={200}>
               <div className="bg-gray-50 h-full flex items-center py-16 px-8 lg:px-16">
-                <div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
-                    <span className="font-normal">Our Mission:</span>{" "}
-                    <span className="font-medium text-primary">
-                      Helping Australian Financial Advisers grow better
-                    </span>
-                  </h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Better growth beats bigger growth. Our back-office support
-                    is built to elevate our clients' success, because a win for
-                    them is a win for us
-                  </p>
+                <div className="space-y-12">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
+                      <span className="font-normal">Our Mission:</span>{" "}
+                      <span className="font-medium text-primary">
+                        Helping Australian Financial Advisers grow better
+                      </span>
+                    </h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Better growth beats bigger growth. Our back-office support
+                      is built to elevate our clients' success, because a win
+                      for them is a win for us
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground leading-relaxed">
+                      <span className="font-normal">Our Vision:</span>{" "}
+                      <span className="font-medium text-primary">
+                        To be a global leader in back-office solutions for the
+                        financial planning industry.
+                      </span>
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </section>
-
-        {/*Vision */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 lg:px-8 flex justify-center">
-            <ScrollAnimation animation="fade-up">
-              <div className="max-w-5xl">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground leading-relaxed">
-                  <span className="font-normal">Our Vision:</span>{" "}
-                  <span className="font-medium text-primary">
-                    To be a global leader in back-office solutions for the
-                    financial planning industry.
-                  </span>
-                </h3>
               </div>
             </ScrollAnimation>
           </div>
@@ -215,7 +209,7 @@ const About = () => {
 
         {/* Story */}
         <section className="py-0 bg-white">
-          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-0 min-h-[250px]">
+          <div className="grid lg:grid-cols-2 gap-0 min-h-[250px]">
             <ScrollAnimation animation="fade-right">
               <div className="gradient-primary text-white py-8 px-8 lg:px-16 flex items-center h-full">
                 <div className="max-w-3xl mx-auto">
@@ -285,47 +279,31 @@ const About = () => {
         </section>
 
         {/* Team */}
-        <section id="team" className="py-0 bg-white">
-          <div className="grid lg:grid-cols-2 gap-0 relative h-[50vh] min-h-[30px]">
-            {/* Left side - Blue background with team member name */}
-            <div className="gradient-primary text-white flex items-center justify-center px-4 lg:px-8">
-              <div className="container mx-auto max-w-2xl">
-                {team.map((member, index) => (
-                  <div
-                    key={index}
-                    className={`transition-all duration-700 ${
-                      index === currentTeamSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8 absolute"
-                    }`}
-                  >
-                    {index === currentTeamSlide && (
-                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium">
-                        Team {member.name}
-                      </h2>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right side - Team member image */}
-            <div className="relative bg-gray-100 overflow-hidden">
-              {team.map((member, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentTeamSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
+        <section id="team" className="py-0 gradient-primary">
+          <div className="relative flex items-center justify-center h-[50vh] min-h-[250px] w-full">
+            {team.map((member, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${
+                  index === currentTeamSlide
+                    ? "opacity-100 z-10"
+                    : "opacity-0 z-0"
+                }`}
+              >
+                <div className="relative w-full h-full flex items-center justify-center">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="max-h-full max-w-full object-contain"
                   />
+                  <div className="absolute bottom-0 left-0 w-full bg-white/80 py-4 text-center flex justify-center">
+                    <p className="text-xl font-display font-normal text-foreground">
+                      Team {member.name}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
       </div>

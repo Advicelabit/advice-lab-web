@@ -58,7 +58,8 @@ const Careers = () => {
               Join Our Team
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-              Build your career with a team that's transforming the financial advisory industry.
+              Build your career with a team that's transforming the financial
+              advisory industry.
             </p>
           </ScrollAnimation>
         </div>
@@ -70,12 +71,19 @@ const Careers = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimation animation="fade-right">
               <div>
-                <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>Why Work With Us</span>
-                <h2 className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}>
+                <span
+                  className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+                >
+                  Why Work With Us
+                </span>
+                <h2
+                  className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}
+                >
                   A Great Place to Grow
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  At Advice Lab, we're building a team of talented professionals who are passionate about delivering excellence.
+                  At Advice Lab, we're building a team of talented professionals
+                  who are passionate about delivering excellence.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {benefits.map((benefit, index) => (
@@ -84,6 +92,28 @@ const Careers = () => {
                       <span className="text-foreground">{benefit}</span>
                     </div>
                   ))}
+                </div>
+                <div className="flex flex-wrap gap-4 mt-8">
+                  <Button
+                    size="lg"
+                    asChild
+                    className="hover:scale-105 transition-transform"
+                  >
+                    <Link to="/careers/philippines">
+                      Explore Philippines Vacancies{" "}
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    asChild
+                    className="hover:scale-105 transition-transform"
+                  >
+                    <Link to="/careers/srilanka">
+                      Explore Sri Lanka Vacancies{" "}
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </ScrollAnimation>
@@ -98,7 +128,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Open Roles */}
+      {/* Open Roles
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimation animation="fade-up">
@@ -134,17 +164,24 @@ const Careers = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimation animation="scale">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Don't See the Right Role?</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Don't See the Right Role?
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
+              We're always looking for talented individuals. Send us your resume
+              and we'll keep you in mind for future opportunities.
             </p>
-            <Button size="lg" asChild className="hover:scale-105 transition-transform">
+            <Button
+              size="lg"
+              asChild
+              className="hover:scale-105 transition-transform"
+            >
               <Link to="/contact">
                 Submit Your Resume <ArrowRight className="w-5 h-5" />
               </Link>
