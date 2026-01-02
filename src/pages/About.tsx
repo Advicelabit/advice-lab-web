@@ -14,7 +14,6 @@ import {
   Handshake,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./About.module.css";
 
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";
