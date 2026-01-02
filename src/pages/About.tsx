@@ -21,7 +21,7 @@ import hero2 from "@/assets/HPImg/Cover_img6.jpg";
 import hero3 from "@/assets/HPImg/Cover_img3.jpg";
 import hero4 from "@/assets/HPImg/Cover_img5.jpg";
 import hero5 from "@/assets/HPImg/Cover_img1.jpg";
-import aboutImg from "@/assets/About/about-img.jpg";
+import aboutImg from "@/assets/About/About-img.jpg";
 import missionImg from "@/assets/About/Mission-img.jpg";
 import pradImg from "@/assets/About/Prad_img.jpg";
 
