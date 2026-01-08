@@ -207,7 +207,7 @@ const Paraplanning = () => {
                           {offering.description}
                         </p>
                       </div>
-                      Benefits card
+
                       <div className="ml-12 bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-xl p-6 border border-blue-100/50">
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
