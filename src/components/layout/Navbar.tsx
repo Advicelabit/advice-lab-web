@@ -117,10 +117,10 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-4">
           <Button variant="outline" size="sm" asChild>
-            <Link to="/contact">Book Demo</Link>
+            <Link to="/contact">Explore Services</Link>
           </Button>
           <Button size="sm" asChild>
-            <Link to="/contact">Get Started</Link>
+            <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>
 
@@ -173,12 +173,12 @@ export function Navbar() {
             <div className="pt-4 flex flex-col gap-3">
               <Button variant="outline" asChild>
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Book Demo
+                  Explore Services
                 </Link>
               </Button>
               <Button asChild>
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Get Started
+                  Get in Touch
                 </Link>
               </Button>
             </div>
