@@ -72,13 +72,13 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/services"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center h-12 w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
             >
               Explore Services
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center h-12 w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
             >
               Get in Touch
             </Link>

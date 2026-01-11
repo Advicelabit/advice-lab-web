@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { useState, useEffect } from "react";
 import { FileText, CheckCircle, ArrowRight } from "lucide-react";
 import styles from "./Paraplanning.module.css";
 
@@ -121,6 +122,27 @@ const benefits = [
 ];
 
 const Paraplanning = () => {
+  // Responsive hover/click logic for Accordion
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleMouseEnter = (idx: number) => {
+    if (!isMobile) setOpenIndex(idx);
+  };
+  const handleMouseLeave = () => {
+    if (!isMobile) setOpenIndex(null);
+  };
+  const handleClick = (idx: number) => {
+    if (isMobile) setOpenIndex(openIndex === idx ? null : idx);
+  };
+
   return (
     <Layout>
       {/* Hero */}
@@ -179,28 +201,40 @@ const Paraplanning = () => {
 
           {/* Accordion */}
           <div className="max-w-5xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
+            <div className="space-y-4">
               {offerings.map((offering, index) => (
-                <AccordionItem
+                <div
                   key={offering.title}
-                  value={`offering-${index}`}
-                  className="group rounded-2xl border-0 bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  className="group rounded-2xl border-0 bg-white shadow-md transition-all duration-300 overflow-hidden"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {/* Gradient accent bar */}
                   <div className="h-1 w-0 bg-gradient-to-r from-primary to-blue-600 group-hover:w-full transition-all duration-500"></div>
 
                   <div className="px-8">
-                    <AccordionTrigger className="text-left text-lg md:text-xl font-display font-bold py-6 hover:text-primary transition-colors group-hover:no-underline">
-                      <div className="flex items-start gap-4 pr-4">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-colors">
-                          <span className="text-sm font-bold text-primary">
-                            {index + 1}
-                          </span>
-                        </div>
-                        <span>{offering.title}</span>
+                    <div
+                      className="text-left text-lg md:text-xl font-display font-bold py-6 hover:text-primary transition-colors group-hover:no-underline cursor-pointer select-none flex items-start gap-4 pr-4"
+                      onClick={() => handleClick(index)}
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-colors">
+                        <span className="text-sm font-bold text-primary">
+                          {index + 1}
+                        </span>
                       </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="space-y-6 pb-8">
+                      <span>{offering.title}</span>
+                    </div>
+                    {/* Smooth expand/collapse content */}
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                        openIndex === index
+                          ? "max-h-[1000px] opacity-100 py-8 space-y-6"
+                          : "max-h-0 opacity-0 py-0"
+                      }`}
+                      style={{
+                        transitionProperty: "max-height, opacity, padding",
+                      }}
+                    >
                       {/* Description */}
                       <div className="pl-12">
                         <p className="text-muted-foreground leading-relaxed">
@@ -228,20 +262,10 @@ const Paraplanning = () => {
                           ))}
                         </ul>
                       </div>
-                    </AccordionContent>
+                    </div>
                   </div>
-                </AccordionItem>
+                </div>
               ))}
-            </Accordion>
-          </div>
-
-          {/* Bottom CTA hint */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full shadow-md border border-gray-100">
-              <div className="w-2 h-2 bg-gradient-to-r from-primary to-blue-600 rounded-full animate-pulse"></div>
-              <p className="text-sm font-medium text-muted-foreground">
-                Click each item to learn more about how we support your practice
-              </p>
             </div>
           </div>
         </div>
@@ -276,7 +300,7 @@ const Paraplanning = () => {
                 <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* Main card */}
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full">
+                <div className="relative bg-white rounded-2xl p-8 shadow-md  transition-all duration-300 border border-gray-100 h-full">
                   {/* Number badge with icon background */}
                   <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-blue-600/10 mb-6 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-all duration-300">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-600 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
@@ -296,23 +320,8 @@ const Paraplanning = () => {
                   {/* Bottom accent line */}
                   <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500"></div>
                 </div>
-
-                {/* Corner accent dot */}
-                <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-gradient-to-br from-primary to-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom badge */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-md border border-gray-100">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
-                <CheckCircle className="w-5 h-5 text-white" />
-              </div>
-              <p className="text-sm font-semibold text-foreground">
-                Trusted by 150+ Australian financial advisers
-              </p>
-            </div>
           </div>
         </div>
       </section>

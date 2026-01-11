@@ -116,10 +116,10 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" size="sm" asChild className="w-40">
             <Link to="/contact">Explore Services</Link>
           </Button>
-          <Button size="sm" asChild>
+          <Button size="sm" asChild className="w-40">
             <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>

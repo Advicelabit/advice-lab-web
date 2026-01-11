@@ -9,15 +9,16 @@ import hero2 from "@/assets/HPImg/Cover_img6.jpg";
 import hero3 from "@/assets/HPImg/Cover_img3.jpg";
 import hero4 from "@/assets/HPImg/Cover_img5.jpg";
 import hero5 from "@/assets/HPImg/Cover_img1.jpg";
+import hero6 from "@/assets/HPImg/Cover_img8.jpg";
 import missionImg from "@/assets/About/Mission-img.jpg";
 import pradImg from "@/assets/About/Prad_img.jpg";
 
-const stats = [
-  { value: "150+", label: "Australian Advisors" },
-  { value: "10+", label: "Years Experience" },
-  { value: "500+", label: "Team Members" },
-  { value: "99%", label: "Client Retention" },
-];
+// const stats = [
+//   { value: "150+", label: "Australian Advisors" },
+//   { value: "10+", label: "Years Experience" },
+//   { value: "500+", label: "Team Members" },
+//   { value: "99%", label: "Client Retention" },
+// ];
 
 const team = [
   {
@@ -33,12 +34,16 @@ const team = [
     image: hero3,
   },
   {
-    name: "SMSF",
+    name: "Quality Assuarance",
     image: hero4,
   },
   {
-    name: "Mortgage Support",
+    name: "Leadership Team",
     image: hero5,
+  },
+  {
+    name: "Complieance and training",
+    image: hero6,
   },
 ];
 
@@ -88,12 +93,12 @@ const About = () => {
     <Layout>
       {/* Hero */}
       <section className="py-24 gradient-primary">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
+        <div className="container mx-auto px-4 lg:px-8 text-left">
           <ScrollAnimation animation="fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               About Us
             </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl text-justify">
               At Advice Lab, our culture is just like the work we deliver,
               grounded in integrity, quality, initiative, and teamwork. We're
               committed to two things: elevating Australian financial advisers
@@ -131,7 +136,6 @@ const About = () => {
             {/* Image Side */}
             <ScrollAnimation animation="fade-right">
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
                     src={missionImg}
@@ -149,9 +153,9 @@ const About = () => {
                 {/* Mission */}
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
+                    {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
                       <Target className="w-6 h-6 text-white" />
-                    </div>
+                    </div> */}
                     <div>
                       <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
                         Our Mission
@@ -162,7 +166,7 @@ const About = () => {
                       </h4>
                     </div>
                   </div>
-                  <p className="text-base text-muted-foreground leading-relaxed ml-16">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     Better growth beats bigger growth. Our back-office support
                     is built to elevate our clients' success, because a win for
                     them is a win for us.
@@ -172,9 +176,9 @@ const About = () => {
                 {/* Vision */}
                 <div className="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
+                    {/* <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
                       <Globe className="w-6 h-6 text-white" />
-                    </div>
+                    </div> */}
                     <div>
                       <h3 className="text-sm font-semibold text-white/90 uppercase tracking-wider mb-2">
                         Our Vision
@@ -285,21 +289,21 @@ const About = () => {
                     <span className="font-semibold text-primary">
                       Advice Lab
                     </span>{" "}
-                    — a dependable back-office support partner designed to help
+                    a dependable back-office support partner designed to help
                     advisory practices operate smoothly, grow sustainably, and
                     focus on delivering quality financial advice.
                   </p>
                 </div>
 
                 {/* Founder signature card */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 inline-block">
+                {/* <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 inline-block">
                   <p className="text-2xl font-display font-semibold text-foreground mb-1">
                     Prad Navaratnam
                   </p>
                   <p className="text-sm text-primary font-medium uppercase tracking-wider">
                     Managing Director & Founder
                   </p>
-                </div>
+                </div> */}
               </div>
             </ScrollAnimation>
 
@@ -325,9 +329,8 @@ const About = () => {
 
                 {/* Accent quote */}
                 <div className="absolute -bottom-8 left-8 right-8 bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-6 shadow-xl">
-                  <p className="text-white text-sm font-medium italic">
-                    "Building solutions that empower advisers to focus on what
-                    they do best."
+                  <p className="text-white text-md font-medium  text-center">
+                    Managing Director & Founder - Prad Navaratnam
                   </p>
                 </div>
               </div>
@@ -360,23 +363,22 @@ const About = () => {
           </ScrollAnimation>
 
           {/* Values Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {values.map((value, index) => (
               <ScrollAnimation
                 key={index}
                 animation="fade-up"
                 delay={index * 100}
               >
-                <div className="group relative">
+                <div className="group relative h-full">
                   {/* Card */}
-                  <div className="relative h-full bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="relative h-full bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                     {/* Gradient accent on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                     <div className="relative">
                       {/* Icon */}
                       <div className="relative mb-6">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                         <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                           <value.icon className="w-8 h-8 text-white" />
                         </div>
@@ -394,25 +396,10 @@ const About = () => {
                       <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500"></div>
                     </div>
                   </div>
-
-                  {/* Decorative corner accent */}
-                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-primary to-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </ScrollAnimation>
             ))}
           </div>
-
-          {/* Optional CTA or additional info */}
-          <ScrollAnimation animation="fade-up" delay={400}>
-            <div className="mt-16 text-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-full shadow-md border border-gray-100">
-                <div className="w-2 h-2 bg-gradient-to-r from-primary to-blue-600 rounded-full animate-pulse"></div>
-                <p className="text-sm font-medium text-muted-foreground">
-                  Living these values every day in everything we do
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
         </div>
       </section>
 
@@ -442,8 +429,8 @@ const About = () => {
 
           {/* Carousel Container */}
           <div className="relative max-w-5xl mx-auto">
-            {/* Main Image Area */}
-            <div className="relative h-[60vh] min-h-[400px] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
+            {/* Main Image Area with Dot Indicators inside */}
+            <div className="relative h-[80vh] min-h-[400px] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
               {team.map((member, index) => (
                 <div
                   key={index}
@@ -471,6 +458,21 @@ const About = () => {
                   </div>
                 </div>
               ))}
+              {/* Dot Indicators inside image bottom */}
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-3 z-20">
+                {team.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTeamSlide(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentTeamSlide
+                        ? "w-9 h-2 bg-white"
+                        : "w-2 h-2 bg-white/30 hover:bg-white/50"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Navigation Buttons */}
@@ -512,26 +514,10 @@ const About = () => {
                 />
               </svg>
             </button>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-3 mt-8">
-              {team.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTeamSlide(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === currentTeamSlide
-                      ? "w-12 h-3 bg-white"
-                      : "w-3 h-3 bg-white/30 hover:bg-white/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
 
           {/* Team Grid Preview */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-12">
+          {/* <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-12">
             {team.map((member, index) => (
               <button
                 key={index}
@@ -542,7 +528,7 @@ const About = () => {
                     : "opacity-60 hover:opacity-100"
                 }`}
               >
-                <div className="aspect-video">
+                <div className="aspect-[3/4] h-48 md:h-64 lg:h-72">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -557,7 +543,7 @@ const About = () => {
                 </div>
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
     </Layout>
