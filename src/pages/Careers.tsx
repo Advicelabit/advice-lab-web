@@ -166,6 +166,66 @@ const Careers = () => {
         </div>
       </section> */}
 
+      {/* Instagram Feed */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <ScrollAnimation animation="fade-up">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+                Follow Us
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+                Life at <span className="gradient-text">Advice Lab</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                See what it's like to be part of our team
+              </p>
+            </div>
+          </ScrollAnimation>
+
+          {/* Instagram Feed Widget Container */}
+          <div className="max-w-6xl mx-auto ">
+            <div 
+              className="instagram-feed-widget bg-white rounded-2xl p-4 flex items-center justify-center"
+              id="instagram-feed-container"
+              style={{ position: 'relative' }}
+            >
+              <iframe 
+                src="https://www.juicer.io/api/feeds/advice-lab-270a837c-9b66-449e-8c6c-23d850295bef/iframe" 
+                frameBorder="0" 
+                width="100%" 
+                height="700" 
+                style={{ display: 'block', margin: '0 auto' }}
+              ></iframe>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0))', pointerEvents: 'none' }}></div>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px', background: 'linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0))', pointerEvents: 'none' }}></div>
+            </div>
+          </div>
+
+          {/* Follow Button */}
+          <div className="text-center mt-8">
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="hover:scale-105 transition-transform"
+            >
+              <a
+                href="https://www.instagram.com/advice.lab/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See more <ArrowRight className="w-5 h-5" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8 text-center">
