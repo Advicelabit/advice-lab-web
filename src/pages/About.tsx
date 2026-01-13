@@ -50,27 +50,33 @@ const team = [
 const values = [
   {
     icon: Target,
-    title: "Excellence",
+    title: "Integrity",
     description:
-      "We deliver exceptional quality in every task, exceeding expectations consistently.",
+      "We do the right thing, always. Trust, honesty, and security are the core of everything we delivery.",
   },
   {
     icon: Users,
-    title: "Partnership",
+    title: "Accountability",
     description:
-      "We become an extension of your team, aligned with your goals and values.",
+      "We take ownership of our work. You can rely on us to follow through and stand behind the outcomes we deliver.",
   },
   {
     icon: Award,
-    title: "Integrity",
+    title: "Quality",
     description:
-      "Transparency and honesty guide every interaction and decision.",
+      "We prioritize getting it right. Every piece of work is completed with care , accuracy, and attention to detail.",
   },
   {
     icon: Globe,
-    title: "Innovation",
+    title: "Compliance",
     description:
-      "We continuously evolve our processes to deliver better results.",
+      "We respect the rules of the industry. There are no shortcuts, we work within regulatory requirements to protect you and your businesses.",
+  },
+    {
+    icon: Globe,
+    title: "Initiative",
+    description:
+      "We go beyond the brief. We look ahead, anticipate needs,and proactively add value wherever we can.",
   },
 ];
 
@@ -93,9 +99,9 @@ const About = () => {
     <Layout>
       {/* Hero */}
       <section className="py-24 gradient-primary">
-        <div className="container mx-auto px-4 lg:px-8 text-left">
+        <div className="container mx-auto px-4 lg:px-8 flex justify-center">
           <ScrollAnimation animation="fade-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
+            <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               About Us
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl text-justify">
@@ -263,7 +269,7 @@ const About = () => {
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             {/* Content Side */}
             <ScrollAnimation animation="fade-right">
               <div className="space-y-6">
@@ -271,14 +277,14 @@ const About = () => {
                   <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                     Our Story
                   </span>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
+                  {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
                     Built by Advisors,{" "}
                     <span className="gradient-text">for Advisors</span>
-                  </h2>
+                  </h2> */}
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-primary/30">
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-20">
                     Prad's experience in the Australian financial planning
                     market revealed a clear gap in the industry. Advisers were
                     struggling to hire and retain skilled talent, making it
@@ -315,20 +321,18 @@ const About = () => {
 
                 {/* Main image container */}
                 <div className="relative">
-                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary to-blue-600 rounded-2xl opacity-20"></div>
-                  <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl opacity-20"></div>
-
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
+  
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
                     <img
                       src={pradImg}
                       alt="Prad Navaratnam"
-                      className="rounded-2xl w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      className="rounded-2xl w-3.9/5 h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 max-h-[350px] mx-auto"
                     />
                   </div>
                 </div>
 
                 {/* Accent quote */}
-                <div className="absolute -bottom-8 left-8 right-8 bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-6 shadow-xl">
+                <div className="absolute -bottom-4 left-8 right-8 bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-2 shadow-xl">
                   <p className="text-white text-md font-medium  text-center">
                     Managing Director & Founder - Prad Navaratnam
                   </p>
@@ -356,14 +360,13 @@ const About = () => {
                 What <span className="gradient-text">Drives Us</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our core values shape every interaction and guide our commitment
-                to excellence
+                These value shape how we support advice businesses.
               </p>
             </div>
           </ScrollAnimation>
 
           {/* Values Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {values.map((value, index) => (
               <ScrollAnimation
                 key={index}

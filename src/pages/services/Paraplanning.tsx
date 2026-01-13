@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState, useEffect } from "react";
 import { FileText, CheckCircle, ArrowRight } from "lucide-react";
-import styles from "./Paraplanning.module.css";
+
 
 const offerings = [
   {
@@ -147,7 +147,7 @@ const Paraplanning = () => {
     <Layout>
       {/* Hero */}
       <section className="py-24 gradient-primary">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 lg:px-8 flex justify-center">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               {/* <div className="w-16 h-16 rounded-2xl bg-primary-foreground/10 flex items-center justify-center">
@@ -157,15 +157,13 @@ const Paraplanning = () => {
                 Services
               </span> */}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
+            <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Paraplanning
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Providing you accurate, compliant plans with fast turnaround times
-              with consistent quality, giving you hours back to focus more on
-              your clients
+              Providing you accurate plans with fast turnaround times and consistent quality, giving you hours back to focus more on your clients.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
                 <Link to="/contact">Get in Touch</Link>
               </Button>
@@ -190,8 +188,8 @@ const Paraplanning = () => {
               Our Offering
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
-              Explore How Our Paraplanners{" "}
-              <span className="gradient-text">Can Support You</span>
+           Our offering{" "}
+              <span className="gradient-text"> - it must be our offering</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive paraplanning solutions tailored to your practice
