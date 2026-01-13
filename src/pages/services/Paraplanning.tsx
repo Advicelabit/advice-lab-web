@@ -198,7 +198,7 @@ const Paraplanning = () => {
           </div>
 
           {/* Accordion */}
-          <div className="max-w-5xl mx-auto">
+          <div className=" mx-auto">
             <div className="space-y-4">
               {offerings.map((offering, index) => (
                 <div
@@ -291,7 +291,7 @@ const Paraplanning = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8  mx-auto">
             {trustIndicators.map((indicator, index) => (
               <div key={index} className="group relative">
                 {/* Decorative background glow */}
