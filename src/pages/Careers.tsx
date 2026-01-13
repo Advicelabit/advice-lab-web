@@ -243,7 +243,7 @@ const Careers = () => {
               className="hover:scale-105 transition-transform"
             >
               <Link to="/contact">
-                Submit Your Resume  <ArrowRight className="w-5 h-5" />
+                Submit Your Resume <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
           </ScrollAnimation>
