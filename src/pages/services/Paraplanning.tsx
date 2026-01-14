@@ -187,13 +187,12 @@ const Paraplanning = () => {
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Offering
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
+            {/* <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
            Our offering{" "}
               <span className="gradient-text"> - it must be our offering</span>
-            </h2>
+            </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive paraplanning solutions tailored to your practice
-              needs
+               Our offering - it must be our offerings
             </p>
           </div>
 

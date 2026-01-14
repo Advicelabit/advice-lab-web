@@ -22,19 +22,19 @@ import pradImg from "@/assets/About/Prad_img.jpg";
 
 const team = [
   {
-    name: "Paraplanning Services",
+    name: "Team Paraplanning",
     image: hero1,
   },
   {
-    name: "Client Support Officers",
+    name: "Team Client Support",
     image: hero2,
   },
+  // {
+  //   name: "Accounting & Bookkeeping",
+  //   image: hero3,
+  // },
   {
-    name: "Accounting & Bookkeeping",
-    image: hero3,
-  },
-  {
-    name: "Quality Assuarance",
+    name: "Team Quality Assurance",
     image: hero4,
   },
   {
@@ -42,7 +42,7 @@ const team = [
     image: hero5,
   },
   {
-    name: "Complieance and training",
+    name: "Team Compliance & Training",
     image: hero6,
   },
 ];
@@ -284,7 +284,7 @@ const About = () => {
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-primary/30">
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-20">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-3">
                     Prad's experience in the Australian financial planning
                     market revealed a clear gap in the industry. Advisers were
                     struggling to hire and retain skilled talent, making it
@@ -366,7 +366,7 @@ const About = () => {
           </ScrollAnimation>
 
           {/* Values Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
             {values.map((value, index) => (
               <ScrollAnimation
                 key={index}
@@ -375,15 +375,15 @@ const About = () => {
               >
                 <div className="group relative h-full">
                   {/* Card */}
-                  <div className="relative h-full bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+                  <div className="relative h-full bg-white rounded-2xl p-4 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                     {/* Gradient accent on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                     <div className="relative">
                       {/* Icon */}
                       <div className="relative mb-6">
-                        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                          <value.icon className="w-8 h-8 text-white" />
+                        <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                          <value.icon className="w-54 h-5 text-white" />
                         </div>
                       </div>
 
