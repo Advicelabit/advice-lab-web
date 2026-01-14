@@ -1,4 +1,4 @@
-import { Users, TrendingUp, Clock, Headphones } from "lucide-react";
+import { Users, TrendingUp, Clock, Headphones, Unlock, Globe } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import styles from "./WhyChooseUs.module.css";
 
@@ -16,13 +16,13 @@ const features = [
       "Grow your practice at a lower cost than managing local staff overheads. ",
   },
   {
-    icon: Clock,
+    icon: Unlock,
     title: "No Lock-in",
     description:
       "Pay only for the services you use — flexible, pay‑as‑you‑go outsourcing. ",
   },
   {
-    icon: Headphones,
+    icon: Globe,
     title: "Extend Practice Hours",
     description:
       "Offshore teams in Sri Lanka and the Philippines keep your practice running longer and smoother.",

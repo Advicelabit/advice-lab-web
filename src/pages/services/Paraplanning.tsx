@@ -192,7 +192,7 @@ const Paraplanning = () => {
               <span className="gradient-text"> - it must be our offering</span>
             </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-               Our offering - it must be our offerings
+               Comprehensive paraplanning solutions tailored to your practice needs
             </p>
           </div>
 

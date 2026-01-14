@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
-import { Users, Target, Award, Globe } from "lucide-react";
+import { Users, Target, Award, Globe, Shield, CheckCircle, FileText, Zap } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import styles from "./About.module.css";
 
@@ -49,13 +49,13 @@ const team = [
 
 const values = [
   {
-    icon: Target,
+    icon: Shield,
     title: "Integrity",
     description:
       "We do the right thing, always. Trust, honesty, and security are the core of everything we delivery.",
   },
   {
-    icon: Users,
+    icon: CheckCircle,
     title: "Accountability",
     description:
       "We take ownership of our work. You can rely on us to follow through and stand behind the outcomes we deliver.",
@@ -67,13 +67,13 @@ const values = [
       "We prioritize getting it right. Every piece of work is completed with care , accuracy, and attention to detail.",
   },
   {
-    icon: Globe,
+    icon: FileText,
     title: "Compliance",
     description:
       "We respect the rules of the industry. There are no shortcuts, we work within regulatory requirements to protect you and your businesses.",
   },
     {
-    icon: Globe,
+    icon: Zap,
     title: "Initiative",
     description:
       "We go beyond the brief. We look ahead, anticipate needs,and proactively add value wherever we can.",
@@ -383,7 +383,7 @@ const About = () => {
                       {/* Icon */}
                       <div className="relative mb-6">
                         <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                          <value.icon className="w-54 h-5 text-white" />
+                          <value.icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
 
@@ -422,11 +422,11 @@ const About = () => {
               Our Teams
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
-              Expert Teams Ready to{" "}
-              <span className="text-blue-300">Support You</span>
+              Meet Our {" "}
+              <span className="text-blue-300">Teams</span>
             </h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              Specialized professionals across five key service areas
+              The experts behind our service excellence.
             </p>
           </div>
 
