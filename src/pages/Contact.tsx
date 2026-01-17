@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./Contact.module.css";
+
 
 const contactInfo = [
   {

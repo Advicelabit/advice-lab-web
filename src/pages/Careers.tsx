@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./Careers.module.css";
+
 
 const openRoles = [
   {
@@ -72,12 +72,12 @@ const Careers = () => {
             <ScrollAnimation animation="fade-right">
               <div>
                 <span
-                  className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+                  className="text-primary font-semibold uppercase tracking-wider tracking-tight"
                 >
                   Why Work With Us
                 </span>
                 <h2
-                  className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}
+                  className="font-display font-bold mt-2 mb-6 text-muted-foreground text-2xl md:text-3xl"
                 >
                   A Great Place to Grow
                 </h2>
@@ -133,8 +133,8 @@ const Careers = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
-              <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>Opportunities</span>
-              <h2 className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}>Open Positions</h2>
+              <span className="text-primary font-semibold uppercase tracking-wider tracking-tight">Opportunities</span>
+              <h2 className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl">Open Positions</h2>
             </div>
           </ScrollAnimation>
           <div className="max-w-3xl mx-auto space-y-4">

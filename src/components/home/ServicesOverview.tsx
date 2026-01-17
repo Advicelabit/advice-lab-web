@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FileText, Calculator, Home, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./ServicesOverview.module.css";
+
 
 const services = [
   {
@@ -45,7 +45,7 @@ export function ServicesOverview() {
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
             <span
-              className={`text-primary font-semibold uppercase  ${styles.subHeader}`}
+              className="text-primary font-semibold uppercase tracking-tight"
             >
               Our Services
             </span>

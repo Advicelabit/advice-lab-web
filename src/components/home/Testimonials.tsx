@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./Testimonials.module.css";
+
 import clientVideo from "@/assets/CLVideo.mp4";
 
 const testimonials = [
@@ -27,12 +27,12 @@ export function Testimonials() {
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
             <span
-              className={`text-primary font-semibold uppercase ${styles.subHeader}`}
+              className="text-primary font-semibold uppercase tracking-tight"
             >
               Customer Reviews
             </span>
             <h2
-              className={`font-display font-bold text-muted-foreground mt-2 mb-4 ${styles.mainHeader}`}
+              className="font-display font-bold text-muted-foreground mt-2 mb-4 text-2xl md:text-3xl"
             >
               What Our Clients Say
             </h2>

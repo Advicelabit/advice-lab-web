@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import styles from "./TopBanner.module.css";
+
 
 export function TopBanner() {
   return (
@@ -15,12 +15,12 @@ export function TopBanner() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10 flex justify-between">
         <div className="max-w-4xl">
           <p
-            className={`font-display font-bold text-primary-foreground/80 ${styles.mainHeader}`}
+            className="font-display font-bold text-primary-foreground/80 text-2xl md:text-3xl"
           >
             Build Your Own Back-Office
           </p>
           <p
-            className={`text-primary-foreground/80 max-w-2xl ${styles.subText}`}
+            className="text-primary-foreground/80 max-w-2xl tracking-tight"
           >
             Choose the services to create a tailored package that fits your
             practice perfectly.

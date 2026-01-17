@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
-import styles from "./NotFound.module.css";
+
 
 const NotFound = () => {
   const location = useLocation();

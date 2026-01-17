@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, ArrowRight, ArrowLeft } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "../Careers.module.css";
+
 
 const sriLankaRoles = [
   {
@@ -37,12 +37,12 @@ const SriLankaVacancies = () => {
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
               <span
-                className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+                className="text-primary font-semibold uppercase tracking-wider tracking-tight"
               >
                 Opportunities
               </span>
               <h2
-                className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}
+                className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl"
               >
                 Open Positions in Sri Lanka
               </h2>

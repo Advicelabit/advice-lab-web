@@ -1,5 +1,5 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./ClientLogos.module.css";
+
 
 import img1 from "@/assets/CLImg/img1.png";
 import img2 from "@/assets/CLImg/img2.png";

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/advicelab-logo.png";
-import styles from "./Navbar.module.css";
+
 
 const navigation = [
   { name: "Home", href: "/" },

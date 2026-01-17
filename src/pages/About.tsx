@@ -2,7 +2,6 @@ import { Layout } from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
 import { Users, Target, Award, Globe, Shield, CheckCircle, FileText, Zap } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./About.module.css";
 
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";

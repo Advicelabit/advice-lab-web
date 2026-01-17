@@ -9,7 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./Resources.module.css";
+
 
 const resources = [
   {
@@ -103,12 +103,12 @@ const Resources = () => {
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
               <span
-                className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+                className="text-primary font-semibold uppercase tracking-wider tracking-tight"
               >
                 Free Resources
               </span>
               <h2
-                className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}
+                className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl"
               >
                 Download & Learn
               </h2>
@@ -150,12 +150,12 @@ const Resources = () => {
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
               <span
-                className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+                className="text-primary font-semibold uppercase tracking-wider tracking-tight"
               >
                 Blog
               </span>
               <h2
-                className={`font-display font-bold mt-2 text-muted-foreground ${styles.mainHeader}`}
+                className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl"
               >
                 Latest Insights
               </h2>
@@ -206,12 +206,12 @@ const Resources = () => {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimation animation="scale">
             <span
-              className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}
+              className="text-primary font-semibold uppercase tracking-wider tracking-tight"
             >
               Case Studies
             </span>
             <h2
-              className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}
+              className="font-display font-bold mt-2 mb-6 text-muted-foreground text-2xl md:text-3xl"
             >
               Success Stories
             </h2>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./CustomizeSection.module.css";
+
 
 export function CustomizeSection() {
   return (
@@ -16,10 +16,10 @@ export function CustomizeSection() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <ScrollAnimation animation="scale">
           <div className="max-w-4xl mx-auto text-center">
-            <span className={`inline-block text-primary-foreground/90 font-medium mb-6 ${styles.subHeader}`}>
+            <span className="inline-block text-primary-foreground/90 font-medium mb-6 tracking-tight">
               The Advice Lab Advisor Platform
             </span>
-            <h2 className={`font-display font-bold text-primary-foreground/80 mb-6 ${styles.mainHeader}`}>
+            <h2 className="font-display font-bold text-primary-foreground/80 mb-6 text-2xl md:text-3xl">
               Build Your Own Custom Solution
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-10 max-w-2xl mx-auto">

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import styles from "./HeroSlider.module.css";
+
 
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";
@@ -107,12 +107,12 @@ export function HeroSlider() {
                     {slide.title}
                   </h1>
                   <p
-                    className={`text-lg md:text-xl text-primary-foreground/80 mb-8 animate-slide-up ${styles.animationDelay1}`}
+                    className="text-lg md:text-xl text-primary-foreground/80 mb-8 animate-slide-up delay-150"
                   >
                     {slide.description}
                   </p>
                   <div
-                    className={`flex flex-col sm:flex-row gap-4 animate-slide-up ${styles.animationDelay2}`}
+                    className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300"
                   >
                     <Button variant="heroOutline" size="lg" asChild>
                       <Link to="/services">

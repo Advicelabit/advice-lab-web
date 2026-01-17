@@ -1,6 +1,6 @@
 import { Users, TrendingUp, Clock, Headphones, Unlock, Globe } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import styles from "./WhyChooseUs.module.css";
+
 
 const features = [
   {
@@ -36,17 +36,17 @@ export function WhyChooseUs() {
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
             <span
-              className={`text-primary font-semibold uppercase ${styles.subHeader}`}
+              className="text-primary font-semibold uppercase tracking-tight"
             >
               Why Choose Advice Lab
             </span>
             <h2
-              className={`font-display font-[600] mt-2 mb-4 text-muted-foreground text-[1.3rem] ${styles.mainHeader}`}
+              className="font-display font-semibold mt-2 mb-4 text-muted-foreground text-[1.3rem]"
             >
               Trusted by Leading Financial Advisers in Australia
             </h2>
             <h3
-              className={`font-display font-[400] mb-4 text-muted-foreground text-[1rem] ${styles.mainHeader}`}
+              className="font-display font-normal mb-4 text-muted-foreground text-[1rem]"
             >
               With more than 30 years of financial services expertise, we’re
               committed to delivering high‑quality, cost‑effective outsourced
