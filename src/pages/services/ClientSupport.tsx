@@ -197,7 +197,7 @@ const ClientSupport = () => {
               <span className="gradient-text"> - it must be our offering</span>
             </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              TaClient support service that elevates your practice
+              Client support service that elevates your practice
             </p>
           </div>
 

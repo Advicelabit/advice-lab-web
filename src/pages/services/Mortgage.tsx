@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Home, CheckCircle, ArrowRight } from "lucide-react";
-import styles from "./Mortgage.module.css";
+
 
 const features = [
   "Loan application processing",
@@ -51,8 +51,8 @@ const Mortgage = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className={`text-primary font-semibold uppercase tracking-wider ${styles.subHeader}`}>What We Offer</span>
-              <h2 className={`font-display font-bold mt-2 mb-6 text-muted-foreground ${styles.mainHeader}`}>
+              <span className="text-primary font-semibold uppercase tracking-wider">What We Offer</span>
+              <h2 className="font-display font-bold mt-2 mb-6 text-muted-foreground">
                 Streamlined Mortgage Processing
               </h2>
               <p className="text-muted-foreground mb-8">
