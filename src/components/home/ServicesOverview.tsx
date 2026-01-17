@@ -16,7 +16,7 @@ const services = [
     title: "Client Service Officers ",
     description:
       "Professional bookkeeping and financial reporting services for advisory practices.",
-    link: "/services/accounting",
+    link: "/services/ClientSupport",
   },
   {
     icon: Home,

@@ -5,67 +5,78 @@ import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 
 
+
 const offerings = [
   {
-    title: "Statement of Advice preparation",
+    title: "Review Support, Done Right",
     description:
-      "Our experienced paraplanners prepare clear, well-structured Statements of Advice (SoAs) across a broad range of advice scenarios, from simple cases to comprehensive strategies. We operate as an extension of your team, following your templates, preferences, and advice style.",
+      "Our CO's manages every aspect of your pre and post review workflow from building complete review packs to updating Xplan and finalizing post-meeting tasks. Keeping your review cycle organized, consistent and compliant, so your team can stay focused on client conversations.",
     helps: [
-      "Receive well-structured plans that are ready to present",
-      "Spend less time reviewing and refining documents",
-      "Maintain consistency across all client advice",
+      "Receive complete, ready-to-use review packs",
+      "Reduce admin time before and after review meetings",
+      "Maintain an accurate and compliant advice history",
     ],
   },
   {
-    title: "Consistent and fast turnaround times",
+    title: "Expert Administrative Support",
     description:
-      "Our established workflows and experienced paraplanning team deliver plans within clear timeframes so you can manage client expectations and advice schedules with confidence.",
+      "We take care of the everyday administration that supports your financial advice. By managing documents, coordination, and routine tasks in the background, we keep processes moving smoothly while you remain focused on strategy and meaningful conversations with your clients.",
     helps: [
-      "Keep advice moving without unnecessary delays",
-      "Plan meetings and reviews with greater certainty",
-      "Reduce pressure caused by last-minute documentation",
+      "Less admin to manage or follow up on",
+      "Faster responses and smoother processes",
+      "More time spent on your goals",
     ],
   },
   {
-    title: "Accuracy you can rely on",
+    title: "Advice Document Preparation & Implementation",
     description:
-      "Every plan is reviewed by our dedicated QA team with a strong focus on accuracy and consistency. We pay close attention to detail so you're not fixing avoidable errors or inconsistencies.",
+      "We prepare accurate, well-structured SOAs and ROAs, manage all fee consent requirements. Your experienced CSO will complete application preparation and end-to-end implementation ensuring recommendations move smoothly without delays or follow-ups.",
     helps: [
-      "Fewer revisions after delivery",
-      "Cleaner, more reliable advice documents",
-      "Greater confidence when presenting to clients",
+      "Professionally prepared advice documents aligned to your standards",
+      "Accurate, timely application and implementation handling",
+      "Consistent and compliant documentation across all files",
+      "Less rework and fewer workflow delays",
     ],
   },
   {
-    title: "Support aligned with current compliance standards",
+    title: "Comprehensive Research Assistance",
     description:
-      "Our paraplanners stay aligned with current professional and regulatory expectations, ensuring your documentation supports compliance obligations without becoming overly complex.",
+      "Our COs conduct detailed modelling, comparisons and product research to support the advice you deliver. They also manage insurance quotes and policy updates, ensuring your recommendations are informed and ready for implementation.",
     helps: [
-      "Reduce compliance-related concerns",
-      "Be better prepared for audits and file reviews",
-      "Maintain professional standards across your advice documents",
+      "Comprehensive research completed directly by skilled CSOs",
+      "Receive accurate comparisons and modelling without adding to adviser workload",
+      "Speed up research-heavy stages of the advice process",
     ],
   },
   {
-    title: "Cost-efficient paraplanning with built-in flexibility",
+    title: "Proactive Provider Management",
     description:
-      "Our paraplanning service is an efficient alternative to in-house hiring, helping you reduce overheads without sacrificing quality. Engage a dedicated paraplanner on a part-time or full-time basis and match support with your workload.",
+      "Your CSO manages insurer and platform communication proactively, following up applications, monitoring renewals, resolving delays and actioning corporate notifications. You stay informed while we take care of the coordination.",
     helps: [
-      "Reduce staffing and operational costs compared to in-house resourcing",
-      "Access a dedicated paraplanner without long-term employment commitments",
-      "Scale support easily as advice volumes increase or slow",
-      "Maintain consistent quality while keeping paraplanning costs under control",
+      "Save time on repetitive follow-ups and provider calls",
+      "Keep applications and renewals progressing smoothly",
+      "Gain full visibility without the manual workload",
     ],
   },
   {
-    title: "Extended support across two time zones",
+    title: "Compliance & Verification Support",
     description:
-      "We offer paraplanning support from teams in Sri Lanka and the Philippines so your work progresses beyond standard business hours. Choose one location or combine both for extended coverage and faster turnaround.",
+      "CSO's can complete mandatory checks including AML, FSC, DDR, CP agreements and CA-related tasks, ensuring your process remains audit-ready without slowing down your advice delivery.",
     helps: [
-      "Improve efficiency with work progressing across extended hours",
-      "Reduce turnaround times without increasing in-house pressure",
-      "Choose support from Sri Lanka, the Philippines, or both",
-      "Maintain consistency and quality across all plans, regardless of location",
+      "Reduce compliance risks and documentation errors",
+      "Maintain an audit-ready process year-round",
+      "Save adviser time on compulsory admin tasks",
+    ],
+  },
+  {
+    title: "Client Lifecycle & Digital Workflow Management",
+    description:
+      "Your COs manage key client lifecycle steps, from onboarding to offboarding, deceased estates and client detail changes ensuring every transition is handled accurately and with care. They also oversee your mailbox, digital documents and workflow management, keeping communication organized, actioned and properly recorded.",
+    helps: [
+      "Smooth, well-managed lifecycle changes handled",
+      "Timely processing of digital documents and communications",
+      "Reduced manual workload and fewer missed tasks",
+      "Clean, accurate and up-to-date client records",
     ],
   },
 ];
@@ -115,7 +126,7 @@ const benefits = [
   },
 ];
 
-const Paraplanning = () => {
+const ClientSupport = () => {
   // Responsive hover/click logic for Accordion
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -152,10 +163,10 @@ const Paraplanning = () => {
               </span> */}
             </div>
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Paraplanning
+            Client Support Officers
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Providing you accurate plans with fast turnaround times and consistent quality, giving you hours back to focus more on your clients.
+          Reliable support services that strengthens your workflow and helping you deliver excellent client services:
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
@@ -186,7 +197,7 @@ const Paraplanning = () => {
               <span className="gradient-text"> - it must be our offering</span>
             </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-               Comprehensive paraplanning solutions tailored to your practice needs
+              TaClient support service that elevates your practice
             </p>
           </div>
 
@@ -320,4 +331,4 @@ const Paraplanning = () => {
   );
 };
 
-export default Paraplanning;
+export default ClientSupport;

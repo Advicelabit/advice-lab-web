@@ -30,7 +30,7 @@ const services = [
       "Payroll processing",
       "Reconciliations",
     ],
-    link: "/services/accounting",
+    link: "/services/ClientSupport",
   },
   {
     icon: Home,

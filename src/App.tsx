@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Paraplanning from "./pages/services/Paraplanning";
-import Accounting from "./pages/services/Accounting";
+import ClientSupport from "./pages/services/ClientSupport";
 import Mortgage from "./pages/services/Mortgage";
 import Resources from "./pages/Resources";
 import Careers from "./pages/Careers";
@@ -29,7 +29,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/paraplanning" element={<Paraplanning />} />
-          <Route path="/services/accounting" element={<Accounting />} />
+          <Route path="/services/clientsupport" element={<ClientSupport />} />
           <Route path="/services/mortgage" element={<Mortgage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/careers" element={<Careers />} />

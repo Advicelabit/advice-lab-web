@@ -13,7 +13,7 @@ const navigation = [
     href: "/services",
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
-      { name: "Client Service", href: "/services/accounting" },
+      { name: "Client Support Officers", href: "/services/ClientSupport" },
       { name: "Accounting", href: "/services/mortgage" },
       { name: "SMSF", href: "/services/mortgage" },
       { name: "Mortgage Support", href: "/services/mortgage" },

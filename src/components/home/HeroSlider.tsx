@@ -25,7 +25,7 @@ const slides = [
     subtitle: "Financial Precision",
     description:
       "Reliable offshore client support that keeps your practice moving.  ",
-    link: "/services/accounting",
+    link: "/services/ClientSupport",
   },
   {
     image: hero3,

@@ -8,7 +8,6 @@ import {
   Instagram,
 } from "lucide-react";
 import logo from "@/assets/advicelab-logo.png";
-import styles from "./Footer.module.css";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const footerLinks = {
@@ -20,7 +19,7 @@ const footerLinks = {
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
-    { name: "Client Service ", href: "/services/accounting" },
+    { name: "Client Support Officers ", href: "/services/ClientSupport" },
     { name: "Accounting ", href: "/services/mortgage" },
     { name: "SMSF ", href: "/services/accounting" },
     { name: "Mortgage Support  ", href: "/services/mortgage" },
