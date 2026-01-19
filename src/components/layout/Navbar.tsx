@@ -21,7 +21,7 @@ const navigation = [
   },
   {
     name: "Resources",
-    href: "/resources",
+    href: "/resources/blog",
     children: [
       {
         name: "Adviser's Guide for Outsourcing",
@@ -40,7 +40,7 @@ const navigation = [
         name: "SMSF Trustee Education Kit",
         href: "/resources#smsf-trustee-education-kit",
       },
-      { name: "Blog", href: "/resources#blog" },
+      { name: "Blog", href: "/resources/blog" },
     ],
   },
   { name: "Careers", href: "/careers" },

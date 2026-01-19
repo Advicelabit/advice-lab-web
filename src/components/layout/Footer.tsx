@@ -30,7 +30,7 @@ const footerLinks = {
     { name: "Accountant’s Offshoring Playbook ", href: "/resources#pricing" },
     { name: "Virtual CSO Task Library ", href: "/resources#guide" },
     { name: "SMSF Trustee Education Kit  ", href: "/resources#pricing" },
-    { name: "Blog  ", href: "/resources#guide" },
+    { name: "Blog  ", href: "/resources/blog" },
   ],
 };
 

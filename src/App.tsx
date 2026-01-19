@@ -9,8 +9,9 @@ import Services from "./pages/Services";
 import Paraplanning from "./pages/services/Paraplanning";
 import ClientSupport from "./pages/services/ClientSupport";
 import Mortgage from "./pages/services/Mortgage";
-import Resources from "./pages/Resources";
+import Blog from "./pages/Resources/Blog";
 import Careers from "./pages/Careers";
+import BlogPost from "./pages/BlogPost";
 import PhilippinesVacancies from "./pages/careers/PhilippinesVacancies";
 import SriLankaVacancies from "./pages/careers/SriLankaVacancies";
 import Contact from "./pages/Contact";
@@ -31,7 +32,8 @@ const App = () => (
           <Route path="/services/paraplanning" element={<Paraplanning />} />
           <Route path="/services/clientsupport" element={<ClientSupport />} />
           <Route path="/services/mortgage" element={<Mortgage />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/careers" element={<Careers />} />
           <Route
             path="/careers/philippines"
