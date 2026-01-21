@@ -50,14 +50,7 @@ export function Testimonials() {
                   key={index}
                   className="p-8 bg-muted/50 rounded-3xl border border-border backdrop-blur-sm hover-lift"
                 >
-                  {/* <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 fill-primary text-primary"
-                      />
-                    ))}
-                  </div> */}
+     
                   <p className="text-foreground mb-6 leading-relaxed">
                     "{testimonial.quote}"
                   </p>

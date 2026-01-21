@@ -10,7 +10,7 @@ const navigation = [
   { name: "About", href: "/about" },
   {
     name: "Services",
-    href: "/services",
+    href: "/services/paraplanning",
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
       { name: "Client Support Officers", href: "/services/ClientSupport" },
@@ -59,7 +59,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <nav className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
+      <nav className="container mx-auto flex items-center justify-between py-[1.2em] px-4 lg:px-8">
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Advice Lab" className="h-10 w-auto" />
         </Link>

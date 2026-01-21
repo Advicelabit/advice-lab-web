@@ -95,7 +95,7 @@ const Careers = () => {
                   <Button
                     size="lg"
                     asChild
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
                   >
                     <Link to="/careers/philippines">
                       Explore Philippines Vacancies{" "}
@@ -105,7 +105,7 @@ const Careers = () => {
                   <Button
                     size="lg"
                     asChild
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
                   >
                     <Link to="/careers/srilanka">
                       Explore Sri Lanka Vacancies{" "}
@@ -210,7 +210,7 @@ const Careers = () => {
               size="lg"
               variant="outline"
               asChild
-              className="hover:scale-105 transition-transform"
+              className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
             >
               <a
                 href="https://www.instagram.com/advice.lab/"
@@ -238,7 +238,7 @@ const Careers = () => {
             <Button
               size="lg"
               asChild
-              className="hover:scale-105 transition-transform"
+              className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
             >
               <Link to="/contact">
                 Submit Your Resume <ArrowRight className="w-5 h-5" />

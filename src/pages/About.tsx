@@ -363,7 +363,7 @@ const About = () => {
           {/* Carousel Container */}
           <div className="relative max-w-5xl mx-auto">
             {/* Main Image Area with Dot Indicators inside */}
-            <div className="relative h-[60vh] min-h-[360px] md:h-[70vh] md:min-h-[420px] lg:h-[80vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
+            <div className="relative h-[30vh] min-h-[300px] md:h-[70vh] md:min-h-[420px] lg:h-[80vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
               {team.map((member, index) => (
                 <div
                   key={index}
@@ -411,7 +411,7 @@ const About = () => {
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
               aria-label="Previous slide"
             >
               <svg
@@ -430,7 +430,7 @@ const About = () => {
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 group"
               aria-label="Next slide"
             >
               <svg

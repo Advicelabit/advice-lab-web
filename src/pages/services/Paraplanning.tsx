@@ -232,13 +232,13 @@ const Paraplanning = () => {
                         }}
                       >
                         {/* Description */}
-                        <div className="pl-12">
+                        <div className="">
                           <p className="text-muted-foreground leading-relaxed">
                             {offering.description}
                           </p>
                         </div>
 
-                        <div className="ml-12 bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-xl p-6 border border-blue-100/50">
+                        <div className="bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-xl p-6 border border-blue-100/50">
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-6 h-6 rounded-[5px] bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
                               <CheckCircle className="w-3 h-3 text-white" />

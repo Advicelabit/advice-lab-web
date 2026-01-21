@@ -68,7 +68,7 @@ export function HeroSlider() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative min-h-[520px] h-[75vh] md:min-h-[600px] md:h-[90vh] overflow-hidden">
+    <section className="relative min-h-[89vh] h-[89vh] md:min-h-[600px] md:h-[90vh] overflow-hidden">
       {/* Background Images */}
       {slides.map((slide, index) => (
         <div
@@ -88,7 +88,7 @@ export function HeroSlider() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex items-center px-4 lg:px-8">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl w-full px-2">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -103,12 +103,10 @@ export function HeroSlider() {
                   {/* <span className="inline-block px-4 py-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full text-primary-foreground/90 text-sm font-medium mb-6 animate-fade-in">
                     {slide.subtitle}
                   </span> */}
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6 animate-slide-up">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6 leading-tight text-balance animate-slide-up">
                     {slide.title}
                   </h1>
-                  <p
-                    className="text-lg md:text-xl text-primary-foreground/80 mb-8 animate-slide-up delay-150"
-                  >
+                  <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 animate-slide-up delay-150">
                     {slide.description}
                   </p>
                   <div
@@ -131,21 +129,21 @@ export function HeroSlider() {
       </div>
 
       {/* Navigation */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 md:gap-4">
         <button
           onClick={prevSlide}
-          className="p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
         </button>
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 md:gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
                 index === currentSlide
-                  ? "bg-primary-foreground w-8"
+                  ? "bg-primary-foreground w-6 md:w-8"
                   : "bg-primary-foreground/40 hover:bg-primary-foreground/60"
               }`}
             />
@@ -153,9 +151,9 @@ export function HeroSlider() {
         </div>
         <button
           onClick={nextSlide}
-          className="p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
         </button>
       </div>
     </section>
