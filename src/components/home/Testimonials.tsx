@@ -77,10 +77,12 @@ export function Testimonials() {
           {/* Right Side - Video */}
           <ScrollAnimation animation="fade-left">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift">
-              <video className="w-full h-full object-cover" controls poster="">
-                <source src={clientVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="aspect-video w-full bg-black/70">
+                <video className="w-full h-full object-cover" controls poster="">
+                  <source src={clientVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </ScrollAnimation>
         </div>

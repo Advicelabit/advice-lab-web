@@ -41,7 +41,7 @@ export function ClientLogos() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="flex items-center justify-center">
-            <p className="text-primary-foreground text-[30px] font-bold whitespace-nowrap mr-8">
+            <p className="text-primary-foreground text-xl sm:text-2xl md:text-[30px] font-bold text-center leading-tight px-2">
               Australian advisers grow their business with Advice Lab
             </p>
           </div>
@@ -52,12 +52,12 @@ export function ClientLogos() {
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-14 w-44 h-12 p-4 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+              className="flex-shrink-0 mx-6 w-28 h-10 p-3 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center sm:mx-10 sm:w-32 sm:h-12 sm:p-3 md:mx-14 md:w-44 md:h-12 md:p-4"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-12 max-w-22 object-contain"
+                className="max-h-10 sm:max-h-12 max-w-22 object-contain"
               />
             </div>
           ))}

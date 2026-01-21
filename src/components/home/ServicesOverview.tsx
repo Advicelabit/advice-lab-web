@@ -11,31 +11,31 @@ const services = [
       "Comprehensive support for financial planning documentation and client administration.",
     link: "/services/paraplanning",
   },
-  {
-    icon: Calculator,
-    title: "Client Service Officers ",
-    description:
-      "Professional bookkeeping and financial reporting services for advisory practices.",
-    link: "/services/ClientSupport",
-  },
+  // {
+  //   icon: Calculator,
+  //   title: "Client Service Officers ",
+  //   description:
+  //     "Professional bookkeeping and financial reporting services for advisory practices.",
+  //   link: "/services/ClientSupport",
+  // },
   {
     icon: Home,
     title: "Accounting ",
     description: "End-to-end mortgage processing and documentation assistance.",
     link: "/services/mortgage",
   },
-  {
-    icon: Home,
-    title: "SMSF",
-    description: "End-to-end mortgage processing and documentation assistance.",
-    link: "/services/mortgage",
-  },
-  {
-    icon: Home,
-    title: "Mortgage Support",
-    description: "End-to-end mortgage processing and documentation assistance.",
-    link: "/services/mortgage",
-  },
+  // {
+  //   icon: Home,
+  //   title: "SMSF",
+  //   description: "End-to-end mortgage processing and documentation assistance.",
+  //   link: "/services/mortgage",
+  // },
+  // {
+  //   icon: Home,
+  //   title: "Mortgage Support",
+  //   description: "End-to-end mortgage processing and documentation assistance.",
+  //   link: "/services/mortgage",
+  // },
 ];
 
 export function ServicesOverview() {

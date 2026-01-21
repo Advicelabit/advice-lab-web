@@ -363,7 +363,7 @@ const About = () => {
           {/* Carousel Container */}
           <div className="relative max-w-5xl mx-auto">
             {/* Main Image Area with Dot Indicators inside */}
-            <div className="relative h-[80vh] min-h-[400px] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
+            <div className="relative h-[60vh] min-h-[360px] md:h-[70vh] md:min-h-[420px] lg:h-[80vh] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 shadow-2xl">
               {team.map((member, index) => (
                 <div
                   key={index}

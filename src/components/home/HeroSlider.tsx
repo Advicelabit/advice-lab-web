@@ -68,7 +68,7 @@ export function HeroSlider() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative h-[90vh] min-h-[600px] overflow-hidden">
+    <section className="relative min-h-[520px] h-[75vh] md:min-h-[600px] md:h-[90vh] overflow-hidden">
       {/* Background Images */}
       {slides.map((slide, index) => (
         <div

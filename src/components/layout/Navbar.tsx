@@ -138,53 +138,55 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border animate-slide-up">
-          <div className="container mx-auto py-4 px-4 space-y-2">
-            {navigation.map((item) => (
-              <div key={item.name}>
-                <Link
-                  to={item.href}
-                  className={`block py-3 text-base font-medium ${
-                    isActive(item.href)
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-                {item.children && (
-                  <div className="pl-4 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.href}
-                        className="block py-2 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <div className="pt-4 flex flex-col gap-3">
-              <Button variant="outline" asChild>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Explore Services
-                </Link>
-              </Button>
-              <Button asChild>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Get in Touch
-                </Link>
-              </Button>
+      <div
+        className={`lg:hidden fixed top-[76px] left-0 right-0 bg-background border-t border-border transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="container mx-auto py-4 px-4 space-y-2">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <Link
+                to={item.href}
+                className={`block py-3 text-base font-medium ${
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+              {item.children && (
+                <div className="pl-4 space-y-1">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.name}
+                      to={child.href}
+                      className="block py-2 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
+          ))}
+          <div className="pt-4 flex flex-col gap-3">
+            <Button variant="outline" asChild>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Explore Services
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Get in Touch
+              </Link>
+            </Button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
