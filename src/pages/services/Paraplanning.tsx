@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
+import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 
 const offerings = [
@@ -142,7 +143,7 @@ const Paraplanning = () => {
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">
-          <div className="max-w-3xl">
+          <ScrollAnimation animation="fade-up" className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               {/* <div className="w-16 h-16 rounded-2xl bg-primary-foreground/10 flex items-center justify-center">
                 <FileText className="w-8 h-8 text-primary-foreground" />
@@ -165,7 +166,7 @@ const Paraplanning = () => {
                 <Link to="/contact">Get Pricing</Link>
               </Button> */}
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -177,7 +178,7 @@ const Paraplanning = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
-          <div className="w-full text-center mb-16">
+          <ScrollAnimation animation="fade-up" className="w-full text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Offering
             </span>
@@ -188,74 +189,79 @@ const Paraplanning = () => {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                Comprehensive paraplanning solutions tailored to your practice needs
             </p>
-          </div>
+          </ScrollAnimation>
 
           {/* Accordion */}
           <div className=" mx-auto">
             <div className="space-y-4">
               {offerings.map((offering, index) => (
-                <div
+                <ScrollAnimation
                   key={offering.title}
-                  className="group rounded-2xl border-0 bg-white shadow-md transition-all duration-300 overflow-hidden"
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
+                  animation="fade-up"
+                  delay={index * 120}
                 >
-                  {/* Gradient accent bar */}
-                  <div className="h-1 w-0 bg-gradient-to-r from-primary to-blue-600 group-hover:w-full transition-all duration-500"></div>
+                  <div
+                    className="group rounded-2xl border-0 bg-white shadow-md transition-all duration-300 overflow-hidden"
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {/* Gradient accent bar */}
+                    <div className="h-1 w-0 bg-gradient-to-r from-primary to-blue-600 group-hover:w-full transition-all duration-500"></div>
 
-                  <div className="px-8">
-                    <div
-                      className="text-left text-lg md:text-xl font-display font-bold py-6 hover:text-primary transition-colors group-hover:no-underline cursor-pointer select-none flex items-start gap-4 pr-4"
-                      onClick={() => handleClick(index)}
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-colors">
-                        <span className="text-sm font-bold text-primary">
-                          {index + 1}
-                        </span>
+                    <div className="px-8">
+                      <div
+                        className="text-left text-lg md:text-xl font-display font-bold py-6 hover:text-primary transition-colors group-hover:no-underline cursor-pointer select-none flex items-start gap-4 pr-4"
+                        onClick={() => handleClick(index)}
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 to-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-colors">
+                          <span className="text-sm font-bold text-primary">
+                            {index + 1}
+                          </span>
+                        </div>
+                        <span>{offering.title}</span>
                       </div>
-                      <span>{offering.title}</span>
-                    </div>
-                    {/* Smooth expand/collapse content */}
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        openIndex === index
-                          ? "max-h-[1000px] opacity-100 py-8 space-y-6"
-                          : "max-h-0 opacity-0 py-0"
-                      }`}
-                      style={{
-                        transitionProperty: "max-height, opacity, padding",
-                      }}
-                    >
-                      {/* Description */}
-                      <div className="pl-12">
-                        <p className="text-muted-foreground leading-relaxed">
-                          {offering.description}
-                        </p>
-                      </div>
-
-                      <div className="ml-12 bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-xl p-6 border border-blue-100/50">
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="w-6 h-6 rounded-[5px] bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
-                            <CheckCircle className="w-3 h-3 text-white" />
-                          </div>
-                          <p className="text-sm font-bold uppercase tracking-wide text-primary">
-                            How this helps you
+                      {/* Smooth expand/collapse content */}
+                      <div
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                          openIndex === index
+                            ? "max-h-[1000px] opacity-100 py-8 space-y-6"
+                            : "max-h-0 opacity-0 py-0"
+                        }`}
+                        style={{
+                          transitionProperty: "max-height, opacity, padding",
+                        }}
+                      >
+                        {/* Description */}
+                        <div className="pl-12">
+                          <p className="text-muted-foreground leading-relaxed">
+                            {offering.description}
                           </p>
                         </div>
-                        <ul className="space-y-3">
-                          {offering.helps.map((point, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-blue-600 mt-2 flex-shrink-0"></div>
-                              <span className="text-sm text-foreground leading-relaxed">
-                                {point}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+
+                        <div className="ml-12 bg-gradient-to-br from-blue-50/50 to-purple-50/30 rounded-xl p-6 border border-blue-100/50">
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-6 h-6 rounded-[5px] bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
+                              <CheckCircle className="w-3 h-3 text-white" />
+                            </div>
+                            <p className="text-sm font-bold uppercase tracking-wide text-primary">
+                              How this helps you
+                            </p>
+                          </div>
+                          <ul className="space-y-3">
+                            {offering.helps.map((point, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-primary to-blue-600 mt-2 flex-shrink-0"></div>
+                                <span className="text-sm text-foreground leading-relaxed">
+                                  {point}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollAnimation>
               ))}
             </div>
           </div>
@@ -270,7 +276,7 @@ const Paraplanning = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="fade-up" className="text-center mb-16">
             {/* <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Why Choose Us
             </span> */}
@@ -281,12 +287,17 @@ const Paraplanning = () => {
               Our paraplanning service combines deep industry knowledge with
               robust processes and security
             </p> */}
-          </div>
+          </ScrollAnimation>
 
           {/* Cards Grid */}
           <div className="grid md:grid-cols-2 gap-8  mx-auto">
             {trustIndicators.map((indicator, index) => (
-              <div key={index} className="group relative">
+              <ScrollAnimation
+                key={indicator.title}
+                animation="fade-up"
+                delay={index * 140}
+                className="group relative"
+              >
                 {/* Decorative background glow */}
                 <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -311,7 +322,7 @@ const Paraplanning = () => {
                   {/* Bottom accent line */}
                   <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500"></div>
                 </div>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
