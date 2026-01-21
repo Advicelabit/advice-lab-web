@@ -10,7 +10,7 @@ import { Testimonials } from "@/components/home/Testimonials";
 const Index = () => {
   return (
     <Layout>
-      <TopBanner />
+      {/* <TopBanner /> */}
       <HeroSlider />
       <ClientLogos />
       <ServicesOverview />

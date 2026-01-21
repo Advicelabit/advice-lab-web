@@ -145,7 +145,7 @@ const About = () => {
                   <img
                     src={missionImg}
                     alt="Team collaboration"
-                    className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px] transform group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover min-h-[400px] lg:min-h-[520px] transform group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
@@ -161,10 +161,10 @@ const About = () => {
                     {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
                       <Target className="w-6 h-6 text-white" />
                     </div> */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
+                     <div>
+                      <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                         Our Mission
-                      </h3>
+                      </span>
                       <h4 className="text-2xl md:text-3xl font-display font-bold text-foreground leading-tight">
                         Helping Australian Financial Advisers{" "}
                         <span className="gradient-text">grow better</span>
@@ -185,9 +185,9 @@ const About = () => {
                       <Globe className="w-6 h-6 text-white" />
                     </div> */}
                     <div>
-                      <h3 className="text-sm font-semibold text-white/90 uppercase tracking-wider mb-2">
+                      <span className="inline-block px-4 py-2 bg-blue-500/60 text-white font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                         Our Vision
-                      </h3>
+                      </span>
                       <h4 className="text-2xl md:text-3xl font-display font-bold text-white leading-tight">
                         To be a global leader in back-office solutions for the
                         financial planning industry.
@@ -201,65 +201,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <ScrollAnimation
-                key={index}
-                animation="scale"
-                delay={index * 100}
-              >
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-display font-bold gradient-text">
-                    {stat.value}
-                  </p>
-                  <p className="text-muted-foreground mt-2">{stat.label}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Story
-      <section className="py-0 bg-white">
-        <div className="grid lg:grid-cols-2 gap-0 min-h-[250px]">
-          <ScrollAnimation animation="fade-right">
-            <div className="gradient-primary text-white py-8 px-8 lg:px-16 flex items-center h-full">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                  Our Story
-                </h2>
-                <p className="text-lg leading-relaxed">
-                  Prad's experience in the Australian financial planning market
-                  revealed a clear gap in the industry. Advisers were struggling
-                  to hire and retain skilled talent, making it difficult to
-                  scale their practices efficiently. To bridge that gap, Prad
-                  built Advice Lab — a dependable back-office support partner
-                  designed to help advisory practices operate smoothly, grow
-                  sustainably, and focus on delivering quality financial advice.
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation animation="fade-left" delay={200}>
-            <div className="relative bg-white flex flex-col items-end justify-end h-full min-h-[250px] max-h-[400px]">
-              <img
-                src={pradImg}
-                alt="Prad Navaratnam"
-                className="object-contain max-h-[400px] w-full mx-auto"
-              />
-              <div className="absolute bottom-0 left-0 w-full bg-white/80 py-4 text-center">
-                <p className="text-xl font-display font-normal text-foreground">
-                  Prad Navaratnam - Managing Director
-                </p>
-              </div>
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section> */}
+     
 
       {/* Story */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
@@ -276,10 +218,7 @@ const About = () => {
                   <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                     Our Story
                   </span>
-                  {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
-                    Built by Advisors,{" "}
-                    <span className="gradient-text">for Advisors</span>
-                  </h2> */}
+               
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-primary/30">
@@ -300,15 +239,7 @@ const About = () => {
                   </p>
                 </div>
 
-                {/* Founder signature card */}
-                {/* <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 inline-block">
-                  <p className="text-2xl font-display font-semibold text-foreground mb-1">
-                    Prad Navaratnam
-                  </p>
-                  <p className="text-sm text-primary font-medium uppercase tracking-wider">
-                    Managing Director & Founder
-                  </p>
-                </div> */}
+              
               </div>
             </ScrollAnimation>
 
@@ -331,7 +262,7 @@ const About = () => {
                 </div>
 
                 {/* Accent quote */}
-                <div className="absolute -bottom-4 left-8 right-8 bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-2 shadow-xl">
+                <div className="absolute -bottom-4 left-8 right-8 bg-gradient-to-br from-primary to-blue-600 rounded-[12px] p-2 shadow-xl">
                   <p className="text-white text-md font-medium  text-center">
                     Managing Director & Founder - Prad Navaratnam
                   </p>
@@ -355,9 +286,9 @@ const About = () => {
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                 Our Values
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+              {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
                 What <span className="gradient-text">Drives Us</span>
-              </h2>
+              </h2> */}
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 These value shape how we support advice businesses.
               </p>
@@ -380,10 +311,10 @@ const About = () => {
 
                     <div className="relative">
                       {/* Icon */}
-                      <div className="relative mb-6">
-                        <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="relative mb-7">
+                        {/* <div className="relative w-10 h-10 rounded-[12px] bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                           <value.icon className="w-5 h-5 text-white" />
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* Content */}
@@ -420,10 +351,10 @@ const About = () => {
             <span className="inline-block px-4 py-2 bg-white/10 text-white font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Teams
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+            {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
               Meet Our {" "}
               <span className="text-blue-300">Teams</span>
-            </h2>
+            </h2> */}
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
               The experts behind our service excellence.
             </p>

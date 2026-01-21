@@ -71,9 +71,7 @@ const Careers = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimation animation="fade-right">
               <div>
-                <span
-                  className="text-primary font-semibold uppercase tracking-wider tracking-tight"
-                >
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                   Why Work With Us
                 </span>
                 <h2

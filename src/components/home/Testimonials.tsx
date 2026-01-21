@@ -26,9 +26,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
-            <span
-              className="text-primary font-semibold uppercase tracking-tight"
-            >
+           <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Customer Reviews
             </span>
             <h2

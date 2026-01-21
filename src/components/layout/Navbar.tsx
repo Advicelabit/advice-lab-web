@@ -14,32 +14,32 @@ const navigation = [
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
       { name: "Client Support Officers", href: "/services/ClientSupport" },
-      { name: "Accounting", href: "/services/mortgage" },
-      { name: "SMSF", href: "/services/mortgage" },
-      { name: "Mortgage Support", href: "/services/mortgage" },
+      // { name: "Accounting", href: "/services/mortgage" },
+      // { name: "SMSF", href: "/services/mortgage" },
+      // { name: "Mortgage Support", href: "/services/mortgage" },
     ],
   },
   {
     name: "Resources",
     href: "/resources/blog",
     children: [
-      {
-        name: "Adviser's Guide for Outsourcing",
-        href: "/resources#advisers-guide-for-outsourcing",
-      },
-      { name: "Pricing Calculator", href: "/resources#pricing-calculator" },
-      {
-        name: "Accountant's Offshoring Playbook",
-        href: "/resources#accountants-offshoring-playbook",
-      },
-      {
-        name: "Virtual CSO Task Library",
-        href: "/resources#virtual-cso-task-library",
-      },
-      {
-        name: "SMSF Trustee Education Kit",
-        href: "/resources#smsf-trustee-education-kit",
-      },
+      // {
+      //   name: "Adviser's Guide for Outsourcing",
+      //   href: "/resources#advisers-guide-for-outsourcing",
+      // },
+      // { name: "Pricing Calculator", href: "/resources#pricing-calculator" },
+      // {
+      //   name: "Accountant's Offshoring Playbook",
+      //   href: "/resources#accountants-offshoring-playbook",
+      // },
+      // {
+      //   name: "Virtual CSO Task Library",
+      //   href: "/resources#virtual-cso-task-library",
+      // },
+      // {
+      //   name: "SMSF Trustee Education Kit",
+      //   href: "/resources#smsf-trustee-education-kit",
+      // },
       { name: "Blog", href: "/resources/blog" },
     ],
   },
