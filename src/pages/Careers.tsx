@@ -71,9 +71,7 @@ const Careers = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimation animation="fade-right">
               <div>
-                <span
-                  className="text-primary font-semibold uppercase tracking-wider tracking-tight"
-                >
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                   Why Work With Us
                 </span>
                 <h2
@@ -97,7 +95,7 @@ const Careers = () => {
                   <Button
                     size="lg"
                     asChild
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
                   >
                     <Link to="/careers/philippines">
                       Explore Philippines Vacancies{" "}
@@ -107,7 +105,7 @@ const Careers = () => {
                   <Button
                     size="lg"
                     asChild
-                    className="hover:scale-105 transition-transform"
+                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
                   >
                     <Link to="/careers/srilanka">
                       Explore Sri Lanka Vacancies{" "}
@@ -212,7 +210,7 @@ const Careers = () => {
               size="lg"
               variant="outline"
               asChild
-              className="hover:scale-105 transition-transform"
+              className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
             >
               <a
                 href="https://www.instagram.com/advice.lab/"
@@ -240,7 +238,7 @@ const Careers = () => {
             <Button
               size="lg"
               asChild
-              className="hover:scale-105 transition-transform"
+              className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
             >
               <Link to="/contact">
                 Submit Your Resume <ArrowRight className="w-5 h-5" />

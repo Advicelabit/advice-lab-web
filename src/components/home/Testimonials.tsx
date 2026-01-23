@@ -26,9 +26,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
-            <span
-              className="text-primary font-semibold uppercase tracking-tight"
-            >
+           <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Customer Reviews
             </span>
             <h2
@@ -52,14 +50,7 @@ export function Testimonials() {
                   key={index}
                   className="p-8 bg-muted/50 rounded-3xl border border-border backdrop-blur-sm hover-lift"
                 >
-                  {/* <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 fill-primary text-primary"
-                      />
-                    ))}
-                  </div> */}
+     
                   <p className="text-foreground mb-6 leading-relaxed">
                     "{testimonial.quote}"
                   </p>
@@ -79,10 +70,12 @@ export function Testimonials() {
           {/* Right Side - Video */}
           <ScrollAnimation animation="fade-left">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift">
-              <video className="w-full h-full object-cover" controls poster="">
-                <source src={clientVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="aspect-video w-full bg-black/70">
+                <video className="w-full h-full object-cover" controls poster="">
+                  <source src={clientVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </ScrollAnimation>
         </div>

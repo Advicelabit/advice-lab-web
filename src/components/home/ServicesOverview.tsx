@@ -11,31 +11,31 @@ const services = [
       "Comprehensive support for financial planning documentation and client administration.",
     link: "/services/paraplanning",
   },
-  {
-    icon: Calculator,
-    title: "Client Service Officers ",
-    description:
-      "Professional bookkeeping and financial reporting services for advisory practices.",
-    link: "/services/ClientSupport",
-  },
+  // {
+  //   icon: Calculator,
+  //   title: "Client Service Officers ",
+  //   description:
+  //     "Professional bookkeeping and financial reporting services for advisory practices.",
+  //   link: "/services/ClientSupport",
+  // },
   {
     icon: Home,
     title: "Accounting ",
     description: "End-to-end mortgage processing and documentation assistance.",
     link: "/services/mortgage",
   },
-  {
-    icon: Home,
-    title: "SMSF",
-    description: "End-to-end mortgage processing and documentation assistance.",
-    link: "/services/mortgage",
-  },
-  {
-    icon: Home,
-    title: "Mortgage Support",
-    description: "End-to-end mortgage processing and documentation assistance.",
-    link: "/services/mortgage",
-  },
+  // {
+  //   icon: Home,
+  //   title: "SMSF",
+  //   description: "End-to-end mortgage processing and documentation assistance.",
+  //   link: "/services/mortgage",
+  // },
+  // {
+  //   icon: Home,
+  //   title: "Mortgage Support",
+  //   description: "End-to-end mortgage processing and documentation assistance.",
+  //   link: "/services/mortgage",
+  // },
 ];
 
 export function ServicesOverview() {
@@ -44,9 +44,7 @@ export function ServicesOverview() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
-            <span
-              className="text-primary font-semibold uppercase tracking-tight"
-            >
+         <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Services
             </span>
             {/* <h2

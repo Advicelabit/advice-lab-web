@@ -13,23 +13,22 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/about#team" },
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
     { name: "Client Support Officers ", href: "/services/ClientSupport" },
-    { name: "Accounting ", href: "/services/mortgage" },
-    { name: "SMSF ", href: "/services/accounting" },
-    { name: "Mortgage Support  ", href: "/services/mortgage" },
+    // { name: "Accounting ", href: "/services/mortgage" },
+    // { name: "SMSF ", href: "/services/accounting" },
+    // { name: "Mortgage Support  ", href: "/services/mortgage" },
   ],
   resources: [
-    { name: "Adviser’s Guide for Outsourcing ", href: "/resources" },
-    { name: "Pricing Calculator ", href: "/resources#case-studies" },
-    { name: "Accountant’s Offshoring Playbook ", href: "/resources#pricing" },
-    { name: "Virtual CSO Task Library ", href: "/resources#guide" },
-    { name: "SMSF Trustee Education Kit  ", href: "/resources#pricing" },
+    // { name: "Adviser’s Guide for Outsourcing ", href: "/resources" },
+    // { name: "Pricing Calculator ", href: "/resources#case-studies" },
+    // { name: "Accountant’s Offshoring Playbook ", href: "/resources#pricing" },
+    // { name: "Virtual CSO Task Library ", href: "/resources#guide" },
+    // { name: "SMSF Trustee Education Kit  ", href: "/resources#pricing" },
     { name: "Blog  ", href: "/resources/blog" },
   ],
 };
@@ -61,23 +60,23 @@ export function Footer() {
             ctaVisible ? "scroll-fade-up" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4 text-primary-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 text-primary-foreground leading-tight max-w-3xl mx-auto">
             Ready to Scale Your Practice?
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
             Trusted by Australian advisers who rely on Advice Lab daily for
             their offshore support.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               to="/services"
-              className="inline-flex items-center justify-center h-12 w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
             >
               Explore Services
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center h-12 w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
             >
               Get in Touch
             </Link>
@@ -186,7 +185,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/advice-intel/"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
               >
                 <Linkedin className="w-5 h-5" />
@@ -198,13 +197,13 @@ export function Footer() {
                 <Youtube className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/advice.lab/"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@advicelab"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
               >
                 <TikTokIcon className="w-5 h-5" />

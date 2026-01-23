@@ -10,36 +10,36 @@ const navigation = [
   { name: "About", href: "/about" },
   {
     name: "Services",
-    href: "/services",
+    href: "/services/paraplanning",
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
       { name: "Client Support Officers", href: "/services/ClientSupport" },
-      { name: "Accounting", href: "/services/mortgage" },
-      { name: "SMSF", href: "/services/mortgage" },
-      { name: "Mortgage Support", href: "/services/mortgage" },
+      // { name: "Accounting", href: "/services/mortgage" },
+      // { name: "SMSF", href: "/services/mortgage" },
+      // { name: "Mortgage Support", href: "/services/mortgage" },
     ],
   },
   {
     name: "Resources",
     href: "/resources/blog",
     children: [
-      {
-        name: "Adviser's Guide for Outsourcing",
-        href: "/resources#advisers-guide-for-outsourcing",
-      },
-      { name: "Pricing Calculator", href: "/resources#pricing-calculator" },
-      {
-        name: "Accountant's Offshoring Playbook",
-        href: "/resources#accountants-offshoring-playbook",
-      },
-      {
-        name: "Virtual CSO Task Library",
-        href: "/resources#virtual-cso-task-library",
-      },
-      {
-        name: "SMSF Trustee Education Kit",
-        href: "/resources#smsf-trustee-education-kit",
-      },
+      // {
+      //   name: "Adviser's Guide for Outsourcing",
+      //   href: "/resources#advisers-guide-for-outsourcing",
+      // },
+      // { name: "Pricing Calculator", href: "/resources#pricing-calculator" },
+      // {
+      //   name: "Accountant's Offshoring Playbook",
+      //   href: "/resources#accountants-offshoring-playbook",
+      // },
+      // {
+      //   name: "Virtual CSO Task Library",
+      //   href: "/resources#virtual-cso-task-library",
+      // },
+      // {
+      //   name: "SMSF Trustee Education Kit",
+      //   href: "/resources#smsf-trustee-education-kit",
+      // },
       { name: "Blog", href: "/resources/blog" },
     ],
   },
@@ -59,7 +59,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <nav className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
+      <nav className="container mx-auto flex items-center justify-between py-[1.2em] px-4 lg:px-8">
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Advice Lab" className="h-10 w-auto" />
         </Link>
@@ -138,53 +138,55 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border animate-slide-up">
-          <div className="container mx-auto py-4 px-4 space-y-2">
-            {navigation.map((item) => (
-              <div key={item.name}>
-                <Link
-                  to={item.href}
-                  className={`block py-3 text-base font-medium ${
-                    isActive(item.href)
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-                {item.children && (
-                  <div className="pl-4 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.href}
-                        className="block py-2 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <div className="pt-4 flex flex-col gap-3">
-              <Button variant="outline" asChild>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Explore Services
-                </Link>
-              </Button>
-              <Button asChild>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Get in Touch
-                </Link>
-              </Button>
+      <div
+        className={`lg:hidden fixed top-[76px] left-0 right-0 bg-background border-t border-border transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="container mx-auto py-4 px-4 space-y-2">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <Link
+                to={item.href}
+                className={`block py-3 text-base font-medium ${
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+              {item.children && (
+                <div className="pl-4 space-y-1">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.name}
+                      to={child.href}
+                      className="block py-2 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {child.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
+          ))}
+          <div className="pt-4 flex flex-col gap-3">
+            <Button variant="outline" asChild>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Explore Services
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Get in Touch
+              </Link>
+            </Button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

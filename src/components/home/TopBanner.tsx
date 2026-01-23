@@ -12,7 +12,7 @@ export function TopBanner() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex justify-between">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-4xl">
           <p
             className="font-display font-bold text-primary-foreground/80 text-2xl md:text-3xl"
@@ -26,7 +26,7 @@ export function TopBanner() {
             practice perfectly.
           </p>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center sm:justify-end">
           <Button
             variant="white"
             size="sm"
