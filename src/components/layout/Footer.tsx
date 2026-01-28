@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Mail,
   Phone,
@@ -47,42 +47,46 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 );
 
 export function Footer() {
+  const { pathname } = useLocation();
+  const hideCta = pathname.startsWith("/careers");
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
 
   return (
     <footer className="bg-white text-foreground">
       {/* CTA Section */}
-      <div className="gradient-primary py-16">
-        <div
-          ref={ctaRef}
-          className={`container mx-auto px-4 lg:px-8 text-center transition-all duration-700 ${
-            ctaVisible ? "scroll-fade-up" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 text-primary-foreground leading-tight max-w-3xl mx-auto">
-            Ready to Scale Your Practice?
-          </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Trusted by Australian advisers who rely on Advice Lab daily for
-            their offshore support.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
-            >
-              Explore Services
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
-            >
-              Get in Touch
-            </Link>
+      {!hideCta && (
+        <div className="gradient-primary py-16">
+          <div
+            ref={ctaRef}
+            className={`container mx-auto px-4 lg:px-8 text-center transition-all duration-700 ${
+              ctaVisible ? "scroll-fade-up" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 text-primary-foreground leading-tight max-w-3xl mx-auto">
+              Ready to Scale Your Practice?
+            </h2>
+            <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+              Trusted by Australian advisers who rely on Advice Lab daily for
+              their offshore support.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
+              >
+                Explore Services
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main Footer */}
       <div className="py-16">
