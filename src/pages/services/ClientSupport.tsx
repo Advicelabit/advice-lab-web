@@ -167,7 +167,7 @@ const ClientSupport = () => {
             Client Support Officers
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-          Reliable support services that strengthens your workflow and helping you deliver excellent client services:
+          Reliable support services that strengthens your workflow and helping you deliver excellent client services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
