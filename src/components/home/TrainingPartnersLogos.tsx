@@ -6,7 +6,7 @@ import c from "@/assets/TrainingPartnersImg/aicpa-and-cima.png";
 import d from "@/assets/TrainingPartnersImg/sliit-campus-logo.png";
 import e from "@/assets/TrainingPartnersImg/royal-institute-of-colombo.png";
 import f from "@/assets/TrainingPartnersImg/nsbm-university.png";
-import g from "@/assets/TrainingPartnersImg/bms-Logo.png";
+import g from "@/assets/TrainingPartnersImg/bms-logo.png";
 import h from "@/assets/TrainingPartnersImg/nibm-logo.png";
 
 const universityLogos = [
