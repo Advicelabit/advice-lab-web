@@ -77,6 +77,13 @@ const JobDetail = () => {
     setTimeout(() => {
       setIsLoading(false);
       setSubmitted(true);
+      // Scroll to the top of the content area to show the success message
+      const contentSection = document.getElementById("job-detail-content");
+      if (contentSection) {
+        contentSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       setTimeout(() => {
         navigate("/careers");
       }, 2000);
@@ -118,7 +125,7 @@ const JobDetail = () => {
       </section>
 
       {/* Content Section */}
-      <section className="py-24 bg-secondary">
+      <section id="job-detail-content" className="py-24 bg-secondary">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {submitted ? (
@@ -387,8 +394,7 @@ const JobDetail = () => {
                       {/* Submit Button */}
                       <Button
                         type="submit"
-                        size="lg"
-                        className="w-full mt-8"
+                        className="w-full h-12 mt-8"
                         disabled={isLoading}
                       >
                         {isLoading

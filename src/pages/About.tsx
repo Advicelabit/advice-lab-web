@@ -1,6 +1,15 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
-import { Users, Target, Award, Globe, Shield, CheckCircle, FileText, Zap } from "lucide-react";
+import {
+  Users,
+  Target,
+  Award,
+  Globe,
+  Shield,
+  CheckCircle,
+  FileText,
+  Zap,
+} from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
@@ -71,7 +80,7 @@ const values = [
     description:
       "We respect the rules of the industry. There are no shortcuts, we work within regulatory requirements to protect you and your businesses.",
   },
-    {
+  {
     icon: Zap,
     title: "Initiative",
     description:
@@ -161,7 +170,7 @@ const About = () => {
                     {/* <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center flex-shrink-0">
                       <Target className="w-6 h-6 text-white" />
                     </div> */}
-                     <div>
+                    <div>
                       <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                         Our Mission
                       </span>
@@ -201,8 +210,6 @@ const About = () => {
         </div>
       </section>
 
-     
-
       {/* Story */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
         {/* Decorative elements */}
@@ -218,28 +225,27 @@ const About = () => {
                   <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                     Our Story
                   </span>
-               
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-primary/30">
                   <p className="text-lg text-muted-foreground leading-relaxed mb-3">
-                    Prad's experience in the Australian financial planning
-                    market revealed a clear gap in the industry. Advisers were
-                    struggling to hire and retain skilled talent, making it
-                    difficult to scale their practices efficiently.
+                    Australian financial advisers often faced inconsistent
+                    quality, unreliable turnaround, and services that didn't
+                    adapt to how each financial planning practice operates.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    To bridge that gap, Prad built{" "}
+                    When back‑office demands grow, accuracy, timelines, and
+                    communication can suffer.{" "}
                     <span className="font-semibold text-primary">
                       Advice Lab
                     </span>{" "}
-                    a dependable back-office support partner designed to help
-                    advisory practices operate smoothly, grow sustainably, and
-                    focus on delivering quality financial advice.
+                    was created to address this gap. We solve this with agile,
+                    efficient back‑office services designed to adapt to your
+                    practice. Our goal is simple but bold: to enable advisers to
+                    focus on their clients while we take care of the rest,
+                    growing together, every step of the way.
                   </p>
                 </div>
-
-              
               </div>
             </ScrollAnimation>
 
@@ -251,8 +257,7 @@ const About = () => {
 
                 {/* Main image container */}
                 <div className="relative">
-  
-             <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
                     <img
                       src={pradImg}
                       alt="Prad Navaratnam"

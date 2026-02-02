@@ -1,23 +1,22 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-
-import a from "@/assets/TrainingPartnersImg/acca-professional-development.png";
-import b from "@/assets/TrainingPartnersImg/acca-trainee-development-gold.png";
-import c from "@/assets/TrainingPartnersImg/aicpa-and-cima.png";
-import d from "@/assets/TrainingPartnersImg/sliit-campus-logo.png";
-import e from "@/assets/TrainingPartnersImg/royal-institute-of-colombo.png";
-import f from "@/assets/TrainingPartnersImg/nsbm-university.png";
-import g from "@/assets/TrainingPartnersImg/bms-logo.png";
-import h from "@/assets/TrainingPartnersImg/nibm-logo.png";
+import accaProfessionalDev from "@/assets/TrainingPartnersImg/acca-professional-development.png";
+import accaTraineeGold from "@/assets/TrainingPartnersImg/acca-trainee-development-gold.png";
+import aicpaCima from "@/assets/TrainingPartnersImg/aicpa-and-cima.png";
+import sliitCampus from "@/assets/TrainingPartnersImg/sliit-campus-logo.png";
+import royalInstitute from "@/assets/TrainingPartnersImg/royal-institute-of-colombo.png";
+import nsbmUniversity from "@/assets/TrainingPartnersImg/nsbm-university.png";
+import bmsCampus from "@/assets/TrainingPartnersImg/bms-logo.png";
+import nibmCampus from "@/assets/TrainingPartnersImg/nibm-logo.png";
 
 const universityLogos = [
-  { src: a, alt: "ACCA Professional Development" },
-  { src: b, alt: "ACCA Trainee Development Gold" },
-  { src: c, alt: "AICPA and CIMA" },
-  { src: d, alt: "SLIIT Campus" },
-  { src: e, alt: "Royal Institute of Colombo" },
-  { src: f, alt: "NSBM University" },
-  { src: g, alt: "BMS Campus" },
-  { src: h, alt: "NIBM Campus" },
+  { src: accaProfessionalDev, alt: "ACCA Professional Development" },
+  { src: accaTraineeGold, alt: "ACCA Trainee Development Gold" },
+  { src: aicpaCima, alt: "AICPA and CIMA" },
+  { src: sliitCampus, alt: "SLIIT Campus" },
+  { src: royalInstitute, alt: "Royal Institute of Colombo" },
+  { src: nsbmUniversity, alt: "NSBM University" },
+  { src: bmsCampus, alt: "BMS Campus" },
+  { src: nibmCampus, alt: "NIBM Campus" },
 ];
 
 export function TrainingPartnersLogos() {
@@ -36,32 +35,46 @@ export function TrainingPartnersLogos() {
         </ScrollAnimation>
       </div>
 
-      <div className="mt-8 relative overflow-hidden">
-        <div className="flex animate-marquee gap-6 sm:gap-8 md:gap-10">
-          {/* Original logos */}
+      <div className="mt-8 relative">
+        <div className="inline-flex animate-marquee whitespace-nowrap">
+          {/* First set */}
           {universityLogos.map((logo, index) => (
             <div
-              key={`original-${index}`}
-              className="flex-shrink-0 w-44 h-28 p-4 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center sm:w-56 sm:h-32 sm:p-5 md:w-64 md:h-36 md:p-6"
+              key={`set1-${index}`}
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-full max-w-full object-contain transition-all duration-300"
+                className="max-h-full max-w-full object-contain"
               />
             </div>
           ))}
 
-          {/* Duplicate logos for seamless loop */}
+          {/* Second set - duplicate for seamless loop */}
           {universityLogos.map((logo, index) => (
             <div
-              key={`duplicate-${index}`}
-              className="flex-shrink-0 w-44 h-28 p-4 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center sm:w-56 sm:h-32 sm:p-5 md:w-64 md:h-36 md:p-6"
+              key={`set2-${index}`}
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-full max-w-full object-contain transition-all duration-300"
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+
+          {/* Third set - for extra smoothness */}
+          {universityLogos.map((logo, index) => (
+            <div
+              key={`set3-${index}`}
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain"
               />
             </div>
           ))}
@@ -70,14 +83,17 @@ export function TrainingPartnersLogos() {
 
       <style>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
         }
 
         .animate-marquee {
-          display: flex;
-          flex-wrap: nowrap;
-          animation: marquee 30s linear infinite;
+          animation: marquee 80s linear infinite;
+          will-change: transform;
         }
 
         .animate-marquee:hover {
