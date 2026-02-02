@@ -1,6 +1,12 @@
-import { Users, TrendingUp, Clock, Headphones, Unlock, Globe } from "lucide-react";
+import {
+  Users,
+  TrendingUp,
+  Clock,
+  Headphones,
+  Unlock,
+  Globe,
+} from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-
 
 const features = [
   {
@@ -23,9 +29,9 @@ const features = [
   },
   {
     icon: Globe,
-    title: "Extend Practice Hours",
+    title: "Extended Practice Hours",
     description:
-      "Offshore teams in Sri Lanka and the Philippines keep your practice running longer and smoother.",
+      "Offshore teams across Sri Lanka & Philippines keep your practice running longer and smoother.",
   },
 ];
 
@@ -35,17 +41,13 @@ export function WhyChooseUs() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
-           <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Why Choose Advice Lab
             </span>
-            <h2
-              className="font-display font-semibold mt-2 mb-4 text-muted-foreground text-[1.3rem]"
-            >
+            <h2 className="font-display font-semibold mt-2 mb-4 text-muted-foreground text-[1.3rem]">
               Trusted by Leading Financial Advisers in Australia
             </h2>
-            <h3
-              className="font-display font-normal mb-4 text-muted-foreground text-[1rem]"
-            >
+            <h3 className="font-display font-normal mb-4 text-muted-foreground text-[1rem]">
               With more than 30 years of financial services expertise, we’re
               committed to delivering high‑quality, cost‑effective outsourced
               solutions.

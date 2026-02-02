@@ -1,6 +1,5 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
 import img1 from "@/assets/CLImg/img1.png";
 import img2 from "@/assets/CLImg/img2.png";
 import img3 from "@/assets/CLImg/img3.png";

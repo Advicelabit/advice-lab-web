@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { FileText, Calculator, Home, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
 const services = [
   {
     icon: FileText,
@@ -44,7 +43,7 @@ export function ServicesOverview() {
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
           <div className="text-center mb-16">
-         <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Services
             </span>
             {/* <h2
@@ -59,7 +58,7 @@ export function ServicesOverview() {
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <ScrollAnimation
               key={index}

@@ -15,6 +15,7 @@ import Careers from "./pages/Careers";
 import BlogPost from "./pages/BlogPost";
 import PhilippinesVacancies from "./pages/careers/PhilippinesVacancies";
 import SriLankaVacancies from "./pages/careers/SriLankaVacancies";
+import JobDetail from "./pages/careers/JobDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -43,6 +44,7 @@ const App = () => (
             element={<PhilippinesVacancies />}
           />
           <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
+          <Route path="/careers/job/:jobId" element={<JobDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
