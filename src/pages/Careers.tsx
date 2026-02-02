@@ -1,9 +1,48 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { MapPin, Briefcase, ArrowRight } from "lucide-react";
+import { MapPin, Briefcase } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
+import {
+  BookOpen,
+  Download,
+  Calculator,
+  FileText,
+  ArrowRight,
+} from "lucide-react";
+
+const resources = [
+  {
+    icon: BookOpen,
+    title: "Offshoring Guide",
+    description:
+      "Everything you need to know about starting with offshore support.",
+    type: "Guide",
+    link: "#",
+  },
+  {
+    icon: Calculator,
+    title: "Pricing Calculator",
+    description: "Calculate your potential savings with our pricing tool.",
+    type: "Tool",
+    link: "#",
+  },
+  {
+    icon: FileText,
+    title: "Paraplanning Playbook",
+    description: "Best practices for working with offshore paraplanning teams.",
+    type: "Playbook",
+    link: "#",
+  },
+  {
+    icon: Download,
+    title: "One Week Free Trial",
+    description: "Try our paraplanning services free for one week.",
+    type: "Offer",
+    link: "/contact",
+  },
+];
 
 const benefits = [
   "Competitive salary packages",
@@ -180,6 +219,49 @@ const Careers = () => {
         </div>
       </section>
 
+      {/* Lead Magnets */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <ScrollAnimation animation="fade-up">
+            <div className="text-center mb-16">
+              <span className="text-primary font-semibold uppercase tracking-wider tracking-tight">
+                Free Resources
+              </span>
+              <h2 className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl">
+                Download & Learn
+              </h2>
+            </div>
+          </ScrollAnimation>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {resources.map((resource, index) => (
+              <ScrollAnimation
+                key={index}
+                animation="fade-up"
+                delay={index * 100}
+              >
+                <Link
+                  to={resource.link}
+                  className="group block p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover-lift h-full"
+                >
+                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:shadow-glow transition-shadow">
+                    <resource.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <span className="text-xs font-medium text-primary uppercase">
+                    {resource.type}
+                  </span>
+                  <h3 className="text-lg font-display font-bold mt-1 mb-2 group-hover:text-primary transition-colors">
+                    {resource.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {resource.description}
+                  </p>
+                </Link>
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <TrainingPartnersLogos />
 
       {/* CTA */}
@@ -198,7 +280,7 @@ const Careers = () => {
               asChild
               className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
             >
-              <Link to="/contact">
+              <Link to="/careers/submit-resume">
                 Submit Your Resume <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>

@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, CheckCircle } from "lucide-react";
+import { AlertCircle, CheckCircle, Upload } from "lucide-react";
+
+const API_BASE_URL =
+  "https://n54lm5igkl.execute-api.ap-southeast-2.amazonaws.com/dev";
 
 interface ApplicationFormProps {
   jobTitle: string;
@@ -84,29 +87,83 @@ export const ApplicationForm = ({
     setLoading(true);
 
     try {
-      // Simulate form submission - replace with actual API call
-      const formDataToSend = new FormData();
-      formDataToSend.append("fullName", formData.fullName);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("coverLetter", formData.coverLetter);
-      formDataToSend.append("jobTitle", jobTitle);
-      formDataToSend.append("jobId", jobId);
+      // Create a plain text email body for the resume submission
+      const emailBody = `
+ADVICELAB - NEW JOB APPLICATION
+===============================
+
+Applicant Details:
+------------------
+Full Name: ${formData.fullName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Position Applied: ${jobTitle}
+
+Cover Letter:
+-------------
+${formData.coverLetter}
+
+Resume Attached:
+----------------
+${formData.resume?.name || "No file attached"}
+
+---
+This application was submitted through the AdviceLab Careers page.
+      `;
+
+      // Convert resume file to base64 for attachment
+      let attachmentData = null;
       if (formData.resume) {
-        formDataToSend.append("resume", formData.resume);
+        const reader = new FileReader();
+        attachmentData = await new Promise<string | null>((resolve) => {
+          reader.onload = () => {
+            const base64String = reader.result as string;
+            // Extract the base64 data portion (remove data:application/pdf;base64, prefix)
+            const base64Data = base64String.split(",")[1] || base64String;
+            resolve(base64Data);
+          };
+          reader.onerror = () => resolve(null);
+          reader.readAsDataURL(formData.resume!);
+        });
       }
 
-      // Replace with your actual API endpoint
-      // const response = await fetch("/api/applications", {
-      //   method: "POST",
-      //   body: formDataToSend,
-      // });
-      // if (!response.ok) throw new Error("Failed to submit application");
+      // Send the email with attachment via the API
+      const response = await fetch(`${API_BASE_URL}/send-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          recipient: formData.email,
+          subject: `Application Received: ${jobTitle} - ${formData.fullName}`,
+          body: emailBody,
+          attachment: attachmentData
+            ? {
+                filename: formData.resume?.name,
+                contentType: formData.resume?.type,
+                data: attachmentData,
+              }
+            : null,
+        }),
+      });
 
-      // Simulating API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
 
       setSubmitted(true);
+      // Scroll to the top of the form content area to show the success message
+      setTimeout(() => {
+        const contentSection =
+          document.getElementById("submit-resume-content") ||
+          document.getElementById("job-detail-content") ||
+          document.querySelector('section[class*="bg-secondary"]');
+        if (contentSection) {
+          contentSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }, 100);
       setTimeout(() => {
         setSubmitted(false);
         onClose();
@@ -121,9 +178,9 @@ export const ApplicationForm = ({
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 text-center">
+      <div className="min-h-[400px] flex flex-col items-center justify-center py-12 text-center">
         <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Application Submitted!</h3>
+        <h3 className="text-3xl font-bold mb-2">Application Submitted!</h3>
         <p className="text-muted-foreground max-w-md">
           Thank you for applying for the {jobTitle} position. We'll review your
           application and get back to you soon.
@@ -135,15 +192,18 @@ export const ApplicationForm = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <h3 className="text-xl font-bold mb-1">Apply for this position</h3>
-        <p className="text-sm text-muted-foreground">{jobTitle}</p>
+        <h3 className="text-4xl font-bold mb-8">Apply for this position</h3>
+        <p className="text-lg text-muted-foreground mb-6">{jobTitle}</p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         {/* Full Name */}
-        <div className="space-y-2">
-          <Label htmlFor="fullName">
-            Full Name <span className="text-red-500">*</span>
+        <div>
+          <Label
+            htmlFor="fullName"
+            className="text-base font-semibold mb-2 block"
+          >
+            Full Name *
           </Label>
           <Input
             id="fullName"
@@ -152,13 +212,14 @@ export const ApplicationForm = ({
             value={formData.fullName}
             onChange={handleInputChange}
             required
+            className="h-12"
           />
         </div>
 
         {/* Email */}
-        <div className="space-y-2">
-          <Label htmlFor="email">
-            Email <span className="text-red-500">*</span>
+        <div>
+          <Label htmlFor="email" className="text-base font-semibold mb-2 block">
+            Email *
           </Label>
           <Input
             id="email"
@@ -168,13 +229,14 @@ export const ApplicationForm = ({
             value={formData.email}
             onChange={handleInputChange}
             required
+            className="h-12"
           />
         </div>
 
         {/* Phone */}
-        <div className="space-y-2">
-          <Label htmlFor="phone">
-            Phone <span className="text-red-500">*</span>
+        <div>
+          <Label htmlFor="phone" className="text-base font-semibold mb-2 block">
+            Phone *
           </Label>
           <Input
             id="phone"
@@ -183,13 +245,17 @@ export const ApplicationForm = ({
             value={formData.phone}
             onChange={handleInputChange}
             required
+            className="h-12"
           />
         </div>
 
         {/* Cover Letter */}
-        <div className="space-y-2">
-          <Label htmlFor="coverLetter">
-            Cover Letter <span className="text-red-500">*</span>
+        <div>
+          <Label
+            htmlFor="coverLetter"
+            className="text-base font-semibold mb-2 block"
+          >
+            Cover Letter *
           </Label>
           <Textarea
             id="coverLetter"
@@ -197,48 +263,55 @@ export const ApplicationForm = ({
             placeholder="Tell us why you're interested in this position and what makes you a great fit for the role..."
             value={formData.coverLetter}
             onChange={handleInputChange}
-            rows={5}
+            rows={6}
             required
+            className="resize-none"
           />
         </div>
 
         {/* Resume Upload */}
-        <div className="space-y-2">
-          <Label htmlFor="resume">
-            Upload CV/Resume <span className="text-red-500">*</span>
+        <div>
+          <Label
+            htmlFor="resume"
+            className="text-base font-semibold mb-2 block"
+          >
+            Upload CV/Resume *
           </Label>
-          <div className="flex items-center justify-between p-4 border-2 border-dashed border-border rounded-lg hover:border-primary transition-colors">
-            <div className="flex-1">
-              <input
-                id="resume"
-                name="resume"
-                type="file"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                className="hidden"
-                required
-              />
-              <label
-                htmlFor="resume"
-                className="cursor-pointer flex items-center gap-2"
-              >
-                <span className="text-sm text-muted-foreground">
-                  {fileName || "No file chosen"}
-                </span>
-              </label>
-            </div>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => document.getElementById("resume")?.click()}
-            >
-              Choose File
-            </Button>
+          <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
+            <input
+              id="resume"
+              name="resume"
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileChange}
+              className="hidden"
+              required
+            />
+            <label htmlFor="resume" className="cursor-pointer block">
+              <div className="flex justify-center mb-2">
+                <Upload className="w-8 h-8 text-muted-foreground" />
+              </div>
+              {formData.resume ? (
+                <div>
+                  <p className="font-semibold text-primary">
+                    {formData.resume.name}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Click to change file
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <p className="font-semibold">
+                    Click to upload or drag and drop
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    PDF, DOC or DOCX (max. 5MB)
+                  </p>
+                </div>
+              )}
+            </label>
           </div>
-          <p className="text-xs text-muted-foreground">
-            Allowed Type(s): .pdf, .doc, .docx
-          </p>
         </div>
 
         {/* Agreement */}
@@ -246,7 +319,7 @@ export const ApplicationForm = ({
           <AlertCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
           <label className="flex items-start gap-2 cursor-pointer flex-1">
             <input type="checkbox" required className="mt-1 accent-primary" />
-            <span className="text-xs text-muted-foreground">
+            <span className="text-sm text-muted-foreground">
               By using this form you agree with the storage and handling of your
               data by this website. <span className="text-red-500">*</span>
             </span>
@@ -260,14 +333,14 @@ export const ApplicationForm = ({
           type="button"
           variant="outline"
           onClick={onClose}
-          className="flex-1"
+          className="flex-1 h-12"
           disabled={loading}
         >
           Cancel
         </Button>
         <Button
           type="submit"
-          className="flex-1"
+          className="flex-1 h-12"
           disabled={loading || !validateForm()}
         >
           {loading ? "Submitting..." : "Submit Application"}

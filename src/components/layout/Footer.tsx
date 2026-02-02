@@ -122,23 +122,22 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <strong>Australia:</strong> 368 Sussex St, Sydney, NSW 2000
+                    <span>Australia:</span> 368 Sussex St, Sydney, NSW 2000
                   </span>
                 </div>
 
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <strong>Sri Lanka:</strong> 75 Keththarama Mawatha, Colombo
-                    14
+                    <span>Sri Lanka:</span> 75 Keththarama Mawatha, Colombo 14
                   </span>
                 </div>
 
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <strong>Philippines:</strong> Level 29, World Plaza, 5th
-                    Avenue, BGC Fort Bonifacio 1634 Taguig City
+                    <span>Philippines:</span> Level 29, World Plaza, 5th Avenue,
+                    BGC Fort Bonifacio 1634 Taguig City
                   </span>
                 </div>
               </div>

@@ -41,7 +41,7 @@ export function ClientLogos() {
         <ScrollAnimation animation="fade-up">
           <div className="flex items-center justify-center">
             <p className="text-primary-foreground text-xl sm:text-2xl md:text-[30px] font-bold text-center leading-tight px-2">
-              Australian advisers grow their business with Advice Lab
+              Australian financial advisers grow together with Advice Lab
             </p>
           </div>
         </ScrollAnimation>
