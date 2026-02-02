@@ -1,12 +1,12 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 import a from "@/assets/TrainingPartnersImg/acca-professional-development.png";
-import b from "@/assets/TrainingPartnersImg/ACCA-trainee-development-gold.png";
+import b from "@/assets/TrainingPartnersImg/acca-trainee-development-gold.png";
 import c from "@/assets/TrainingPartnersImg/aicpa-and-cima.png";
 import d from "@/assets/TrainingPartnersImg/sliit-campus-logo.png";
 import e from "@/assets/TrainingPartnersImg/royal-institute-of-colombo.png";
 import f from "@/assets/TrainingPartnersImg/nsbm-university.png";
-import g from "@/assets/TrainingPartnersImg/BMS-Logo.png";
+import g from "@/assets/TrainingPartnersImg/bms-Logo.png";
 import h from "@/assets/TrainingPartnersImg/nibm-logo.png";
 
 const universityLogos = [
