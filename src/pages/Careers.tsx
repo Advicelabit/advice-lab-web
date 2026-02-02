@@ -3,40 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-
-
-const openRoles = [
-  {
-    title: "Senior Paraplanner",
-    location: "Philippines",
-    type: "Full-time",
-    department: "Paraplanning",
-  },
-  {
-    title: "Financial Analyst",
-    location: "Sri Lanka",
-    type: "Full-time",
-    department: "Accounting",
-  },
-  {
-    title: "Mortgage Processor",
-    location: "Philippines",
-    type: "Full-time",
-    department: "Mortgage",
-  },
-  {
-    title: "Client Success Manager",
-    location: "Australia (Remote)",
-    type: "Full-time",
-    department: "Operations",
-  },
-  {
-    title: "Quality Assurance Specialist",
-    location: "Philippines",
-    type: "Full-time",
-    department: "Quality",
-  },
-];
+import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
 
 const benefits = [
   "Competitive salary packages",
@@ -74,9 +41,7 @@ const Careers = () => {
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                   Why Work With Us
                 </span>
-                <h2
-                  className="font-display font-bold mt-2 mb-6 text-muted-foreground text-2xl md:text-3xl"
-                >
+                <h2 className="font-display font-bold mt-2 mb-6 text-muted-foreground text-2xl md:text-3xl">
                   A Great Place to Grow
                 </h2>
                 <p className="text-muted-foreground mb-8">
@@ -91,25 +56,31 @@ const Careers = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-4 mt-8">
+                <div className="flex flex-wrap gap-3 mt-6">
                   <Button
-                    size="lg"
+                    size="sm"
                     asChild
-                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
+                    className="h-12 px-12 text-md w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
                   >
-                    <Link to="/careers/philippines">
-                      Explore Philippines Vacancies{" "}
-                      <ArrowRight className="w-5 h-5" />
+                    <Link
+                      to="/careers/srilanka"
+                      className="flex items-center gap-2"
+                    >
+                      Explore Sri Lanka
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
                   <Button
-                    size="lg"
+                    size="sm"
                     asChild
-                    className="hover:scale-105 transition-transform h-14 w-full sm:w-auto sm:min-w-[240px]"
+                    className="h-12 px-12 text-md  w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
                   >
-                    <Link to="/careers/srilanka">
-                      Explore Sri Lanka Vacancies{" "}
-                      <ArrowRight className="w-5 h-5" />
+                    <Link
+                      to="/careers/philippines"
+                      className="flex items-center gap-2"
+                    >
+                      Explore Philippines
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
                 </div>
@@ -125,44 +96,6 @@ const Careers = () => {
           </div>
         </div>
       </section>
-
-      {/* Open Roles
-      <section className="py-24 bg-secondary">
-        <div className="container mx-auto px-4 lg:px-8">
-          <ScrollAnimation animation="fade-up">
-            <div className="text-center mb-16">
-              <span className="text-primary font-semibold uppercase tracking-wider tracking-tight">Opportunities</span>
-              <h2 className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl">Open Positions</h2>
-            </div>
-          </ScrollAnimation>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {openRoles.map((role, index) => (
-              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
-                <div className="p-6 bg-background rounded-2xl border border-border hover:border-primary/30 hover-lift flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div>
-                    <h3 className="text-lg font-display font-bold mb-2">{role.title}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {role.location}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Briefcase className="w-4 h-4" />
-                        {role.department}
-                      </span>
-                    </div>
-                  </div>
-                  <Button variant="outline" asChild className="hover:scale-105 transition-transform">
-                    <Link to="/contact">
-                      Apply <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Instagram Feed */}
       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
@@ -187,20 +120,43 @@ const Careers = () => {
 
           {/* Instagram Feed Widget Container */}
           <div className="max-w-6xl mx-auto ">
-            <div 
+            <div
               className="instagram-feed-widget bg-white rounded-2xl p-4 flex items-center justify-center"
               id="instagram-feed-container"
-              style={{ position: 'relative' }}
+              style={{ position: "relative" }}
             >
-              <iframe 
-                src="https://www.juicer.io/api/feeds/advice-lab-270a837c-9b66-449e-8c6c-23d850295bef/iframe" 
-                frameBorder="0" 
-                width="100%" 
-                height="700" 
-                style={{ display: 'block', margin: '0 auto' }}
+              <iframe
+                src="https://www.juicer.io/api/feeds/advice-lab-270a837c-9b66-449e-8c6c-23d850295bef/iframe"
+                frameBorder="0"
+                width="100%"
+                height="700"
+                style={{ display: "block", margin: "0 auto" }}
               ></iframe>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', background: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0))', pointerEvents: 'none' }}></div>
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px', background: 'linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0))', pointerEvents: 'none' }}></div>
+
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "50px",
+                  background:
+                    "linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0))",
+                  pointerEvents: "none",
+                }}
+              ></div>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "200px",
+                  background:
+                    "linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0))",
+                  pointerEvents: "none",
+                }}
+              ></div>
             </div>
           </div>
 
@@ -223,6 +179,8 @@ const Careers = () => {
           </div>
         </div>
       </section>
+
+      <TrainingPartnersLogos />
 
       {/* CTA */}
       <section className="py-24 bg-background">

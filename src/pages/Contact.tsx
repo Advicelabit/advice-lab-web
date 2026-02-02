@@ -7,7 +7,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
 const contactInfo = [
   {
     icon: Mail,
@@ -17,12 +16,23 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    value: "1300 123 456",
+    value: "02 8074 0884",
   },
   {
     icon: MapPin,
     title: "Address",
-    value: "Sydney, Australia",
+    value: "368 Sussex St, Sydney, NSW 2000, Australia",
+  },
+  {
+    icon: MapPin,
+    title: "Address",
+    value: "75 Keththarama Mawatha, Colombo 14,Sri Lanka",
+  },
+  {
+    icon: MapPin,
+    title: "Address",
+    value:
+      "Level 29, World Plaza, 5thAvenue, BGC Fort Bonifacio 1634 Taguig City",
   },
   {
     icon: Clock,
@@ -73,26 +83,36 @@ const Contact = () => {
             {/* Form */}
             <ScrollAnimation animation="fade-right">
               <div>
-                <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-display font-bold mb-6">
+                  Send Us a Message
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">Name</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Name
+                      </label>
                       <Input
                         placeholder="Your name"
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         required
                         className="transition-all duration-300 focus:scale-[1.02]"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Email</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Email
+                      </label>
                       <Input
                         type="email"
                         placeholder="your@email.com"
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         required
                         className="transition-all duration-300 focus:scale-[1.02]"
                       />
@@ -100,37 +120,53 @@ const Contact = () => {
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">Company</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Company
+                      </label>
                       <Input
                         placeholder="Your company"
                         value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, company: e.target.value })
+                        }
                         className="transition-all duration-300 focus:scale-[1.02]"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Phone</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Phone
+                      </label>
                       <Input
                         type="tel"
                         placeholder="Your phone number"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                         className="transition-all duration-300 focus:scale-[1.02]"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Message
+                    </label>
                     <Textarea
                       placeholder="Tell us about your needs..."
                       rows={6}
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       required
                       className="transition-all duration-300 focus:scale-[1.01]"
                     />
                   </div>
-                  <Button type="submit" size="lg" className="w-full sm:w-auto hover:scale-105 transition-transform">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full sm:w-auto hover:scale-105 transition-transform"
+                  >
                     Send Message
                   </Button>
                 </form>
@@ -140,28 +176,52 @@ const Contact = () => {
             {/* Contact Info */}
             <ScrollAnimation animation="fade-left" delay={200}>
               <div>
-                <h2 className="text-2xl font-display font-bold mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-display font-bold mb-6">
+                  Contact Information
+                </h2>
                 <div className="space-y-6 mb-12">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start gap-4 hover-lift p-3 rounded-xl transition-all duration-300">
-                      <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <p className="font-medium">{info.title}</p>
-                        <p className="text-muted-foreground">{info.value}</p>
-                      </div>
-                    </div>
-                  ))}
+                  {contactInfo.map((info, index) => {
+                    // Determine the href based on the type
+                    let href = "";
+                    if (info.title === "Email") href = `mailto:${info.value}`;
+                    if (info.title === "Phone")
+                      href = `tel:${info.value.replace(/\s+/g, "")}`; // remove spaces for tel
+
+                    return (
+                      <a
+                        key={index}
+                        href={href || "#"} // fallback
+                        className="flex items-start gap-4 hover-lift p-3 rounded-xl transition-all duration-300"
+                      >
+                        <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
+                          <info.icon className="w-6 h-6 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <p className="font-medium">{info.title}</p>
+                          <p className="text-muted-foreground">{info.value}</p>
+                        </div>
+                      </a>
+                    );
+                  })}
                 </div>
 
                 {/* Book Demo Card */}
                 <div className="p-8 gradient-primary rounded-3xl text-primary-foreground hover-lift">
-                  <h3 className="text-xl font-display font-bold mb-4">Book a Demo</h3>
+                  <h3 className="text-xl font-display font-bold mb-4">
+                    Book a Demo
+                  </h3>
                   <p className="text-primary-foreground/80 mb-6">
-                    See how Advice Lab can transform your practice with a personalized demo.
+                    See how Advice Lab can transform your practice with a
+                    personalized demo.
                   </p>
-                  <Button variant="white" className="hover:scale-105 transition-transform">Schedule Now</Button>
+                  <a href="#">
+                    <Button
+                      variant="white"
+                      className="hover:scale-105 transition-transform"
+                    >
+                      Schedule Now
+                    </Button>
+                  </a>
                 </div>
               </div>
             </ScrollAnimation>

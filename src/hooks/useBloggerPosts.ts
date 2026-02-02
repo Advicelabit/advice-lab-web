@@ -15,7 +15,10 @@ const FEED_URL =
   "https://wishwanett.blogspot.com/feeds/posts/default?alt=json-in-script";
 
 const stripHtml = (value: string) =>
-  value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  value
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const truncate = (value: string, length: number) =>
   value.length > length ? `${value.slice(0, length).trim()}...` : value;

@@ -5,14 +5,13 @@ import { ClientLogos } from "@/components/home/ClientLogos";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { Testimonials } from "@/components/home/Testimonials";
-
-
 const Index = () => {
   return (
     <Layout>
       {/* <TopBanner /> */}
       <HeroSlider />
       <ClientLogos />
+
       <ServicesOverview />
       <WhyChooseUs />
       <Testimonials />

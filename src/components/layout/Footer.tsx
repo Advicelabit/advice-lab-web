@@ -48,7 +48,9 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 export function Footer() {
   const { pathname } = useLocation();
-  const hideCta = pathname.startsWith("/careers");
+  const hideCta =
+    pathname.startsWith("/careers") || pathname.startsWith("/contact");
+
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
 
@@ -115,11 +117,29 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5" />
-                  <span>1300 123 456</span>
+                  <span>02 8074 0884</span>
                 </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPin className="w-5 h-5" />
-                  <span>Sydney, Australia</span>
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <span>
+                    <strong>Australia:</strong> 368 Sussex St, Sydney, NSW 2000
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <span>
+                    <strong>Sri Lanka:</strong> 75 Keththarama Mawatha, Colombo
+                    14
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <span>
+                    <strong>Philippines:</strong> Level 29, World Plaza, 5th
+                    Avenue, BGC Fort Bonifacio 1634 Taguig City
+                  </span>
                 </div>
               </div>
             </div>
@@ -213,6 +233,28 @@ export function Footer() {
                 <TikTokIcon className="w-5 h-5" />
               </a>
             </div>
+          </div>
+          {/* Privacy Policy Notice */}
+          <div className="mt-6 text-center text-xs text-muted-foreground/50 max-w-4xl mx-auto">
+            To view our{" "}
+            <a
+              href="/pdf/AL_Privacy-policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:underline"
+            >
+              Privacy Policy
+            </a>
+            , please click here. If you wish to make an enquiry regarding any
+            privacy concerns, please contact us at{" "}
+            <a
+              href="mailto:hello@advicelab.com.au"
+              className="text-foreground hover:underline"
+            >
+              hello@advicelab.com.au
+            </a>
+            . We will respond to your request within 7 days of receipt of the
+            query.
           </div>
         </div>
       </div>

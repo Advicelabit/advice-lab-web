@@ -13,7 +13,6 @@ import {
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { useBloggerPosts } from "@/hooks/useBloggerPosts";
 
-
 const resources = [
   {
     icon: BookOpen,
@@ -148,9 +147,7 @@ const Blog = () => {
               >
                 Blog
               </span> */}
-              <h2
-                className="font-display font-bold mt-0 text-muted-foreground text-2xl md:text-3xl"
-              >
+              <h2 className="font-display font-bold mt-0 text-muted-foreground text-2xl md:text-3xl">
                 Latest Insights
               </h2>
             </div>
@@ -274,9 +271,7 @@ const Blog = () => {
               <Button
                 size="lg"
                 onClick={() =>
-                  setVisibleCount((prev) =>
-                    Math.min(prev + 6, posts.length)
-                  )
+                  setVisibleCount((prev) => Math.min(prev + 6, posts.length))
                 }
                 className="px-8"
               >
