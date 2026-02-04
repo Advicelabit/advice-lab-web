@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
 const offerings = [
   {
     title: "Statement of Advice preparation",
@@ -156,7 +155,9 @@ const Paraplanning = () => {
               Paraplanning
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              Providing you accurate plans with fast turnaround times and consistent quality, giving you hours back to focus more on your clients.
+              Providing you accurate plans with fast turnaround times and
+              consistent quality, giving you hours back to focus more on your
+              clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
@@ -178,7 +179,10 @@ const Paraplanning = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
-          <ScrollAnimation animation="fade-up" className="w-full text-center mb-16">
+          <ScrollAnimation
+            animation="fade-up"
+            className="w-full text-center mb-16"
+          >
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Offering
             </span>
@@ -187,7 +191,8 @@ const Paraplanning = () => {
               <span className="gradient-text"> - it must be our offering</span>
             </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-               Comprehensive paraplanning solutions tailored to your practice needs
+              Comprehensive paraplanning solutions tailored to your practice
+              needs
             </p>
           </ScrollAnimation>
 
@@ -281,7 +286,7 @@ const Paraplanning = () => {
               Why Choose Us
             </span> */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Why Partner With <span className="gradient-text">Advice Lab</span>
+              Why Partner With Advice Lab
             </h2>
             {/* <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our paraplanning service combines deep industry knowledge with

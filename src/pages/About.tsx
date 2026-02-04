@@ -309,29 +309,29 @@ const About = () => {
                 delay={index * 100}
               >
                 <div className="group relative h-full">
-                  {/* Card */}
                   <div className="relative h-full bg-white rounded-2xl p-4 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
-                    {/* Gradient accent on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    {/* Hover gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div className="relative">
                       {/* Icon */}
-                      <div className="relative mb-7">
-                        {/* <div className="relative w-10 h-10 rounded-[12px] bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                          <value.icon className="w-5 h-5 text-white" />
-                        </div> */}
+                      <div className="mb-6">
+                        <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center group-hover:shadow-glow transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
+                          <value.icon className="w-6 h-6 text-primary-foreground" />
+                        </div>
                       </div>
 
                       {/* Content */}
                       <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                         {value.title}
                       </h3>
+
                       <p className="text-muted-foreground text-sm leading-relaxed">
                         {value.description}
                       </p>
 
-                      {/* Bottom accent line */}
-                      <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500"></div>
+                      {/* Bottom accent */}
+                      <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500" />
                     </div>
                   </div>
                 </div>

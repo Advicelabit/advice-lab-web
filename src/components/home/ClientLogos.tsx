@@ -1,37 +1,39 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-
-import img1 from "@/assets/CLImg/img1.png";
-import img2 from "@/assets/CLImg/img2.png";
-import img3 from "@/assets/CLImg/img3.png";
-import img4 from "@/assets/CLImg/img4.png";
-import img5 from "@/assets/CLImg/img5.png";
-import img6 from "@/assets/CLImg/img6.png";
-import img7 from "@/assets/CLImg/img7.png";
-import img8 from "@/assets/CLImg/img8.png";
-import img9 from "@/assets/CLImg/img9.png";
-import img10 from "@/assets/CLImg/img10.png";
-import img11 from "@/assets/CLImg/img11.png";
-import img12 from "@/assets/CLImg/img12.png";
-import img13 from "@/assets/CLImg/img13.png";
-import img14 from "@/assets/CLImg/img14.png";
-import img16 from "@/assets/CLImg/img16.png";
+import newCastleEmpoweredWealth from "@/assets/CLImg/new-castle-empowered-wealth.png";
+import abacusWealthSolution from "@/assets/CLImg/abacus-wealth-solution.png";
+import accountplan from "@/assets/CLImg/accountplan.png";
+import atlasWealthAdvisory from "@/assets/CLImg/atlas-wealth-advisory.png";
+import coastalAdviceGroup from "@/assets/CLImg/coastal-advice-group.png";
+import finsuraWealthManagement from "@/assets/CLImg/finsura-wealth-management.png";
+import ftfCapital from "@/assets/CLImg/ftf-capital.png";
+import financeUnlimitedWealth from "@/assets/CLImg/finance-unlimited-wealth.png";
+import lifelongWealth from "@/assets/CLImg/lifelong-wealth.png";
+import frostFinancial from "@/assets/CLImg/frost-financial.png";
+import discoveryWealthAdvisers from "@/assets/CLImg/discovery-wealth-advisers.png";
+import makairaFinancialSolution from "@/assets/CLImg/makaira-financial-solution.png";
+import miscoastFinancialPlanningGroup from "@/assets/CLImg/miscoast-financial-planning-group.png";
+import mpmWealthManagement from "@/assets/CLImg/mpm-wealth-management.png";
+import zebraTailloredWealth from "@/assets/CLImg/zebra-taillored-wealth.png";
 
 const logos = [
-  { src: img1, alt: "Client Logo 1" },
-  { src: img2, alt: "Client Logo 2" },
-  { src: img3, alt: "Client Logo 3" },
-  { src: img4, alt: "Client Logo 4" },
-  { src: img5, alt: "Client Logo 5" },
-  { src: img6, alt: "Client Logo 6" },
-  { src: img7, alt: "Client Logo 7" },
-  { src: img8, alt: "Client Logo 8" },
-  { src: img9, alt: "Client Logo 9" },
-  { src: img10, alt: "Client Logo 10" },
-  { src: img11, alt: "Client Logo 11" },
-  { src: img12, alt: "Client Logo 12" },
-  { src: img13, alt: "Client Logo 13" },
-  { src: img14, alt: "Client Logo 14" },
-  { src: img16, alt: "Client Logo 16" },
+  { src: newCastleEmpoweredWealth, alt: "New Castle Empowered Wealth logo" },
+  { src: abacusWealthSolution, alt: "Abacus Wealth Solution logo" },
+  { src: accountplan, alt: "Accountplan logo" },
+  { src: atlasWealthAdvisory, alt: "Atlas Wealth Advisory logo" },
+  { src: coastalAdviceGroup, alt: "Coastal Advice Group logo" },
+  { src: finsuraWealthManagement, alt: "Finsura Wealth Management logo" },
+  { src: ftfCapital, alt: "FTF Capital logo" },
+  { src: financeUnlimitedWealth, alt: "Finance Unlimited Wealth logo" },
+  { src: lifelongWealth, alt: "Lifelong Wealth logo" },
+  { src: frostFinancial, alt: "Frost Financial logo" },
+  { src: discoveryWealthAdvisers, alt: "Discovery Wealth Advisers logo" },
+  { src: makairaFinancialSolution, alt: "Makaira Financial Solution logo" },
+  {
+    src: miscoastFinancialPlanningGroup,
+    alt: "Miscoast Financial Planning Group logo",
+  },
+  { src: mpmWealthManagement, alt: "MPM Wealth Management logo" },
+  { src: zebraTailloredWealth, alt: "Zebra Tailored Wealth logo" },
 ];
 
 export function ClientLogos() {

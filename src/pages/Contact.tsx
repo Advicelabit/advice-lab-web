@@ -23,17 +23,17 @@ const contactInfo = [
     title: "Address",
     value: "368 Sussex St, Sydney, NSW 2000, Australia",
   },
-  {
-    icon: MapPin,
-    title: "Address",
-    value: "75 Keththarama Mawatha, Colombo 14,Sri Lanka",
-  },
-  {
-    icon: MapPin,
-    title: "Address",
-    value:
-      "Level 29, World Plaza, 5thAvenue, BGC Fort Bonifacio 1634 Taguig City",
-  },
+  // {
+  //   icon: MapPin,
+  //   title: "Address",
+  //   value: "75 Keththarama Mawatha, Colombo 14,Sri Lanka",
+  // },
+  // {
+  //   icon: MapPin,
+  //   title: "Address",
+  //   value:
+  //     "Level 29, World Plaza, 5thAvenue, BGC Fort Bonifacio 1634 Taguig City",
+  // },
   {
     icon: Clock,
     title: "Business Hours",

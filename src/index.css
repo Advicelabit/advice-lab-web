@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -38,16 +38,38 @@
     --radius: 0.75rem;
 
     /* Custom gradients - Purple to Dark Purple */
-    --gradient-primary: linear-gradient(135deg, hsl(244, 98%, 51%) 0%, hsl(244, 100%, 22%) 100%);
-    --gradient-primary-hover: linear-gradient(135deg, hsl(244, 100%, 22%) 0%, hsl(244, 98%, 51%) 100%);
-    --gradient-light: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 14%, 91%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(244, 98%, 51%) 0%, hsl(244, 100%, 22%) 100%);
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(244, 98%, 51%) 0%,
+      hsl(244, 100%, 22%) 100%
+    );
+    --gradient-primary-hover: linear-gradient(
+      135deg,
+      hsl(244, 100%, 22%) 0%,
+      hsl(244, 98%, 51%) 100%
+    );
+    --gradient-light: linear-gradient(
+      180deg,
+      hsl(0, 0%, 100%) 0%,
+      hsl(220, 14%, 91%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(244, 98%, 51%) 0%,
+      hsl(244, 100%, 22%) 100%
+    );
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(244, 98%, 51%, 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(244, 98%, 51%, 0.1), 0 2px 4px -2px hsl(244, 98%, 51%, 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(244, 98%, 51%, 0.1), 0 4px 6px -4px hsl(244, 98%, 51%, 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(244, 98%, 51%, 0.1), 0 8px 10px -6px hsl(244, 98%, 51%, 0.1);
+    --shadow-md:
+      0 4px 6px -1px hsl(244, 98%, 51%, 0.1),
+      0 2px 4px -2px hsl(244, 98%, 51%, 0.1);
+    --shadow-lg:
+      0 10px 15px -3px hsl(244, 98%, 51%, 0.1),
+      0 4px 6px -4px hsl(244, 98%, 51%, 0.1);
+    --shadow-xl:
+      0 20px 25px -5px hsl(244, 98%, 51%, 0.1),
+      0 8px 10px -6px hsl(244, 98%, 51%, 0.1);
     --shadow-glow: 0 0 40px hsl(244, 98%, 51%, 0.3);
 
     --sidebar-background: 0 0% 98%;
@@ -101,7 +123,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-bold tracking-tight;
   }
 }
@@ -169,51 +196,80 @@
   .scroll-fade-up {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-fade-down {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-fade-left {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-fade-right {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-scale-in {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-blur-in {
     opacity: 1;
     filter: blur(0);
-    transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+    transition:
+      opacity 0.8s ease-out,
+      filter 0.8s ease-out;
   }
 
   /* Animation delays */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-  .delay-400 { transition-delay: 400ms; }
-  .delay-500 { transition-delay: 500ms; }
-  .delay-600 { transition-delay: 600ms; }
-  .delay-700 { transition-delay: 700ms; }
-  .delay-800 { transition-delay: 800ms; }
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  .delay-300 {
+    transition-delay: 300ms;
+  }
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+  .delay-500 {
+    transition-delay: 500ms;
+  }
+  .delay-600 {
+    transition-delay: 600ms;
+  }
+  .delay-700 {
+    transition-delay: 700ms;
+  }
+  .delay-800 {
+    transition-delay: 800ms;
+  }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -271,14 +327,30 @@
     transform: translateY(20px);
   }
 
-  .stagger-children.animate > *:nth-child(1) { animation: staggerFadeIn 0.6s ease-out 0.1s forwards; }
-  .stagger-children.animate > *:nth-child(2) { animation: staggerFadeIn 0.6s ease-out 0.2s forwards; }
-  .stagger-children.animate > *:nth-child(3) { animation: staggerFadeIn 0.6s ease-out 0.3s forwards; }
-  .stagger-children.animate > *:nth-child(4) { animation: staggerFadeIn 0.6s ease-out 0.4s forwards; }
-  .stagger-children.animate > *:nth-child(5) { animation: staggerFadeIn 0.6s ease-out 0.5s forwards; }
-  .stagger-children.animate > *:nth-child(6) { animation: staggerFadeIn 0.6s ease-out 0.6s forwards; }
-  .stagger-children.animate > *:nth-child(7) { animation: staggerFadeIn 0.6s ease-out 0.7s forwards; }
-  .stagger-children.animate > *:nth-child(8) { animation: staggerFadeIn 0.6s ease-out 0.8s forwards; }
+  .stagger-children.animate > *:nth-child(1) {
+    animation: staggerFadeIn 0.6s ease-out 0.1s forwards;
+  }
+  .stagger-children.animate > *:nth-child(2) {
+    animation: staggerFadeIn 0.6s ease-out 0.2s forwards;
+  }
+  .stagger-children.animate > *:nth-child(3) {
+    animation: staggerFadeIn 0.6s ease-out 0.3s forwards;
+  }
+  .stagger-children.animate > *:nth-child(4) {
+    animation: staggerFadeIn 0.6s ease-out 0.4s forwards;
+  }
+  .stagger-children.animate > *:nth-child(5) {
+    animation: staggerFadeIn 0.6s ease-out 0.5s forwards;
+  }
+  .stagger-children.animate > *:nth-child(6) {
+    animation: staggerFadeIn 0.6s ease-out 0.6s forwards;
+  }
+  .stagger-children.animate > *:nth-child(7) {
+    animation: staggerFadeIn 0.6s ease-out 0.7s forwards;
+  }
+  .stagger-children.animate > *:nth-child(8) {
+    animation: staggerFadeIn 0.6s ease-out 0.8s forwards;
+  }
 
   @keyframes staggerFadeIn {
     from {
@@ -293,7 +365,9 @@
 
   /* Smooth hover transitions */
   .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease;
   }
 
   .hover-lift:hover {
@@ -307,11 +381,26 @@
   }
 
   @keyframes pulseGlow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px hsl(244, 98%, 51%, 0.3);
     }
     50% {
       box-shadow: 0 0 40px hsl(244, 98%, 51%, 0.5);
     }
   }
+}
+
+/* In your global.css or tailwind.css */
+.prose * {
+  background-color: transparent !important;
+}
+
+.prose {
+  --tw-prose-body: theme("colors.black");
+  --tw-prose-headings: theme("colors.black");
+  --tw-prose-links: theme("colors.black");
+  --tw-prose-bold: theme("colors.black");
+  --tw-prose-code: theme("colors.black");
+  --tw-prose-quotes: theme("colors.black");
 }

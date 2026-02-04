@@ -92,7 +92,7 @@ export const CareersPageTemplate = ({
           {/* Section Header */}
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                 Opportunities
               </span>
               <h2 className="font-display font-bold mt-2 text-muted-foreground text-xl sm:text-2xl md:text-3xl">
