@@ -149,7 +149,8 @@ const Careers = () => {
                 Follow Us
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-                Life at <span className="gradient-text">Advice Lab</span>
+                Life at Advice Lab
+                {/* <span className="gradient-text">Advice Lab</span> */}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 See what it's like to be part of our team

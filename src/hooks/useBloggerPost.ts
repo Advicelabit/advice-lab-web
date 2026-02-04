@@ -3,8 +3,7 @@ import { BloggerPost } from "./useBloggerPosts";
 
 type BloggerPostDetail = BloggerPost & { contentHtml: string };
 
-const FEED_BASE =
-  "https://wishwanett.blogspot.com/feeds/posts/default/";
+const FEED_BASE = "https://advicelab.blogspot.com/feeds/posts/default/";
 
 const removeScripts = (html: string) =>
   html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
@@ -36,7 +35,7 @@ const normalizeEntry = (entry: any): BloggerPostDetail => {
   const published = entry?.published?.$t || entry?.updated?.$t || "";
   const thumbnail = entry?.media$thumbnail?.url?.replace?.(
     /\/s72(-c)?/,
-    "/s720"
+    "/s720",
   );
   const categories =
     entry?.category?.map?.((item: any) => item?.term).filter(Boolean) || [];

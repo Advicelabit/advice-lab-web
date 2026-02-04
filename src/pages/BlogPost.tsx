@@ -37,7 +37,6 @@ const BlogPost = () => {
                 </span>
               </Link>
             </Button>
-   
           </div>
           <ScrollAnimation animation="fade-up">
             {loading ? (

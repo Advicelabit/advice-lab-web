@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
-
 const offerings = [
   {
     title: "Review Support, Done Right",
@@ -164,10 +162,11 @@ const ClientSupport = () => {
               </span> */}
             </div>
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-            Client Support Officers
+              Client Support Officers
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-          Reliable support services that strengthens your workflow and helping you deliver excellent client services.
+              Reliable support services that strengthens your workflow and
+              helping you deliver excellent client services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
@@ -189,7 +188,10 @@ const ClientSupport = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
-          <ScrollAnimation animation="fade-up" className="w-full text-center mb-16">
+          <ScrollAnimation
+            animation="fade-up"
+            className="w-full text-center mb-16"
+          >
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Offering
             </span>
@@ -292,7 +294,7 @@ const ClientSupport = () => {
               Why Choose Us
             </span> */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Why Partner With <span className="gradient-text">Advice Lab</span>
+              Why Partner With Advice Lab
             </h2>
             {/* <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our paraplanning service combines deep industry knowledge with

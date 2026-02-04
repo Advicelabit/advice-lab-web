@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/advicelab-logo.png";
 
-
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -111,13 +110,13 @@ export function Navbar() {
               >
                 {item.name}
               </Link>
-            )
+            ),
           )}
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
           <Button variant="outline" size="sm" asChild className="w-40">
-            <Link to="/contact">Explore Services</Link>
+            <Link to="/services">Explore Services</Link>
           </Button>
           <Button size="sm" asChild className="w-40">
             <Link to="/contact">Get in Touch</Link>
@@ -140,7 +139,9 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed top-[76px] left-0 right-0 bg-background border-t border-border transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+          mobileMenuOpen
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-full opacity-0 pointer-events-none"
         }`}
       >
         <div className="container mx-auto py-4 px-4 space-y-2">
@@ -149,9 +150,7 @@ export function Navbar() {
               <Link
                 to={item.href}
                 className={`block py-3 text-base font-medium ${
-                  isActive(item.href)
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                  isActive(item.href) ? "text-primary" : "text-muted-foreground"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
