@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -149,6 +150,19 @@ const ClientSupport = () => {
 
   return (
     <Layout>
+      <Seo
+        title="Client Service & Administrative Support | Advice Lab"
+        description="Professional client service officers for financial advisers. Bookkeeping, reporting, BAS preparation, payroll & reconciliations. Streamline your operations."
+        keywords="client service officers, bookkeeping services, financial reporting, BAS preparation, payroll processing, financial reconciliation, business administration, advisory support services"
+        pathname="/services/clientsupport"
+        schemaData={{
+          "@type": "LocalBusiness",
+          name: "Advice Lab Client Support Services",
+          description:
+            "Professional client service and administrative support for financial advisers",
+          url: "https://advicelab.com.au/services/clientsupport",
+        }}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">

@@ -51,13 +51,25 @@ export const CareersPageTemplate = ({
   );
 
   // Get unique categories and types
-  const categories = useMemo(() => {
-    return Array.from(new Set(locationJobs.map((job) => job.category))).sort();
-  }, [locationJobs]);
+  // const categories = useMemo(() => {
+  //   return Array.from(new Set(locationJobs.map((job) => job.category))).sort();
+  // }, [locationJobs]);
 
-  const jobTypes = useMemo(() => {
-    return Array.from(new Set(locationJobs.map((job) => job.type))).sort();
-  }, [locationJobs]);
+  // const jobTypes = useMemo(() => {
+  //   return Array.from(new Set(locationJobs.map((job) => job.type))).sort();
+  // }, [locationJobs]);
+  const jobTypes = ["Full Time", "Part Time"];
+  const categories = [
+    "Admin Services",
+    "Client Support Services",
+    "Digital Marketing",
+    "Financial Paraplanner",
+    "Financial Planning Assistant",
+    "HR",
+    "Internship Program",
+    "Paraplanning",
+    "Quality Assurance",
+  ];
 
   // Filter jobs based on all criteria
   const filteredJobs = useMemo(() => {

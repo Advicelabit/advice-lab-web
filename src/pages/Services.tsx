@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -55,8 +56,38 @@ const services = [
 ];
 
 const Services = () => {
+  const servicesSchema = {
+    "@type": "LocalBusiness",
+    name: "Advice Lab Services",
+    description:
+      "Financial services including paraplanning, client support, and compliance",
+    url: "https://advicelab.com.au/services",
+    hasOfferingDetails: [
+      {
+        "@type": "Offer",
+        name: "Paraplanning Services",
+        description:
+          "Comprehensive paraplanning support for financial advisers",
+        url: "https://advicelab.com.au/services/paraplanning",
+      },
+      {
+        "@type": "Offer",
+        name: "Client Support Services",
+        description: "Professional client service and administrative support",
+        url: "https://advicelab.com.au/services/clientsupport",
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <Seo
+        title="Financial Services for Advisers | Paraplanning, Support & Compliance"
+        description="Comprehensive financial services: paraplanning, client support, quality assurance & compliance. Tailored solutions to scale your advisory practice efficiently."
+        keywords="paraplanning services, client support services, financial adviser services, quality assurance financial, compliance services, financial planning support, advisory services, business support services"
+        pathname="/services"
+        schemaData={servicesSchema}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 text-center">

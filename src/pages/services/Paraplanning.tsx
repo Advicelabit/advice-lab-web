@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -139,6 +140,19 @@ const Paraplanning = () => {
 
   return (
     <Layout>
+      <Seo
+        title="Expert Paraplanning Services for Financial Advisers | Advice Lab"
+        description="Professional paraplanning support: SOA preparation, client file management, compliance documentation & portfolio reviews. Scale your practice with our experts."
+        keywords="paraplanning services, statement of advice preparation, financial planning support, client file management, portfolio review services, compliance documentation, SOA preparation, financial adviser support, paraplanning outsourcing"
+        pathname="/services/paraplanning"
+        schemaData={{
+          "@type": "LocalBusiness",
+          name: "Advice Lab Paraplanning Services",
+          description:
+            "Expert paraplanning services for financial advisers including SOA preparation and compliance documentation",
+          url: "https://advicelab.com.au/services/paraplanning",
+        }}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">
