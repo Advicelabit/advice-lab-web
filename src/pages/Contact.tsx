@@ -1,11 +1,15 @@
+import Seo from "@/components/ui/Seo";
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+
+const API_BASE_URL =
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
 
 const contactInfo = [
   {
@@ -50,18 +54,218 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+  // Validation state
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    email?: string;
+    message?: string;
+    company?: string;
+  }>({});
+
+  const [touched, setTouched] = useState<{
+    name?: boolean;
+    email?: boolean;
+    phone?: boolean;
+    message?: boolean;
+    company?: boolean;
+  }>({});
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateField = (name: string, value: string): string | undefined => {
+    const stringValue = typeof value === "string" ? value : "";
+
+    switch (name) {
+      case "name":
+        if (!value.trim()) {
+          return "Name is required";
+        }
+        break;
+      case "email":
+        if (!value.trim()) {
+          return "Email is required";
+        }
+        if (!emailRegex.test(value)) {
+          return "Please enter a valid email address";
+        }
+        break;
+      case "phone":
+        if (!stringValue.trim()) {
+          return "Phone number is required";
+        }
+        break;
+      case "message":
+        if (!value.trim()) {
+          return "Message is required";
+        }
+        break;
+      case "company":
+        if (!value.trim()) {
+          return "Company is required";
+        }
+        break;
+    }
+    return undefined;
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const error = validateField(name, value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (touched[name as keyof typeof touched]) {
+      const error = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: typeof errors = {};
+
+    const nameError = validateField("name", formData.name);
+    if (nameError) newErrors.name = nameError;
+
+    const emailError = validateField("email", formData.email);
+    if (emailError) newErrors.email = emailError;
+
+    const messageError = validateField("message", formData.message);
+    if (messageError) newErrors.message = messageError;
+
+    const phoneError = validateField("phone", formData.phone);
+    if (phoneError) newErrors.phone = phoneError;
+
+    const companyError = validateField("company", formData.company);
+    if (companyError) newErrors.company = companyError;
+
+    setErrors(newErrors);
+    setTouched({
+      name: true,
+      email: true,
+      message: true,
+      phone: true,
+      company: true,
     });
-    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const submissionDate = new Date().toLocaleString("en-AU", {
+      timeZone: userTimeZone,
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    const emailBody = `
+ADVICELAB - NEW CONTACT FORM SUBMISSION
+=========================================
+
+Submission Date: ${submissionDate}
+
+Contact Details:
+----------------
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || "Not provided"}
+Company: ${formData.company || "Not provided"}
+
+Message:
+--------
+${formData.message}
+
+---
+This inquiry was submitted through the AdviceLab Contact page.
+    `;
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/send-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sender: "noreply@advicegenie.com.au",
+          recipient: formData.email,
+          subject: `New Contact Form Submission: ${formData.name}`,
+          body: emailBody,
+          is_html: false,
+          attachments: [],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const contactSchema = {
+    "@type": "ContactPage",
+    name: "Contact Advice Lab",
+    url: "https://advicelab.com.au/contact",
+    description: "Contact page for Advice Lab",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      telephone: "+61280740884",
+      email: "hello@advicelab.com.au",
+      url: "https://advicelab.com.au/contact",
+    },
   };
 
   return (
     <Layout>
+      <Seo
+        title="Contact Advice Lab - Get in Touch with Our Team"
+        description="Get in touch with Advice Lab. Phone, email, or contact form. We're based in Sydney and serve Australian financial advisers. Response within 24 hours."
+        keywords="contact Advice Lab, get in touch, financial services support, customer service, Sydney office, Advice Lab contact, contact information"
+        pathname="/contact"
+        schemaData={contactSchema}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -87,88 +291,136 @@ const Contact = () => {
                   Send Us a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Name
-                      </label>
-                      <Input
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        required
-                        className="transition-all duration-300 focus:scale-[1.02]"
-                      />
+                  {submitted ? (
+                    <div className="min-h-[400px] flex flex-col items-center justify-center py-12 text-center">
+                      <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                      <h3 className="text-3xl font-bold mb-2">Message Sent!</h3>
+                      <p className="text-muted-foreground max-w-md">
+                        Thank you for reaching out. We'll get back to you within
+                        24 hours.
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Email
-                      </label>
-                      <Input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        required
-                        className="transition-all duration-300 focus:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Company
-                      </label>
-                      <Input
-                        placeholder="Your company"
-                        value={formData.company}
-                        onChange={(e) =>
-                          setFormData({ ...formData, company: e.target.value })
-                        }
-                        className="transition-all duration-300 focus:scale-[1.02]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Phone
-                      </label>
-                      <Input
-                        type="tel"
-                        placeholder="Your phone number"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="transition-all duration-300 focus:scale-[1.02]"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Message
-                    </label>
-                    <Textarea
-                      placeholder="Tell us about your needs..."
-                      rows={6}
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      required
-                      className="transition-all duration-300 focus:scale-[1.01]"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full sm:w-auto hover:scale-105 transition-transform"
-                  >
-                    Send Message
-                  </Button>
+                  ) : (
+                    <>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Name <span className="text-red-500">*</span>
+                          </label>
+                          <Input
+                            placeholder="Your name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${
+                              errors.name && touched.name
+                                ? "border-red-500 focus-visible:ring-red-500"
+                                : ""
+                            }`}
+                          />
+                          {errors.name && touched.name && (
+                            <p className="text-sm text-red-500 mt-1">
+                              {errors.name}
+                            </p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Email <span className="text-red-500">*</span>
+                          </label>
+                          <Input
+                            type="email"
+                            placeholder="your@email.com"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${
+                              errors.email && touched.email
+                                ? "border-red-500 focus-visible:ring-red-500"
+                                : ""
+                            }`}
+                          />
+                          {errors.email && touched.email && (
+                            <p className="text-sm text-red-500 mt-1">
+                              {errors.email}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Company
+                          </label>
+                          <Input
+                            name="company"
+                            placeholder="Your company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="transition-all duration-300 focus:scale-[1.02]"
+                          />
+                          {errors.company && touched.company && (
+                            <p className="text-sm text-red-500 mt-1">
+                              {errors.company}
+                            </p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-2">
+                            Phone
+                          </label>
+                          <Input
+                            type="tel"
+                            name="phone"
+                            placeholder="Your phone number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className="transition-all duration-300 focus:scale-[1.02]"
+                          />
+                          {errors.phone && touched.phone && (
+                            <p className="text-sm text-red-500 mt-1">
+                              {errors.phone}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-2">
+                          Message <span className="text-red-500">*</span>
+                        </label>
+                        <Textarea
+                          placeholder="Tell us about your needs..."
+                          name="message"
+                          rows={6}
+                          value={formData.message}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          className={`transition-all duration-300 focus:scale-[1.01] ${
+                            errors.message && touched.message
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                          }`}
+                        />
+                        {errors.message && touched.message && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.message}
+                          </p>
+                        )}
+                      </div>
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={loading}
+                        className="w-full sm:w-auto hover:scale-105 transition-transform"
+                      >
+                        {loading ? "Sending..." : "Send Message"}
+                      </Button>
+                    </>
+                  )}
                 </form>
               </div>
             </ScrollAnimation>

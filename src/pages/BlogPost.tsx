@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Seo from "@/components/ui/Seo";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -39,6 +40,16 @@ const BlogPost = () => {
             </Button>
           </div>
           <ScrollAnimation animation="fade-up">
+            {post && (
+              <Seo
+                title={post.title}
+                description={post.excerpt || ""}
+                image={post.thumbnail}
+                pathname={`/resources/blog/${post.id}`}
+                article
+              />
+            )}
+
             {loading ? (
               <div className="space-y-4 pb-16">
                 <Skeleton className="h-10 w-3/4" />

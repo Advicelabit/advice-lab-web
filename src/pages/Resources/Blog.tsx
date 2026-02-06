@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
@@ -70,6 +71,11 @@ const Blog = () => {
 
   return (
     <Layout>
+      <Seo
+        title="Blog"
+        description="Guides, tools and insights to help advisers get the most from offshore support."
+        pathname="/resources/blog"
+      />
       <div className="sr-only" aria-hidden>
         {resourceAnchors.map((id) => (
           <span key={id} id={id} />

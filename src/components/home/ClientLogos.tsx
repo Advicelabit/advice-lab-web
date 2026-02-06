@@ -48,22 +48,72 @@ export function ClientLogos() {
           </div>
         </ScrollAnimation>
       </div>
+
       <div className="mt-4 relative">
-        <div className="flex animate-marquee">
-          {[...logos, ...logos].map((logo, index) => (
+        <div className="inline-flex animate-marquee-clients whitespace-nowrap">
+          {/* First set */}
+          {logos.map((logo, index) => (
             <div
-              key={index}
-              className="flex-shrink-0 mx-6 w-28 h-10 p-3 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center sm:mx-10 sm:w-32 sm:h-12 sm:p-3 md:mx-14 md:w-44 md:h-12 md:p-4"
+              key={`set1-${index}`}
+              className="inline-flex flex-shrink-0 w-40 h-20 p-3 mx-6 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-48 sm:h-24 sm:p-4 sm:mx-8 md:w-56 md:h-28 md:p-5 md:mx-10"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-10 sm:max-h-12 max-w-22 object-contain"
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+
+          {/* Second set - duplicate for seamless loop */}
+          {logos.map((logo, index) => (
+            <div
+              key={`set2-${index}`}
+              className="inline-flex flex-shrink-0 w-40 h-20 p-3 mx-6 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-48 sm:h-24 sm:p-4 sm:mx-8 md:w-56 md:h-28 md:p-5 md:mx-10"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+
+          {/* Third set - for extra smoothness */}
+          {logos.map((logo, index) => (
+            <div
+              key={`set3-${index}`}
+              className="inline-flex flex-shrink-0 w-40 h-20 p-3 mx-6 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-48 sm:h-24 sm:p-4 sm:mx-8 md:w-56 md:h-28 md:p-5 md:mx-10"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-full max-w-full object-contain"
               />
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @keyframes marquee-clients {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        .animate-marquee-clients {
+          animation: marquee-clients 180s linear infinite;
+          will-change: transform;
+        }
+
+        .animate-marquee-clients:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

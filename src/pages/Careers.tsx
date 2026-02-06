@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -5,42 +6,54 @@ import { MapPin, Briefcase } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
 import {
-  BookOpen,
-  Download,
-  Calculator,
-  FileText,
+  Users,
+  Lightbulb,
+  Heart,
+  MessageCircle,
   ArrowRight,
+  RefreshCw,
 } from "lucide-react";
 
 const resources = [
   {
-    icon: BookOpen,
-    title: "Offshoring Guide",
+    icon: Users,
+    title: "Team Work",
     description:
-      "Everything you need to know about starting with offshore support.",
-    type: "Guide",
+      "We collaborate openly, support one another, and combine our strengths to deliver the best outcomes. Every win is shared, and every challenge is tackled as a team.",
+
     link: "#",
   },
   {
-    icon: Calculator,
-    title: "Pricing Calculator",
-    description: "Calculate your potential savings with our pricing tool.",
-    type: "Tool",
+    icon: Heart,
+    title: "Passion",
+    description:
+      "We care deeply about our work and take pride in delivering our best. Our enthusiasm drives us to learn, grow, and constantly raise the bar.",
+
     link: "#",
   },
   {
-    icon: FileText,
-    title: "Paraplanning Playbook",
-    description: "Best practices for working with offshore paraplanning teams.",
-    type: "Playbook",
+    icon: MessageCircle,
+    title: "Communication",
+    description:
+      "We share information, listen actively, and ensure everyone has what they need to succeed. Transparency helps us work smarter and stay aligned.",
+
     link: "#",
   },
   {
-    icon: Download,
-    title: "One Week Free Trial",
-    description: "Try our paraplanning services free for one week.",
-    type: "Offer",
-    link: "/contact",
+    icon: Lightbulb,
+    title: "Entrepreneurial",
+    description:
+      "We look for smarter ways to work, challenge the status quo, and bring ideas that move us forward. Thinking out of the box isn’t optional, it’s part of how we grow.",
+
+    link: "#",
+  },
+  {
+    icon: RefreshCw,
+    title: "Adaptability",
+    description:
+      "We embrace new ideas, respond quickly to change, and remain open to different perspectives. Adaptability helps us stay resilient and ahead of the curve.",
+
+    link: "#",
   },
 ];
 
@@ -54,8 +67,34 @@ const benefits = [
 ];
 
 const Careers = () => {
+  const careersSchema = {
+    "@type": "JobPosting",
+    title: "Multiple Positions Available",
+    description: "Join Advice Lab and support Australian financial advisers",
+    url: "https://advicelab.com.au/careers",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Advice Lab",
+      sameAs: "https://advicelab.com.au",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: ["AU", "PH", "LK"],
+      },
+    },
+  };
+
   return (
     <Layout>
+      <Seo
+        title="Join Our Team - Careers & Job Opportunities | Advice Lab"
+        description="Exciting career opportunities at Advice Lab. Join our growing team of paraplanning & financial services professionals. Check current vacancies in Australia & Asia."
+        keywords="Advice Lab careers, job opportunities, paraplanning jobs, financial services jobs, Philippine careers, Sri Lanka careers, Australia jobs, financial adviser support careers, offshore support jobs"
+        pathname="/careers"
+        schemaData={careersSchema}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -94,8 +133,8 @@ const Careers = () => {
                       <span className="text-foreground">{benefit}</span>
                     </div>
                   ))}
-                </div>
-                <div className="flex flex-wrap gap-3 mt-6">
+
+                  {/* Buttons aligned under the grid */}
                   <Button
                     size="sm"
                     asChild
@@ -103,20 +142,21 @@ const Careers = () => {
                   >
                     <Link
                       to="/careers/srilanka"
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 justify-center sm:justify-start w-full"
                     >
                       Explore Sri Lanka
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
+
                   <Button
                     size="sm"
                     asChild
-                    className="h-12 px-12 text-md  w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
+                    className="h-12 px-12 text-md w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
                   >
                     <Link
                       to="/careers/philippines"
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 justify-center sm:justify-start w-full"
                     >
                       Explore Philippines
                       <ArrowRight className="w-4 h-4" />
@@ -137,8 +177,7 @@ const Careers = () => {
       </section>
 
       {/* Instagram Feed */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
-        {/* Decorative background */}
+      {/* <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
 
@@ -150,7 +189,6 @@ const Careers = () => {
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
                 Life at Advice Lab
-                {/* <span className="gradient-text">Advice Lab</span> */}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 See what it's like to be part of our team
@@ -158,7 +196,6 @@ const Careers = () => {
             </div>
           </ScrollAnimation>
 
-          {/* Instagram Feed Widget Container */}
           <div className="max-w-6xl mx-auto ">
             <div
               className="instagram-feed-widget bg-white rounded-2xl p-4 flex items-center justify-center"
@@ -200,7 +237,6 @@ const Careers = () => {
             </div>
           </div>
 
-          {/* Follow Button */}
           <div className="text-center mt-8">
             <Button
               size="lg"
@@ -218,47 +254,68 @@ const Careers = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Lead Magnets */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
-              <span className="text-primary font-semibold uppercase tracking-wider tracking-tight">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                 Free Resources
               </span>
+
               <h2 className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl">
                 Download & Learn
               </h2>
             </div>
           </ScrollAnimation>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {resources.map((resource, index) => (
-              <ScrollAnimation
-                key={index}
-                animation="fade-up"
-                delay={index * 100}
-              >
-                <Link
-                  to={resource.link}
-                  className="group block p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover-lift h-full"
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* First Row - 2 Items */}
+            <div className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {resources.slice(0, 2).map((resource, index) => (
+                <ScrollAnimation
+                  key={index}
+                  animation="fade-up"
+                  delay={index * 100}
                 >
-                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:shadow-glow transition-shadow">
-                    <resource.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="group p-8 bg-card rounded-3xl border border-border hover:border-primary/50 transition-all duration-300 h-full hover:shadow-xl hover:-translate-y-1">
+                    <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center mb-6 group-hover:shadow-glow group-hover:scale-110 transition-all duration-300">
+                      <resource.icon className="w-7 h-7 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors">
+                      {resource.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {resource.description}
+                    </p>
                   </div>
-                  <span className="text-xs font-medium text-primary uppercase">
-                    {resource.type}
-                  </span>
-                  <h3 className="text-lg font-display font-bold mt-1 mb-2 group-hover:text-primary transition-colors">
-                    {resource.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {resource.description}
-                  </p>
-                </Link>
-              </ScrollAnimation>
-            ))}
+                </ScrollAnimation>
+              ))}
+            </div>
+
+            {/* Second Row - 3 Items */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {resources.slice(2, 5).map((resource, index) => (
+                <ScrollAnimation
+                  key={index + 2}
+                  animation="fade-up"
+                  delay={(index + 2) * 100}
+                >
+                  <div className="group p-8 bg-card rounded-3xl border border-border hover:border-primary/50 transition-all duration-300 h-full hover:shadow-xl hover:-translate-y-1">
+                    <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center mb-6 group-hover:shadow-glow group-hover:scale-110 transition-all duration-300">
+                      <resource.icon className="w-7 h-7 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors">
+                      {resource.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {resource.description}
+                    </p>
+                  </div>
+                </ScrollAnimation>
+              ))}
+            </div>
           </div>
         </div>
       </section>

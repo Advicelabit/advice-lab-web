@@ -1,3 +1,4 @@
+import Seo from "@/components/ui/Seo";
 import { Layout } from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
 import {
@@ -103,8 +104,23 @@ const About = () => {
   const prevSlide = () =>
     setCurrentTeamSlide((prev) => (prev - 1 + team.length) % team.length);
 
+  const aboutSchema = {
+    "@type": "AboutPage",
+    name: "About Advice Lab",
+    description:
+      "Learn about Advice Lab's mission, values, and expertise in paraplanning and financial advice support",
+    url: "https://advicelab.com.au/about",
+  };
+
   return (
     <Layout>
+      <Seo
+        title="About Advice Lab - Trusted Offshore Paraplanning Partner"
+        description="Discover Advice Lab's mission to support Australian financial advisers with expert paraplanning, client service, and compliance solutions. Meet our experienced team."
+        keywords="about Advice Lab, paraplanning company, financial services outsourcing, offshore financial support, financial adviser partner, paraplanning team, Australian financial services, reliable financial support"
+        pathname="/about"
+        schemaData={aboutSchema}
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">

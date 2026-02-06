@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Home, CheckCircle, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-
 const features = [
   "Loan application processing",
   "Document collection and verification",
@@ -19,6 +18,11 @@ const features = [
 const Mortgage = () => {
   return (
     <Layout>
+      <Seo
+        title="Mortgage Support"
+        description="Mortgage processing and documentation support for advisers, helping speed up loan application workflows."
+        pathname="/services/mortgage"
+      />
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -27,13 +31,16 @@ const Mortgage = () => {
               <div className="w-16 h-16 rounded-2xl bg-primary-foreground/10 flex items-center justify-center">
                 <Home className="w-8 h-8 text-primary-foreground" />
               </div>
-              <span className="text-primary-foreground/80 font-medium">Services</span>
+              <span className="text-primary-foreground/80 font-medium">
+                Services
+              </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Mortgage Support
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              End-to-end mortgage processing support to help you close more loans, faster.
+              End-to-end mortgage processing support to help you close more
+              loans, faster.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="white" size="lg" asChild>
@@ -53,12 +60,15 @@ const Mortgage = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimation animation="fade-right">
               <div>
-                <span className="text-primary font-semibold uppercase tracking-wider">What We Offer</span>
+                <span className="text-primary font-semibold uppercase tracking-wider">
+                  What We Offer
+                </span>
                 <h2 className="font-display font-bold mt-2 mb-6 text-muted-foreground">
                   Streamlined Mortgage Processing
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Our mortgage support team handles the time-consuming aspects of loan processing, so you can focus on client relationships.
+                  Our mortgage support team handles the time-consuming aspects
+                  of loan processing, so you can focus on client relationships.
                 </p>
                 <ul className="grid sm:grid-cols-2 gap-4">
                   {features.map((feature, index) => (
@@ -69,7 +79,9 @@ const Mortgage = () => {
                         className="flex items-start gap-3"
                       >
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-foreground text-sm">{feature}</span>
+                        <span className="text-foreground text-sm">
+                          {feature}
+                        </span>
                       </ScrollAnimation>
                     </li>
                   ))}
@@ -91,9 +103,12 @@ const Mortgage = () => {
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <ScrollAnimation animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Ready to Get Started?</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Ready to Get Started?
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Speed up your loan processing with our dedicated mortgage support team.
+              Speed up your loan processing with our dedicated mortgage support
+              team.
             </p>
             <Button size="lg" asChild>
               <Link to="/contact">

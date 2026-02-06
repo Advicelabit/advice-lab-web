@@ -1,10 +1,21 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import Seo from "@/components/ui/Seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import {
+  Lightbulb,
+  Sparkles,
+  FileText,
+  GraduationCap,
+  BookOpen,
+  Target,
+  CheckCircle,
+  Star,
+  Gift,
+  Send,
   MapPin,
   Briefcase,
   Clock,
@@ -13,9 +24,15 @@ import {
   Upload,
   Check,
 } from "lucide-react";
+
 import { useState } from "react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import jobVacancies from "@/data/jobVacancies.json";
+
+// particular country page submit form
+
+const API_BASE_URL =
+  "https://n54lm5igkl.execute-api.ap-southeast-2.amazonaws.com/dev";
 
 interface Job {
   id: string;
@@ -24,10 +41,18 @@ interface Job {
   type: string;
   category: string;
   description: string;
+  whatIsParaplanning: string;
+  whatIsAdviceSupport: string;
   keyResponsibilities: string[];
-  mustHaves: string[];
-  skillsWeValue: string[];
-  benefits: string[];
+  mustHaves?: string[];
+  skillsWeValue?: string[];
+  benefits?: string[];
+  programs?: string[];
+  whatYouWillLearn?: {
+    paraplanning?: string[];
+    adviceSupport?: string[];
+  };
+  note?: string[];
 }
 
 const JobDetail = () => {
@@ -45,6 +70,24 @@ const JobDetail = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Validation state
+  const [errors, setErrors] = useState<{
+    fullName?: string;
+    email?: string;
+    phone?: string;
+    coverLetter?: string;
+    resume?: string;
+  }>({});
+
+  const [touched, setTouched] = useState<{
+    fullName?: boolean;
+    email?: boolean;
+    phone?: boolean;
+    coverLetter?: boolean;
+    resume?: boolean;
+  }>({});
 
   const job = (jobVacancies as Job[]).find((j) => j.id === jobId);
 
@@ -69,13 +112,259 @@ const JobDetail = () => {
     );
   }
 
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (allowedTypes.includes(file.type)) {
+        setFormData((prev) => ({
+          ...prev,
+          resume: file,
+        }));
+        // Clear error when file is uploaded
+        setErrors((prev) => ({ ...prev, resume: undefined }));
+      } else {
+        alert("Please upload a PDF, DOC, or DOCX file");
+      }
+    }
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateField = (
+    name: string,
+    value: string | File | null,
+  ): string | undefined => {
+    const stringValue = typeof value === "string" ? value : "";
+
+    switch (name) {
+      case "fullName":
+        if (!stringValue.trim()) {
+          return "Full Name is required";
+        }
+        break;
+      case "email":
+        if (!stringValue.trim()) {
+          return "Email is required";
+        }
+        if (!emailRegex.test(stringValue)) {
+          return "Please enter a valid email address";
+        }
+        break;
+      case "phone":
+        if (!stringValue.trim()) {
+          return "Phone number is required";
+        }
+        break;
+      case "coverLetter":
+        if (!stringValue.trim()) {
+          return "Cover Letter is required";
+        }
+        break;
+      case "resume":
+        if (!value) {
+          return "Resume/CV is required";
+        }
+        break;
+    }
+    return undefined;
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const error = validateField(name, value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+  const handleFileBlur = () => {
+    setTouched((prev) => ({ ...prev, resume: true }));
+    const error = validateField("resume", formData.resume);
+    setErrors((prev) => ({ ...prev, resume: error }));
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (touched[name as keyof typeof touched]) {
+      const error = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (allowedTypes.includes(file.type)) {
+        setFormData((prev) => ({
+          ...prev,
+          resume: file,
+        }));
+        // Clear error when file is uploaded
+        setErrors((prev) => ({ ...prev, resume: undefined }));
+      } else {
+        alert("Please upload a PDF, DOC, or DOCX file");
+        e.target.value = "";
+      }
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: typeof errors = {};
+
+    const fullNameError = validateField("fullName", formData.fullName);
+    if (fullNameError) newErrors.fullName = fullNameError;
+
+    const emailError = validateField("email", formData.email);
+    if (emailError) newErrors.email = emailError;
+
+    const phoneError = validateField("phone", formData.phone);
+    if (phoneError) newErrors.phone = phoneError;
+
+    const coverLetterError = validateField("coverLetter", formData.coverLetter);
+    if (coverLetterError) newErrors.coverLetter = coverLetterError;
+
+    const resumeError = validateField("resume", formData.resume);
+    if (resumeError) newErrors.resume = resumeError;
+
+    setErrors(newErrors);
+    setTouched({
+      fullName: true,
+      email: true,
+      phone: true,
+      coverLetter: true,
+      resume: true,
+    });
+
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setIsLoading(true);
 
-    // Simulate submission
-    setTimeout(() => {
-      setIsLoading(false);
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    // Get current date and time for email body
+    const submissionDate = new Date().toLocaleString("en-AU", {
+      timeZone: userTimeZone,
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    try {
+      // Create a plain text email body for the resume submission
+      const emailBody = `
+ADVICELAB - NEW JOB APPLICATION: ${formData.fullName}
+==================================================================
+
+Submission Date: ${submissionDate}
+
+Applicant Details:
+------------------
+Full Name: ${formData.fullName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Position Details:
+-----------------
+Position Applied: ${job.title}
+Location: ${job.location}
+Type: ${job.type}
+Category: ${job.category}
+
+Cover Letter:
+-------------
+${formData.coverLetter}
+
+Resume Attached:
+----------------
+${formData.resume?.name || "No file attached"}
+
+---
+This application was submitted through the AdviceLab Careers page.
+      `;
+
+      // Convert resume file to base64 for attachment
+      let attachmentData = null;
+      if (formData.resume) {
+        const reader = new FileReader();
+        attachmentData = await new Promise<string | null>((resolve) => {
+          reader.onload = () => {
+            const base64String = reader.result as string;
+            // Extract the base64 data portion
+            const base64Data = base64String.split(",")[1] || base64String;
+            resolve(base64Data);
+          };
+          reader.onerror = () => resolve(null);
+          reader.readAsDataURL(formData.resume!);
+        });
+      }
+
+      // Send the email with attachment via the API
+      const response = await fetch(`${API_BASE_URL}/send-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sender: "noreply@advicegenie.com.au",
+          // sender: formData.email,
+          recipient: formData.email,
+          subject: `Application Received: ${job.title} - ${formData.fullName}`,
+          body: emailBody,
+          attachment: attachmentData
+            ? {
+                filename: formData.resume?.name,
+                contentType: formData.resume?.type,
+                data: attachmentData,
+              }
+            : null,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
       setSubmitted(true);
       // Scroll to the top of the content area to show the success message
       const contentSection = document.getElementById("job-detail-content");
@@ -86,12 +375,51 @@ const JobDetail = () => {
       }
       setTimeout(() => {
         navigate("/careers");
-      }, 2000);
-    }, 1000);
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit application. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <Layout>
+      <Seo
+        title={`${job.title} - Apply Now | Advice Lab Careers`}
+        description={`${job.title} position at Advice Lab in ${job.location}. ${job.description.substring(0, 100)}... Join our team supporting Australian financial advisers. Apply today.`}
+        keywords={`${job.title}, ${job.location} jobs, paraplanning jobs, financial services careers, Advice Lab careers, offshore support jobs, ${job.title} position`}
+        pathname={`/careers/job/${jobId}`}
+        schemaData={{
+          "@type": "JobPosting",
+          title: job.title,
+          description: job.description,
+          url: `https://advicelab.com.au/careers/job/${jobId}`,
+          jobLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: job.location,
+              addressCountry: job.location.includes("Philippines")
+                ? "PH"
+                : job.location.includes("Sri Lanka")
+                  ? "LK"
+                  : "AU",
+            },
+          },
+          hiringOrganization: {
+            "@type": "Organization",
+            name: "Advice Lab",
+            url: "https://advicelab.com.au",
+          },
+          employmentType: "FULL_TIME",
+          baseSalary: {
+            "@type": "PriceSpecification",
+            currency: "AUD",
+          },
+        }}
+      />
       {/* Hero Section */}
       <section className="py-16 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -151,96 +479,276 @@ const JobDetail = () => {
                 {/* About the Role */}
                 <ScrollAnimation animation="fade-up">
                   <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-6">About the Role</h2>
+                    <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
+                      <FileText className="w-9 h-9 text-primary" />
+                      About the Role
+                    </h2>
                     <p className="text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
                       {job.description}
                     </p>
                   </div>
                 </ScrollAnimation>
 
+                {/* Available Programs */}
+                {job.programs?.length > 0 && (
+                  <ScrollAnimation animation="fade-up" delay={250}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                        <GraduationCap className="w-9 h-9 text-primary" />
+                        Available Programs
+                      </h2>
+                      <ul className="space-y-4">
+                        {job.programs.map((item, index) => (
+                          <li
+                            key={`program-${index}`}
+                            className="flex gap-4 text-lg text-muted-foreground"
+                          >
+                            <span className="text-primary font-bold flex-shrink-0 mt-1">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollAnimation>
+                )}
+
+                {/* What is Paraplanning */}
+                {job.whatIsParaplanning && (
+                  <ScrollAnimation animation="fade-up" delay={50}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
+                        <BookOpen className="w-9 h-9 text-primary" />
+                        What is Paraplanning?
+                      </h2>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                        {job.whatIsParaplanning}
+                      </p>
+
+                      {job.whatYouWillLearn?.paraplanning?.length > 0 && (
+                        <>
+                          <h3 className="text-2xl font-semibold mb-4">
+                            Hands-On Learning Opportunities During Your
+                            Paraplanning Internship
+                          </h3>
+                          <ul className="space-y-4">
+                            {job.whatYouWillLearn.paraplanning.map(
+                              (item, index) => (
+                                <li
+                                  key={`paraplanning-${index}`}
+                                  className="flex gap-4 text-lg text-muted-foreground"
+                                >
+                                  <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                    •
+                                  </span>
+                                  <span>{item}</span>
+                                </li>
+                              ),
+                            )}
+                          </ul>
+                        </>
+                      )}
+                    </div>
+                  </ScrollAnimation>
+                )}
+
+                {/* What is Advice Support */}
+                {job.whatIsAdviceSupport && (
+                  <ScrollAnimation animation="fade-up" delay={100}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
+                        <Lightbulb className="w-9 h-9 text-primary" />
+                        What is Advice Support?
+                      </h2>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                        {job.whatIsAdviceSupport}
+                      </p>
+
+                      {job.whatYouWillLearn?.adviceSupport?.length > 0 && (
+                        <>
+                          <h3 className="text-2xl font-semibold mb-4">
+                            Hands-On Learning Opportunities During Your Advice
+                            Support Internship
+                          </h3>
+                          <ul className="space-y-4">
+                            {job.whatYouWillLearn.adviceSupport.map(
+                              (item, index) => (
+                                <li
+                                  key={`adviceSupport-${index}`}
+                                  className="flex gap-4 text-lg text-muted-foreground"
+                                >
+                                  <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                    •
+                                  </span>
+                                  <span>{item}</span>
+                                </li>
+                              ),
+                            )}
+                          </ul>
+                        </>
+                      )}
+                    </div>
+                  </ScrollAnimation>
+                )}
+
                 {/* Key Responsibilities */}
-                <ScrollAnimation animation="fade-up" delay={100}>
-                  <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-8">
-                      Key Responsibilities
-                    </h2>
-                    <ul className="space-y-4">
-                      {job.keyResponsibilities.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex gap-4 text-lg text-muted-foreground"
-                        >
-                          <span className="text-primary font-bold flex-shrink-0 mt-1">
-                            •
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollAnimation>
+                {job.keyResponsibilities &&
+                  job.keyResponsibilities.length > 0 && (
+                    <ScrollAnimation animation="fade-up" delay={100}>
+                      <div className="mb-12">
+                        <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                          <Target className="w-9 h-9 text-primary" />
+                          Key Responsibilities
+                        </h2>
+                        <ul className="space-y-4">
+                          {job.keyResponsibilities.map((item, index) => (
+                            <li
+                              key={index}
+                              className="flex gap-4 text-lg text-muted-foreground"
+                            >
+                              <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                •
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </ScrollAnimation>
+                  )}
 
                 {/* Must-Haves */}
-                <ScrollAnimation animation="fade-up" delay={200}>
-                  <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-8">Must-Haves</h2>
-                    <ul className="space-y-4">
-                      {job.mustHaves.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex gap-4 text-lg text-muted-foreground"
-                        >
-                          <span className="text-primary font-bold flex-shrink-0 mt-1">
-                            •
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollAnimation>
+                {job.mustHaves?.length > 0 && (
+                  <ScrollAnimation animation="fade-up" delay={200}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                        <CheckCircle className="w-9 h-9 text-primary" />
+                        Must-Haves
+                      </h2>
+                      <ul className="space-y-4">
+                        {job.mustHaves.map((item, index) => (
+                          <li
+                            key={`mustHave-${index}`}
+                            className="flex gap-4 text-lg text-muted-foreground"
+                          >
+                            <span className="text-primary font-bold flex-shrink-0 mt-1">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollAnimation>
+                )}
 
                 {/* Skills We Value */}
-                <ScrollAnimation animation="fade-up" delay={300}>
-                  <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-8">Skills We Value</h2>
-                    <ul className="space-y-4">
-                      {job.skillsWeValue.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex gap-4 text-lg text-muted-foreground"
-                        >
-                          <span className="text-primary font-bold flex-shrink-0 mt-1">
-                            •
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollAnimation>
+                {job.skillsWeValue && job.skillsWeValue.length > 0 && (
+                  <ScrollAnimation animation="fade-up" delay={300}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                        <Star className="w-9 h-9 text-primary" />
+                        Skills We Value
+                      </h2>
+                      <ul className="space-y-4">
+                        {job.skillsWeValue.map((item, index) => (
+                          <li
+                            key={index}
+                            className="flex gap-4 text-lg text-muted-foreground"
+                          >
+                            <span className="text-primary font-bold flex-shrink-0 mt-1">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollAnimation>
+                )}
 
                 {/* What's in It for You */}
-                <ScrollAnimation animation="fade-up" delay={400}>
-                  <div className="mb-12">
-                    <h2 className="text-4xl font-bold mb-8">
-                      What's in It for You
-                    </h2>
-                    <ul className="space-y-4">
-                      {job.benefits.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex gap-4 text-lg text-muted-foreground"
-                        >
-                          <span className="text-primary font-bold flex-shrink-0 mt-1">
-                            •
+                {job.benefits?.length > 0 && (
+                  <ScrollAnimation animation="fade-up" delay={400}>
+                    <div className="mb-12">
+                      <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                        <Gift className="w-9 h-9 text-primary" />
+                        What's in It for You
+                      </h2>
+                      <ul className="space-y-4">
+                        {job.benefits.map((item, index) => (
+                          <li
+                            key={`benefit-${index}`}
+                            className="flex gap-4 text-lg text-muted-foreground"
+                          >
+                            <span className="text-primary font-bold flex-shrink-0 mt-1">
+                              •
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollAnimation>
+                )}
+
+                {/* Superstar Note - keep as is */}
+                {/* Superstar Note */}
+                {job.note && (
+                  <ScrollAnimation animation="fade-up" delay={450}>
+                    <div className="mb-12">
+                      <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-primary/10 border-l-4 border-r-4 border-primary rounded-2xl px-4 py-4 overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:scale-[1.02]">
+                        {/* Animated shimmer effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+
+                        {/* Floating particles background */}
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse delay-300"></div>
+
+                        {/* Content */}
+                        <div className="flex items-center gap-5 relative z-10">
+                          {/* Animated icon */}
+                          <div className="flex-shrink-0 relative">
+                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                              <Sparkles className="w-6 h-6 text-primary-foreground animate-pulse" />
+                            </div>
+                            {/* Glow effect */}
+                            <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </div>
+
+                          {/* Text content */}
+                          <div className="flex-1">
+                            <p className="text-lg text-foreground leading-relaxed font-medium">
+                              {job.note}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Decorative corner elements */}
+                        <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/20 rounded-tr-2xl"></div>
+                        <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-primary/20 rounded-bl-2xl"></div>
+                      </div>
+                    </div>
+                  </ScrollAnimation>
+                )}
+
+                {/* {job.note && (
+                  <ScrollAnimation animation="fade-up" delay={450}>
+                    <div className="mb-12">
+                      <div className="bg-primary/10 border-l-4 border-r-4 border-primary rounded-xl px-8 py-6 hover:bg-primary/15 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div className="flex items-start gap-4">
+                          <span className="text-2xl flex-shrink-0 animate-bounce">
+                            <Sparkles />
                           </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollAnimation>
+                          <p className="text-lg text-foreground leading-relaxed">
+                            {job.note}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollAnimation>
+                )} */}
 
                 {/* Application Form */}
                 <ScrollAnimation animation="fade-up" delay={500}>
@@ -260,17 +768,18 @@ const JobDetail = () => {
                         </Label>
                         <Input
                           id="fullName"
+                          name="fullName"
                           placeholder="John Doe"
                           value={formData.fullName}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              fullName: e.target.value,
-                            })
-                          }
-                          required
-                          className="h-12"
+                          onChange={handleInputChange}
+                          onBlur={handleBlur}
+                          className={`h-12 ${errors.fullName && touched.fullName ? "border-red-500 focus-visible:ring-red-500" : ""}`}
                         />
+                        {errors.fullName && touched.fullName && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.fullName}
+                          </p>
+                        )}
                       </div>
 
                       {/* Email */}
@@ -283,15 +792,19 @@ const JobDetail = () => {
                         </Label>
                         <Input
                           id="email"
+                          name="email"
                           type="email"
                           placeholder="john@example.com"
                           value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          required
-                          className="h-12"
+                          onChange={handleInputChange}
+                          onBlur={handleBlur}
+                          className={`h-12 ${errors.email && touched.email ? "border-red-500 focus-visible:ring-red-500" : ""}`}
                         />
+                        {errors.email && touched.email && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
 
                       {/* Phone */}
@@ -304,15 +817,19 @@ const JobDetail = () => {
                         </Label>
                         <Input
                           id="phone"
+                          name="phone"
                           type="tel"
                           placeholder="+1 (555) 123-4567"
                           value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          required
-                          className="h-12"
+                          onChange={handleInputChange}
+                          onBlur={handleBlur}
+                          className={`h-12 ${errors.phone && touched.phone ? "border-red-500 focus-visible:ring-red-500" : ""}`}
                         />
+                        {errors.phone && touched.phone && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.phone}
+                          </p>
+                        )}
                       </div>
 
                       {/* Cover Letter */}
@@ -325,18 +842,19 @@ const JobDetail = () => {
                         </Label>
                         <Textarea
                           id="coverLetter"
+                          name="coverLetter"
                           placeholder="Tell us why you're a great fit for this role..."
                           value={formData.coverLetter}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              coverLetter: e.target.value,
-                            })
-                          }
-                          required
+                          onChange={handleInputChange}
+                          onBlur={handleBlur}
                           rows={6}
-                          className="resize-none"
+                          className={`resize-none ${errors.coverLetter && touched.coverLetter ? "border-red-500 focus-visible:ring-red-500" : ""}`}
                         />
+                        {errors.coverLetter && touched.coverLetter && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.coverLetter}
+                          </p>
+                        )}
                       </div>
 
                       {/* Resume Upload */}
@@ -347,18 +865,25 @@ const JobDetail = () => {
                         >
                           Upload CV/Resume *
                         </Label>
-                        <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer">
+                        <div
+                          className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors cursor-pointer ${
+                            isDragging
+                              ? "border-primary bg-primary/5"
+                              : errors.resume && touched.resume
+                                ? "border-red-500 bg-red-50"
+                                : "hover:border-primary/50 border-border"
+                          }`}
+                          onDragOver={handleDragOver}
+                          onDragLeave={handleDragLeave}
+                          onDrop={handleDrop}
+                          onBlur={handleFileBlur}
+                        >
                           <input
                             id="resume"
+                            name="resume"
                             type="file"
                             accept=".pdf,.doc,.docx"
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                resume: e.target.files?.[0] || null,
-                              })
-                            }
-                            required
+                            onChange={handleFileChange}
                             className="hidden"
                           />
                           <label
@@ -366,7 +891,9 @@ const JobDetail = () => {
                             className="cursor-pointer block"
                           >
                             <div className="flex justify-center mb-2">
-                              <Upload className="w-8 h-8 text-muted-foreground" />
+                              <Upload
+                                className={`w-8 h-8 ${errors.resume && touched.resume ? "text-red-500" : "text-muted-foreground"}`}
+                              />
                             </div>
                             {formData.resume ? (
                               <div>
@@ -389,6 +916,11 @@ const JobDetail = () => {
                             )}
                           </label>
                         </div>
+                        {errors.resume && touched.resume && (
+                          <p className="text-sm text-red-500 mt-1">
+                            {errors.resume}
+                          </p>
+                        )}
                       </div>
 
                       {/* Submit Button */}
