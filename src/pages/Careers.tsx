@@ -2,7 +2,7 @@ import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { MapPin, Briefcase } from "lucide-react";
+import { MapPin, Briefcase, Play } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
 import {
@@ -13,6 +13,7 @@ import {
   ArrowRight,
   RefreshCw,
 } from "lucide-react";
+import { useState } from "react";
 
 const resources = [
   {
@@ -85,6 +86,8 @@ const Careers = () => {
       },
     },
   };
+
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   return (
     <Layout>
@@ -167,8 +170,37 @@ const Careers = () => {
             </ScrollAnimation>
             <ScrollAnimation animation="fade-left" delay={200}>
               <div className="relative">
-                <div className="aspect-square rounded-3xl bg-secondary overflow-hidden hover-lift">
-                  <div className="w-full h-full gradient-primary opacity-10" />
+                <div className="aspect-video rounded-3xl overflow-hidden hover-lift shadow-2xl group">
+                  {!isVideoPlaying ? (
+                    // Thumbnail with play button
+                    <div
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={() => setIsVideoPlaying(true)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/rzZQsTnatDI/maxresdefault.jpg"
+                        alt="Advice Lab Video"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all flex items-center justify-center">
+                        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                          <Play
+                            className="w-10 h-10 text-white ml-1"
+                            fill="white"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    // YouTube iframe
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/rzZQsTnatDI?autoplay=1&rel=0&modestbranding=1"
+                      title="Advice Lab - Life at Work"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
             </ScrollAnimation>

@@ -16,7 +16,7 @@
  * ```
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { trackPageView } from "@/lib/analytics";
 
@@ -28,21 +28,15 @@ import { trackPageView } from "@/lib/analytics";
  * 2. When location changes, extracts the pathname
  * 3. Sends the page view to GA4 with the pathname and document title
  * 4. Works for single-page applications (SPAs) where page reloads don't happen
- * 5. Deduplicates events that may fire twice due to React.StrictMode
  *
  * This replaces the automatic page view tracking that typically happens
  * with traditional website navigation (full page reloads)
  */
 export const usePageViewTracking = (): void => {
   const location = useLocation();
-  const lastPathname = useRef<string>("");
 
   useEffect(() => {
-    // Only track if the pathname has actually changed
-    // This prevents duplicate events when React.StrictMode runs effects twice
-    if (lastPathname.current !== location.pathname) {
-      lastPathname.current = location.pathname;
-      trackPageView(location.pathname, document.title);
-    }
+    // Track the page view whenever location changes
+    trackPageView(location.pathname, document.title);
   }, [location.pathname]);
 };

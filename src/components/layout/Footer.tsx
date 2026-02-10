@@ -210,24 +210,33 @@ export function Footer() {
               <a
                 href="https://www.linkedin.com/company/advice-intel/"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@Advice_Lab"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
               >
                 <Youtube className="w-6 h-6" />
               </a>
+
               <a
                 href="https://www.instagram.com/advice.lab/"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="https://www.tiktok.com/@advicelab"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <TikTokIcon className="w-5 h-5" />
               </a>
