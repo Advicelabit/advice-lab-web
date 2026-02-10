@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paraplanning & Financial Advice Support Services | Advice Lab</title>
+    <title>Advice Lab | Outsourced paraplanning & virtual admin</title>
     <meta
       name="description"
       content="Offshore paraplanning, client support & compliance services for Australian financial advisers. Scale your practice with reliable, qualified teams. Learn more today."
@@ -27,7 +27,7 @@
     <meta property="og:url" content="https://advicelab.com.au/" />
     <meta
       property="og:title"
-      content="Paraplanning & Financial Advice Support Services | Advice Lab"
+      content="Advice Lab | Outsourced paraplanning & virtual admin"
     />
     <meta
       property="og:description"
@@ -43,7 +43,7 @@
     <meta name="twitter:creator" content="@advicelab" />
     <meta
       name="twitter:title"
-      content="Paraplanning & Financial Advice Support Services | Advice Lab"
+      content="Advice Lab | Outsourced paraplanning & virtual admin"
     />
     <meta
       name="twitter:description"
@@ -67,6 +67,24 @@
     <!-- Theme -->
     <meta name="theme-color" content="#0ea5a4" />
     <meta name="color-scheme" content="light dark" />
+
+    <!-- Google Analytics 4 (GA4) - Manual Implementation -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3P9VQDR324"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      // Disable automatic page_view to avoid duplicate hits in SPA
+      // We'll send page_view manually from the React router hook
+      gtag("config", "G-3P9VQDR324", {
+        send_page_view: false,
+      });
+    </script>
   </head>
 
   <body>

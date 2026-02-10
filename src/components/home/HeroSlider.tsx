@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";
 import hero3 from "@/assets/HPImg/Cover_img3.jpg";
@@ -25,7 +24,7 @@ const slides = [
     subtitle: "Financial Precision",
     description:
       "Reliable offshore client support that keeps your practice moving.  ",
-    link: "/services/ClientSupport",
+    link: "/services/clientsupport",
   },
   {
     image: hero3,
@@ -109,9 +108,7 @@ export function HeroSlider() {
                   <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 animate-slide-up delay-150">
                     {slide.description}
                   </p>
-                  <div
-                    className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300"
-                  >
+                  <div className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300">
                     <Button variant="heroOutline" size="lg" asChild>
                       <Link to="/services">
                         Learn More <ArrowRight className="w-5 h-5" />

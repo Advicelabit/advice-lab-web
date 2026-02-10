@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { trackFormSubmission } from "@/lib/analytics";
 import { Layout } from "@/components/layout/Layout";
 import Seo from "@/components/ui/Seo";
 import { Button } from "@/components/ui/button";
@@ -6,16 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import {
-  Lightbulb,
   Sparkles,
-  FileText,
-  GraduationCap,
-  BookOpen,
-  Target,
-  CheckCircle,
-  Star,
-  Gift,
-  Send,
   MapPin,
   Briefcase,
   Clock,
@@ -32,7 +24,7 @@ import jobVacancies from "@/data/jobVacancies.json";
 // particular country page submit form
 
 const API_BASE_URL =
-  "https://n54lm5igkl.execute-api.ap-southeast-2.amazonaws.com/dev";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
 
 interface Job {
   id: string;
@@ -351,12 +343,15 @@ This application was submitted through the AdviceLab Careers page.
           recipient: formData.email,
           subject: `Application Received: ${job.title} - ${formData.fullName}`,
           body: emailBody,
-          attachment: attachmentData
-            ? {
-                filename: formData.resume?.name,
-                contentType: formData.resume?.type,
-                data: attachmentData,
-              }
+          is_html: false,
+          attachments: attachmentData
+            ? [
+                {
+                  filename: formData.resume?.name,
+                  contentType: formData.resume?.type,
+                  content: attachmentData,
+                },
+              ]
             : null,
         }),
       });
@@ -366,6 +361,16 @@ This application was submitted through the AdviceLab Careers page.
       }
 
       setSubmitted(true);
+      try {
+        trackFormSubmission("job_application", {
+          job_id: jobId,
+          job_title: job.title,
+          name: formData.fullName,
+          email: formData.email,
+        });
+      } catch (err) {
+        // ignore analytics errors
+      }
       // Scroll to the top of the content area to show the success message
       const contentSection = document.getElementById("job-detail-content");
       if (contentSection) {
@@ -480,7 +485,7 @@ This application was submitted through the AdviceLab Careers page.
                 <ScrollAnimation animation="fade-up">
                   <div className="mb-12">
                     <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
-                      <FileText className="w-9 h-9 text-primary" />
+                      {/* <FileText className="w-9 h-9 text-primary" /> */}
                       About the Role
                     </h2>
                     <p className="text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
@@ -494,7 +499,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={250}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                        <GraduationCap className="w-9 h-9 text-primary" />
                         Available Programs
                       </h2>
                       <ul className="space-y-4">
@@ -519,7 +523,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={50}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
-                        <BookOpen className="w-9 h-9 text-primary" />
                         What is Paraplanning?
                       </h2>
                       <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -558,7 +561,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={100}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-6 flex items-center gap-3">
-                        <Lightbulb className="w-9 h-9 text-primary" />
                         What is Advice Support?
                       </h2>
                       <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -598,7 +600,6 @@ This application was submitted through the AdviceLab Careers page.
                     <ScrollAnimation animation="fade-up" delay={100}>
                       <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                          <Target className="w-9 h-9 text-primary" />
                           Key Responsibilities
                         </h2>
                         <ul className="space-y-4">
@@ -623,7 +624,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={200}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                        <CheckCircle className="w-9 h-9 text-primary" />
                         Must-Haves
                       </h2>
                       <ul className="space-y-4">
@@ -648,7 +648,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={300}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                        <Star className="w-9 h-9 text-primary" />
                         Skills We Value
                       </h2>
                       <ul className="space-y-4">
@@ -673,7 +672,6 @@ This application was submitted through the AdviceLab Careers page.
                   <ScrollAnimation animation="fade-up" delay={400}>
                     <div className="mb-12">
                       <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
-                        <Gift className="w-9 h-9 text-primary" />
                         What's in It for You
                       </h2>
                       <ul className="space-y-4">

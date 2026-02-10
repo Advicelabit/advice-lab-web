@@ -1,4 +1,5 @@
 import Seo from "@/components/ui/Seo";
+import { trackFormSubmission } from "@/lib/analytics";
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -228,6 +229,16 @@ This inquiry was submitted through the AdviceLab Contact page.
       }
 
       setSubmitted(true);
+      // Track form submission in GA4
+      try {
+        trackFormSubmission("contact_form", {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+        });
+      } catch (err) {
+        // swallow analytics errors
+      }
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }, 100);

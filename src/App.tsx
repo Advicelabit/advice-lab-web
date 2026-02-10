@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { usePageViewTracking } from "@/hooks/usePageViewTracking";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -22,34 +23,46 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+/**
+ * AppRoutes Component
+ * Separated to use React Router hooks (useLocation) for GA4 page tracking
+ * This component must be inside BrowserRouter to access location context
+ */
+const AppRoutes = () => {
+  // Track page views on route changes
+  usePageViewTracking();
+
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/paraplanning" element={<Paraplanning />} />
+        <Route path="/services/clientsupport" element={<ClientSupport />} />
+        <Route path="/services/mortgage" element={<Mortgage />} />
+        <Route path="/resources/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/careers/philippines" element={<PhilippinesVacancies />} />
+        <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
+        <Route path="/careers/job/:jobId" element={<JobDetail />} />
+        <Route path="/careers/submit-resume" element={<SubmitResume />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {/* check */}
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/paraplanning" element={<Paraplanning />} />
-          <Route path="/services/clientsupport" element={<ClientSupport />} />
-          <Route path="/services/mortgage" element={<Mortgage />} />
-          <Route path="/resources/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route
-            path="/careers/philippines"
-            element={<PhilippinesVacancies />}
-          />
-          <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
-          <Route path="/careers/job/:jobId" element={<JobDetail />} />
-          <Route path="/careers/submit-resume" element={<SubmitResume />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

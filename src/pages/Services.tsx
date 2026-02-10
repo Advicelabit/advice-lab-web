@@ -28,7 +28,7 @@ const services = [
   },
   {
     icon: Calculator,
-    title: "Client Service Officers",
+    title: "Client Support Officers",
     description:
       "Professional bookkeeping and financial reporting services for advisory practices.",
     features: [
@@ -38,7 +38,7 @@ const services = [
       "Payroll processing",
       "Reconciliations",
     ],
-    link: "/services/ClientSupport",
+    link: "/services/clientsupport",
   },
   // {
   //   icon: Home,
