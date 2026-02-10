@@ -30,7 +30,7 @@ const queryClient = new QueryClient();
  */
 const AppRoutes = () => {
   // Track page views on route changes
-  usePageViewTracking();
+  // usePageViewTracking();
 
   return (
     <>

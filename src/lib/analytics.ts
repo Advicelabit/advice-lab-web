@@ -45,7 +45,7 @@ export const trackPageView = (path: string, title?: string): void => {
   }
 
   try {
-    window.gtag("event", "page_view", {
+    window.gtag("event", "page_view1", {
       page_path: path,
       page_title: title || document.title,
       page_location: window.location.href,
@@ -57,7 +57,6 @@ export const trackPageView = (path: string, title?: string): void => {
         title: title || document.title,
       });
     }
-    console.log(path, title);
   } catch (error) {
     console.error("Error tracking page view:", error);
   }

@@ -191,8 +191,7 @@ const About = () => {
                         Our Mission
                       </span>
                       <h4 className="text-2xl md:text-3xl font-display font-bold text-foreground leading-tight">
-                        Helping Australian Financial Advisers{" "}
-                        <span className="gradient-text">grow better</span>
+                        Helping Australian Financial Advisers grow better
                       </h4>
                     </div>
                   </div>
