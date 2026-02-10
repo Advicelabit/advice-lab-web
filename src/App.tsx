@@ -37,19 +37,19 @@ const AppRoutes = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about-us" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/paraplanning" element={<Paraplanning />} />
         <Route path="/services/clientsupport" element={<ClientSupport />} />
         <Route path="/services/mortgage" element={<Mortgage />} />
-        <Route path="/resources/blog" element={<Blog />} />
+        <Route path="/resources/blogs" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/careers/philippines" element={<PhilippinesVacancies />} />
         <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
         <Route path="/careers/job/:jobId" element={<JobDetail />} />
         <Route path="/careers/submit-resume" element={<SubmitResume />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact-us" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

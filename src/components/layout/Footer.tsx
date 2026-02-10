@@ -12,9 +12,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "/about" },
+    { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/contact-us" },
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
@@ -29,7 +29,7 @@ const footerLinks = {
     // { name: "Accountant’s Offshoring Playbook ", href: "/resources#pricing" },
     // { name: "Virtual CSO Task Library ", href: "/resources#guide" },
     // { name: "SMSF Trustee Education Kit  ", href: "/resources#pricing" },
-    { name: "Blog  ", href: "/resources/blog" },
+    { name: "Blog  ", href: "/resources/blogs" },
   ],
 };
 
@@ -49,7 +49,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 export function Footer() {
   const { pathname } = useLocation();
   const hideCta =
-    pathname.startsWith("/careers") || pathname.startsWith("/contact");
+    pathname.startsWith("/careers") || pathname.startsWith("/contact-us");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();

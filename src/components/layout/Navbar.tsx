@@ -6,7 +6,7 @@ import logo from "@/assets/advicelab-logo.png";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about-us" },
   {
     name: "Services",
     href: "/services/paraplanning",
@@ -20,7 +20,7 @@ const navigation = [
   },
   {
     name: "Resources",
-    href: "/resources/blog",
+    href: "/resources/blogs",
     children: [
       // {
       //   name: "Adviser's Guide for Outsourcing",
@@ -39,11 +39,11 @@ const navigation = [
       //   name: "SMSF Trustee Education Kit",
       //   href: "/resources#smsf-trustee-education-kit",
       // },
-      { name: "Blog", href: "/resources/blog" },
+      { name: "Blog", href: "/resources/blogs" },
     ],
   },
   { name: "Careers", href: "/careers" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact-us" },
 ];
 
 export function Navbar() {
