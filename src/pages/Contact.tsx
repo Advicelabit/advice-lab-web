@@ -215,8 +215,8 @@ This inquiry was submitted through the AdviceLab Contact page.
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          sender: "noreply@advicegenie.com.au",
-          recipient: formData.email,
+          sender: "marketing@advicelab.com.au",
+          recipient: "marketing@advicelab.com.au",
           subject: `New Contact Form Submission: ${formData.name}`,
           body: emailBody,
           is_html: false,
