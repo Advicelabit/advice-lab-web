@@ -12,7 +12,7 @@ const navigation = [
     href: "/services/paraplanning",
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
-      { name: "Client Support Officers", href: "/services/ClientSupport" },
+      { name: "Client Support Officers", href: "/services/clientsupport" },
       // { name: "Accounting", href: "/services/mortgage" },
       // { name: "SMSF", href: "/services/mortgage" },
       // { name: "Mortgage Support", href: "/services/mortgage" },
@@ -115,9 +115,9 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button variant="outline" size="sm" asChild className="w-40">
+          {/* <Button variant="outline" size="sm" asChild className="w-40">
             <Link to="/services">Explore Services</Link>
-          </Button>
+          </Button> */}
           <Button size="sm" asChild className="w-40">
             <Link to="/contact">Get in Touch</Link>
           </Button>
@@ -173,11 +173,11 @@ export function Navbar() {
             </div>
           ))}
           <div className="pt-4 flex flex-col gap-3">
-            <Button variant="outline" asChild>
+            {/* <Button variant="outline" asChild>
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
                 Explore Services
               </Link>
-            </Button>
+            </Button> */}
             <Button asChild>
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
                 Get in Touch

@@ -151,9 +151,9 @@ const ClientSupport = () => {
   return (
     <Layout>
       <Seo
-        title="Client Service & Administrative Support | Advice Lab"
-        description="Professional client service officers for financial advisers. Bookkeeping, reporting, BAS preparation, payroll & reconciliations. Streamline your operations."
-        keywords="client service officers, bookkeeping services, financial reporting, BAS preparation, payroll processing, financial reconciliation, business administration, advisory support services"
+        title="Client Support & Administrative Support | Advice Lab"
+        description="Professional client support officers for financial advisers. Bookkeeping, reporting, BAS preparation, payroll & reconciliations. Streamline your operations."
+        keywords="client support officers, bookkeeping services, financial reporting, BAS preparation, payroll processing, financial reconciliation, business administration, advisory support services"
         pathname="/services/clientsupport"
         schemaData={{
           "@type": "LocalBusiness",

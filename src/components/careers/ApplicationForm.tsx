@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { trackFormSubmission } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -305,6 +306,16 @@ This application was submitted through the AdviceLab Careers page.
       }
 
       setSubmitted(true);
+      try {
+        trackFormSubmission("job_application", {
+          job_id: jobId,
+          job_title: jobTitle,
+          name: formData.fullName,
+          email: formData.email,
+        });
+      } catch (err) {
+        // ignore analytics errors
+      }
       // Scroll to the top of the form content area to show the success message
       setTimeout(() => {
         const contentSection =

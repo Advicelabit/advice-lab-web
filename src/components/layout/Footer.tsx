@@ -18,7 +18,7 @@ const footerLinks = {
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
-    { name: "Client Support Officers ", href: "/services/ClientSupport" },
+    { name: "Client Support Officers ", href: "/services/clientsupport" },
     // { name: "Accounting ", href: "/services/mortgage" },
     // { name: "SMSF ", href: "/services/accounting" },
     // { name: "Mortgage Support  ", href: "/services/mortgage" },
@@ -73,12 +73,12 @@ export function Footer() {
               their offshore support.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
+              {/* <Link
                 to="/services"
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
               >
                 Explore Services
-              </Link>
+              </Link> */}
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"

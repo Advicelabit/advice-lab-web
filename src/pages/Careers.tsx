@@ -89,7 +89,7 @@ const Careers = () => {
   return (
     <Layout>
       <Seo
-        title="Join Our Team - Careers & Job Opportunities | Advice Lab"
+        title="Join Our Team - Careers & Job Opportunities"
         description="Exciting career opportunities at Advice Lab. Join our growing team of paraplanning & financial services professionals. Check current vacancies in Australia & Asia."
         keywords="Advice Lab careers, job opportunities, paraplanning jobs, financial services jobs, Philippine careers, Sri Lanka careers, Australia jobs, financial adviser support careers, offshore support jobs"
         pathname="/careers"
@@ -262,11 +262,11 @@ const Careers = () => {
           <ScrollAnimation animation="fade-up">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
-                Free Resources
+                Our Values
               </span>
 
               <h2 className="font-display font-bold mt-2 text-muted-foreground text-2xl md:text-3xl">
-                Download & Learn
+                These values shape our culture and our team spirit
               </h2>
             </div>
           </ScrollAnimation>

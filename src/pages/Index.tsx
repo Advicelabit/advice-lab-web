@@ -37,7 +37,7 @@ const Index = () => {
   return (
     <Layout>
       <Seo
-        title="Paraplanning & Financial Advice Support Services"
+        title="Advice Lab | Outsourced paraplanning & virtual admin"
         description="Offshore paraplanning, client support & compliance services for Australian financial advisers. Scale your practice with reliable, qualified teams. Learn more today."
         keywords="paraplanning services, financial advice support, offshore paraplanning, financial adviser outsourcing, compliance support, client service support, financial planning support, advice lab"
         pathname="/"
