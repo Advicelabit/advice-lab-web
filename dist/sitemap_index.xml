@@ -10,7 +10,7 @@
   
   <!-- About Page -->
   <url>
-    <loc>https://advicelab.com.au/about</loc>
+    <loc>https://advicelab.com.au/about-us</loc>
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -63,7 +63,7 @@
   
   <!-- Blog/Resources Pages -->
   <url>
-    <loc>https://advicelab.com.au/resources/blog</loc>
+    <loc>https://advicelab.com.au/resources/blogs</loc>
     <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
@@ -71,7 +71,7 @@
   
   <!-- Contact Page -->
   <url>
-    <loc>https://advicelab.com.au/contact</loc>
+    <loc>https://advicelab.com.au/contact-us</loc>
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
