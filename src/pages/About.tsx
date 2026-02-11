@@ -17,10 +17,10 @@ import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";
 import hero3 from "@/assets/HPImg/Cover_img3.jpg";
 import hero4 from "@/assets/HPImg/Cover_img5.jpg";
-import hero5 from "@/assets/HPImg/Cover_img1.jpg";
+import hero5 from "@/assets/HPImg/Leadership Team.jpg";
 import hero6 from "@/assets/HPImg/Cover_img8.jpg";
 import missionImg from "@/assets/About/Mission-img.jpg";
-import pradImg from "@/assets/About/Prad_img.jpg";
+import pradImg from "@/assets/About/prad_new.png";
 
 // const stats = [
 //   { value: "150+", label: "Australian Advisors" },
@@ -272,11 +272,11 @@ const About = () => {
 
                 {/* Main image container */}
                 <div className="relative">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-3 h-[350px]">
                     <img
                       src={pradImg}
                       alt="Prad Navaratnam"
-                      className="rounded-2xl w-3.9/5 h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 max-h-[350px] mx-auto"
+                      className="w-full h-full object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
