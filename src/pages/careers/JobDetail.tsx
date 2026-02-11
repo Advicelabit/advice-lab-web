@@ -338,8 +338,8 @@ This application was submitted through the AdviceLab Careers page.
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          sender: "marketing@advicelab.com.au",
-          recipient: "marketing@advicelab.com.au",
+          sender: "noreply@advicegenie.com.au",
+          recipient: "hello@advicelab.com.au",
           // sender: formData.email,
           subject: `Application Received: ${job.title} - ${formData.fullName}`,
           body: emailBody,
