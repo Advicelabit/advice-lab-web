@@ -467,25 +467,6 @@ This inquiry was submitted through the AdviceLab Contact page.
                     );
                   })}
                 </div>
-
-                {/* Book Demo Card */}
-                <div className="p-8 gradient-primary rounded-3xl text-primary-foreground hover-lift">
-                  <h3 className="text-xl font-display font-bold mb-4">
-                    Book a Demo
-                  </h3>
-                  <p className="text-primary-foreground/80 mb-6">
-                    See how Advice Lab can transform your practice with a
-                    personalized demo.
-                  </p>
-                  <a href="#">
-                    <Button
-                      variant="white"
-                      className="hover:scale-105 transition-transform"
-                    >
-                      Schedule Now
-                    </Button>
-                  </a>
-                </div>
               </div>
             </ScrollAnimation>
           </div>

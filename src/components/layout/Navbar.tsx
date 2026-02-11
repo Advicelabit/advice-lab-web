@@ -119,7 +119,7 @@ export function Navbar() {
             <Link to="/services">Explore Services</Link>
           </Button> */}
           <Button size="sm" asChild className="w-40">
-            <Link to="/contact">Get in Touch</Link>
+            <Link to="/contact-us">Get in Touch</Link>
           </Button>
         </div>
 

@@ -161,10 +161,6 @@ export function Testimonials() {
             <h2 className="font-display font-bold text-muted-foreground mt-2 mb-3 sm:mb-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl px-4">
               What Our Clients Say
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-4">
-              For the past 10 years, we've been providing outstanding service to
-              our customers.
-            </p>
           </div>
         </ScrollAnimation>
 
