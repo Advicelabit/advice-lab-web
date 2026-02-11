@@ -179,7 +179,7 @@ export function Navbar() {
               </Link>
             </Button> */}
             <Button asChild>
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/contact-us" onClick={() => setMobileMenuOpen(false)}>
                 Get in Touch
               </Link>
             </Button>

@@ -39,4 +39,4 @@ fi
 echo "Website deployed successfully!"
 echo "You can access the website at: http://$BUCKET_NAME.s3-website-$REGION.amazonaws.com"
 
-aws cloudfront create-invalidation --distribution-id $YOUR_DISTRIBUTION_ID --paths "/index.html" "/*"
+aws cloudfront create-invalidation --distribution-id $YOUR_DISTRIBUTION_ID --paths "/*"

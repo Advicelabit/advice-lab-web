@@ -214,9 +214,12 @@ This inquiry was submitted through the AdviceLab Contact page.
         headers: {
           "Content-Type": "application/json",
         },
+        //  sender: "marketing@advicelab.com.au",
+        //   recipient: "hello@advicelab.com.au",
+
         body: JSON.stringify({
-          sender: "marketing@advicelab.com.au",
-          recipient: "marketing@advicelab.com.au",
+          sender: "noreply@advicegenie.com.au",
+          recipient: "hello@advicelab.com.au",
           subject: `New Contact Form Submission: ${formData.name}`,
           body: emailBody,
           is_html: false,
@@ -274,7 +277,7 @@ This inquiry was submitted through the AdviceLab Contact page.
         title="Contact Advice Lab - Get in Touch with Our Team"
         description="Get in touch with Advice Lab. Phone, email, or contact form. We're based in Sydney and serve Australian financial advisers. Response within 24 hours."
         keywords="contact Advice Lab, get in touch, financial services support, customer service, Sydney office, Advice Lab contact, contact information"
-        pathname="/contact"
+        pathname="/contact-us"
         schemaData={contactSchema}
       />
       {/* Hero */}

@@ -175,7 +175,7 @@ const Paraplanning = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
-                <Link to="/contact">Get in Touch</Link>
+                <Link to="/contact-us">Get in Touch</Link>
               </Button>
               {/* <Button variant="heroOutline" size="lg" asChild>
                 <Link to="/contact">Get Pricing</Link>
