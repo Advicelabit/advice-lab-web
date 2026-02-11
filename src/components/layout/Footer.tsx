@@ -80,7 +80,7 @@ export function Footer() {
                 Explore Services
               </Link> */}
               <Link
-                to="/contact"
+                to="/contact-us"
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
               >
                 Get in Touch

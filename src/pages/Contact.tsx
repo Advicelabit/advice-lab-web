@@ -274,7 +274,7 @@ This inquiry was submitted through the AdviceLab Contact page.
         title="Contact Advice Lab - Get in Touch with Our Team"
         description="Get in touch with Advice Lab. Phone, email, or contact form. We're based in Sydney and serve Australian financial advisers. Response within 24 hours."
         keywords="contact Advice Lab, get in touch, financial services support, customer service, Sydney office, Advice Lab contact, contact information"
-        pathname="/contact"
+        pathname="/contact-us"
         schemaData={contactSchema}
       />
       {/* Hero */}
