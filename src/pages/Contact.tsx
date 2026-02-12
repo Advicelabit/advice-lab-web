@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    value: "02 8074 0884",
+    value: "+61 2 8074 0884",
   },
   {
     icon: MapPin,
