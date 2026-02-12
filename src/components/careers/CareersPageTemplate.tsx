@@ -26,6 +26,7 @@ interface Job {
   type: string;
   category: string;
   description: string;
+  aboutTheRole: string;
   keyResponsibilities: string[];
   mustHaves: string[];
   skillsWeValue: string[];
@@ -69,6 +70,7 @@ export const CareersPageTemplate = ({
     "Internship Program",
     "Paraplanning",
     "Quality Assurance",
+    "Mortgage",
   ];
 
   // Filter jobs based on all criteria

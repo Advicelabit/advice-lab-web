@@ -126,8 +126,12 @@ const Careers = () => {
                   A Great Place to Grow
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  At Advice Lab, we're building a team of talented professionals
-                  who are passionate about delivering excellence.
+                  At Advice Lab, we are driven by people. We take pride in
+                  nurturing, supporting, and shaping the career growth of every
+                  individual who becomes part of our team. When you join us,
+                  you're not just starting a job, you're stepping into a
+                  workplace that believes in your potential, celebrates your
+                  strengths, and grows with you.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {benefits.map((benefit, index) => (

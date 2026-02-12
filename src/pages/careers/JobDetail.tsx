@@ -32,7 +32,7 @@ interface Job {
   location: string;
   type: string;
   category: string;
-  description: string;
+  aboutTheRole: string;
   whatIsParaplanning: string;
   whatIsAdviceSupport: string;
   keyResponsibilities: string[];
@@ -393,13 +393,13 @@ This application was submitted through the AdviceLab Careers page.
     <Layout>
       <Seo
         title={`${job.title} - Apply Now | Advice Lab Careers`}
-        description={`${job.title} position at Advice Lab in ${job.location}. ${job.description.substring(0, 100)}... Join our team supporting Australian financial advisers. Apply today.`}
+        description={`${job.title} position at Advice Lab in ${job.location}. ${job.aboutTheRole.substring(0, 100)}... Join our team supporting Australian financial advisers. Apply today.`}
         keywords={`${job.title}, ${job.location} jobs, paraplanning jobs, financial services careers, Advice Lab careers, offshore support jobs, ${job.title} position`}
         pathname={`/careers/job/${jobId}`}
         schemaData={{
           "@type": "JobPosting",
           title: job.title,
-          description: job.description,
+          description: job.aboutTheRole,
           url: `https://advicelab.com.au/careers/job/${jobId}`,
           jobLocation: {
             "@type": "Place",
@@ -488,9 +488,12 @@ This application was submitted through the AdviceLab Careers page.
                       {/* <FileText className="w-9 h-9 text-primary" /> */}
                       About the Role
                     </h2>
-                    <p className="text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
-                      {job.description}
-                    </p>
+
+                    {job.aboutTheRole?.trim() && (
+                      <p className="text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
+                        {job.aboutTheRole}
+                      </p>
+                    )}
                   </div>
                 </ScrollAnimation>
 
