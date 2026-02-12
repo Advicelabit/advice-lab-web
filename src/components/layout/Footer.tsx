@@ -117,7 +117,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5" />
-                  <span>02 8074 0884</span>
+                  <span>+61 2 8074 0884</span>
                 </div>
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
@@ -261,8 +261,6 @@ export function Footer() {
             >
               hello@advicelab.com.au
             </a>
-            . We will respond to your request within 7 days of receipt of the
-            query.
           </div>
         </div>
       </div>

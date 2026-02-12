@@ -17,6 +17,7 @@ const slides = [
     description:
       "Quality, fast, compliant paraplanning – delivered by experienced offshore specialists from Sri Lanka and Philippines.  ",
     link: "/services/paraplanning",
+    showLearnMore: true, // Show Learn More button
   },
   {
     image: hero2,
@@ -25,6 +26,7 @@ const slides = [
     description:
       "Reliable offshore client support that keeps your practice moving.  ",
     link: "/services/clientsupport",
+    showLearnMore: true, // Show Learn More button
   },
   {
     image: hero3,
@@ -33,6 +35,7 @@ const slides = [
     description:
       "Financial management services delivered by experienced accounting specialists.",
     link: "/services/mortgage",
+    showLearnMore: false, // Don't show Learn More button
   },
   {
     image: hero4,
@@ -41,6 +44,7 @@ const slides = [
     description:
       "Scale your SMSF operations with dependable offshore expertise ",
     link: "/services/mortgage",
+    showLearnMore: false, // Don't show Learn More button
   },
   {
     image: hero5,
@@ -49,6 +53,7 @@ const slides = [
     description:
       "Streamlined mortgage support that speeds up lodgments and approvals. ",
     link: "/services/mortgage",
+    showLearnMore: false, // Don't show Learn More button
   },
 ];
 
@@ -99,9 +104,6 @@ export function HeroSlider() {
             >
               {index === currentSlide && (
                 <>
-                  {/* <span className="inline-block px-4 py-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full text-primary-foreground/90 text-sm font-medium mb-6 animate-fade-in">
-                    {slide.subtitle}
-                  </span> */}
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6 leading-tight text-balance animate-slide-up">
                     {slide.title}
                   </h1>
@@ -109,11 +111,14 @@ export function HeroSlider() {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-300">
-                    <Button variant="heroOutline" size="lg" asChild>
-                      <Link to="/services">
-                        Learn More <ArrowRight className="w-5 h-5" />
-                      </Link>
-                    </Button>
+                    {/* Conditionally render Learn More button */}
+                    {slide.showLearnMore && (
+                      <Button variant="heroOutline" size="lg" asChild>
+                        <Link to={slide.link}>
+                          Learn More <ArrowRight className="w-5 h-5" />
+                        </Link>
+                      </Button>
+                    )}
                     <Button variant="hero" size="lg" asChild>
                       <Link to="/contact-us">Get in Touch</Link>
                     </Button>
