@@ -49,6 +49,9 @@ const navigation = [
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
+    null,
+  );
   const location = useLocation();
 
   const isActive = (href: string) => {
@@ -73,8 +76,7 @@ export function Navbar() {
                 onMouseEnter={() => setOpenDropdown(item.name)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <Link
-                  to={item.href}
+                <button
                   className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
                     isActive(item.href)
                       ? "text-primary"
@@ -83,7 +85,7 @@ export function Navbar() {
                 >
                   {item.name}
                   <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-                </Link>
+                </button>
                 {openDropdown === item.name && (
                   <div className="absolute top-full left-0 pt-2 w-64">
                     <div className="bg-background rounded-2xl shadow-xl border border-border p-2 animate-fade-in">
@@ -91,7 +93,11 @@ export function Navbar() {
                         <Link
                           key={child.name}
                           to={child.href}
-                          className="block px-4 py-3 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary hover:bg-secondary rounded-xl transition-colors"
+                          className={`block px-4 py-3 text-sm leading-[0.9rem] hover:bg-secondary rounded-xl transition-colors ${
+                            isActive(child.href)
+                              ? "text-primary font-semibold"
+                              : "text-muted-foreground hover:text-primary"
+                          }`}
                         >
                           {child.name}
                         </Link>
@@ -115,9 +121,6 @@ export function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          {/* <Button variant="outline" size="sm" asChild className="w-40">
-            <Link to="/services">Explore Services</Link>
-          </Button> */}
           <Button size="sm" asChild className="w-40">
             <Link to="/contact-us">Get in Touch</Link>
           </Button>
@@ -136,7 +139,7 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Start */}
       <div
         className={`lg:hidden fixed top-[76px] left-0 right-0 bg-background border-t border-border transition-transform duration-300 ease-in-out ${
           mobileMenuOpen
@@ -147,22 +150,50 @@ export function Navbar() {
         <div className="container mx-auto py-4 px-4 space-y-2">
           {navigation.map((item) => (
             <div key={item.name}>
-              <Link
-                to={item.href}
-                className={`block py-3 text-base font-medium ${
-                  isActive(item.href) ? "text-primary" : "text-muted-foreground"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-              {item.children && (
+              {item.children ? (
+                <button
+                  className={`flex items-center justify-between w-full py-3 text-base font-medium ${
+                    isActive(item.href)
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                  onClick={() =>
+                    setMobileDropdownOpen(
+                      mobileDropdownOpen === item.name ? null : item.name,
+                    )
+                  }
+                >
+                  {item.name}
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      mobileDropdownOpen === item.name ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              ) : (
+                <Link
+                  to={item.href}
+                  className={`block py-3 text-base font-medium ${
+                    isActive(item.href)
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )}
+              {item.children && mobileDropdownOpen === item.name && (
                 <div className="pl-4 space-y-1">
                   {item.children.map((child) => (
                     <Link
                       key={child.name}
                       to={child.href}
-                      className="block py-2 text-sm leading-[0.9rem] text-muted-foreground hover:text-primary"
+                      className={`block py-2 text-sm leading-[0.9rem] transition-colors ${
+                        isActive(child.href)
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground hover:text-primary"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {child.name}
@@ -173,11 +204,6 @@ export function Navbar() {
             </div>
           ))}
           <div className="pt-4 flex flex-col gap-3">
-            {/* <Button variant="outline" asChild>
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Explore Services
-              </Link>
-            </Button> */}
             <Button asChild>
               <Link to="/contact-us" onClick={() => setMobileMenuOpen(false)}>
                 Get in Touch
@@ -186,6 +212,7 @@ export function Navbar() {
           </div>
         </div>
       </div>
+      {/* Mobile Menu End */}
     </header>
   );
 }

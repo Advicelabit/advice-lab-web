@@ -106,14 +106,19 @@ export function Footer() {
             {/* Brand */}
             <div className="lg:col-span-2">
               <img src={logo} alt="Advice Lab" className="h-10 w-auto mb-6" />
-              <p className="text-muted-foreground mb-6 max-w-sm">
+              <p className="text-foreground mb-6 max-w-sm">
                 Expert offshore support for Australian financial advisors. Scale
                 your practice with our dedicated team.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Mail className="w-5 h-5" />
-                  <span>hello@advicelab.com.au</span>
+                  <a
+                    href="mailto:hello@advicelab.com.au"
+                    className="hover:underline"
+                  >
+                    hello@advicelab.com.au
+                  </a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5" />

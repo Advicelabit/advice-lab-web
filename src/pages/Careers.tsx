@@ -2,7 +2,7 @@ import Seo from "@/components/ui/Seo";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { MapPin, Briefcase, Play } from "lucide-react";
+import { MapPin, Briefcase, Play, Linkedin, Instagram } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
 import {
@@ -14,6 +14,9 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { useState } from "react";
+
+import greatPlaceToWorkCertificate1 from "@/assets/About/great-place-to-work-2024.png";
+import greatPlaceToWorkCertificate2 from "@/assets/About/great-place-to-work-2025.png";
 
 const resources = [
   {
@@ -122,12 +125,16 @@ const Careers = () => {
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                   Why Work With Us
                 </span>
-                <h2 className="font-display font-bold mt-2 mb-6 text-muted-foreground text-2xl md:text-3xl">
+                <h2 className="font-display font-bold mt-2 mb-6 text-foreground text-2xl md:text-3xl">
                   A Great Place to Grow
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  At Advice Lab, we're building a team of talented professionals
-                  who are passionate about delivering excellence.
+                  At Advice Lab, we are driven by people. We take pride in
+                  nurturing, supporting, and shaping the career growth of every
+                  individual who becomes part of our team. When you join us,
+                  you're not just starting a job, you're stepping into a
+                  workplace that believes in your potential, celebrates your
+                  strengths, and grows with you.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {benefits.map((benefit, index) => (
@@ -201,6 +208,108 @@ const Careers = () => {
                       allowFullScreen
                     ></iframe>
                   )}
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </section>
+
+      {/* Great Place to Work Section */}
+      <section className="py-24 bg-secondary/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            {/* Left Side - Two Certificates */}
+            <ScrollAnimation
+              animation="fade-right"
+              className="order-2 lg:order-1"
+            >
+              {/* className="-ml-6" */}
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                {/* Certificate 1 */}
+                <div>
+                  <div className="rounded-2xl overflow-hidden">
+                    <img
+                      src={greatPlaceToWorkCertificate1}
+                      alt="Great Place to Work Certificate 2024"
+                      className="w-full max-w-[220px] h-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                {/* Certificate 2 */}
+                <div>
+                  <div className="rounded-2xl overflow-hidden">
+                    <img
+                      src={greatPlaceToWorkCertificate2}
+                      alt="Great Place to Work Certificate 2025"
+                      className="w-full max-w-[220px] h-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimation>
+
+            {/* Right Side - Content */}
+            <ScrollAnimation
+              animation="fade-left"
+              className="order-1 lg:order-2"
+              delay={200}
+            >
+              <div>
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-6">
+                  Certified Excellence
+                </span>
+
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
+                  A Workplace That Believes in You
+                </h2>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  You're stepping into a workplace that believes in your
+                  potential, celebrates your strengths, and grows with you.
+                </p>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  Curious to learn more about who we are? Check out our
+                  Instagram and LinkedIn to get a peek into our culture and
+                  community.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    size="sm"
+                    asChild
+                    className="h-12 px-12 text-sm w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
+                  >
+                    <a
+                      href="https://www.instagram.com/advice.lab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3"
+                    >
+                      <Instagram className="w-5 h-5 group-hover:text-primary transition-colors" />
+                      <span>Follow on Instagram</span>
+                    </a>
+                  </Button>
+
+                  <Button
+                    size="sm"
+                    asChild
+                    className="h-12 px-12 text-sm w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/advice-intel/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3"
+                    >
+                      <Linkedin className="w-5 h-5 group-hover:text-primary transition-colors" />
+                      <span>Connect on LinkedIn</span>
+                    </a>
+                  </Button>
                 </div>
               </div>
             </ScrollAnimation>
