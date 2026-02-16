@@ -35,8 +35,8 @@ export function TrainingPartnersLogos() {
         </ScrollAnimation>
       </div>
 
-      <div className="mt-8 relative">
-        <div className="inline-flex animate-marquee whitespace-nowrap">
+      <div className="mt-8 relative overflow-hidden">
+        <div className="inline-flex animate-marquee whitespace-nowrap will-change-transform">
           {/* First set */}
           {universityLogos.map((logo, index) => (
             <div

@@ -49,8 +49,8 @@ export function ClientLogos() {
         </ScrollAnimation>
       </div>
 
-      <div className="mt-4 relative">
-        <div className="inline-flex animate-marquee-clients whitespace-nowrap">
+      <div className="mt-4 relative overflow-hidden">
+        <div className="inline-flex animate-marquee-clients whitespace-nowrap will-change-transform">
           {/* First set */}
           {logos.map((logo, index) => (
             <div
