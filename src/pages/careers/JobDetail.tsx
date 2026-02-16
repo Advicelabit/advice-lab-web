@@ -49,9 +49,8 @@ interface Job {
 
 const JobDetail = () => {
   const { jobId } = useParams<{ jobId: string }>();
-  console.log("jobId:", jobId);
   const navigate = useNavigate();
-
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -163,6 +162,11 @@ const JobDetail = () => {
         if (!stringValue.trim()) {
           return "Phone number is required";
         }
+
+        if (!/^\d+$/.test(stringValue)) {
+          return "Phone number must contain numbers only";
+        }
+
         break;
       case "coverLetter":
         if (!stringValue.trim()) {
@@ -770,7 +774,7 @@ This application was submitted through the AdviceLab Careers page.
                         <Input
                           id="fullName"
                           name="fullName"
-                          placeholder="John Doe"
+                          placeholder="Your full name"
                           value={formData.fullName}
                           onChange={handleInputChange}
                           onBlur={handleBlur}
@@ -795,7 +799,7 @@ This application was submitted through the AdviceLab Careers page.
                           id="email"
                           name="email"
                           type="email"
-                          placeholder="john@example.com"
+                          placeholder="Your email address"
                           value={formData.email}
                           onChange={handleInputChange}
                           onBlur={handleBlur}
@@ -820,7 +824,7 @@ This application was submitted through the AdviceLab Careers page.
                           id="phone"
                           name="phone"
                           type="tel"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="Your phone number"
                           value={formData.phone}
                           onChange={handleInputChange}
                           onBlur={handleBlur}

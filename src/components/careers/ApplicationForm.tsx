@@ -35,6 +35,8 @@ export const ApplicationForm = ({
   const [fileName, setFileName] = useState("");
   const [isDragging, setIsDragging] = useState(false);
 
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   // Validation state
   const [errors, setErrors] = useState<{
     fullName?: string;
@@ -78,6 +80,10 @@ export const ApplicationForm = ({
         if (!stringValue.trim()) {
           return "Phone number is required";
         }
+        if (!/^\d+$/.test(stringValue)) {
+          return "Phone number must contain numbers only";
+        }
+
         break;
       case "coverLetter":
         if (!stringValue.trim()) {
@@ -96,10 +102,8 @@ export const ApplicationForm = ({
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
     setTouched((prev) => ({ ...prev, [name]: true }));
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleFileBlur = () => {
@@ -210,7 +214,7 @@ export const ApplicationForm = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setHasSubmitted(true);
     if (!validateForm()) {
       return;
     }
@@ -393,7 +397,7 @@ This application was submitted through the AdviceLab Careers page.
             id="email"
             name="email"
             type="email"
-            placeholder="your.email@example.com"
+            placeholder="Your email address"
             value={formData.email}
             onChange={handleInputChange}
             onBlur={handleBlur}
@@ -412,7 +416,7 @@ This application was submitted through the AdviceLab Careers page.
           <Input
             id="phone"
             name="phone"
-            placeholder="+1 (555) 123-4567"
+            placeholder="Your phone number"
             value={formData.phone}
             onChange={handleInputChange}
             onBlur={handleBlur}

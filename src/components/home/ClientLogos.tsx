@@ -55,7 +55,7 @@ export function ClientLogos() {
           {logos.map((logo, index) => (
             <div
               key={`set1-${index}`}
-              className="inline-flex flex-shrink-0 w-40 h-20 p-3 mx-6 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-48 sm:h-24 sm:p-4 sm:mx-8 md:w-56 md:h-28 md:p-5 md:mx-10"
+              className="inline-flex flex-shrink-0 w-40 h-20 p-3 mx-6 rounded-lg transition-all duration-300 items-center justify-center sm:w-48 sm:h-24 sm:p-4 sm:mx-8 md:w-56 md:h-28 md:p-5 md:mx-10"
             >
               <img
                 src={logo.src}
