@@ -30,7 +30,7 @@ const BlogPost = () => {
               className="group relative overflow-hidden pl-0 pr-4 text-foreground hover:text-white"
               asChild
             >
-              <Link to="/resources/blog">
+              <Link to="/resources/blogs">
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className=" relative inline-flex items-center gap-2 p-8 ">
                   <ArrowLeft className="w-4 h-4" />
@@ -81,12 +81,12 @@ const BlogPost = () => {
                     {post.title}
                   </h1>
                   <div
-                    className="prose prose-lg text-black prose-headings:font-display prose-headings:text-black prose-a:text-black max-w-none prose-img:rounded-2xl prose-img:border prose-img:border-border prose-img:shadow-sm [&_p]:text-base md:[&_p]:text-lg [&_p]:leading-7 [&_h1]:text-3xl md:[&_h1]:text-4xl [&_h2]:text-2xl md:[&_h2]:text-3xl [&_h3]:text-xl md:[&_h3]:text-2xl [&_img]:w-full [&_img]:h-auto [&_figure]:my-6 [&_figcaption]:text-[10px] [&_figcaption]:text-muted-foreground [&_figcaption]:text-center [&_figcaption]:leading-tight [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-2 [&_a]:hover:text-black/80"
+                    className="prose prose-lg !font-display text-muted-foreground prose-headings:!font-display prose-headings:text-black prose-a:text-black max-w-none prose-img:rounded-2xl prose-img:border prose-img:border-border prose-img:shadow-sm [&_*]:!font-display [&_p]:text-base md:[&_p]:text-lg [&_p]:leading-7 [&_h1]:text-3xl md:[&_h1]:text-4xl [&_h2]:text-2xl md:[&_h2]:text-3xl [&_h3]:text-xl md:[&_h3]:text-2xl [&_img]:w-full [&_img]:h-auto [&_figure]:my-6 [&_figcaption]:text-[10px] [&_figcaption]:text-muted-foreground [&_figcaption]:text-center [&_figcaption]:leading-tight [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-4 [&_a]:decoration-2 [&_a]:hover:text-black/80"
                     dangerouslySetInnerHTML={{ __html: post.contentHtml }}
                   />
                   <div className="pt-4">
                     <Button asChild variant="secondary">
-                      <Link to="/resources/blog">Back to blog</Link>
+                      <Link to="/resources/blogs">Back to blog</Link>
                     </Button>
                   </div>
                 </div>

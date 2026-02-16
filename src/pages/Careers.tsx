@@ -273,9 +273,10 @@ const Careers = () => {
                 </p>
 
                 <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  Curious to learn more about who we are? Check out our
-                  Instagram and LinkedIn to get a peek into our culture and
-                  community.
+                  Curious to learn more about who we are? Check out our{" "}
+                  <span className="text-foreground/80"> Instagram </span>
+                  and <span className="text-foreground/80"> LinkedIn </span> to
+                  get a peek into our culture and community.
                 </p>
 
                 <div className="flex flex-wrap gap-4">

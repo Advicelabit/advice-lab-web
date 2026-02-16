@@ -74,6 +74,7 @@ const Contact = () => {
     message?: boolean;
     company?: boolean;
   }>({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -95,10 +96,14 @@ const Contact = () => {
         }
         break;
       case "phone":
-        if (!stringValue.trim()) {
+        if (!value.trim()) {
           return "Phone number is required";
         }
+        if (!/^\d+$/.test(value)) {
+          return "Phone number must contain numbers only";
+        }
         break;
+
       case "message":
         if (!value.trim()) {
           return "Message is required";
@@ -116,10 +121,8 @@ const Contact = () => {
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
     setTouched((prev) => ({ ...prev, [name]: true }));
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleChange = (
@@ -169,7 +172,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setHasSubmitted(true);
     if (!validateForm()) {
       return;
     }
@@ -345,7 +348,7 @@ This inquiry was submitted through the AdviceLab Contact page.
                           </label>
                           <Input
                             type="email"
-                            placeholder="your@email.com"
+                            placeholder="Your email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
