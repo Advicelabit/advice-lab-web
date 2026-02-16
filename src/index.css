@@ -119,8 +119,14 @@
     @apply border-border;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
   }
 
   h1,
