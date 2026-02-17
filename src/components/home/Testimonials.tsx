@@ -21,7 +21,7 @@ const testimonials = [
     quote:
       "Ever since we've partnered with Advice Lab, we've never looked back.",
     author: "Louella Jorge",
-    company: "Principal Adviser",
+    company: "Principal Adviser - Discovery Wealth Advisers",
     image: client1,
   },
 ];

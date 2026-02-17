@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { usePageViewTracking } from "@/hooks/usePageViewTracking";
+import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -19,6 +20,7 @@ import SriLankaVacancies from "./pages/careers/SriLankaVacancies";
 import JobDetail from "./pages/careers/JobDetail";
 import SubmitResume from "./pages/careers/SubmitResume";
 import Contact from "./pages/Contact";
+import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +52,7 @@ const AppRoutes = () => {
         <Route path="/careers/job/:jobId" element={<JobDetail />} />
         <Route path="/careers/submit-resume" element={<SubmitResume />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/cookies-policy" element={<CookiesPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
@@ -63,6 +66,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AppRoutes />
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
