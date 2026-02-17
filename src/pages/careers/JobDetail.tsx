@@ -33,9 +33,10 @@ interface Job {
   locationType: string;
   type: string;
   category: string;
+  isActive: boolean;
   aboutTheRole: string;
-  whatIsParaplanning: string;
-  whatIsAdviceSupport: string;
+  whatIsParaplanning?: string;
+  whatIsAdviceSupport?: string;
   keyResponsibilities: string[];
   mustHaves?: string[];
   skillsWeValue?: string[];
@@ -45,7 +46,7 @@ interface Job {
     paraplanning?: string[];
     adviceSupport?: string[];
   };
-  note?: string[];
+  note?: string;
 }
 
 const JobDetail = () => {
@@ -81,7 +82,7 @@ const JobDetail = () => {
     resume?: boolean;
   }>({});
 
-  const job = (jobVacancies as Job[]).find((j) => j.id === jobId);
+  const job = (jobVacancies as Job[]).find((j) => j.id === jobId && j.isActive);
 
   if (!job) {
     return (

@@ -6,7 +6,8 @@
     "locationType": "Colombo | On-Site",
     "type": "Full Time",
     "category": "Client Support Services",
-    "aboutTheRole": "Advice Lab is an Australian-owned, fast-growing back-office solutions provider to the financial planning industry across Australia. Teamwork is at the heart of everything we do, and we believe that when we work together, we deliver our purpose more powerfully.\n\nAt Advice Lab, we are driven by people. We take pride in nurturing, supporting, and shaping the career growth of every individual who becomes part of our team. When you join us, you're not just starting a job — you're stepping into a workplace that believes in your potential, celebrates your strengths, and grows with you.\n\nCurious to learn more about who we are? Check out our Instagram and LinkedIn to get a peek into our culture and community.",
+    "isActive": true,
+    "aboutTheRole": "At Advice Lab, you'll be a part of a team that genuinely believes in growth, collaboration, and doing meaningful work. This role is perfect for you if you want to thrive in a structured yet people-first environment, and want to be a part of a fast-growing organization making a real impact in the financial planning industry. \n\n As part of our client support team, you'll work closely with Australian Financial Advisers, contribute to smooth and accurate review processes, and help maintain the high standards our clients trust us for. If you're someone who takes initiative, enjoys problem-solving, and values being part of a supportive, growth-oriented workplace, you'll fit right in.",
     "keyResponsibilities": [
       "Conduct product research within the financial planning landscape",
       "Manage client review meetings and prepare related documentation",
@@ -36,15 +37,16 @@
     ]
   },
   {
-    "id": "financial-paraplanner-australian-financial-planning-manila",
-    "title": "Financial Paraplanner (Australian Financial Planning)",
+    "id": "paraplanner-australian-financial-planning-manila",
+    "title": "Paraplanner (Australian Financial Planning)",
     "location": "Manila",
     "locationType": "Metro Manila | On-Site",
     "type": "Full Time",
     "category": "Financial Paraplanner",
+    "isActive": true,
     "aboutTheRole": "Are you an experienced paraplanner looking for your next opportunity? We're seeking a detail-oriented and skilled paraplanner to collaborate with Australian Financial Planners in creating effective advice strategies for our clients.\n\nAt Advice Lab, we value precision, collaboration, and continuous growth. You'll work closely with authorized representatives, contributing to high-quality advice outcomes while being part of a supportive and inclusive workplace that promotes professional development.",
     "keyResponsibilities": [
-      "Develop and construct high-quality, compliant financial advice documents (SoAs and RoAs) and supporting materials according to adviser preferences and timelines",
+      "Develop and construct high-quality, compliant financial advice documents (SOAs and ROAs) and supporting materials according to adviser preferences and timelines",
       "Ensure all advice documents are accurate, technically sound, and personalised in line with legislative requirements and guidelines",
       "Assist in developing complex and comprehensive advice strategies tailored to authorized representatives' needs",
       "Assess and model both current and recommended financial positions for authorized representatives",
@@ -61,10 +63,11 @@
 
     "benefits": [
       "Competitive salary that reflects your experience and skills",
-      "13th month payment",
-      "Comprehensive HMO coverage",
-      "Healthy, supportive, and inclusive work environment",
-      "Company-provided equipment (PC or laptop)"
+      "Career growth in a supportive and structured environment",
+      "Relocation allowance (airfare and accommodation if relocating)",
+      "HMO coverage for peace of mind",
+      "Company‑provided equipment (PC / Laptop)",
+      "A positive, collaborative, and inclusive workplace that invests in your development"
     ]
   },
   {
@@ -74,6 +77,7 @@
     "locationType": "Metro Manila | On-Site",
     "type": "Full Time",
     "category": "Financial Planning Assistant",
+    "isActive": true,
     "aboutTheRole": "We are looking for a detail-oriented and proactive Financial Planning Assistant to join our team. In this role, you will support Australian Financial Advisers in delivering high-quality financial planning services to their clients.\n\nThe key focus of this role is ensuring accuracy, quality, and timely delivery of work while proactively managing administrative tasks allocated by Financial Advisers. This position involves a blend of administrative responsibilities and client engagement, contributing directly to effective advice implementation and client satisfaction.",
     "keyResponsibilities": [
       "Conduct product research within the financial planning universe",
@@ -87,12 +91,12 @@
       "Understand and meet stakeholder expectations"
     ],
     "mustHaves": [
-      "Minimum 1–2 years of experience handling similar tasks",
-      "Specific experience in paraplanning support rather than general administrative roles",
-      "Hands-on experience with Xplan Financial Planning Software",
-      "Demonstrated prior working experience with Xplan software (training will not be provided)",
-      "Basic to intermediate proficiency in MS Outlook, Excel, Word, and PowerPoint",
-      "A graduate of any four (4) year course, or at least two (2) years in college with any bachelor's degree and a minimum of two (2) years of work experience"
+      "Competitive salary that reflects your experience and skills",
+      "Career growth in a supportive and structured environment",
+      "Relocation allowance (airfare and accommodation if relocating)",
+      "HMO coverage for peace of mind",
+      "Company‑provided equipment (PC / Laptop)",
+      "A positive, collaborative, and inclusive workplace that invests in your development"
     ],
 
     "benefits": [
@@ -111,7 +115,8 @@
     "locationType": "Colombo | On-Site",
     "type": "Full Time",
     "category": "Internship Program",
-    "aboutTheRole": "Advice Lab is one of Sri Lanka's fastest growing businesses, propelled by a team of superstars working out of one of the coolest office spaces in the country. We partner with financial planning businesses in Australia, providing the support they need to operate more efficiently.\n\nOur work includes investment and insurance research, financial projection modelling, and client management, among many other core financial planning support functions.\n\nApplications are now open for our upcoming Internship Program. This program is designed to give hands-on, real-world exposure to Australian financial planning while building practical, industry-relevant skills.\n\nCheck out our Instagram and LinkedIn pages to learn more about our culture and community.",
+    "isActive": true,
+    "aboutTheRole": "At Advice Lab, you'll join a team that values growth, collaboration, and meaningful work. This internship program is designed for young motivated individuals who want hands-on experience in a people‑first environment while stepping into a career with global recognition. As an intern, you'll gain practical exposure to the Australian Financial Planning landscape, work alongside Australian Financial Advisers, and support to create accurate advice workflows and support processes. You'll develop real industry skills, understand international standards, and contribute to work that makes a genuine impact. If you take initiative, enjoy problem‑solving, and thrive in a supportive, growth‑oriented workplace, you’ll fit right in.",
     "keyResponsibilities": [],
     "programs": ["Intern – Paraplanning", "Intern – Advice Support"],
     "mustHaves": [
@@ -150,13 +155,14 @@
     "note": "We want to find our next superstars, are you the one?"
   },
   {
-    "id": "junior-analyst-paraplanning-colombo",
-    "title": "Junior Analyst – Paraplanning",
+    "id": "junior-executive-paraplanning-colombo",
+    "title": "Junior Executive - Paraplanning",
     "location": "Colombo",
     "locationType": "Colombo | On-Site",
     "type": "Full Time",
     "category": "Paraplanning",
-    "aboutTheRole": "If you are a person who want to start a career related to Paraplanning this would be an ideal opportunity to learn and grow!\n\nCheck out our Instagram & LinkedIn page to find out more about us.",
+    "isActive": true,
+    "aboutTheRole": "At Advice Lab, you'll be a part of a team that genuinely believes in growth, collaboration, and doing meaningful work. Junior Executive -  Paraplanning role suits someone who picks things up quickly and thrives in a fast‑growing environment. You’ll work with numbers daily, think creatively, and bring strong attention to detail to every task. You’ll collaborate with a team that believes in working together, sharing ideas, and constantly improving. Clear communication and resilience are essential, as we face challenges head‑on and keep moving forward. If you take initiative, enjoy solving problems, and value a supportive team, you'll fit right in.",
     "keyResponsibilities": [
       "Fast learner – working in a rapidly growing business requires you to be agile",
       "Self starter – we love people who take the initiative to go the extra mile",
@@ -182,13 +188,14 @@
     "note": "We want to find our next superstars, are you the one?"
   },
   {
-    "id": "junior-advice-support-colombo",
-    "title": "Junior Advice Support",
+    "id": "junior-executive-advice-support-colombo",
+    "title": "Junior Executive - Advice Support",
     "location": "Colombo",
     "locationType": "Colombo | On-Site",
     "type": "Full Time",
     "category": "Admin Services",
-    "aboutTheRole": "Advice Lab is one of Sri Lanka’s fastest growing businesses propelled by a team of superstars at one of the coolest office spaces in the country. We work with financial planning businesses in Australia by providing them with the support that is required to help them make their business more efficient.\n\nOur work entails investment and insurance research, financial projection modelling and client management to name just a few.\n\nCheck out our Instagram & LinkedIn page to find out more about us.",
+    "isActive": true,
+    "aboutTheRole": "At Advice Lab, you'll be part of a team that genuinely believes in growth, collaboration, and doing meaningful work. The Junior Executive – Advice Support role is ideal for someone who learns quickly, thrives in a fast‑growing environment, and enjoys working with numbers while thinking creatively to solve problems. You’ll bring strong attention to detail, clear communication, and resilience as you support advisers and help improve daily processes. Working closely with a team that values idea‑sharing, teamwork, and continuous improvement, you’ll be encouraged to take initiative, contribute to better ways of doing things, and stay motivated through challenges. If you enjoy problem‑solving and value being part of a supportive, energetic team, you'll fit right in.",
     "keyResponsibilities": [
       "Fast learner – working in a rapidly growing business requires you to be agile",
       "Self starter – we love people who take the initiative to go the extra mile",
@@ -220,6 +227,7 @@
     "locationType": "Metro Manila | On-Site",
     "type": "Full Time",
     "category": "Quality Assurance",
+    "isActive": false,
     "aboutTheRole": "Are you detailed-oriented and passionate about maintaining high standards? We are looking for an Advice Associate – Quality Assurance to join our team and help ensure our processes and outputs consistently meet quality standards.",
     "keyResponsibilities": [
       "Review admin tasks (mainly AR packs and applications) and ensure they are 100% compliant",
@@ -255,6 +263,7 @@
     "locationType": "Metro Manila | On-Site",
     "type": "Full Time",
     "category": "Mortgage",
+    "isActive": true,
     "aboutTheRole": "As a Mortgage/ Loan Assistant, you’ll play a crucial role in managing client documentation, assisting with loan applications, and conducting credit assessments. Your responsibilities will include evaluating clients' financial situations to determine the best funding options, preparing necessary forms for lenders, and ensuring all client records are accurately maintained in the CRM. You’ll also coordinate with banks, solicitors, and clients to facilitate smooth transactions.",
     "keyResponsibilities": [
       "Collect, verify, and organize essential client documents",

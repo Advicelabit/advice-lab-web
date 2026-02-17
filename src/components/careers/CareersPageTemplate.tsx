@@ -27,11 +27,12 @@ interface Job {
   locationType: string;
   type: string;
   category: string;
-  description: string;
+  isActive: boolean;
+  description?: string;
   aboutTheRole: string;
   keyResponsibilities: string[];
   mustHaves: string[];
-  skillsWeValue: string[];
+  skillsWeValue?: string[];
   benefits: string[];
 }
 
@@ -45,11 +46,12 @@ export const CareersPageTemplate = ({
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
-  // Filter jobs by location
+  // Filter jobs by location and active status
   const locationJobs = useMemo(
     () =>
       (jobVacancies as Job[]).filter(
-        (job) => job.location.toLowerCase() === location.toLowerCase(),
+        (job) =>
+          job.location.toLowerCase() === location.toLowerCase() && job.isActive,
       ),
     [location],
   );

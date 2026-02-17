@@ -260,7 +260,14 @@ export function Footer() {
               className="text-foreground hover:underline"
             >
               Privacy Policy
-            </a>
+            </a>{" "}
+            or{" "}
+            <Link
+              to="/cookies-policy"
+              className="text-foreground hover:underline"
+            >
+              Cookies Policy
+            </Link>
             , please click here. If you wish to make an enquiry regarding any
             privacy concerns, please contact us at{" "}
             <a
