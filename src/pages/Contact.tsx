@@ -10,7 +10,7 @@ import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 const API_BASE_URL =
-  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
 
 const contactInfo = [
   {
@@ -216,6 +216,7 @@ This inquiry was submitted through the AdviceLab Contact page.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         //  sender: "marketing@advicelab.com.au",
         //   recipient: "hello@advicelab.com.au",

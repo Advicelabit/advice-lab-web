@@ -38,6 +38,7 @@ const PhilippinesVacancies = () => {
         pageDescription="Explore exciting career opportunities in the Philippines"
         location="Manila"
         backLink="/careers"
+        locationShowcase="Metro Manila"
       />
     </Layout>
   );
