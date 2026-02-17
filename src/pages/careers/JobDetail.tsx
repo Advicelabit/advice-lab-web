@@ -24,12 +24,13 @@ import jobVacancies from "@/data/jobVacancies.json";
 // particular country page submit form
 
 const API_BASE_URL =
-  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
 
 interface Job {
   id: string;
   title: string;
   location: string;
+  locationType: string;
   type: string;
   category: string;
   aboutTheRole: string;
@@ -303,7 +304,7 @@ Phone: ${formData.phone}
 Position Details:
 -----------------
 Position Applied: ${job.title}
-Location: ${job.location}
+Location: ${job.locationType}
 Type: ${job.type}
 Category: ${job.category}
 
@@ -340,6 +341,7 @@ This application was submitted through the AdviceLab Careers page.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
           sender: "noreply@advicegenie.com.au",
@@ -397,8 +399,8 @@ This application was submitted through the AdviceLab Careers page.
     <Layout>
       <Seo
         title={`${job.title} - Apply Now | Advice Lab Careers`}
-        description={`${job.title} position at Advice Lab in ${job.location}. ${job.aboutTheRole.substring(0, 100)}... Join our team supporting Australian financial advisers. Apply today.`}
-        keywords={`${job.title}, ${job.location} jobs, paraplanning jobs, financial services careers, Advice Lab careers, offshore support jobs, ${job.title} position`}
+        description={`${job.title} position at Advice Lab in ${job.locationType}. ${job.aboutTheRole.substring(0, 100)}... Join our team supporting Australian financial advisers. Apply today.`}
+        keywords={`${job.title}, ${job.locationType} jobs, paraplanning jobs, financial services careers, Advice Lab careers, offshore support jobs, ${job.title} position`}
         pathname={`/careers/job/${jobId}`}
         schemaData={{
           "@type": "JobPosting",
@@ -409,10 +411,10 @@ This application was submitted through the AdviceLab Careers page.
             "@type": "Place",
             address: {
               "@type": "PostalAddress",
-              addressLocality: job.location,
-              addressCountry: job.location.includes("Philippines")
+              addressLocality: job.locationType,
+              addressCountry: job.location.includes("Manila")
                 ? "PH"
-                : job.location.includes("Sri Lanka")
+                : job.location.includes("Colombo")
                   ? "LK"
                   : "AU",
             },
@@ -446,7 +448,7 @@ This application was submitted through the AdviceLab Careers page.
             <div className="flex flex-wrap gap-4 text-primary-foreground/90">
               <span className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
-                {job.location}
+                {job.locationType}
               </span>
               <span className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />

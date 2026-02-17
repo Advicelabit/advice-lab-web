@@ -17,12 +17,14 @@ interface CareersPageProps {
   pageDescription: string;
   location: string;
   backLink: string;
+  locationShowcase: string;
 }
 
 interface Job {
   id: string;
   title: string;
   location: string;
+  locationType: string;
   type: string;
   category: string;
   description: string;
@@ -38,6 +40,7 @@ export const CareersPageTemplate = ({
   pageDescription,
   location,
   backLink,
+  locationShowcase,
 }: CareersPageProps) => {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
@@ -110,7 +113,7 @@ export const CareersPageTemplate = ({
                 Opportunities
               </span>
               <h2 className="font-display font-bold mt-2 text-muted-foreground text-xl sm:text-2xl md:text-3xl">
-                Open Positions in {location}
+                Open Positions in {locationShowcase}
               </h2>
             </div>
           </ScrollAnimation>
@@ -207,7 +210,7 @@ export const CareersPageTemplate = ({
                         <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                           <span className="flex items-center gap-1">
                             <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                            {job.location}
+                            {job.locationType}
                           </span>
                           <span className="flex items-center gap-1">
                             <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

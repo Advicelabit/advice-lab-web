@@ -37,6 +37,7 @@ const SriLankaVacancies = () => {
         pageTitle="Sri Lanka Opportunities"
         pageDescription="Explore exciting career opportunities in Sri Lanka"
         location="Colombo"
+        locationShowcase="Colombo"
         backLink="/careers"
       />
     </Layout>
