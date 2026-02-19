@@ -264,14 +264,14 @@ This inquiry was submitted through the AdviceLab Contact page.
   const contactSchema = {
     "@type": "ContactPage",
     name: "Contact Advice Lab",
-    url: "https://advicelab.com.au/contact",
+    url: "https://advicelab.com.au/contact-us",
     description: "Contact page for Advice Lab",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       telephone: "+61280740884",
       email: "hello@advicelab.com.au",
-      url: "https://advicelab.com.au/contact",
+      url: "https://advicelab.com.au/contact-us",
     },
   };
 

@@ -47,11 +47,11 @@ export function WhyChooseUs() {
             <h2 className="font-display font-semibold mt-2 mb-4 text-muted-foreground text-[1.3rem]">
               Trusted by Leading Financial Advisers in Australia
             </h2>
-            <h3 className="font-display font-normal mb-4 text-muted-foreground text-[1rem]">
+            {/* <h3 className="font-display font-normal mb-4 text-muted-foreground text-[1rem]">
               With more than 30 years of financial services expertise, we’re
               committed to delivering high‑quality, cost‑effective outsourced
               solutions.
-            </h3>
+            </h3> */}
           </div>
         </ScrollAnimation>
 

@@ -38,6 +38,7 @@ interface Job {
   whatIsParaplanning?: string;
   whatIsAdviceSupport?: string;
   keyResponsibilities: string[];
+  skillsWeAreLookingFor?: string[];
   mustHaves?: string[];
   skillsWeValue?: string[];
   benefits?: string[];
@@ -614,6 +615,31 @@ This application was submitted through the AdviceLab Careers page.
                         </h2>
                         <ul className="space-y-4">
                           {job.keyResponsibilities.map((item, index) => (
+                            <li
+                              key={index}
+                              className="flex gap-4 text-lg text-muted-foreground"
+                            >
+                              <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                •
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </ScrollAnimation>
+                  )}
+
+                {/* Key Responsibilities */}
+                {job.skillsWeAreLookingFor &&
+                  job.skillsWeAreLookingFor.length > 0 && (
+                    <ScrollAnimation animation="fade-up" delay={100}>
+                      <div className="mb-12">
+                        <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
+                          Skills We Are Looking For
+                        </h2>
+                        <ul className="space-y-4">
+                          {job.skillsWeAreLookingFor.map((item, index) => (
                             <li
                               key={index}
                               className="flex gap-4 text-lg text-muted-foreground"

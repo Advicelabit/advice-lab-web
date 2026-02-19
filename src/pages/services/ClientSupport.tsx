@@ -10,7 +10,7 @@ const offerings = [
   {
     title: "Review Support, Done Right",
     description:
-      "Our CO's manages every aspect of your pre and post review workflow from building complete review packs to updating Xplan and finalizing post-meeting tasks. Keeping your review cycle organized, consistent and compliant, so your team can stay focused on client conversations.",
+      "Our CSO's manages every aspect of your pre and post review workflow from building complete review packs to updating Xplan and finalizing post-meeting tasks. Keeping your review cycle organized, consistent and compliant, so your team can stay focused on client conversations.",
     helps: [
       "Receive complete, ready-to-use review packs",
       "Reduce admin time before and after review meetings",
@@ -30,7 +30,7 @@ const offerings = [
   {
     title: "Advice Document Preparation & Implementation",
     description:
-      "We prepare accurate, well-structured SOAs and ROAs, manage all fee consent requirements. Your experienced CSO will complete application preparation and end-to-end implementation ensuring recommendations move smoothly without delays or follow-ups.",
+      "We prepare accurate, well-structured SOAs and ROAs, manage all fee consent requirements including DDR, CPP agreements and CSA related tasks. In addition, your experienced CSO will complete application preparation and end-to-end implementation ensuring recommendations move smoothly without delays or follow-ups.",
     helps: [
       "Professionally prepared advice documents aligned to your standards",
       "Accurate, timely application and implementation handling",
@@ -41,10 +41,10 @@ const offerings = [
   {
     title: "Comprehensive Research Assistance",
     description:
-      "Our COs conduct detailed modelling, comparisons and product research to support the advice you deliver. They also manage insurance quotes and policy updates, ensuring your recommendations are informed and ready for implementation.",
+      "Our CSO's conduct detailed, comparisons and product research to support the advice you deliver. They also manage insurance quotes and policy updates, ensuring your recommendations are informed and ready for implementation.",
     helps: [
-      "Comprehensive research completed directly by skilled CSOs",
-      "Receive accurate comparisons and modelling without adding to adviser workload",
+      "Comprehensive research completed directly by skilled CSO's",
+      "Receive accurate comparisons reducing your workload",
       "Speed up research-heavy stages of the advice process",
     ],
   },
@@ -61,7 +61,7 @@ const offerings = [
   {
     title: "Compliance & Verification Support",
     description:
-      "CSO's can complete mandatory checks including AML, FSC, DDR, CP agreements and CA-related tasks, ensuring your process remains audit-ready without slowing down your advice delivery.",
+      "Our CSO's can complete mandatory checks including AML, FSC, ensuring your process remains audit-ready without slowing down your advice delivery.",
     helps: [
       "Reduce compliance risks and documentation errors",
       "Maintain an audit-ready process year-round",
@@ -71,7 +71,7 @@ const offerings = [
   {
     title: "Client Lifecycle & Digital Workflow Management",
     description:
-      "Your COs manage key client lifecycle steps, from onboarding to offboarding, deceased estates and client detail changes ensuring every transition is handled accurately and with care. They also oversee your mailbox, digital documents and workflow management, keeping communication organized, actioned and properly recorded.",
+      "Your CSO's manage key client lifecycle steps, from onboarding to offboarding, deceased estates and client detail changes ensuring every transition is handled accurately and with care. They also oversee your mailbox, digital documents and workflow management, keeping communication organized, actioned and properly recorded.",
     helps: [
       "Smooth, well-managed lifecycle changes handled",
       "Timely processing of digital documents and communications",

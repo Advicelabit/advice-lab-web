@@ -41,7 +41,7 @@ export function TrainingPartnersLogos() {
           {universityLogos.map((logo, index) => (
             <div
               key={`set1-${index}`}
-              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg  transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
             >
               <img
                 src={logo.src}
@@ -55,7 +55,7 @@ export function TrainingPartnersLogos() {
           {universityLogos.map((logo, index) => (
             <div
               key={`set2-${index}`}
-              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg  transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
             >
               <img
                 src={logo.src}
@@ -69,7 +69,7 @@ export function TrainingPartnersLogos() {
           {universityLogos.map((logo, index) => (
             <div
               key={`set3-${index}`}
-              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg hover:shadow-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
+              className="inline-flex flex-shrink-0 w-44 h-28 p-4 mx-4 rounded-lg transition-all duration-300 items-center justify-center sm:w-56 sm:h-32 sm:p-5 sm:mx-6 md:w-64 md:h-36 md:p-6 md:mx-8"
             >
               <img
                 src={logo.src}
