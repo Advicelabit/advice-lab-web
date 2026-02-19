@@ -49,7 +49,9 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 export function Footer() {
   const { pathname } = useLocation();
   const hideCta =
-    pathname.startsWith("/careers") || pathname.startsWith("/contact-us");
+    pathname.startsWith("/careers") ||
+    pathname.startsWith("/contact-us") ||
+    pathname.startsWith("/cookies-policy");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
@@ -130,14 +132,15 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <span>Australia:</span> 368 Sussex St, Sydney, NSW 2000
+                    <span>Australia:</span> No.368, Sussex St, Sydney, NSW 2000
                   </span>
                 </div>
 
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <span>Sri Lanka:</span> 75 Keththarama Mawatha, Colombo 14
+                    <span>Sri Lanka:</span> No.75, Keththarama Mawatha, Colombo
+                    14
                   </span>
                 </div>
 

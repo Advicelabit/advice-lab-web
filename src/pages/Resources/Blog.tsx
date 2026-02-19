@@ -74,7 +74,7 @@ const Blog = () => {
       <Seo
         title="Blog"
         description="Guides, tools and insights to help advisers get the most from offshore support."
-        pathname="/resources/blog"
+        pathname="/resources/blogs"
       />
       <div className="sr-only" aria-hidden>
         {resourceAnchors.map((id) => (

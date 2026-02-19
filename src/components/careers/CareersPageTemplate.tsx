@@ -31,6 +31,7 @@ interface Job {
   description?: string;
   aboutTheRole: string;
   keyResponsibilities: string[];
+  skillsWeAreLookingFor?: string[];
   mustHaves: string[];
   skillsWeValue?: string[];
   benefits: string[];
