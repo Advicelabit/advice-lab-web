@@ -1,0 +1,98 @@
+import { Button } from "@/components/ui/button";
+import { Calendar, ArrowRight, Clock, Users, Video } from "lucide-react";
+import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+
+const BookWalkthrough = () => {
+  return (
+    <section className="py-20 md:py-28 bg-gradient-to-br from-primary via-primary to-blue-700 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+
+      {/* Floating icons */}
+      <div className="absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
+        <Video className="w-8 h-8 text-white/60" />
+      </div>
+      <div className="absolute bottom-20 right-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
+        <Users className="w-8 h-8 text-white/60" />
+      </div>
+      <div className="absolute top-1/3 right-20 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
+        <Clock className="w-6 h-6 text-white/60" />
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <ScrollAnimation animation="fade-up">
+            <span className="inline-block px-4 py-2 bg-white/10 text-white font-semibold uppercase tracking-wider text-sm rounded-full mb-6 backdrop-blur-sm">
+              Get Started Today
+            </span>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fade-up" delay={100}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
+              Book a Personalized Walkthrough
+            </h2>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fade-up" delay={200}>
+            <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Discover how Advice Lab can transform your practice operations.
+              Schedule a free, no-obligation walkthrough with our team to
+              explore tailored solutions that match your specific needs and
+              goals.
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fade-up" delay={300}>
+            {/* Benefits list */}
+            <div className="flex flex-wrap justify-center gap-6 mb-10">
+              {[
+                { icon: Clock, text: "30-minute session" },
+                { icon: Users, text: "Meet our experts" },
+                { icon: Video, text: "Virtual or in-person" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full"
+                >
+                  <item.icon className="w-4 h-4 text-white/80" />
+                  <span className="text-white/90 text-sm font-medium">
+                    {item.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fade-up" delay={400}>
+            <Button
+              size="lg"
+              variant="white"
+              asChild
+              className="hover:scale-105 transition-transform group text-lg px-8 py-6"
+            >
+              <a
+                href="https://calendly.com/advicelab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Book a Walkthrough
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+          </ScrollAnimation>
+
+          <ScrollAnimation animation="fade-up" delay={500}>
+            <p className="text-white/60 text-sm mt-6">
+              No commitment required • Free consultation • Customized solutions
+            </p>
+          </ScrollAnimation>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BookWalkthrough;

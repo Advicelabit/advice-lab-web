@@ -1,80 +1,44 @@
 import Seo from "@/components/ui/Seo";
-import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
-import {
-  FileText,
-  Calculator,
-  Home,
-  ArrowRight,
-  CheckCircle,
-} from "lucide-react";
-import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-
-const services = [
-  {
-    icon: FileText,
-    title: "Paraplanning",
-    description:
-      "Comprehensive support for financial planning documentation and client administration.",
-    features: [
-      "Statement of Advice preparation",
-      "Client file management",
-      "Research and analysis",
-      "Portfolio reviews",
-      "Compliance documentation",
-    ],
-    link: "/services/paraplanning",
-  },
-  {
-    icon: Calculator,
-    title: "Client Support Officers",
-    description:
-      "Professional bookkeeping and financial reporting services for advisory practices.",
-    features: [
-      "Daily bookkeeping",
-      "Financial reporting",
-      "BAS preparation",
-      "Payroll processing",
-      "Reconciliations",
-    ],
-    link: "/services/clientsupport",
-  },
-  // {
-  //   icon: Home,
-  //   title: "Mortgage Support",
-  //   description: "End-to-end mortgage processing and documentation assistance.",
-  //   features: [
-  //     "Loan application processing",
-  //     "Document verification",
-  //     "Lender communication",
-  //     "Settlement coordination",
-  //     "Post-settlement support",
-  //   ],
-  //   link: "/services/mortgage",
-  // },
-];
+import ServicesHero from "@/components/services/ServicesHero";
+import ServiceCards from "@/components/services/ServiceCards";
+import BookWalkthrough from "@/components/services/BookWalkthrough";
 
 const Services = () => {
   const servicesSchema = {
     "@type": "LocalBusiness",
     name: "Advice Lab Services",
     description:
-      "Financial services including paraplanning, client support, and compliance",
+      "Comprehensive financial services including paraplanning, client support, SMSF & accounting, and mortgage support for Australian financial advisory practices.",
     url: "https://advicelab.com.au/services",
     hasOfferingDetails: [
       {
         "@type": "Offer",
         name: "Paraplanning Services",
         description:
-          "Comprehensive paraplanning support for financial advisers",
+          "Comprehensive paraplanning support including SOA preparation, client file management, and compliance documentation for financial advisers",
         url: "https://advicelab.com.au/services/paraplanning",
       },
       {
         "@type": "Offer",
         name: "Client Support Services",
-        description: "Professional client service and administrative support",
+        description:
+          "Professional client service officers for administrative support, review pack preparation, and workflow management",
         url: "https://advicelab.com.au/services/clientsupport",
+      },
+      {
+        "@type": "Offer",
+        name: "SMSF & Accounting Services",
+        description:
+          "Specialized SMSF administration and accounting services for advisory practices",
+        url: "https://advicelab.com.au/services/smsf-accounting",
+      },
+      {
+        "@type": "Offer",
+        name: "Mortgage Support Services",
+        description:
+          "End-to-end mortgage processing and documentation assistance for loan applications",
+        url: "https://advicelab.com.au/services/mortgage",
       },
     ],
   };
@@ -82,88 +46,21 @@ const Services = () => {
   return (
     <Layout>
       <Seo
-        title="Financial Services for Advisers | Paraplanning, Support & Compliance"
-        description="Comprehensive financial services: paraplanning, client support, quality assurance & compliance. Tailored solutions to scale your advisory practice efficiently."
-        keywords="paraplanning services, client support services, financial adviser services, quality assurance financial, compliance services, financial planning support, advisory services, business support services"
+        title="Financial Services for Advisers | Paraplanning, Client Support, SMSF & Mortgage"
+        description="Comprehensive offshore services for Australian financial advisers: paraplanning, client support officers, SMSF & accounting, and mortgage support. Scale your practice efficiently with expert support."
+        keywords="paraplanning services, client support officers, SMSF administration, mortgage support, financial adviser services, offshore support, Australian financial services, SOA preparation, compliance documentation, advisory support services"
         pathname="/services"
         schemaData={servicesSchema}
       />
-      {/* Hero */}
-      <section className="py-24 gradient-primary">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <ScrollAnimation animation="fade-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Our Services
-            </h1>
-            <p className="text-lg sm:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-              Expert offshore support tailored to Australian financial advisory
-              practices.
-            </p>
-          </ScrollAnimation>
-        </div>
-      </section>
 
-      {/* Services Grid */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid gap-10 md:gap-14 lg:gap-16">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`grid lg:grid-cols-2 gap-10 md:gap-12 items-center ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                <ScrollAnimation
-                  animation={index % 2 === 0 ? "fade-right" : "fade-left"}
-                >
-                  <div
-                    className={`${index % 2 === 1 ? "lg:order-2" : ""} text-center md:text-left`}
-                  >
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl gradient-primary flex items-center justify-center mb-6 mx-auto md:mx-0">
-                      <service.icon className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-muted-foreground mb-6">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-3 mb-8 max-w-xl mx-auto md:mx-0 text-left">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                          <span className="text-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      asChild
-                      className="hover:scale-105 transition-transform w-full sm:w-auto justify-center"
-                    >
-                      <Link to={service.link}>
-                        Learn More <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </ScrollAnimation>
-                <ScrollAnimation
-                  animation={index % 2 === 0 ? "fade-left" : "fade-right"}
-                  delay={200}
-                >
-                  <div
-                    className={`relative ${index % 2 === 1 ? "lg:order-1" : ""}`}
-                  >
-                    <div className="aspect-[16/10] sm:aspect-[4/3] rounded-3xl bg-secondary overflow-hidden hover-lift max-w-2xl mx-auto w-full">
-                      <div className="w-full h-full gradient-primary opacity-10" />
-                    </div>
-                  </div>
-                </ScrollAnimation>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <ServicesHero />
+
+      {/* Service Cards Section */}
+      <ServiceCards />
+
+      {/* Book a Walkthrough Section */}
+      <BookWalkthrough />
     </Layout>
   );
 };

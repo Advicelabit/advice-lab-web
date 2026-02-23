@@ -187,7 +187,7 @@ const ClientSupport = () => {
                 <Link to="/contact-us">Get in Touch</Link>
               </Button>
               {/* <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/contact">Get Pricing</Link>
+                <Link to="/contact-us">Get Pricing</Link>
               </Button> */}
             </div>
           </ScrollAnimation>
