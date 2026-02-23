@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import logo from "@/assets/advicelab-logo.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
+import { ContactPopup } from "../ui/ContactPopup";
 
 const footerLinks = {
   company: [
@@ -55,6 +57,7 @@ export function Footer() {
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   return (
     <footer className="bg-white text-foreground">
@@ -81,6 +84,12 @@ export function Footer() {
               >
                 Explore Services
               </Link> */}
+              {/* <button
+                onClick={() => setIsContactPopupOpen(true)}
+                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
+              >
+                Get in Touch
+              </button> */}
               <Link
                 to="/contact-us"
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
@@ -282,6 +291,12 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Contact Us"
+        description="Ttest description "
+      />
     </footer>
   );
 }

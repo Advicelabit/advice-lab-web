@@ -9,6 +9,8 @@ const SriLankaVacancies = () => {
     description:
       "Discover job opportunities in Sri Lanka with Advice Lab providing paraplanning and financial support services to Australian advisers",
     url: "https://advicelab.com.au/careers/srilanka",
+    datePosted: new Date().toISOString().split("T")[0],
+    employmentType: "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",
       name: "Advice Lab",
@@ -18,7 +20,10 @@ const SriLankaVacancies = () => {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Colombo",
+        streetAddress: "No.75, Keththarama Mawatha",
+        addressLocality: "Colombo 14",
+        addressRegion: "Western Province",
+        postalCode: "01400",
         addressCountry: "LK",
       },
     },

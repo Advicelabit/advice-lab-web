@@ -42,7 +42,7 @@ const resources = [
     title: "One Week Free Trial",
     description: "Try our paraplanning services free for one week.",
     type: "Offer",
-    link: "/contact",
+    link: "/contact-us",
   },
 ];
 

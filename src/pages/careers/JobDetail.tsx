@@ -48,6 +48,18 @@ interface Job {
     adviceSupport?: string[];
   };
   note?: string;
+  // Structured data fields
+  datePosted?: string;
+  validThrough?: string;
+  employmentType?: string;
+  streetAddress?: string;
+  addressLocality?: string;
+  addressRegion?: string;
+  postalCode?: string;
+  addressCountry?: string;
+  salaryCurrency?: string;
+  salaryMin?: number;
+  salaryMax?: number;
 }
 
 const JobDetail = () => {
@@ -409,16 +421,24 @@ This application was submitted through the AdviceLab Careers page.
           title: job.title,
           description: job.aboutTheRole,
           url: `https://advicelab.com.au/careers/job/${jobId}`,
+          datePosted: job.datePosted || new Date().toISOString().split("T")[0],
+          validThrough: job.validThrough,
+          employmentType: job.employmentType || "FULL_TIME",
           jobLocation: {
             "@type": "Place",
             address: {
               "@type": "PostalAddress",
-              addressLocality: job.locationType,
-              addressCountry: job.location.includes("Manila")
-                ? "PH"
-                : job.location.includes("Colombo")
-                  ? "LK"
-                  : "AU",
+              streetAddress: job.streetAddress,
+              addressLocality: job.addressLocality || job.location,
+              addressRegion: job.addressRegion,
+              postalCode: job.postalCode,
+              addressCountry:
+                job.addressCountry ||
+                (job.location.includes("Manila")
+                  ? "PH"
+                  : job.location.includes("Colombo")
+                    ? "LK"
+                    : "AU"),
             },
           },
           hiringOrganization: {
@@ -426,11 +446,19 @@ This application was submitted through the AdviceLab Careers page.
             name: "Advice Lab",
             url: "https://advicelab.com.au",
           },
-          employmentType: "FULL_TIME",
-          baseSalary: {
-            "@type": "PriceSpecification",
-            currency: "AUD",
-          },
+          baseSalary:
+            job.salaryMin && job.salaryMax
+              ? {
+                  "@type": "MonetaryAmount",
+                  currency: job.salaryCurrency || "AUD",
+                  value: {
+                    "@type": "QuantitativeValue",
+                    minValue: job.salaryMin,
+                    maxValue: job.salaryMax,
+                    unitText: "MONTH",
+                  },
+                }
+              : undefined,
         }}
       />
       {/* Hero Section */}

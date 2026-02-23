@@ -76,6 +76,8 @@ const Careers = () => {
     title: "Multiple Positions Available",
     description: "Join Advice Lab and support Australian financial advisers",
     url: "https://advicelab.com.au/careers",
+    datePosted: new Date().toISOString().split("T")[0],
+    employmentType: "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",
       name: "Advice Lab",
@@ -85,7 +87,9 @@ const Careers = () => {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressCountry: ["AU", "PH", "LK"],
+        addressLocality: "Multiple Locations",
+        addressRegion: "International",
+        addressCountry: "AU",
       },
     },
   };

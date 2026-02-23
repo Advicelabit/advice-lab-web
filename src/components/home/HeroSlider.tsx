@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactPopup } from "@/components/ui/ContactPopup";
 
 import hero1 from "@/assets/HPImg/Cover_img4.jpg";
 import hero2 from "@/assets/HPImg/Cover_img6.jpg";
@@ -59,6 +60,7 @@ const slides = [
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -122,6 +124,13 @@ export function HeroSlider() {
                     <Button variant="hero" size="lg" asChild>
                       <Link to="/contact-us">Get in Touch</Link>
                     </Button>
+                    {/* <Button
+                      variant="hero"
+                      size="lg"
+                      onClick={() => setIsContactPopupOpen(true)}
+                    >
+                      Get in Touch
+                    </Button> */}
                   </div>
                 </>
               )}
@@ -131,33 +140,14 @@ export function HeroSlider() {
       </div>
 
       {/* Navigation */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 md:gap-4">
-        <button
-          onClick={prevSlide}
-          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-        </button>
-        <div className="flex gap-1.5 md:gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
-                index === currentSlide
-                  ? "bg-primary-foreground w-6 md:w-8"
-                  : "bg-primary-foreground/40 hover:bg-primary-foreground/60"
-              }`}
-            />
-          ))}
-        </div>
-        <button
-          onClick={nextSlide}
-          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
-        >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-        </button>
-      </div>
+
+      {/* Contact Popup */}
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Contact Us"
+        description="Ttest description "
+      />
     </section>
   );
 }

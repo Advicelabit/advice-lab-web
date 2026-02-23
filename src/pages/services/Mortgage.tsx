@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Home, CheckCircle, ArrowRight } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import Seo from "@/components/ui/Seo";
 
 const features = [
   "Loan application processing",
