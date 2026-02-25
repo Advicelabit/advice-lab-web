@@ -38,8 +38,8 @@ const BookWalkthrough = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-10">
               {[
                 { icon: Clock, text: "30-minute session" },
-                { icon: Users, text: "Meet our experts" },
-                { icon: Video, text: "Virtual or in-person" },
+                // { icon: Users, text: "Meet our experts" },
+                // { icon: Video, text: "Virtual or in-person" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -67,7 +67,7 @@ const BookWalkthrough = () => {
                 rel="noopener noreferrer"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Book a Walkthrough
+                Take Your Walkthrough
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -75,7 +75,7 @@ const BookWalkthrough = () => {
 
           <ScrollAnimation animation="fade-up" delay={500}>
             <p className="text-white/60 text-sm mt-6">
-              No commitment required • Free consultation • Customized solutions
+              No commitment required • Free consultation
             </p>
           </ScrollAnimation>
         </div>

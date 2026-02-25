@@ -295,7 +295,10 @@ export function Footer() {
         open={isContactPopupOpen}
         onOpenChange={setIsContactPopupOpen}
         title="Contact Us"
-        description="Ttest description "
+        description="We know that your practice back-office needs are unique.
+                        So we want to help you to give the support your practice
+                        deserves, just let us know and we'll take you on a quick
+                        walkthrough."
       />
     </footer>
   );

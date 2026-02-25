@@ -47,7 +47,7 @@ const ServicesHero = () => {
                   </div>
                   <p className="text-white/90 text-sm sm:text-base leading-relaxed">
                     Want to know how we make your back-office work is taken care
-                    of with quality? Take a live walkthrough
+                    of with quality?
                   </p>
                 </div>
 
@@ -62,7 +62,7 @@ const ServicesHero = () => {
                   <Link to="/book-demo" className="flex items-center gap-2">
                     {/* Ripple shimmer on hover */}
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-                    Book a Live Walkthrough
+                    Take Your Live Walkthrough
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </Link>
                 </Button>

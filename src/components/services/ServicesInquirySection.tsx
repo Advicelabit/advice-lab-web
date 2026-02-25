@@ -41,8 +41,8 @@ const serviceCards: ServiceCard[] = [
   {
     id: "paraplanning",
     title: "Financial Paraplanners",
-    description:
-      "A dependable team to keep your client moving forward - accurate, on time.",
+    description: "On-time, first-pass-ready SOAs so you can see more clients",
+
     image: paraplanning,
     link: "/services/paraplanning",
     icon: <FileText className="w-4 h-4" />,
@@ -51,7 +51,8 @@ const serviceCards: ServiceCard[] = [
   {
     id: "client-support",
     title: "Client Support Officers",
-    description: "On-time, first-pass-ready SOAs so you can see more details",
+    description:
+      "A dependable team to keep your client work moving forward - accurate, on time",
     image: clientSupport,
     link: "/services/clientsupport",
     icon: <Users className="w-4 h-4" />,
@@ -371,10 +372,6 @@ This inquiry was submitted through the AdviceLab Services page.
                     Still unsure outsourcing your back-office would work out the
                     way you want?
                   </h2>
-                  <p className="text-sm text-white/75">
-                    We know that your practice deserves, just let us know and
-                    we'll take you on a quick walkthrough.
-                  </p>
                 </div>
               </div>
 
@@ -395,7 +392,14 @@ This inquiry was submitted through the AdviceLab Services page.
                   <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Service Checkboxes */}
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2.5">
+                      <p className="text-sm text-foreground font-semibold">
+                        We know that your practice back-office needs are unique.
+                        So we want to help you to give the support your practice
+                        deserves, just let us know and we'll take you on a quick
+                        walkthrough.
+                      </p>
+                      <br />
+                      <label className="block text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2.5">
                         Services you're interested in
                       </label>
                       <div className="grid grid-cols-2 gap-2">
@@ -592,7 +596,7 @@ This inquiry was submitted through the AdviceLab Services page.
                         </span>
                       ) : (
                         <span className="flex items-center justify-center gap-2">
-                          Submit Inquiry
+                          Submit
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </span>
                       )}
