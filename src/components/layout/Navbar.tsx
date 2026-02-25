@@ -13,9 +13,8 @@ const navigation = [
     children: [
       { name: "Paraplanning", href: "/services/paraplanning" },
       { name: "Client Support Officers", href: "/services/clientsupport" },
-      // { name: "Accounting", href: "/services/mortgage" },
-      // { name: "SMSF", href: "/services/mortgage" },
-      // { name: "Mortgage Support", href: "/services/mortgage" },
+      // { name: "Mortgage Support", href: "/services/mortgage-support" },
+      // { name: "SMSF & Accounting", href: "/services/smsf-accounting" },
     ],
   },
   {
@@ -124,6 +123,9 @@ export function Navbar() {
           <Button size="sm" asChild className="w-40">
             <Link to="/contact-us">Get in Touch</Link>
           </Button>
+          <Button variant="outline" size="sm" asChild className="w-40">
+            <Link to="/services">Explore Services</Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -207,6 +209,11 @@ export function Navbar() {
             <Button asChild>
               <Link to="/contact-us" onClick={() => setMobileMenuOpen(false)}>
                 Get in Touch
+              </Link>
+            </Button>{" "}
+            <Button variant="outline" asChild>
+              <Link to="/services" onClick={() => setMobileMenuOpen(false)}>
+                Explore Services
               </Link>
             </Button>
           </div>

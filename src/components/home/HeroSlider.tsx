@@ -121,16 +121,16 @@ export function HeroSlider() {
                         </Link>
                       </Button>
                     )}
-                    <Button variant="hero" size="lg" asChild>
+                    {/* <Button variant="hero" size="lg" asChild>
                       <Link to="/contact-us">Get in Touch</Link>
-                    </Button>
-                    {/* <Button
+                    </Button> */}
+                    <Button
                       variant="hero"
                       size="lg"
                       onClick={() => setIsContactPopupOpen(true)}
                     >
                       Get in Touch
-                    </Button> */}
+                    </Button>
                   </div>
                 </>
               )}
@@ -140,6 +140,33 @@ export function HeroSlider() {
       </div>
 
       {/* Navigation */}
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 md:gap-4">
+        <button
+          onClick={prevSlide}
+          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+        </button>
+        <div className="flex gap-1.5 md:gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+                index === currentSlide
+                  ? "bg-primary-foreground w-6 md:w-8"
+                  : "bg-primary-foreground/40 hover:bg-primary-foreground/60"
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          onClick={nextSlide}
+          className="p-1.5 md:p-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+        >
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+        </button>
+      </div>
 
       {/* Contact Popup */}
       <ContactPopup

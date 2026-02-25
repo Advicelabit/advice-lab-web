@@ -4,22 +4,11 @@ import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 const BookWalkthrough = () => {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-primary via-primary to-blue-700 relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-gray-900 via-primary to-gray-900 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-
-      {/* Floating icons */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
-        <Video className="w-8 h-8 text-white/60" />
-      </div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
-        <Users className="w-8 h-8 text-white/60" />
-      </div>
-      <div className="absolute top-1/3 right-20 w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm hidden lg:flex">
-        <Clock className="w-6 h-6 text-white/60" />
-      </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

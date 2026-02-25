@@ -351,40 +351,6 @@ This inquiry was submitted through the AdviceLab Popup Form.
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3.5" noValidate>
               {/* Service Interest Checkboxes */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Tell us what you're interested in{" "}
-                  <span className="text-red-500">*</span>
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-                  {serviceOptions.map((option) => (
-                    <div
-                      key={option.id}
-                      className="flex items-center space-x-2"
-                    >
-                      <Checkbox
-                        id={option.id}
-                        checked={formData.interests.includes(option.id)}
-                        onCheckedChange={(checked) =>
-                          handleInterestChange(option.id, checked as boolean)
-                        }
-                        className="h-4 w-4 shrink-0"
-                      />
-                      <label
-                        htmlFor={option.id}
-                        className="text-sm cursor-pointer leading-snug"
-                      >
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-                {errors.interests && (
-                  <p className="text-xs text-red-500 mt-1.5">
-                    {errors.interests}
-                  </p>
-                )}
-              </div>
 
               {/* Name and Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -476,6 +442,41 @@ This inquiry was submitted through the AdviceLab Popup Form.
                     <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
                   )}
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">
+                  Tell us what you're interested in{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {serviceOptions.map((option) => (
+                    <div
+                      key={option.id}
+                      className="flex items-center space-x-2"
+                    >
+                      <Checkbox
+                        id={option.id}
+                        checked={formData.interests.includes(option.id)}
+                        onCheckedChange={(checked) =>
+                          handleInterestChange(option.id, checked as boolean)
+                        }
+                        className="h-4 w-4 shrink-0"
+                      />
+                      <label
+                        htmlFor={option.id}
+                        className="text-sm cursor-pointer leading-snug"
+                      >
+                        {option.label}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                {errors.interests && (
+                  <p className="text-xs text-red-500 mt-1.5">
+                    {errors.interests}
+                  </p>
+                )}
               </div>
 
               {/* Message */}

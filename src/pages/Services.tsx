@@ -2,6 +2,7 @@ import Seo from "@/components/ui/Seo";
 import { Layout } from "@/components/layout/Layout";
 import ServicesHero from "@/components/services/ServicesHero";
 import ServiceCards from "@/components/services/ServiceCards";
+import ServicesInquirySection from "@/components/services/ServicesInquirySection";
 import BookWalkthrough from "@/components/services/BookWalkthrough";
 
 const Services = () => {
@@ -52,13 +53,11 @@ const Services = () => {
         pathname="/services"
         schemaData={servicesSchema}
       />
-
       {/* Hero Section */}
       <ServicesHero />
-
-      {/* Service Cards Section */}
-      <ServiceCards />
-
+      {/* <ServiceCards /> remove after all finalised */}
+      {/* Services Inquiry Section */}
+      <ServicesInquirySection />
       {/* Book a Walkthrough Section */}
       <BookWalkthrough />
     </Layout>

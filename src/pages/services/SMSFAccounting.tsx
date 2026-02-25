@@ -8,101 +8,101 @@ import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 const offerings = [
   {
-    title: "Loan Application Preparation & Submission",
+    title: "SMSF Setup & Establishment",
     description:
-      "Our mortgage support specialists manage end-to-end loan application preparation, from gathering and verifying client documentation to completing lender-specific application forms and submitting through broker platforms such as ApplyOnline and Simpology. We ensure every application is complete, accurate and ready for assessment.",
+      "Our team manages the end-to-end establishment of Self-Managed Super Funds, including trust deed preparation, ATO registration, ABN and TFN applications, and member documentation. We ensure every fund is correctly structured and compliantly set up from day one.",
     helps: [
-      "Receive submission-ready applications without the manual workload",
-      "Reduce errors and incomplete submissions that cause delays",
-      "Maintain consistent application quality across every client file",
+      "Receive a fully established and ATO-registered SMSF",
+      "Reduce time spent on complex paperwork and regulatory steps",
+      "Ensure correct trustee structures and documentation from the start",
     ],
   },
   {
-    title: "Broker Administrative Support",
+    title: "SMSF Administration & Compliance",
     description:
-      "We handle the day-to-day administrative tasks that keep your broking practice running — from managing CRM updates and pipeline tracking to preparing client correspondence, processing conditional approvals, and coordinating with lenders on outstanding requirements. Your broker team stays focused on client relationships while we manage the back office.",
+      "We handle all ongoing SMSF administration including annual financial statements, member statements, trustee minutes, contribution tracking and pension commencement documentation. Our team ensures your funds remain compliant and audit-ready throughout the year.",
     helps: [
-      "Less time spent on repetitive administrative tasks",
-      "Accurate CRM records and pipeline management maintained",
-      "Faster turnaround from application to settlement",
+      "Maintain accurate and up-to-date SMSF records year-round",
+      "Reduce compliance risk with thorough documentation management",
+      "Free up adviser time from routine fund administration tasks",
     ],
   },
   {
-    title: "Document Collection & Verification",
+    title: "Tax Returns & BAS Preparation",
     description:
-      "Our team proactively follows up clients for outstanding documents, verifies identification, income, and supporting materials against lender requirements, and organises complete file packages ready for submission. We manage the back-and-forth so your brokers don't have to.",
+      "Our accounting specialists prepare SMSF annual returns, individual and business tax returns, and Business Activity Statements (BAS) with accuracy and efficiency. We manage all required schedules, calculations and lodgements to keep your clients on time and compliant.",
     helps: [
-      "Receive complete, verified document packages ready for submission",
-      "Reduce time spent chasing clients and managing file gaps",
-      "Minimise lender queries and application delays caused by missing documents",
+      "Accurate, lodgement-ready tax returns prepared to your standards",
+      "Timely BAS preparation to avoid penalties and interest",
+      "Reduction in adviser workload across tax season",
     ],
   },
   {
-    title: "Compliance & Responsible Lending Support",
+    title: "Financial Statements & Reporting",
     description:
-      "We assist with compliance requirements including Needs Analysis documentation, Credit Proposal Disclosure preparation, Privacy Consent collection and AML/KYC verification. Our team ensures your files meet responsible lending obligations and are audit-ready at every stage of the advice and lending process.",
+      "We prepare comprehensive financial statements for SMSFs and accounting clients, including balance sheets, income statements, and notes to accounts. All reports are prepared in accordance with relevant accounting standards and are ready for audit review.",
     helps: [
-      "Maintain audit-ready files with thorough compliance documentation",
-      "Reduce compliance risk across your broker practice",
-      "Save broker time on mandatory disclosure and verification tasks",
+      "Professionally prepared statements aligned to your practice standards",
+      "Audit-ready financials delivered on time",
+      "Consistent and accurate reporting across all clients",
     ],
   },
   {
-    title: "Lender & Third-Party Communication",
+    title: "Audit Support & Coordination",
     description:
-      "Your support team manages direct communication with lenders, valuers, solicitors and other third parties on your behalf. We follow up applications, respond to lender queries, coordinate valuations and monitor progress through to settlement — keeping every party aligned and informed throughout.",
+      "Our team coordinates directly with SMSF auditors, preparing and packaging all required documentation, responding to auditor queries and managing the audit process from start to finish. We ensure smooth audit completion without adding to adviser workload.",
     helps: [
-      "Save time on repetitive lender calls and follow-ups",
-      "Keep applications progressing without manual intervention",
-      "Gain full visibility on file status without the coordination overhead",
+      "Reduce time spent preparing and responding to auditor requests",
+      "Ensure all documentation is complete and accurate before submission",
+      "Keep the audit process progressing without delays",
     ],
   },
   {
-    title: "Settlement Coordination & Post-Settlement Support",
+    title: "Bookkeeping & Reconciliation",
     description:
-      "We coordinate all pre-settlement requirements including booking settlement dates, confirming funds to complete, liaising with solicitors and lenders, and ensuring all conditions are satisfied prior to settlement. Post-settlement, we update your CRM, issue client confirmation correspondence and manage any post-settlement lender actions.",
+      "We provide accurate bookkeeping, bank reconciliations, accounts payable and receivable management, and payroll processing for your accounting clients. Our team uses leading platforms including Xero, MYOB and QuickBooks to maintain clean, reliable financial records.",
     helps: [
-      "Smooth, well-coordinated settlements with fewer last-minute issues",
-      "Accurate post-settlement records and client communications handled",
-      "Reduced workload at the busiest stage of the loan process",
+      "Maintain accurate books without increasing in-house admin",
+      "Reduce errors through consistent reconciliation processes",
+      "Support clients with timely, reliable financial data",
     ],
   },
   {
-    title: "Client Lifecycle & Pipeline Management",
+    title: "Payroll Processing & Superannuation",
     description:
-      "Our team manages the complete client lifecycle within your broker practice — from initial enquiry and onboarding through to annual reviews, loan renewals and refinance opportunities. We keep your pipeline organised, your clients informed and your opportunities actioned without adding to your team's workload.",
+      "Our specialists manage end-to-end payroll processing including pay runs, superannuation calculations, Single Touch Payroll (STP) lodgements and leave management. We ensure your clients' payroll obligations are met accurately and on time every period.",
     helps: [
-      "Well-managed pipelines with no leads or reviews falling through the cracks",
-      "Timely client follow-ups and renewal communications handled",
-      "Clean, accurate and up-to-date client records across your CRM",
+      "Error-free payroll processing delivered each pay cycle",
+      "Timely STP lodgements and super payment management",
+      "Reduced compliance risk for your business clients",
     ],
   },
 ];
 
 const trustIndicators = [
   {
-    title: "Mortgage industry knowledge built through experience",
+    title: "Deep SMSF and accounting expertise",
     description:
-      "Our mortgage support team understands the broking landscape — from lender policies and platform requirements to compliance obligations and client service standards. We bring hands-on knowledge that translates into accurate, efficient support from day one.",
+      "Our team brings specialist knowledge in SMSF administration and accounting, developed through years of hands-on experience across a wide range of fund types and client structures. We understand the nuances of superannuation legislation and apply that knowledge to every fund we manage.",
   },
   {
-    title: "Platform-ready across leading broker tools",
+    title: "Technology-enabled and platform agnostic",
     description:
-      "Our team works confidently across leading broker platforms and CRMs including ApplyOnline, Simpology, MyCRM, Salestrekker and Broker Engine. We adapt to your existing systems and workflows so productivity starts immediately with no disruption to your practice.",
+      "We work across leading SMSF and accounting platforms including BGL, Class Super, Xero, MYOB and QuickBooks. Our team adapts to your existing workflows and systems, meaning no disruption and immediate productivity.",
   },
   {
     title: "ISO27001 certified for information security",
     description:
-      "Advice Lab is ISO 27001 certified, giving you the assurance that your clients' sensitive financial and personal data is managed with the highest standards of information security across all mortgage support activities.",
+      "Advice Lab is ISO 27001 certified, giving you confidence that your clients' sensitive financial data is handled with the highest standards of information security and privacy across all SMSF and accounting tasks.",
   },
   {
     title: "Extended coverage across two locations",
     description:
-      "With teams in Sri Lanka and the Philippines, we provide support across extended hours to keep your applications progressing and your clients looked after beyond standard business hours — reducing delays and maintaining momentum across your loan pipeline.",
+      "Our teams in Sri Lanka and the Philippines allow us to support your accounting and SMSF work across extended hours. This means work continues beyond your business day, reducing turnaround times and keeping your practice moving.",
   },
 ];
 
-const MortgageSupport = () => {
+const SMSFAccounting = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -126,16 +126,16 @@ const MortgageSupport = () => {
   return (
     <Layout>
       <Seo
-        title="Mortgage Support Services | Advice Lab"
-        description="Expert mortgage broking support for financial advisers and brokers. Loan application preparation, broker admin, compliance support, lender communication and settlement coordination."
-        keywords="mortgage support, broker admin, loan application preparation, settlement coordination, compliance support, lender communication, CRM management, mortgage broking"
-        pathname="/services/mortgage-support"
+        title="SMSF & Accounting Support | Advice Lab"
+        description="Expert SMSF administration and accounting support for financial advisers and accountants. Tax returns, BAS preparation, financial statements, audit coordination and more."
+        keywords="SMSF administration, accounting support, tax returns, BAS preparation, financial statements, SMSF audit, bookkeeping, payroll, superannuation, BGL, Class Super, Xero"
+        pathname="/services/smsf-accounting"
         schemaData={{
           "@type": "LocalBusiness",
-          name: "Advice Lab Mortgage Support Services",
+          name: "Advice Lab SMSF & Accounting Support",
           description:
-            "Expert mortgage broking support for financial advisers and brokers",
-          url: "https://advicelab.com.au/services/mortgage-support",
+            "Expert SMSF administration and accounting support for financial advisers and accountants",
+          url: "https://advicelab.com.au/services/smsf-accounting",
         }}
       />
 
@@ -145,12 +145,11 @@ const MortgageSupport = () => {
           <ScrollAnimation animation="fade-up" className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6"></div>
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Mortgage Support
+              SMSF & Accounting Support
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              End-to-end mortgage broking support that keeps your pipeline
-              moving, your clients informed and your practice running
-              efficiently.
+              Specialist SMSF administration and accounting support that keeps
+              your practice compliant, efficient and client-focused.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="white" size="lg" asChild>
@@ -175,7 +174,7 @@ const MortgageSupport = () => {
               Our Offering
             </span>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Mortgage support services that elevate your broking practice
+              SMSF and accounting services that elevate your practice
             </p>
           </ScrollAnimation>
 
@@ -300,4 +299,4 @@ const MortgageSupport = () => {
   );
 };
 
-export default MortgageSupport;
+export default SMSFAccounting;

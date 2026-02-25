@@ -84,18 +84,18 @@ export function Footer() {
               >
                 Explore Services
               </Link> */}
-              {/* <button
+              <button
                 onClick={() => setIsContactPopupOpen(true)}
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
               >
                 Get in Touch
-              </button> */}
-              <Link
+              </button>
+              {/* <Link
                 to="/contact-us"
                 className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
               >
                 Get in Touch
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -126,14 +126,14 @@ export function Footer() {
                   <Mail className="w-5 h-5" />
                   <a
                     href="mailto:hello@advicelab.com.au"
-                    className="hover:underline"
+                    className="hover:text-foreground"
                   >
                     hello@advicelab.com.au
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5" />
-                  <a href="tel:+61280740884" className="hover:underline">
+                  <a href="tel:+61280740884" className="hover:text-foreground">
                     +61 2 8074 0884
                   </a>
                 </div>
