@@ -292,7 +292,7 @@ This application was submitted through the AdviceLab Careers page.
           recipient: "hello@advicelab.com.au",
           // sender: formData.email,
 
-          subject: `New Job Application: ${jobTitle} - ${formData.fullName}`,
+          subject: `🚀 Website Application: New Job Application: ${jobTitle} - ${formData.fullName}`,
           body: emailBody,
           is_html: false,
           attachments: attachmentData

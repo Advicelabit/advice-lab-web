@@ -234,7 +234,7 @@ This inquiry was submitted through the AdviceLab Popup Form.
         },
         body: JSON.stringify({
           sender: "noreply@advicegenie.com.au",
-          recipient: "shahanshaeek@advicelab.com.au",
+          recipient: "hello@advicelab.com.au",
           subject: `New Product Interested Form Submission: ${formData.name}`,
           body: emailBody,
           is_html: false,
