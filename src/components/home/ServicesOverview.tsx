@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FileText, Calculator, Home, ArrowRight } from "lucide-react";
+import { FileText, Home, ArrowRight, BarChart3, Users } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
 const services = [
@@ -11,7 +11,7 @@ const services = [
     link: "/services/paraplanning",
   },
   {
-    icon: Calculator,
+    icon: Users,
     title: "Client Support Officers",
     description:
       "Professional bookkeeping and financial reporting services for advisory practices.",
@@ -23,18 +23,19 @@ const services = [
   //   description: "End-to-end mortgage processing and documentation assistance.",
   //   link: "/services/mortgage",
   // },
-  // {
-  //   icon: Home,
-  //   title: "SMSF",
-  //   description: "End-to-end mortgage processing and documentation assistance.",
-  //   link: "/services/mortgage",
-  // },
-  // {
-  //   icon: Home,
-  //   title: "Mortgage Support",
-  //   description: "End-to-end mortgage processing and documentation assistance.",
-  //   link: "/services/mortgage",
-  // },
+  {
+    icon: BarChart3,
+    title: "SMSF & Accounting",
+    description:
+      "Scale your SMSF & Accounting operations with dependable offshore expertise",
+    link: "/services/smsf-accounting",
+  },
+  {
+    icon: Home,
+    title: "Mortgage Support",
+    description: "End-to-end mortgage processing and documentation assistance.",
+    link: "/services/mortgage-support",
+  },
 ];
 
 export function ServicesOverview() {

@@ -11,6 +11,7 @@ import logo from "@/assets/advicelab-logo.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
 import { ContactPopup } from "../ui/ContactPopup";
+import BookWalkthrough from "../services/BookWalkthrough";
 
 const footerLinks = {
   company: [
@@ -21,9 +22,8 @@ const footerLinks = {
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
     { name: "Client Support Officers ", href: "/services/clientsupport" },
-    // { name: "Accounting ", href: "/services/mortgage" },
-    // { name: "SMSF ", href: "/services/accounting" },
-    // { name: "Mortgage Support  ", href: "/services/mortgage" },
+    { name: "SMSF & Accounting ", href: "/services/smsf-accounting" },
+    { name: "Mortgage Support  ", href: "/services/mortgage-support" },
   ],
   resources: [
     // { name: "Adviser’s Guide for Outsourcing ", href: "/resources" },
@@ -63,41 +63,8 @@ export function Footer() {
     <footer className="bg-white text-foreground">
       {/* CTA Section */}
       {!hideCta && (
-        <div className="gradient-primary py-16">
-          <div
-            ref={ctaRef}
-            className={`container mx-auto px-4 lg:px-8 text-center transition-all duration-700 ${
-              ctaVisible ? "scroll-fade-up" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 text-primary-foreground leading-tight max-w-3xl mx-auto">
-              Ready to Scale Your Practice?
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              Trusted by Australian advisers who rely on Advice Lab daily for
-              their offshore support.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* <Link
-                to="/services"
-                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300 hover:scale-105"
-              >
-                Explore Services
-              </Link> */}
-              {/* <button
-                onClick={() => setIsContactPopupOpen(true)}
-                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
-              >
-                Get in Touch
-              </button> */}
-              <Link
-                to="/contact-us"
-                className="inline-flex items-center justify-center h-12 w-full sm:w-48 rounded-xl bg-background text-foreground font-semibold hover:bg-secondary transition-all duration-300 hover:scale-105"
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </div>
+        <div id="book-walkthrough">
+          <BookWalkthrough />
         </div>
       )}
 
@@ -126,14 +93,14 @@ export function Footer() {
                   <Mail className="w-5 h-5" />
                   <a
                     href="mailto:hello@advicelab.com.au"
-                    className="hover:underline"
+                    className="hover:text-foreground"
                   >
                     hello@advicelab.com.au
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone className="w-5 h-5" />
-                  <a href="tel:+61280740884" className="hover:underline">
+                  <a href="tel:+61280740884" className="hover:text-foreground">
                     +61 2 8074 0884
                   </a>
                 </div>
@@ -156,8 +123,9 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-muted-foreground">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                   <span>
-                    <span>Philippines:</span> Level 29, World Plaza, 5th Avenue,
-                    BGC Fort Bonifacio 1634 Taguig City
+                    <span>Philippines:</span> Level 9, Arthaland Century Pacific
+                    Tower, 4th & 5th Avenue corner 30th Street, Bonifacio Global
+                    City, Taguig, Metro Manila
                   </span>
                 </div>
               </div>
@@ -294,8 +262,11 @@ export function Footer() {
       <ContactPopup
         open={isContactPopupOpen}
         onOpenChange={setIsContactPopupOpen}
-        title="Contact Us"
-        description="Ttest description "
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                        So we want to help you to give the support your practice
+                        deserves, just let us know and we'll take you on a quick
+                        walkthrough."
       />
     </footer>
   );

@@ -112,7 +112,7 @@ const Careers = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Join Our Team
             </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-center">
               Build your career with a team that's transforming the financial
               advisory industry.
             </p>

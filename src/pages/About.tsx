@@ -128,7 +128,7 @@ const About = () => {
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               About Us
             </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl text-justify">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl text-center">
               At Advice Lab, our culture is just like the work we deliver,
               grounded in integrity, quality, initiative, and teamwork. We're
               committed to two things: elevating Australian financial advisers

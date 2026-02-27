@@ -9,65 +9,54 @@ import { ContactPopup } from "@/components/ui/ContactPopup";
 
 const offerings = [
   {
-    title: "Statement of Advice preparation",
+    title: "Manage Every SMSF Smoothly From Setup to Daily Administration",
     description:
-      "Our experienced paraplanners prepare clear, well-structured Statements of Advice (SoAs) across a broad range of advice scenarios, from simple cases to comprehensive strategies. We operate as an extension of your team, following your templates, preferences, and advice style.",
+      "Start every SMSF on solid ground with accurate, compliant setup and ongoing admin handled for you, so you can stay focused on client strategy, not paperwork. We take care of setup, processing, transactions, and compliance, ensuring every fund runs smoothly year‑round.",
     helps: [
-      "Receive well-structured plans that are ready to present",
-      "Spend less time reviewing and refining documents",
-      "Maintain consistency across all client advice",
+      "Reduce setup complexity and avoid costly compliance mistakes from day one.",
+      "Eliminate manual admin work with accurate processing and documentation handled for you.",
+      "Maintain high accuracy across every fund with steady, reliable management even during peak periods.",
     ],
   },
   {
-    title: "Consistent and fast turnaround times",
+    title: "Bookkeeping That Keeps Every Detail Right",
     description:
-      "Our established workflows and experienced paraplanning team deliver plans within clear timeframes so you can manage client expectations and advice schedules with confidence.",
+      "Have confidence in your bookkeeping done right. Your dedicated support member will work as your own team member ensuring consistent accuracy and clarity you can depend on.",
     helps: [
-      "Keep advice moving without unnecessary delays",
-      "Plan meetings and reviews with greater certainty",
-      "Reduce pressure caused by last-minute documentation",
+      "Get client‑ready numbers fast with receivables, payables, and reconciliations always up‑to‑date.",
+      "Reduce review time with accurate GST, PAYG, IAS/BAS prep backed by proper documentation.",
+      "Scale your firm confidently with every transaction tracked, reconciled, and compliant.",
     ],
   },
   {
-    title: "Accuracy you can rely on",
+    title: "Accounting Support That Extends Your Team Seamlessly",
     description:
-      "Every plan is reviewed by our dedicated QA team with a strong focus on accuracy and consistency. We pay close attention to detail so you're not fixing avoidable errors or inconsistencies.",
+      "Expand your firm’s output with dependable accounting support that handles detailed work so your team can focus on advisory.",
     helps: [
-      "Fewer revisions after delivery",
-      "Cleaner, more reliable advice documents",
-      "Greater confidence when presenting to clients",
+      "Take on more clients without overwhelming your internal team.",
+      "Ensure continuity with a dedicated resource who follows your workflow and quality standards.",
+      "Minimize ATO risks with schedules and lodgement prep aligned to Australian compliance standards.",
     ],
   },
   {
-    title: "Support aligned with current compliance standards",
+    title:
+      "Keep Your Core Accounting Tasks Accurate, Compliant, and Off Your Plate",
     description:
-      "Our paraplanners stay aligned with current professional and regulatory expectations, ensuring your documentation supports compliance obligations without becoming overly complex.",
+      "Providing you the support you need to handle reconciliation, payroll, and compliance workloads with steady, reliable output that helps your firm maintain quality, even as client volumes grow.",
     helps: [
-      "Reduce compliance-related concerns",
-      "Be better prepared for audits and file reviews",
-      "Maintain professional standards across your advice documents",
+      "Fewer downstream errors because every transaction is matched correctly the first time.",
+      "Cleaner workpapers that make reviews faster and more predictable.",
+      "More reliable reporting with ledgers that stay consistent across all client files.",
     ],
   },
   {
-    title: "Cost-efficient paraplanning with built-in flexibility",
+    title: "Strengthen Operational Consistency",
     description:
-      "Our paraplanning service is an efficient alternative to in-house hiring, helping you reduce overheads without sacrificing quality. Engage a dedicated paraplanner on a part-time or full-time basis and match support with your workload.",
+      "Deliver faster, clearer, and more accurate outcomes with a support system that reduces delays, minimises errors, and keeps you informed at every step.",
     helps: [
-      "Reduce staffing and operational costs compared to in-house resourcing",
-      "Access a dedicated paraplanner without long-term employment commitments",
-      "Scale support easily as advice volumes increase or slow",
-      "Maintain consistent quality while keeping paraplanning costs under control",
-    ],
-  },
-  {
-    title: "Extended support across two time zones",
-    description:
-      "We offer paraplanning support from teams in Sri Lanka and the Philippines so your work progresses beyond standard business hours. Choose one location or combine both for extended coverage and faster turnaround.",
-    helps: [
-      "Improve efficiency with work progressing across extended hours",
-      "Reduce turnaround times without increasing in-house pressure",
-      "Choose support from Sri Lanka, the Philippines, or both",
-      "Maintain consistency and quality across all plans, regardless of location",
+      "Deliver faster turnaround to your clients",
+      "Stay informed with clear communication and monthly updates",
+      "Work with fewer delays, fewer errors, and greater confidence",
     ],
   },
 ];
@@ -95,30 +84,7 @@ const trustIndicators = [
   },
 ];
 
-const benefits = [
-  {
-    title: "Save 20+ Hours Weekly",
-    description:
-      "Free up your time to focus on client relationships and business development.",
-  },
-  {
-    title: "Reduce Operational Costs",
-    description:
-      "Access skilled professionals at a fraction of local hiring costs.",
-  },
-  {
-    title: "Scale On Demand",
-    description:
-      "Easily adjust your team size based on workload and business needs.",
-  },
-  {
-    title: "Quality Assured",
-    description: "All work undergoes rigorous quality checks before delivery.",
-  },
-];
-
-const Paraplanning = () => {
-  // Responsive hover/click logic for Accordion
+const SMSFAccounting = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
@@ -143,37 +109,31 @@ const Paraplanning = () => {
   return (
     <Layout>
       <Seo
-        title="Expert Paraplanning Services for Financial Advisers"
-        description="Professional paraplanning support: SOA preparation, client file management, compliance documentation & portfolio reviews. Scale your practice with our experts."
-        keywords="paraplanning services, statement of advice preparation, financial planning support, client file management, portfolio review services, compliance documentation, SOA preparation, financial adviser support, paraplanning outsourcing"
-        pathname="/services/paraplanning"
+        title="SMSF & Accounting Support | Advice Lab"
+        description="Expert SMSF administration and accounting support for financial advisers and accountants. Tax returns, BAS preparation, financial statements, audit coordination and more."
+        keywords="SMSF administration, accounting support, tax returns, BAS preparation, financial statements, SMSF audit, bookkeeping, payroll, superannuation, BGL, Class Super, Xero"
+        pathname="/services/smsf-accounting"
         schemaData={{
           "@type": "LocalBusiness",
-          name: "Advice Lab Paraplanning Services",
+          name: "Advice Lab SMSF & Accounting Support",
           description:
-            "Expert paraplanning services for financial advisers including SOA preparation and compliance documentation",
-          url: "https://advicelab.com.au/services/paraplanning",
+            "Expert SMSF administration and accounting support for financial advisers and accountants",
+          url: "https://advicelab.com.au/services/smsf-accounting",
         }}
       />
+
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">
           <ScrollAnimation animation="fade-up" className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              {/* <div className="w-16 h-16 rounded-2xl bg-primary-foreground/10 flex items-center justify-center">
-                <FileText className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <span className="text-primary-foreground/80 font-medium">
-                Services
-              </span> */}
-            </div>
+            <div className="flex items-center gap-4 mb-6"></div>
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Paraplanning
+              SMSF & Accounting Support
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8 text-center">
-              Providing you accurate plans with fast turnaround times and
-              consistent quality, giving you hours back to focus more on your
-              clients.
+              Increase your SMSF & Accounting capacity effortlessly with
+              end‑to‑end outsourcing that keeps you compliant, accurate, and
+              ahead of deadlines.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -183,22 +143,17 @@ const Paraplanning = () => {
               >
                 Get in Touch
               </Button>
-              {/* <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/contact-us">Get Pricing</Link>
-              </Button> */}
             </div>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Offerings */}
       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
-        {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          {/* Header */}
           <ScrollAnimation
             animation="fade-up"
             className="w-full text-center mb-16"
@@ -206,18 +161,13 @@ const Paraplanning = () => {
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
               Our Offering
             </span>
-            {/* <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
-           Our offering{" "}
-              <span className="gradient-text"> - it must be our offering</span>
-            </h2> */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive paraplanning solutions tailored to your practice
+              Seamless SMSF & Accounting support that fits your operational
               needs
             </p>
           </ScrollAnimation>
 
-          {/* Accordion */}
-          <div className=" mx-auto">
+          <div className="mx-auto">
             <div className="space-y-4">
               {offerings.map((offering, index) => (
                 <ScrollAnimation
@@ -230,7 +180,6 @@ const Paraplanning = () => {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    {/* Gradient accent bar */}
                     <div className="h-1 w-0 bg-gradient-to-r from-primary to-blue-600 group-hover:w-full transition-all duration-500"></div>
 
                     <div className="px-8">
@@ -245,7 +194,6 @@ const Paraplanning = () => {
                         </div>
                         <span>{offering.title}</span>
                       </div>
-                      {/* Smooth expand/collapse content */}
                       <div
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${
                           openIndex === index
@@ -256,8 +204,7 @@ const Paraplanning = () => {
                           transitionProperty: "max-height, opacity, padding",
                         }}
                       >
-                        {/* Description */}
-                        <div className="">
+                        <div>
                           <p className="text-muted-foreground leading-relaxed">
                             {offering.description}
                           </p>
@@ -295,26 +242,17 @@ const Paraplanning = () => {
 
       {/* Trust Indicators */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          {/* Header */}
           <ScrollAnimation animation="fade-up" className="text-center mb-16">
-            {/* <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
-              Why Choose Us
-            </span> */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
               Why Partner With Advice Lab
             </h2>
-            {/* <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our paraplanning service combines deep industry knowledge with
-              robust processes and security
-            </p> */}
           </ScrollAnimation>
 
-          {/* Cards Grid */}
-          <div className="grid md:grid-cols-2 gap-8  mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mx-auto">
             {trustIndicators.map((indicator, index) => (
               <ScrollAnimation
                 key={indicator.title}
@@ -322,12 +260,9 @@ const Paraplanning = () => {
                 delay={index * 140}
                 className="group relative"
               >
-                {/* Decorative background glow */}
                 <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                {/* Main card */}
-                <div className="relative bg-white rounded-2xl p-8 shadow-md  transition-all duration-300 border border-gray-100 h-full">
-                  {/* Number badge with icon background */}
+                <div className="relative bg-white rounded-2xl p-8 shadow-md transition-all duration-300 border border-gray-100 h-full">
                   <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-blue-600/10 mb-6 group-hover:from-primary/20 group-hover:to-blue-600/20 transition-all duration-300">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary to-blue-600 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                     <span className="relative text-2xl font-bold bg-gradient-to-br from-primary to-blue-600 bg-clip-text text-transparent">
@@ -335,7 +270,6 @@ const Paraplanning = () => {
                     </span>
                   </div>
 
-                  {/* Content */}
                   <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {indicator.title}
                   </h3>
@@ -343,25 +277,24 @@ const Paraplanning = () => {
                     {indicator.description}
                   </p>
 
-                  {/* Bottom accent line */}
                   <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-blue-600 rounded-full group-hover:w-full transition-all duration-500"></div>
                 </div>
               </ScrollAnimation>
             ))}
           </div>
-        </div>{" "}
-        <ContactPopup
-          open={isContactPopupOpen}
-          onOpenChange={setIsContactPopupOpen}
-          title="Support Designed for You"
-          description="We know that your practice back-office needs are unique.
-                                      So we want to help you to give the support your practice
-                                      deserves, just let us know and we'll take you on a quick
-                                      walkthrough."
-        />
+        </div>
       </section>
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                                    So we want to help you to give the support your practice
+                                    deserves, just let us know and we'll take you on a quick
+                                    walkthrough."
+      />
     </Layout>
   );
 };
 
-export default Paraplanning;
+export default SMSFAccounting;

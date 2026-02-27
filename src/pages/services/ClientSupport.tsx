@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { ContactPopup } from "@/components/ui/ContactPopup";
 
 const offerings = [
   {
@@ -83,14 +84,14 @@ const offerings = [
 
 const trustIndicators = [
   {
-    title: "Three decades of advice-industry experience",
+    title: "Robust advice-industry experience",
     description:
-      "With over 30 years of combined experience in the financial planning industry, we understand the realities advisers face. Our paraplanning support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
+      "Having partnered with over 70+ advisers in the financial planning industry, we understand the realities advisers face. Our back office support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
   },
   {
     title: "Driven by people, not just process.",
     description:
-      "We're a people-driven team that values learning and accountability. Our paraplanners receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
+      "We're a people-driven team that values learning and accountability. Our back office support receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
   },
   {
     title: "ISO27001 certified for information security",
@@ -130,6 +131,7 @@ const ClientSupport = () => {
   // Responsive hover/click logic for Accordion
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -151,7 +153,7 @@ const ClientSupport = () => {
   return (
     <Layout>
       <Seo
-        title="Client Support & Administrative Support | Advice Lab"
+        title="Client Support & Administrative Support"
         description="Professional client support officers for financial advisers. Bookkeeping, reporting, BAS preparation, payroll & reconciliations. Streamline your operations."
         keywords="client support officers, bookkeeping services, financial reporting, BAS preparation, payroll processing, financial reconciliation, business administration, advisory support services"
         pathname="/services/clientsupport"
@@ -178,13 +180,17 @@ const ClientSupport = () => {
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Client Support Officers
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
+            <p className="text-xl text-primary-foreground/80 mb-8 text-center">
               Reliable support services that strengthens your workflow and
               helping you deliver excellent client services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="white" size="lg" asChild>
-                <Link to="/contact-us">Get in Touch</Link>
+              <Button
+                variant="white"
+                size="lg"
+                onClick={() => setIsContactPopupOpen(true)}
+              >
+                Get in Touch
               </Button>
               {/* <Button variant="heroOutline" size="lg" asChild>
                 <Link to="/contact-us">Get Pricing</Link>
@@ -193,7 +199,6 @@ const ClientSupport = () => {
           </ScrollAnimation>
         </div>
       </section>
-
       {/* Features */}
       <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
         {/* Decorative background elements */}
@@ -294,7 +299,6 @@ const ClientSupport = () => {
           </div>
         </div>
       </section>
-
       {/* Trust Indicators */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
         {/* Decorative elements */}
@@ -353,7 +357,16 @@ const ClientSupport = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section>{" "}
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                                    So we want to help you to give the support your practice
+                                    deserves, just let us know and we'll take you on a quick
+                                    walkthrough."
+      />
     </Layout>
   );
 };

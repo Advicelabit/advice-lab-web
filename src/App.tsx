@@ -22,6 +22,7 @@ import SubmitResume from "./pages/careers/SubmitResume";
 import Contact from "./pages/Contact";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
+import SMSFAccounting from "./pages/services/SMSFAccounting";
 
 const queryClient = new QueryClient();
 
@@ -40,10 +41,11 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about-us" element={<About />} />
-        {/* <Route path="/services" element={<Services />} /> */}
+        <Route path="/services" element={<Services />} />
         <Route path="/services/paraplanning" element={<Paraplanning />} />
         <Route path="/services/clientsupport" element={<ClientSupport />} />
-        <Route path="/services/mortgage" element={<Mortgage />} />
+        <Route path="/services/mortgage-support" element={<Mortgage />} />
+        <Route path="/services/smsf-accounting" element={<SMSFAccounting />} />
         <Route path="/resources/blogs" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/careers" element={<Careers />} />
