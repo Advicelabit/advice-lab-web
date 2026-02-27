@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Sparkles } from "lucide-react";
+import {
+  Calculator,
+  ArrowRight,
+  Sparkles,
+  TrendingUp,
+  Award,
+} from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
+//Cover_img2
+import allServiceHeroImage from "@/assets/HPImg/service-hero.jpg";
+import white from "@/assets/HPImg/white.png";
+import { useState } from "react";
+import { ContactPopup } from "../ui/ContactPopup";
+
 const ServicesHero = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
   return (
     <section className="py-10 md:py-14 lg:py-16 gradient-primary relative overflow-hidden">
       {/* Animated background orbs */}
@@ -58,13 +72,14 @@ const ServicesHero = () => {
                   className="group relative overflow-hidden border border-white/40 bg-white/15 text-white font-semibold backdrop-blur-sm transition-all duration-300 shadow-lg shadow-black/10
                     hover:bg-white hover:border-white hover:shadow-xl hover:shadow-white/20 hover:scale-[1.02]
                     active:scale-[0.98]"
+                  onClick={() => setIsContactPopupOpen(true)}
                 >
-                  <Link to="/book-demo" className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 cursor-pointer">
                     {/* Ripple shimmer on hover */}
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
                     Take Your Live Walkthrough
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </Link>
+                  </span>
                 </Button>
               </div>
             </div>
@@ -76,7 +91,7 @@ const ServicesHero = () => {
               {/* Main image container */}
               <div className="aspect-[4/3] rounded-2xl lg:rounded-3xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  src={allServiceHeroImage}
                   alt="Professional financial advisory services team collaboration"
                   loading="eager"
                   decoding="async"
@@ -90,32 +105,43 @@ const ServicesHero = () => {
               </div>
 
               {/* Floating accent card */}
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-xl hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-                    <Calculator className="w-5 h-5 text-white" />
+              <div className="absolute -bottom-2 -left-2 bg-white rounded-xl px-3 py-2 shadow-md hidden md:block">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-white" />
                   </div>
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">
-                      Save up to
-                    </p>
-                    <p className="text-lg font-bold text-primary">
-                      60% on costs
-                    </p>
-                  </div>
+                  <p className="text-sm font-semibold text-primary whitespace-nowrap">
+                    Save time & value
+                  </p>
                 </div>
               </div>
 
               {/* Floating badge */}
+              {/* <div className="absolute -top-3 -right-3 gradient-primary  rounded-full p-2 shadow-xl hidden lg:block">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                  <img
+                    src={banner}
+                    alt="icon"
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+              </div> */}
+
               <div className="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-xl hidden lg:block">
                 <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
-                  <span className="text-white font-bold text-xs text-center">
-                    30+
-                    <br />
-                    <span className="text-[10px]">Years</span>
-                  </span>
+                  <img
+                    src={white}
+                    alt="icon"
+                    className="w-7 h-7 object-contain"
+                  />
                 </div>
               </div>
+
+              {/* <div className="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-xl hidden lg:block">
+                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+              </div> */}
             </div>
           </ScrollAnimation>
         </div>
@@ -132,6 +158,16 @@ const ServicesHero = () => {
           50% { transform: rotate(15deg) scale(1.15); }
         }
       `}</style>
+
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                                    So we want to help you to give the support your practice
+                                    deserves, just let us know and we'll take you on a quick
+                                    walkthrough."
+      />
     </section>
   );
 };

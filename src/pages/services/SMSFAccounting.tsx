@@ -5,106 +5,89 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { ContactPopup } from "@/components/ui/ContactPopup";
 
 const offerings = [
   {
-    title: "SMSF Setup & Establishment",
+    title: "Manage Every SMSF Smoothly From Setup to Daily Administration",
     description:
-      "Our team manages the end-to-end establishment of Self-Managed Super Funds, including trust deed preparation, ATO registration, ABN and TFN applications, and member documentation. We ensure every fund is correctly structured and compliantly set up from day one.",
+      "Start every SMSF on solid ground with accurate, compliant setup and ongoing admin handled for you, so you can stay focused on client strategy, not paperwork. We take care of setup, processing, transactions, and compliance, ensuring every fund runs smoothly year‑round.",
     helps: [
-      "Receive a fully established and ATO-registered SMSF",
-      "Reduce time spent on complex paperwork and regulatory steps",
-      "Ensure correct trustee structures and documentation from the start",
+      "Reduce setup complexity and avoid costly compliance mistakes from day one.",
+      "Eliminate manual admin work with accurate processing and documentation handled for you.",
+      "Maintain high accuracy across every fund with steady, reliable management even during peak periods.",
     ],
   },
   {
-    title: "SMSF Administration & Compliance",
+    title: "Bookkeeping That Keeps Every Detail Right",
     description:
-      "We handle all ongoing SMSF administration including annual financial statements, member statements, trustee minutes, contribution tracking and pension commencement documentation. Our team ensures your funds remain compliant and audit-ready throughout the year.",
+      "Have confidence in your bookkeeping done right. Your dedicated support member will work as your own team member ensuring consistent accuracy and clarity you can depend on.",
     helps: [
-      "Maintain accurate and up-to-date SMSF records year-round",
-      "Reduce compliance risk with thorough documentation management",
-      "Free up adviser time from routine fund administration tasks",
+      "Get client‑ready numbers fast with receivables, payables, and reconciliations always up‑to‑date.",
+      "Reduce review time with accurate GST, PAYG, IAS/BAS prep backed by proper documentation.",
+      "Scale your firm confidently with every transaction tracked, reconciled, and compliant.",
     ],
   },
   {
-    title: "Tax Returns & BAS Preparation",
+    title: "Accounting Support That Extends Your Team Seamlessly",
     description:
-      "Our accounting specialists prepare SMSF annual returns, individual and business tax returns, and Business Activity Statements (BAS) with accuracy and efficiency. We manage all required schedules, calculations and lodgements to keep your clients on time and compliant.",
+      "Expand your firm’s output with dependable accounting support that handles detailed work so your team can focus on advisory.",
     helps: [
-      "Accurate, lodgement-ready tax returns prepared to your standards",
-      "Timely BAS preparation to avoid penalties and interest",
-      "Reduction in adviser workload across tax season",
+      "Take on more clients without overwhelming your internal team.",
+      "Ensure continuity with a dedicated resource who follows your workflow and quality standards.",
+      "Minimize ATO risks with schedules and lodgement prep aligned to Australian compliance standards.",
     ],
   },
   {
-    title: "Financial Statements & Reporting",
+    title:
+      "Keep Your Core Accounting Tasks Accurate, Compliant, and Off Your Plate",
     description:
-      "We prepare comprehensive financial statements for SMSFs and accounting clients, including balance sheets, income statements, and notes to accounts. All reports are prepared in accordance with relevant accounting standards and are ready for audit review.",
+      "Providing you the support you need to handle reconciliation, payroll, and compliance workloads with steady, reliable output that helps your firm maintain quality, even as client volumes grow.",
     helps: [
-      "Professionally prepared statements aligned to your practice standards",
-      "Audit-ready financials delivered on time",
-      "Consistent and accurate reporting across all clients",
+      "Fewer downstream errors because every transaction is matched correctly the first time.",
+      "Cleaner workpapers that make reviews faster and more predictable.",
+      "More reliable reporting with ledgers that stay consistent across all client files.",
     ],
   },
   {
-    title: "Audit Support & Coordination",
+    title: "Strengthen Operational Consistency",
     description:
-      "Our team coordinates directly with SMSF auditors, preparing and packaging all required documentation, responding to auditor queries and managing the audit process from start to finish. We ensure smooth audit completion without adding to adviser workload.",
+      "Deliver faster, clearer, and more accurate outcomes with a support system that reduces delays, minimises errors, and keeps you informed at every step.",
     helps: [
-      "Reduce time spent preparing and responding to auditor requests",
-      "Ensure all documentation is complete and accurate before submission",
-      "Keep the audit process progressing without delays",
-    ],
-  },
-  {
-    title: "Bookkeeping & Reconciliation",
-    description:
-      "We provide accurate bookkeeping, bank reconciliations, accounts payable and receivable management, and payroll processing for your accounting clients. Our team uses leading platforms including Xero, MYOB and QuickBooks to maintain clean, reliable financial records.",
-    helps: [
-      "Maintain accurate books without increasing in-house admin",
-      "Reduce errors through consistent reconciliation processes",
-      "Support clients with timely, reliable financial data",
-    ],
-  },
-  {
-    title: "Payroll Processing & Superannuation",
-    description:
-      "Our specialists manage end-to-end payroll processing including pay runs, superannuation calculations, Single Touch Payroll (STP) lodgements and leave management. We ensure your clients' payroll obligations are met accurately and on time every period.",
-    helps: [
-      "Error-free payroll processing delivered each pay cycle",
-      "Timely STP lodgements and super payment management",
-      "Reduced compliance risk for your business clients",
+      "Deliver faster turnaround to your clients",
+      "Stay informed with clear communication and monthly updates",
+      "Work with fewer delays, fewer errors, and greater confidence",
     ],
   },
 ];
 
 const trustIndicators = [
   {
-    title: "Deep SMSF and accounting expertise",
+    title: "Robust advice-industry experience",
     description:
-      "Our team brings specialist knowledge in SMSF administration and accounting, developed through years of hands-on experience across a wide range of fund types and client structures. We understand the nuances of superannuation legislation and apply that knowledge to every fund we manage.",
+      "Having partnered with over 70+ advisers in the financial planning industry, we understand the realities advisers face. Our back office support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
   },
   {
-    title: "Technology-enabled and platform agnostic",
+    title: "Driven by people, not just process.",
     description:
-      "We work across leading SMSF and accounting platforms including BGL, Class Super, Xero, MYOB and QuickBooks. Our team adapts to your existing workflows and systems, meaning no disruption and immediate productivity.",
+      "We're a people-driven team that values learning and accountability. Our back office support receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
   },
   {
     title: "ISO27001 certified for information security",
     description:
-      "Advice Lab is ISO 27001 certified, giving you confidence that your clients' sensitive financial data is handled with the highest standards of information security and privacy across all SMSF and accounting tasks.",
+      "Advice Lab is ISO 27001 certified, giving you the peace of mind, confirming that we prioritize data privacy and applies strong security measures across all paraplanning activities.",
   },
   {
     title: "Extended coverage across two locations",
     description:
-      "Our teams in Sri Lanka and the Philippines allow us to support your accounting and SMSF work across extended hours. This means work continues beyond your business day, reducing turnaround times and keeping your practice moving.",
+      "Our teams in Sri Lanka and the Philippines allows to support advice delivery across extended hours. This means work can continue beyond your day, helping reduce delays and maintain momentum.",
   },
 ];
 
 const SMSFAccounting = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -147,13 +130,18 @@ const SMSFAccounting = () => {
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               SMSF & Accounting Support
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
-              Specialist SMSF administration and accounting support that keeps
-              your practice compliant, efficient and client-focused.
+            <p className="text-xl text-primary-foreground/80 mb-8 text-center">
+              Increase your SMSF & Accounting capacity effortlessly with
+              end‑to‑end outsourcing that keeps you compliant, accurate, and
+              ahead of deadlines.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="white" size="lg" asChild>
-                <Link to="/contact-us">Get in Touch</Link>
+              <Button
+                variant="white"
+                size="lg"
+                onClick={() => setIsContactPopupOpen(true)}
+              >
+                Get in Touch
               </Button>
             </div>
           </ScrollAnimation>
@@ -174,7 +162,8 @@ const SMSFAccounting = () => {
               Our Offering
             </span>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              SMSF and accounting services that elevate your practice
+              Seamless SMSF & Accounting support that fits your operational
+              needs
             </p>
           </ScrollAnimation>
 
@@ -295,6 +284,15 @@ const SMSFAccounting = () => {
           </div>
         </div>
       </section>
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                                    So we want to help you to give the support your practice
+                                    deserves, just let us know and we'll take you on a quick
+                                    walkthrough."
+      />
     </Layout>
   );
 };

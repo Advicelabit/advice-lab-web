@@ -61,7 +61,6 @@ export function ContactPopup({
 
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && open) handleClose();
@@ -70,7 +69,6 @@ export function ContactPopup({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open]);
 
-  // Prevent body scroll when open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -235,7 +233,7 @@ This inquiry was submitted through the AdviceLab Popup Form.
         body: JSON.stringify({
           sender: "noreply@advicegenie.com.au",
           recipient: "hello@advicelab.com.au",
-          subject: `New Product Interested Form Submission: ${formData.name}`,
+          subject: `New Services Inquiry: ${formData.name}`,
           body: emailBody,
           is_html: false,
           attachments: [],
@@ -284,7 +282,6 @@ This inquiry was submitted through the AdviceLab Popup Form.
     }, 200);
   };
 
-  // Handle backdrop click — only close if clicking the overlay itself
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === overlayRef.current) {
       handleClose();
@@ -293,49 +290,69 @@ This inquiry was submitted through the AdviceLab Popup Form.
 
   if (!open) return null;
 
+  /* ─────────────── small helpers for field styling ─────────────── */
+  const fieldCls = (hasError: boolean) =>
+    `h-10 rounded-lg border bg-muted/40 px-3 text-sm transition-colors
+     focus-visible:bg-background focus-visible:ring-2
+     placeholder:text-muted-foreground/50
+     ${
+       hasError
+         ? "border-red-400 focus-visible:ring-red-300"
+         : "border-border focus-visible:ring-primary/30 hover:border-primary/40"
+     }`;
+
   return (
     /* Backdrop */
     <div
       ref={overlayRef}
       onClick={handleOverlayClick}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+      style={{
+        backgroundColor: "rgba(0,0,0,0.55)",
+        backdropFilter: "blur(2px)",
+      }}
       aria-modal="true"
       role="dialog"
       aria-labelledby="contact-popup-title"
     >
       {/* Panel */}
       <div
-        className="relative w-full max-w-[520px] bg-background rounded-xl shadow-2xl flex flex-col"
+        className="relative w-full max-w-[520px] bg-background rounded-2xl shadow-2xl ring-1 ring-border/60 flex flex-col"
         style={{ maxHeight: "95dvh" }}
       >
+        {/* Decorative top accent bar */}
+
         {/* Close button */}
         <button
           onClick={handleClose}
           aria-label="Close"
-          className="absolute top-3 right-3 z-10 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          className="absolute top-4 right-4 z-10 p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Scrollable content */}
-        <div className="overflow-y-auto flex-1 p-6">
+        <div className="overflow-y-auto flex-1 px-7 py-6">
           {/* Header */}
-          <div className="space-y-1.5 pb-4 text-center">
-            <h2
-              id="contact-popup-title"
-              className="text-xl font-display font-bold text-primary"
-            >
+          <div className="pb-5 text-center space-y-2">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary font-semibold uppercase tracking-widest text-[11px] rounded-full">
               {title}
-            </h2>
-            <p className="text-sm text-muted-foreground">{description}</p>
+            </span>
+            <p className="text-sm font-semibold text-foreground leading-snug">
+              {description}
+            </p>
           </div>
 
+          {/* Divider */}
+          <div className="h-px bg-border/60 mb-5" />
+
           {submitted ? (
-            <div className="flex flex-col items-center justify-center py-8 text-center">
-              <CheckCircle className="w-14 h-14 text-green-500 mb-3" />
-              <h3 className="text-lg font-semibold mb-1.5">Message Sent!</h3>
-              <p className="text-muted-foreground text-sm max-w-xs">
+            <div className="flex flex-col items-center justify-center py-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-4">
+                <CheckCircle className="w-8 h-8 text-green-500" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Message Sent!</h3>
+              <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
                 Thank you for your interest in{" "}
                 <span className="font-semibold text-primary">Advice Lab</span>.
                 We've received your enquiry and a member of our team will
@@ -343,19 +360,17 @@ This inquiry was submitted through the AdviceLab Popup Form.
               </p>
               <Button
                 onClick={handleClose}
-                className="mt-5 gradient-primary text-primary-foreground"
+                className="mt-6 gradient-primary text-primary-foreground px-8"
               >
                 Close
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5" noValidate>
-              {/* Service Interest Checkboxes */}
-
+            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               {/* Name and Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <Input
@@ -364,18 +379,14 @@ This inquiry was submitted through the AdviceLab Popup Form.
                     value={formData.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`h-9 ${
-                      errors.name && touched.name
-                        ? "border-red-500 focus-visible:ring-red-500"
-                        : ""
-                    }`}
+                    className={fieldCls(!!(errors.name && touched.name))}
                   />
                   {errors.name && touched.name && (
-                    <p className="text-xs text-red-500 mt-1">{errors.name}</p>
+                    <p className="text-[11px] text-red-500">{errors.name}</p>
                   )}
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <Input
@@ -385,22 +396,18 @@ This inquiry was submitted through the AdviceLab Popup Form.
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`h-9 ${
-                      errors.email && touched.email
-                        ? "border-red-500 focus-visible:ring-red-500"
-                        : ""
-                    }`}
+                    className={fieldCls(!!(errors.email && touched.email))}
                   />
                   {errors.email && touched.email && (
-                    <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+                    <p className="text-[11px] text-red-500">{errors.email}</p>
                   )}
                 </div>
               </div>
 
               {/* Company and Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Company <span className="text-red-500">*</span>
                   </label>
                   <Input
@@ -409,20 +416,14 @@ This inquiry was submitted through the AdviceLab Popup Form.
                     value={formData.company}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`h-9 ${
-                      errors.company && touched.company
-                        ? "border-red-500 focus-visible:ring-red-500"
-                        : ""
-                    }`}
+                    className={fieldCls(!!(errors.company && touched.company))}
                   />
                   {errors.company && touched.company && (
-                    <p className="text-xs text-red-500 mt-1">
-                      {errors.company}
-                    </p>
+                    <p className="text-[11px] text-red-500">{errors.company}</p>
                   )}
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Phone <span className="text-red-500">*</span>
                   </label>
                   <Input
@@ -432,28 +433,24 @@ This inquiry was submitted through the AdviceLab Popup Form.
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`h-9 ${
-                      errors.phone && touched.phone
-                        ? "border-red-500 focus-visible:ring-red-500"
-                        : ""
-                    }`}
+                    className={fieldCls(!!(errors.phone && touched.phone))}
                   />
                   {errors.phone && touched.phone && (
-                    <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                    <p className="text-[11px] text-red-500">{errors.phone}</p>
                   )}
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Tell us what you're interested in{" "}
-                  <span className="text-red-500">*</span>
+              {/* Service interests */}
+              <div className="space-y-2.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Interested in <span className="text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 rounded-xl border border-border/60 bg-muted/30 p-4">
                   {serviceOptions.map((option) => (
                     <div
                       key={option.id}
-                      className="flex items-center space-x-2"
+                      className="flex items-center space-x-2.5"
                     >
                       <Checkbox
                         id={option.id}
@@ -461,11 +458,11 @@ This inquiry was submitted through the AdviceLab Popup Form.
                         onCheckedChange={(checked) =>
                           handleInterestChange(option.id, checked as boolean)
                         }
-                        className="h-4 w-4 shrink-0"
+                        className="h-4 w-4 shrink-0 rounded"
                       />
                       <label
                         htmlFor={option.id}
-                        className="text-sm cursor-pointer leading-snug"
+                        className="text-sm cursor-pointer leading-snug text-foreground/80 hover:text-foreground transition-colors"
                       >
                         {option.label}
                       </label>
@@ -473,41 +470,66 @@ This inquiry was submitted through the AdviceLab Popup Form.
                   ))}
                 </div>
                 {errors.interests && (
-                  <p className="text-xs text-red-500 mt-1.5">
-                    {errors.interests}
-                  </p>
+                  <p className="text-[11px] text-red-500">{errors.interests}</p>
                 )}
               </div>
 
               {/* Message */}
-              <div>
-                <label className="block text-sm font-medium mb-1.5">
+              <div className="space-y-1.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Message
                 </label>
                 <Textarea
                   placeholder="Tell us about your needs..."
                   name="message"
-                  rows={2}
+                  rows={3}
                   value={formData.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`resize-none ${
-                    errors.message && touched.message
-                      ? "border-red-500 focus-visible:ring-red-500"
-                      : ""
-                  }`}
+                  className={`resize-none rounded-lg border bg-muted/40 px-3 py-2.5 text-sm
+                    transition-colors placeholder:text-muted-foreground/50
+                    focus-visible:bg-background focus-visible:ring-2 focus-visible:ring-primary/30
+                    hover:border-primary/40
+                    ${errors.message && touched.message ? "border-red-400" : "border-border"}
+                  `}
                 />
                 {errors.message && touched.message && (
-                  <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+                  <p className="text-[11px] text-red-500">{errors.message}</p>
                 )}
               </div>
 
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full gradient-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity h-10"
+                className="w-full gradient-primary text-primary-foreground font-semibold
+                  hover:opacity-90 transition-opacity h-10 rounded-lg text-sm tracking-wide"
               >
-                {loading ? "Sending..." : "Send Message"}
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <svg
+                      className="animate-spin h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v8z"
+                      />
+                    </svg>
+                    Sending…
+                  </span>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </form>
           )}

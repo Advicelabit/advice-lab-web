@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { ContactPopup } from "@/components/ui/ContactPopup";
 
 const offerings = [
   {
@@ -73,14 +74,14 @@ const offerings = [
 
 const trustIndicators = [
   {
-    title: "Three decades of advice-industry experience",
+    title: "Robust advice-industry experience",
     description:
-      "With over 30 years of combined experience in the financial planning industry, we understand the realities advisers face. Our paraplanning support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
+      "Having partnered with over 70+ advisers in the financial planning industry, we understand the realities advisers face. Our back office support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
   },
   {
     title: "Driven by people, not just process.",
     description:
-      "We're a people-driven team that values learning and accountability. Our paraplanners receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
+      "We're a people-driven team that values learning and accountability. Our back office support receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
   },
   {
     title: "ISO27001 certified for information security",
@@ -120,6 +121,7 @@ const Paraplanning = () => {
   // Responsive hover/click logic for Accordion
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -141,7 +143,7 @@ const Paraplanning = () => {
   return (
     <Layout>
       <Seo
-        title="Expert Paraplanning Services for Financial Advisers | Advice Lab"
+        title="Expert Paraplanning Services for Financial Advisers"
         description="Professional paraplanning support: SOA preparation, client file management, compliance documentation & portfolio reviews. Scale your practice with our experts."
         keywords="paraplanning services, statement of advice preparation, financial planning support, client file management, portfolio review services, compliance documentation, SOA preparation, financial adviser support, paraplanning outsourcing"
         pathname="/services/paraplanning"
@@ -168,14 +170,18 @@ const Paraplanning = () => {
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Paraplanning
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
+            <p className="text-xl text-primary-foreground/80 mb-8 text-center">
               Providing you accurate plans with fast turnaround times and
               consistent quality, giving you hours back to focus more on your
               clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="white" size="lg" asChild>
-                <Link to="/contact-us">Get in Touch</Link>
+              <Button
+                variant="white"
+                size="lg"
+                onClick={() => setIsContactPopupOpen(true)}
+              >
+                Get in Touch
               </Button>
               {/* <Button variant="heroOutline" size="lg" asChild>
                 <Link to="/contact-us">Get Pricing</Link>
@@ -292,7 +298,6 @@ const Paraplanning = () => {
         {/* Decorative elements */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
-
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
           <ScrollAnimation animation="fade-up" className="text-center mb-16">
@@ -344,7 +349,16 @@ const Paraplanning = () => {
               </ScrollAnimation>
             ))}
           </div>
-        </div>
+        </div>{" "}
+        <ContactPopup
+          open={isContactPopupOpen}
+          onOpenChange={setIsContactPopupOpen}
+          title="Support Designed for You"
+          description="We know that your practice back-office needs are unique.
+                                      So we want to help you to give the support your practice
+                                      deserves, just let us know and we'll take you on a quick
+                                      walkthrough."
+        />
       </section>
     </Layout>
   );

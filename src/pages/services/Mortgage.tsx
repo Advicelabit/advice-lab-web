@@ -5,106 +5,88 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { ContactPopup } from "@/components/ui/ContactPopup";
 
 const offerings = [
   {
-    title: "Loan Application Preparation & Submission",
+    title: "Accelerate Loan Submissions with Clear, Accurate Documentation",
     description:
-      "Our mortgage support specialists manage end-to-end loan application preparation, from gathering and verifying client documentation to completing lender-specific application forms and submitting through broker platforms such as ApplyOnline and Simpology. We ensure every application is complete, accurate and ready for assessment.",
+      "Ensure your loans progress quickly because every document is carefully prepared and validated for completeness, giving lenders exactly what they need to assess your file without delay.",
     helps: [
-      "Receive submission-ready applications without the manual workload",
-      "Reduce errors and incomplete submissions that cause delays",
-      "Maintain consistent application quality across every client file",
+      "Get faster approvals with files prepared correctly the first time",
+      "Deliver a smoother client experience through consistent, error‑free submissions",
+      "Keep your pipeline moving with consistently complete documentation",
     ],
   },
   {
-    title: "Broker Administrative Support",
+    title: "Valuation Management & Property Support",
     description:
-      "We handle the day-to-day administrative tasks that keep your broking practice running — from managing CRM updates and pipeline tracking to preparing client correspondence, processing conditional approvals, and coordinating with lenders on outstanding requirements. Your broker team stays focused on client relationships while we manage the back office.",
+      "Keep your valuations moving smoothly with coordinated property support and clear follow‑ups that prevent delays and keep your loan files progressing on time",
     helps: [
-      "Less time spent on repetitive administrative tasks",
-      "Accurate CRM records and pipeline management maintained",
-      "Faster turnaround from application to settlement",
+      "Get timely valuation updates, so you don’t have to look back",
+      "Set clear client expectations through timely communication around property checks",
+      "Keep loans moving forward as potential holdups are managed before they impact the file",
     ],
   },
   {
-    title: "Document Collection & Verification",
+    title: "Lender Communication & Approval Tracking",
     description:
-      "Our team proactively follows up clients for outstanding documents, verifies identification, income, and supporting materials against lender requirements, and organises complete file packages ready for submission. We manage the back-and-forth so your brokers don't have to.",
+      "Stay on top of every loan’s progress with proactive lender communication and clear tracking that keeps you updated and your applications moving without surprises.",
     helps: [
-      "Receive complete, verified document packages ready for submission",
-      "Reduce time spent chasing clients and managing file gaps",
-      "Minimise lender queries and application delays caused by missing documents",
+      "Know exactly where each file stands with timely updates you don’t have to chase",
+      "Keep your clients informed confidently because you always have the latest progress",
+      "Maintain a smoother pipeline as follow‑ups happen consistently in the background.",
     ],
   },
   {
-    title: "Compliance & Responsible Lending Support",
+    title: "Accuracy You Can Rely On",
     description:
-      "We assist with compliance requirements including Needs Analysis documentation, Credit Proposal Disclosure preparation, Privacy Consent collection and AML/KYC verification. Our team ensures your files meet responsible lending obligations and are audit-ready at every stage of the advice and lending process.",
+      "Make every loan file feel easy to manage with accuracy that meets lender expectations and helps your submissions flow smoothly.",
     helps: [
-      "Maintain audit-ready files with thorough compliance documentation",
-      "Reduce compliance risk across your broker practice",
-      "Save broker time on mandatory disclosure and verification tasks",
+      "Increase approval confidence with files prepared to exact lending requirements.",
+      "Maintain a seamless workflow because accurate documentation keeps each step on track",
+      "Deliver a better client experience through clean, consistent submissions",
     ],
   },
   {
-    title: "Lender & Third-Party Communication",
+    title: "Flexible General Admin Support",
     description:
-      "Your support team manages direct communication with lenders, valuers, solicitors and other third parties on your behalf. We follow up applications, respond to lender queries, coordinate valuations and monitor progress through to settlement — keeping every party aligned and informed throughout.",
+      "Simplify your daily workflow with adaptable admin support that handles the routine tasks for you, so your time stays focused on clients and high‑value work",
     helps: [
-      "Save time on repetitive lender calls and follow-ups",
-      "Keep applications progressing without manual intervention",
-      "Gain full visibility on file status without the coordination overhead",
-    ],
-  },
-  {
-    title: "Settlement Coordination & Post-Settlement Support",
-    description:
-      "We coordinate all pre-settlement requirements including booking settlement dates, confirming funds to complete, liaising with solicitors and lenders, and ensuring all conditions are satisfied prior to settlement. Post-settlement, we update your CRM, issue client confirmation correspondence and manage any post-settlement lender actions.",
-    helps: [
-      "Smooth, well-coordinated settlements with fewer last-minute issues",
-      "Accurate post-settlement records and client communications handled",
-      "Reduced workload at the busiest stage of the loan process",
-    ],
-  },
-  {
-    title: "Client Lifecycle & Pipeline Management",
-    description:
-      "Our team manages the complete client lifecycle within your broker practice — from initial enquiry and onboarding through to annual reviews, loan renewals and refinance opportunities. We keep your pipeline organised, your clients informed and your opportunities actioned without adding to your team's workload.",
-    helps: [
-      "Well-managed pipelines with no leads or reviews falling through the cracks",
-      "Timely client follow-ups and renewal communications handled",
-      "Clean, accurate and up-to-date client records across your CRM",
+      "Save hours each week by offloading repetitive admin tasks",
+      "Stay organised effortlessly with consistent behind‑the‑scenes support",
+      "Focus on revenue‑driving work while the essential details are managed for you",
     ],
   },
 ];
 
 const trustIndicators = [
   {
-    title: "Mortgage industry knowledge built through experience",
+    title: "Robust advice-industry experience",
     description:
-      "Our mortgage support team understands the broking landscape — from lender policies and platform requirements to compliance obligations and client service standards. We bring hands-on knowledge that translates into accurate, efficient support from day one.",
+      "Having partnered with over 70+ advisers in the financial planning industry, we understand the realities advisers face. Our back office support is shaped by hands-on knowledge of advice practices, regulatory requirements, and quality to provide you the precise support you need.",
   },
   {
-    title: "Platform-ready across leading broker tools",
+    title: "Driven by people, not just process.",
     description:
-      "Our team works confidently across leading broker platforms and CRMs including ApplyOnline, Simpology, MyCRM, Salestrekker and Broker Engine. We adapt to your existing systems and workflows so productivity starts immediately with no disruption to your practice.",
+      "We're a people-driven team that values learning and accountability. Our back office support receive ongoing training and regular updates to stay aligned with industry changes, supported by a strong working culture that encourages efficiency, collaboration, and quality outcomes for advisers.",
   },
   {
     title: "ISO27001 certified for information security",
     description:
-      "Advice Lab is ISO 27001 certified, giving you the assurance that your clients' sensitive financial and personal data is managed with the highest standards of information security across all mortgage support activities.",
+      "Advice Lab is ISO 27001 certified, giving you the peace of mind, confirming that we prioritize data privacy and applies strong security measures across all paraplanning activities.",
   },
   {
     title: "Extended coverage across two locations",
     description:
-      "With teams in Sri Lanka and the Philippines, we provide support across extended hours to keep your applications progressing and your clients looked after beyond standard business hours — reducing delays and maintaining momentum across your loan pipeline.",
+      "Our teams in Sri Lanka and the Philippines allows to support advice delivery across extended hours. This means work can continue beyond your day, helping reduce delays and maintain momentum.",
   },
 ];
 
 const MortgageSupport = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -147,14 +129,17 @@ const MortgageSupport = () => {
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Mortgage Support
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
-              End-to-end mortgage broking support that keeps your pipeline
-              moving, your clients informed and your practice running
-              efficiently.
+            <p className="text-xl text-primary-foreground/80 mb-8 text-center">
+              Strengthen your end‑to‑end mortgage progress from application to
+              settlement with precise, reliable processing at every step{" "}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="white" size="lg" asChild>
-                <Link to="/contact-us">Get in Touch</Link>
+              <Button
+                variant="white"
+                size="lg"
+                onClick={() => setIsContactPopupOpen(true)}
+              >
+                Get in Touch
               </Button>
             </div>
           </ScrollAnimation>
@@ -175,7 +160,8 @@ const MortgageSupport = () => {
               Our Offering
             </span>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Mortgage support services that elevate your broking practice
+              Keep every loan progressing with disciplined and impeccably
+              managed mortgage tasks
             </p>
           </ScrollAnimation>
 
@@ -296,6 +282,15 @@ const MortgageSupport = () => {
           </div>
         </div>
       </section>
+      <ContactPopup
+        open={isContactPopupOpen}
+        onOpenChange={setIsContactPopupOpen}
+        title="Support Designed for You"
+        description="We know that your practice back-office needs are unique.
+                                    So we want to help you to give the support your practice
+                                    deserves, just let us know and we'll take you on a quick
+                                    walkthrough."
+      />
     </Layout>
   );
 };

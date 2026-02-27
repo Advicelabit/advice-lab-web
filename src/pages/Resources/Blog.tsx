@@ -88,7 +88,7 @@ const Blog = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Blog
             </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-center">
               Guides, tools, and insights to help you get the most from offshore
               support.
             </p>

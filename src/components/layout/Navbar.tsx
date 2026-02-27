@@ -9,12 +9,13 @@ const navigation = [
   { name: "About", href: "/about-us" },
   {
     name: "Services",
-    href: "/services/paraplanning",
+    href: "/services",
     children: [
+      { name: "All Services", href: "/services" },
       { name: "Paraplanning", href: "/services/paraplanning" },
       { name: "Client Support Officers", href: "/services/clientsupport" },
-      // { name: "Mortgage Support", href: "/services/mortgage-support" },
-      // { name: "SMSF & Accounting", href: "/services/smsf-accounting" },
+      { name: "SMSF & Accounting", href: "/services/smsf-accounting" },
+      { name: "Mortgage Support", href: "/services/mortgage-support" },
     ],
   },
   {
@@ -42,7 +43,7 @@ const navigation = [
     ],
   },
   { name: "Careers", href: "/careers" },
-  { name: "Contact", href: "/contact-us" },
+  { name: "Contact Us", href: "/contact-us" },
 ];
 
 export function Navbar() {
@@ -53,9 +54,27 @@ export function Navbar() {
   );
   const location = useLocation();
 
-  const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return location.pathname.startsWith(href);
+  const isActive = (href: string, parentName?: string) => {
+    const path = location.pathname;
+
+    // Home special case
+    if (href === "/") return path === "/";
+
+    // If this is the top-level "Services" menu
+    if (href === "/services" && parentName === undefined) {
+      // Highlight top-level "Services" if we're on /services or any child except "All Services"
+      return path === "/services" || path.startsWith("/services/");
+    }
+
+    // If this is a child item
+    if (parentName) {
+      // Highlight child only if it's not "All Services" and matches path
+      if (href === "/services") return path === "/services"; // All Services link only on /services
+      return path === href;
+    }
+
+    // Default: highlight exact path
+    return path === href;
   };
 
   return (
@@ -93,7 +112,7 @@ export function Navbar() {
                           key={child.name}
                           to={child.href}
                           className={`block px-4 py-3 text-sm leading-[0.9rem] hover:bg-secondary rounded-xl transition-colors ${
-                            isActive(child.href)
+                            isActive(child.href, item.name)
                               ? "text-primary font-semibold"
                               : "text-muted-foreground hover:text-primary"
                           }`}
@@ -192,7 +211,7 @@ export function Navbar() {
                       key={child.name}
                       to={child.href}
                       className={`block py-2 text-sm leading-[0.9rem] transition-colors ${
-                        isActive(child.href)
+                        isActive(child.href, item.name)
                           ? "text-primary font-semibold"
                           : "text-muted-foreground hover:text-primary"
                       }`}

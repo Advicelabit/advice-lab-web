@@ -263,7 +263,7 @@ This inquiry was submitted through the AdviceLab Contact page.
 
   const contactSchema = {
     "@type": "ContactPage",
-    name: "Contact Advice Lab",
+    name: "Contact Us - Advice Lab",
     url: "https://advicelab.com.au/contact-us",
     description: "Contact page for Advice Lab",
     contactPoint: {
@@ -278,9 +278,9 @@ This inquiry was submitted through the AdviceLab Contact page.
   return (
     <Layout>
       <Seo
-        title="Contact Advice Lab - Get in Touch with Our Team"
+        title="Contact Us"
         description="Get in touch with Advice Lab. Phone, email, or contact form. We're based in Sydney and serve Australian financial advisers. Response within 24 hours."
-        keywords="contact Advice Lab, get in touch, financial services support, customer service, Sydney office, Advice Lab contact, contact information"
+        keywords="contact us Advice Lab, get in touch, financial services support, customer service, Sydney office, Advice Lab contact, contact information"
         pathname="/contact-us"
         schemaData={contactSchema}
       />
@@ -291,7 +291,7 @@ This inquiry was submitted through the AdviceLab Contact page.
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-center">
               Ready to scale your practice? Let's discuss how we can help.
             </p>
           </ScrollAnimation>

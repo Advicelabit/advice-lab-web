@@ -57,9 +57,8 @@ const Services = () => {
       <ServicesHero />
       {/* <ServiceCards /> remove after all finalised */}
       {/* Services Inquiry Section */}
+
       <ServicesInquirySection />
-      {/* Book a Walkthrough Section */}
-      <BookWalkthrough />
     </Layout>
   );
 };

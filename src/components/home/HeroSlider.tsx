@@ -4,15 +4,14 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactPopup } from "@/components/ui/ContactPopup";
 
-import hero1 from "@/assets/HPImg/Cover_img4.jpg";
-import hero2 from "@/assets/HPImg/Cover_img6.jpg";
-import hero3 from "@/assets/HPImg/Cover_img3.jpg";
-import hero4 from "@/assets/HPImg/Cover_img5.jpg";
-import hero5 from "@/assets/HPImg/Cover_img1.jpg";
+import paraplanning from "@/assets/HPImg/Cover_img4.jpg";
+import financialPrecision from "@/assets/HPImg/Cover_img6.jpg";
+import smsfAccountingImage from "@/assets/HPImg/hero-smsf-accounting.jpeg";
+import mortgageSupport from "@/assets/HPImg/hero-mortgage-support.jpeg";
 
 const slides = [
   {
-    image: hero1,
+    image: paraplanning,
     title: "Paraplanning Services ",
     subtitle: "Expert Assistance",
     description:
@@ -21,7 +20,7 @@ const slides = [
     showLearnMore: true, // Show Learn More button
   },
   {
-    image: hero2,
+    image: financialPrecision,
     title: "Client Support Officers",
     subtitle: "Financial Precision",
     description:
@@ -29,32 +28,33 @@ const slides = [
     link: "/services/clientsupport",
     showLearnMore: true, // Show Learn More button
   },
+  // {
+  //   image: hero3,
+  //   title: "Accounting & Bookkeeping",
+  //   subtitle: "Property Finance",
+  //   description:
+  //     "Financial management services delivered by experienced accounting specialists.",
+  //   link: "/services/mortgage",
+  //   showLearnMore: false, // Don't show Learn More button
+  // },
   {
-    image: hero3,
-    title: "Accounting & Bookkeeping",
-    subtitle: "Property Finance",
+    image: smsfAccountingImage,
+    title: "SMSF & Accounting",
+    subtitle:
+      "Scale your SMSF & Accounting operations with dependable offshore expertise",
     description:
-      "Financial management services delivered by experienced accounting specialists.",
-    link: "/services/mortgage",
-    showLearnMore: false, // Don't show Learn More button
+      "Scale your SMSF & Accounting operations with dependable offshore expertise ",
+    link: "/services/smsf-accounting",
+    showLearnMore: true, // Don't show Learn More button
   },
   {
-    image: hero4,
-    title: "SMSF",
-    subtitle: "Scale your SMSF operations with dependable offshore expertise ",
-    description:
-      "Scale your SMSF operations with dependable offshore expertise ",
-    link: "/services/mortgage",
-    showLearnMore: false, // Don't show Learn More button
-  },
-  {
-    image: hero5,
+    image: mortgageSupport,
     title: "Mortgage Support ",
     subtitle: "Property Finance",
     description:
       "Streamlined mortgage support that speeds up lodgments and approvals. ",
-    link: "/services/mortgage",
-    showLearnMore: false, // Don't show Learn More button
+    link: "/services/mortgage-support",
+    showLearnMore: true, // Don't show Learn More button
   },
 ];
 
@@ -172,7 +172,7 @@ export function HeroSlider() {
       <ContactPopup
         open={isContactPopupOpen}
         onOpenChange={setIsContactPopupOpen}
-        title="Contact Us"
+        title="Support Designed for You"
         description="We know that your practice back-office needs are unique.
                         So we want to help you to give the support your practice
                         deserves, just let us know and we'll take you on a quick

@@ -74,7 +74,7 @@ const serviceCards: ServiceCard[] = [
     description:
       "Loan pack prep and follow-ups that meet lender-ready standards every time",
     image: mortgageSupport,
-    link: "/services/mortgage",
+    link: "/services/mortgage-support",
     icon: <Home className="w-4 h-4" />,
     color: "text-primary",
   },
@@ -234,7 +234,7 @@ This inquiry was submitted through the AdviceLab Services page.
         },
         body: JSON.stringify({
           sender: "noreply@advicegenie.com.au",
-          recipient: "shahanshaeek@advicelab.com.au",
+          recipient: "hello@advicelab.com.au",
           subject: `New Services Inquiry: ${formData.firstName} ${formData.lastName}`,
           body: emailBody,
           is_html: false,
