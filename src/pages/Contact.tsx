@@ -287,6 +287,7 @@ This inquiry was submitted through the AdviceLab Contact page.
       {/* Hero */}
       <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 text-center">
+          <h1 className="sr-only">Contact Us</h1>
           <ScrollAnimation animation="fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
               Get in Touch
