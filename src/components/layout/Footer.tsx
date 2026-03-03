@@ -65,6 +65,12 @@ export function Footer() {
       {!hideCta && (
         <div id="book-walkthrough">
           <BookWalkthrough />
+          {/* onClick={() => {
+    const element = document.getElementById("book-walkthrough");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }} */}
         </div>
       )}
 

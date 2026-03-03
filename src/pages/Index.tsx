@@ -1,11 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import Seo from "@/components/ui/Seo";
-import { TopBanner } from "@/components/home/TopBanner";
-import { HeroSlider } from "@/components/home/HeroSlider";
-import { ClientLogos } from "@/components/home/ClientLogos";
-import { ServicesOverview } from "@/components/home/ServicesOverview";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { Testimonials } from "@/components/home/Testimonials";
+import { TopBanner } from "@/components/careers/home/TopBanner";
+import { HeroSlider } from "@/components/careers/home/HeroSlider";
+import { ClientLogos } from "@/components/careers/home/ClientLogos";
+import { ServicesOverview } from "@/components/careers/home/ServicesOverview";
+import { WhyChooseUs } from "@/components/careers/home/WhyChooseUs";
+import { Testimonials } from "@/components/careers/home/Testimonials";
 const Index = () => {
   const organizationSchema = {
     "@type": "Organization",

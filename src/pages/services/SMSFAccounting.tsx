@@ -247,6 +247,9 @@ const SMSFAccounting = () => {
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <ScrollAnimation animation="fade-up" className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+              Why Us
+            </span>{" "}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
               Why Partner With Advice Lab
             </h2>
