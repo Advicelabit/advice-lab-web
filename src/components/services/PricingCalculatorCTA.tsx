@@ -33,28 +33,21 @@ const features: PricingFeature[] = [
     icon: <DollarSign className="w-5 h-5" />,
     title: "Transparent Pricing",
     description:
-      "Get upfront costs for all our paraplanning services with no hidden fees",
+      "Get upfront pricing for single or complex paraplanning services. We don't surprise with hidden fees",
     highlight: "No surprises",
   },
   {
     icon: <Clock className="w-5 h-5" />,
     title: "Flexible Turnaround",
     description:
-      "Choose between Normal and Fast service options to match your deadlines",
+      "Choose between regular to urgent service options to match your deadlines",
     highlight: "On-time delivery",
-  },
-  {
-    icon: <Zap className="w-5 h-5" />,
-    title: "Volume Savings",
-    description:
-      "Calculate costs for multiple documents and unlock bulk pricing discounts",
-    highlight: "Save up to 20%",
   },
   {
     icon: <CheckCircle className="w-5 h-5" />,
     title: "All-Inclusive Service",
     description:
-      "Every quote includes QA review, compliance checks, and unlimited revisions",
+      "Every SOA & ROA includes QA review, compliance checks and on-time delivery",
     highlight: "Quality assured",
   },
 ];
@@ -62,23 +55,23 @@ const features: PricingFeature[] = [
 const serviceCategories = [
   {
     icon: <FileText className="w-5 h-5" />,
-    name: "Simple SOA",
-    price: "From $180",
+    name: "Standard SOA",
+    price: "Starting at $275",
   },
   {
     icon: <PieChart className="w-5 h-5" />,
-    name: "Complex SOA",
-    price: "From $350",
+    name: "Fast Track SOA",
+    price: "Starting at $350",
   },
   {
     icon: <Shield className="w-5 h-5" />,
-    name: "ROA",
-    price: "From $120",
+    name: "Standard ROA",
+    price: "Starting at $120",
   },
   {
     icon: <TrendingUp className="w-5 h-5" />,
-    name: "Strategy Papers",
-    price: "From $280",
+    name: "Fast Track ROA",
+    price: "Starting at $280",
   },
 ];
 
@@ -102,9 +95,7 @@ export function PricingCalculatorCTA() {
                 <span className="gradient-text">Paraplanning Costs</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Plan your budget with confidence. Our interactive pricing
-                calculator gives you instant, accurate quotes tailored to your
-                specific needs.
+                Get an instant quote tailored to your specific need instantly.
               </p>
             </div>
           </ScrollAnimation>
@@ -129,15 +120,14 @@ export function PricingCalculatorCTA() {
 
                 <div className="space-y-4 mb-8">
                   <p className="text-muted-foreground leading-relaxed">
-                    Whether you need a simple Statement of Advice or complex
-                    strategy documentation, our calculator helps you:
+                    Whether you need a simple SOA or a complex one, use out
+                    calculator to help you on:
                   </p>
                   <ul className="space-y-3">
                     {[
-                      "Compare Normal vs Fast service options",
-                      "Estimate costs for multiple documents",
-                      "See volume discount opportunities",
-                      "Plan your monthly paraplanning budget",
+                      "Compare regular vs urgent SOA&ROA preparation",
+                      "Estimate cost for multiple strategies",
+                      "Calculate your monthly SOA cost and compare best options ",
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -188,13 +178,13 @@ export function PricingCalculatorCTA() {
                 >
                   <Link to="/services/pricing-calculator">
                     <Calculator className="mr-2 w-5 h-5" />
-                    Open Pricing Calculator
+                    Go to the Pricing Calculator
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
 
                 <p className="text-center text-muted-foreground/60 text-xs mt-4">
-                  Free to use • No registration required • Instant results
+                  Free to use • No registration required
                 </p>
               </div>
             </ScrollAnimation>

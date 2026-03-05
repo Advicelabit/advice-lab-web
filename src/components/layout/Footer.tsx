@@ -53,7 +53,8 @@ export function Footer() {
   const hideCta =
     pathname.startsWith("/careers") ||
     pathname.startsWith("/contact-us") ||
-    pathname.startsWith("/cookies-policy");
+    pathname.startsWith("/cookies-policy") ||
+    pathname.startsWith("/services/pricing-calculator");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
