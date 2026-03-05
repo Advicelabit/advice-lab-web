@@ -247,9 +247,9 @@ export function PricingCalculatorCTA() {
                       <p className="text-sm font-semibold text-foreground">
                         Trusted by 70+ Financial Advisers
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      {/* <p className="text-xs text-muted-foreground">
                         Across Australia who use our calculator monthly
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
