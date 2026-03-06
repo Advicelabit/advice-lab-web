@@ -120,13 +120,13 @@ export function PricingCalculatorCTA() {
 
                 <div className="space-y-4 mb-8">
                   <p className="text-muted-foreground leading-relaxed">
-                    Whether you need a simple SOA or a complex one, use out
+                    Whether you need a simple SOA or a complex one, use our
                     calculator to help you on:
                   </p>
                   <ul className="space-y-3">
                     {[
                       "Compare regular vs urgent SOA&ROA preparation",
-                      "Estimate cost for multiple strategies",
+                      "Get cost for single or multiple strategies",
                       "Calculate your monthly SOA cost and compare best options ",
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
