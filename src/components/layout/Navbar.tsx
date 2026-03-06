@@ -40,6 +40,10 @@ const navigation = [
       //   href: "/resources#smsf-trustee-education-kit",
       // },
       { name: "Blog", href: "/resources/blogs" },
+      {
+        name: "Paraplanning Fee Calculator",
+        href: "/resources/pricing-calculator",
+      },
     ],
   },
   { name: "Careers", href: "/careers" },

@@ -23,6 +23,7 @@ import Contact from "./pages/Contact";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 import SMSFAccounting from "./pages/services/SMSFAccounting";
+import PricingCalculator from "./pages/services/PricingCalculator";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,10 @@ const AppRoutes = () => {
         <Route path="/services/clientsupport" element={<ClientSupport />} />
         <Route path="/services/mortgage-support" element={<Mortgage />} />
         <Route path="/services/smsf-accounting" element={<SMSFAccounting />} />
+        <Route
+          path="/resources/pricing-calculator"
+          element={<PricingCalculator />}
+        />
         <Route path="/resources/blogs" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/careers" element={<Careers />} />

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 import { ContactPopup } from "@/components/ui/ContactPopup";
+import { PricingCalculatorCTA } from "@/components/services/PricingCalculatorCTA";
 
 const offerings = [
   {
@@ -177,15 +178,29 @@ const Paraplanning = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                variant="heroOutline"
+                size="lg"
+                onClick={() => {
+                  const element = document.getElementById(
+                    "pricing-calculator-cta",
+                  );
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
+              >
+                Get Instant Pricing
+              </Button>
+              <Button
                 variant="white"
                 size="lg"
                 onClick={() => setIsContactPopupOpen(true)}
               >
                 Get in Touch
               </Button>
-              {/* <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/contact-us">Get Pricing</Link>
-              </Button> */}
             </div>
           </ScrollAnimation>
         </div>
@@ -301,9 +316,9 @@ const Paraplanning = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
           <ScrollAnimation animation="fade-up" className="text-center mb-16">
-            {/* <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
-              Why Choose Us
-            </span> */}
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+              Why Us
+            </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
               Why Partner With Advice Lab
             </h2>
@@ -359,6 +374,11 @@ const Paraplanning = () => {
                                       deserves, just let us know and we'll take you on a quick
                                       walkthrough."
         />
+      </section>
+
+      {/* Pricing Calculator CTA Section */}
+      <section id="pricing-calculator-cta">
+        <PricingCalculatorCTA />
       </section>
     </Layout>
   );

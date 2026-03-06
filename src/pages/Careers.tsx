@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, Play, Linkedin, Instagram } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import { TrainingPartnersLogos } from "@/components/home/TrainingPartnersLogos";
+import { TrainingPartnersLogos } from "@/components/careers/home/TrainingPartnersLogos";
 import {
   Users,
   Lightbulb,
