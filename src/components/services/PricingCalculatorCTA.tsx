@@ -95,7 +95,7 @@ export function PricingCalculatorCTA() {
                 <span className="gradient-text">Paraplanning Costs</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Get an instant quote tailored to your specific need instantly.
+                Get a quote tailored to your specific need instantly.
               </p>
             </div>
           </ScrollAnimation>
@@ -142,7 +142,7 @@ export function PricingCalculatorCTA() {
                 </div>
 
                 {/* Quick Price Preview */}
-                <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl p-5 mb-8 border border-gray-100">
+                {/* <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl p-5 mb-8 border border-gray-100">
                   <div className="flex items-center gap-2 mb-4">
                     <BarChart3 className="w-4 h-4 text-primary" />
                     <span className="text-sm font-semibold text-foreground uppercase tracking-wider">
@@ -169,14 +169,14 @@ export function PricingCalculatorCTA() {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
                 <Button
                   size="lg"
                   className="w-full h-14 gradient-primary text-primary-foreground hover:opacity-90 font-semibold rounded-xl group shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-xl"
                   asChild
                 >
-                  <Link to="/services/pricing-calculator">
+                  <Link to="/resources/pricing-calculator">
                     <Calculator className="mr-2 w-5 h-5" />
                     Go to the Pricing Calculator
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -184,7 +184,7 @@ export function PricingCalculatorCTA() {
                 </Button>
 
                 <p className="text-center text-muted-foreground/60 text-xs mt-4">
-                  Free to use • No registration required
+                  Free to use
                 </p>
               </div>
             </ScrollAnimation>
@@ -245,7 +245,8 @@ export function PricingCalculatorCTA() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-foreground">
-                        Trusted by 70+ Financial Advisers
+                        Trusted by 70+ Financial Advice practices across
+                        Australia
                       </p>
                       {/* <p className="text-xs text-muted-foreground">
                         Across Australia who use our calculator monthly
@@ -258,9 +259,9 @@ export function PricingCalculatorCTA() {
           </div>
 
           {/* Bottom Stats */}
-          <ScrollAnimation animation="fade-up" delay={300}>
+          {/* <ScrollAnimation animation="fade-up" delay={300}>
             <div className="mt-16 relative">
-              {/* Connecting line behind cards */}
+           
               <div className="hidden md:block absolute top-1/2 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-y-1/2 pointer-events-none" />
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -306,33 +307,33 @@ export function PricingCalculatorCTA() {
                     key={stat.label}
                     className="relative group bg-white rounded-2xl shadow-md border border-gray-100 p-6 hover:shadow-xl hover:border-gray-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    {/* Background gradient blob */}
+                   
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl`}
                     />
 
-                    {/* Top-right decorative dot */}
+                  
                     <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-gray-200 group-hover:bg-primary/40 transition-colors duration-300" />
 
                     <div className="relative">
-                      {/* Icon */}
+                   
                       <div
                         className={`w-10 h-10 rounded-xl ${stat.iconBg} flex items-center justify-center ${stat.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}
                       >
                         {stat.icon}
                       </div>
 
-                      {/* Value */}
+                      
                       <p className="text-3xl md:text-4xl font-display font-bold gradient-text mb-0.5 leading-none">
                         {stat.value}
                       </p>
 
-                      {/* Label */}
+                     
                       <p className="text-sm font-semibold text-foreground mt-1">
                         {stat.label}
                       </p>
 
-                      {/* Sub-label */}
+                     
                       <p className="text-xs text-muted-foreground/70 mt-0.5">
                         {stat.sub}
                       </p>
@@ -341,7 +342,7 @@ export function PricingCalculatorCTA() {
                 ))}
               </div>
             </div>
-          </ScrollAnimation>
+          </ScrollAnimation> */}
         </div>
       </div>
     </section>

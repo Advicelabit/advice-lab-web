@@ -140,15 +140,15 @@ const CATEGORY_COLORS = {
 const CUSTOM_TOOLS = ["XTOOLS", "Wealthsolver"];
 
 const SOA_TIERS = [
-  { max: 1, name: "Simple SoA", regular: 250, urgent: 375 },
-  { max: 3, name: "Standard SoA", regular: 350, urgent: 525 },
-  { max: 6, name: "Comprehensive SoA", regular: 500, urgent: 750 },
-  { max: Infinity, name: "Complex Comprehensive", regular: 650, urgent: 975 },
+  { max: 1, name: "Simple SoA", regular: 275, urgent: 412 },
+  { max: 3, name: "Standard SoA", regular: 385, urgent: 577 },
+  { max: 6, name: "Comprehensive SoA", regular: 550, urgent: 825 },
+  { max: Infinity, name: "Complex Comprehensive", regular: 720, urgent: 1080 },
 ];
 
 const ROA_TIERS = [
-  { max: 2, name: "RoA", regular: 90, urgent: 135 },
-  { max: Infinity, name: "RoA Extended", regular: 120, urgent: 180 },
+  { max: 2, name: "RoA", regular: 120, urgent: 180 },
+  { max: Infinity, name: "RoA Extended", regular: 150, urgent: 225 },
 ];
 
 function getPrice(adviceType, strategyCount, urgent) {
@@ -383,8 +383,7 @@ function LivePriceCard({ adviceType, strategyCount, urgency }) {
         <p className="text-muted-foreground text-xs mb-1">Total Price</p>
         <div className="flex items-baseline gap-1.5 mb-2 flex-wrap">
           <span className="text-4xl sm:text-5xl font-black text-foreground">
-            {/* ${result.price.toLocaleString()} */}
-            0.000
+            ${result.price.toLocaleString()}
           </span>
           <span className="text-muted-foreground text-sm mb-1">exc. GST</span>
         </div>

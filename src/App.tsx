@@ -48,7 +48,7 @@ const AppRoutes = () => {
         <Route path="/services/mortgage-support" element={<Mortgage />} />
         <Route path="/services/smsf-accounting" element={<SMSFAccounting />} />
         <Route
-          path="/services/pricing-calculator"
+          path="/resources/pricing-calculator"
           element={<PricingCalculator />}
         />
         <Route path="/resources/blogs" element={<Blog />} />
