@@ -40,7 +40,7 @@ import mortgageSupport from "@/assets/HPImg/mortgage-support.jpeg";
 const serviceCards: ServiceCard[] = [
   {
     id: "paraplanning",
-    title: "Financial Paraplanners",
+    title: "Paraplanning",
     description: "On-time, first-pass-ready SOAs so you can see more clients",
 
     image: paraplanning,
@@ -50,7 +50,7 @@ const serviceCards: ServiceCard[] = [
   },
   {
     id: "client-support",
-    title: "Client Support Officers",
+    title: "Client Support Services",
     description:
       "A dependable team to keep your client work moving forward - accurate, on time",
     image: clientSupport,

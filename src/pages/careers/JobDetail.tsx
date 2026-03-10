@@ -26,6 +26,13 @@ import jobVacancies from "@/data/jobVacancies.json";
 const API_BASE_URL =
   "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
 
+type KeyResponsibility =
+  | string
+  | {
+      title: string;
+      items: string[];
+    };
+
 interface Job {
   id: string;
   title: string;
@@ -37,7 +44,7 @@ interface Job {
   aboutTheRole: string;
   whatIsParaplanning?: string;
   whatIsAdviceSupport?: string;
-  keyResponsibilities: string[];
+  keyResponsibilities: KeyResponsibility[];
   skillsWeAreLookingFor?: string[];
   mustHaves?: string[];
   skillsWeValue?: string[];
@@ -641,24 +648,45 @@ This application was submitted through the AdviceLab Careers page.
                         <h2 className="text-4xl font-bold mb-8 flex items-center gap-3">
                           Key Responsibilities
                         </h2>
-                        <ul className="space-y-4">
-                          {job.keyResponsibilities.map((item, index) => (
-                            <li
-                              key={index}
-                              className="flex gap-4 text-lg text-muted-foreground"
-                            >
-                              <span className="text-primary font-bold flex-shrink-0 mt-1">
-                                •
-                              </span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
+                        <ul className="space-y-6">
+                          {job.keyResponsibilities.map((item, index) =>
+                            typeof item === "string" ? (
+                              <li
+                                key={index}
+                                className="flex gap-4 text-lg text-muted-foreground"
+                              >
+                                <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                  •
+                                </span>
+                                <span>{item}</span>
+                              </li>
+                            ) : (
+                              <li key={index} className="space-y-3 ml-4">
+                                <h3 className="text-lg font-semibold">
+                                  {item.title}
+                                </h3>
+                                <ul className="space-y-4 pl-6">
+                                  {item.items.map((subItem, subIndex) => (
+                                    <li
+                                      key={`${index}-${subIndex}`}
+                                      className="flex gap-4 text-lg text-muted-foreground"
+                                    >
+                                      <span className="text-primary font-bold flex-shrink-0 mt-1">
+                                        •
+                                      </span>
+                                      <span>{subItem}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            ),
+                          )}
                         </ul>
                       </div>
                     </ScrollAnimation>
                   )}
 
-                {/* Key Responsibilities */}
+                {/* Skills We Are Looking For */}
                 {job.skillsWeAreLookingFor &&
                   job.skillsWeAreLookingFor.length > 0 && (
                     <ScrollAnimation animation="fade-up" delay={100}>

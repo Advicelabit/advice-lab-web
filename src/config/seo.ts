@@ -1,7 +1,8 @@
 const SEO = {
   siteName: "Advice Lab",
   siteUrl: "https://advicelab.com.au",
-  defaultTitle: "Advice Lab | Outsourced paraplanning & virtual admin",
+  defaultTitle:
+    "Advice Lab | Comprehensive Offshore Support for Australian Financial Advisers",
   defaultDescription:
     "Offshore paraplanning, client support & compliance services for Australian financial advisers. Scale your practice with reliable, qualified teams. Learn more today.",
   defaultKeywords:
