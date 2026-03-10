@@ -75,7 +75,7 @@ export const CareersPageTemplate = ({
     "HR",
     "Internship Program",
     "Paraplanning",
-    "Quality Assurance",
+    "Review Associate",
     "Mortgage",
   ];
 
