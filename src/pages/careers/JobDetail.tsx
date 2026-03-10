@@ -661,8 +661,8 @@ This application was submitted through the AdviceLab Careers page.
                                 <span>{item}</span>
                               </li>
                             ) : (
-                              <li key={index} className="space-y-3">
-                                <h3 className="text-2xl font-semibold">
+                              <li key={index} className="space-y-3 ml-4">
+                                <h3 className="text-lg font-semibold">
                                   {item.title}
                                 </h3>
                                 <ul className="space-y-4 pl-6">

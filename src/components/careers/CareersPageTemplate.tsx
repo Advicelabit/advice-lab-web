@@ -30,6 +30,7 @@ interface Job {
   isActive: boolean;
   description?: string;
   aboutTheRole: string;
+  datePosted?: string;
   keyResponsibilities: Array<string | { title: string; items: string[] }>;
   skillsWeAreLookingFor?: string[];
   mustHaves: string[];
@@ -79,14 +80,20 @@ export const CareersPageTemplate = ({
     "Mortgage",
   ];
 
-  // Filter jobs based on all criteria
+  // Filter jobs based on all criteria and sort by datePosted (newest first)
   const filteredJobs = useMemo(() => {
-    return locationJobs.filter((job) => {
+    const filtered = locationJobs.filter((job) => {
       const categoryMatch =
         categoryFilter === "all" || job.category === categoryFilter;
       const typeMatch = typeFilter === "all" || job.type === typeFilter;
 
       return categoryMatch && typeMatch;
+    });
+
+    return filtered.sort((a, b) => {
+      const aDate = a.datePosted ? new Date(a.datePosted).getTime() : 0;
+      const bDate = b.datePosted ? new Date(b.datePosted).getTime() : 0;
+      return bDate - aDate;
     });
   }, [locationJobs, categoryFilter, typeFilter]);
 
