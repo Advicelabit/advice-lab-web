@@ -30,7 +30,7 @@ interface Job {
   isActive: boolean;
   description?: string;
   aboutTheRole: string;
-  keyResponsibilities: string[];
+  keyResponsibilities: Array<string | { title: string; items: string[] }>;
   skillsWeAreLookingFor?: string[];
   mustHaves: string[];
   skillsWeValue?: string[];

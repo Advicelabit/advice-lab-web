@@ -20,17 +20,32 @@
     "salaryMax": 100000,
     "aboutTheRole": "At Advice Lab, you’ll be part of a team that genuinely believes in growth, collaboration, and doing meaningful work. As a Junior Quality Assurance in the QA team, you will be reviewing paraplanning and advice support work, you’ll play a key role in maintaining the accuracy, consistency, and reliability of the work delivered to Australian Financial Advisers. \n\n  In this role, you’ll support our quality review process, help identify gaps, and ensure our outputs meet the high standards our clients trust us for. If you’re someone who takes initiative, enjoys working through details, and values being part of a supportive, structured, growth‑oriented team, you’ll thrive here. ",
     "keyResponsibilities": [
-      "Conduct initial quality checks on paraplanning documents, SOAs/ROAs, file notes, research, workflows, and Xplan data.",
-      "Identify errors, inconsistencies, and gaps in documentation prepared by paraplanners and client service teams.",
-      "Ensure all advice documents meet regulatory, compliance, and internal standards.",
-      "Assist in maintaining QA checklists, templates, and process guidelines.",
-      "Support the QA team in documenting recurring issues and improvement areas.",
-      "Communicate identified issues clearly with paraplanners and advice support staff.",
-      "Provide timely feedback and assist in clarifying requirements when needed.",
-      "Support the implementation of process enhancements to improve quality and efficiency.",
-      "Escalate recurring issues or risks to the Senior QA Analyst or Team Lead.",
-      "Participate in internal training sessions related to Australian financial planning processes, Xplan, and QA standards.",
-      "Continuously develop technical knowledge and understanding of advice strategies."
+      {
+        "title": "Quality Review & Checks",
+        "items": [
+          "Conduct initial quality checks on paraplanning documents, SOAs/ROAs, file notes, research, workflows, and Xplan data.",
+          "Identify errors, inconsistencies, and gaps in documentation prepared by paraplanners and client service teams.",
+          "Ensure all advice documents meet regulatory, compliance, and internal standards.",
+          "Assist in maintaining QA checklists, templates, and process guidelines.",
+          "Support the QA team in documenting recurring issues and improvement areas."
+        ]
+      },
+      {
+        "title": "Communication & Feedback",
+        "items": [
+          "Communicate identified issues clearly with paraplanners and advice support staff.",
+          "Provide timely feedback and assist in clarifying requirements when needed.",
+          "Escalate recurring issues or risks to the Senior QA Analyst or Team Lead."
+        ]
+      },
+      {
+        "title": "Process Improvement",
+        "items": [
+          "Support the implementation of process enhancements to improve quality and efficiency.",
+          "Participate in internal training sessions related to Australian financial planning processes, Xplan, and QA standards.",
+          "Continuously develop technical knowledge and understanding of advice strategies."
+        ]
+      }
     ],
     "mustHaves": [
       "Strong attention to detail and ability to identify errors.",
@@ -76,17 +91,32 @@
     "salaryMax": 70000,
     "aboutTheRole": "At Advice Lab, you’ll be part of a team that genuinely believes in growth, collaboration, and doing meaningful work. As a Junior Quality Assurance in the QA team, you will be reviewing paraplanning and advice support work, you’ll play a key role in maintaining the accuracy, consistency, and reliability of the work delivered to Australian Financial Advisers. \n\n  In this role, you’ll support our quality review process, help identify gaps, and ensure our outputs meet the high standards our clients trust us for. If you’re someone who takes initiative, enjoys working through details, and values being part of a supportive, structured, growth‑oriented team, you’ll thrive here. ",
     "keyResponsibilities": [
-      "Conduct initial quality checks on paraplanning documents, SOAs/ROAs, file notes, research, workflows, and Xplan data.",
-      "Identify errors, inconsistencies, and gaps in documentation prepared by paraplanners and client service teams.",
-      "Ensure all advice documents meet regulatory, compliance, and internal standards.",
-      "Assist in maintaining QA checklists, templates, and process guidelines.",
-      "Support the QA team in documenting recurring issues and improvement areas.",
-      "Communicate identified issues clearly with paraplanners and advice support staff.",
-      "Provide timely feedback and assist in clarifying requirements when needed.",
-      "Support the implementation of process enhancements to improve quality and efficiency.",
-      "Escalate recurring issues or risks to the Senior QA Analyst or Team Lead.",
-      "Participate in internal training sessions related to Australian financial planning processes, Xplan, and QA standards.",
-      "Continuously develop technical knowledge and understanding of advice strategies."
+      {
+        "title": "Quality Review & Checks",
+        "items": [
+          "Conduct initial quality checks on paraplanning documents, SOAs/ROAs, file notes, research, workflows, and Xplan data.",
+          "Identify errors, inconsistencies, and gaps in documentation prepared by paraplanners and client service teams.",
+          "Ensure all advice documents meet regulatory, compliance, and internal standards.",
+          "Assist in maintaining QA checklists, templates, and process guidelines.",
+          "Support the QA team in documenting recurring issues and improvement areas."
+        ]
+      },
+      {
+        "title": "Communication & Feedback",
+        "items": [
+          "Communicate identified issues clearly with paraplanners and advice support staff.",
+          "Provide timely feedback and assist in clarifying requirements when needed.",
+          "Escalate recurring issues or risks to the Senior QA Analyst or Team Lead."
+        ]
+      },
+      {
+        "title": "Process Improvement",
+        "items": [
+          "Support the implementation of process enhancements to improve quality and efficiency.",
+          "Participate in internal training sessions related to Australian financial planning processes, Xplan, and QA standards.",
+          "Continuously develop technical knowledge and understanding of advice strategies."
+        ]
+      }
     ],
     "mustHaves": [
       "Strong attention to detail and ability to identify errors.",
