@@ -13,9 +13,8 @@ import {
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-import hero1 from "@/assets/HPImg/Cover_img4.jpg";
-import hero2 from "@/assets/HPImg/Cover_img6.jpg";
-import hero3 from "@/assets/HPImg/Cover_img3.jpg";
+import hero1 from "@/assets/HPImg/paraplanning-hero.webp";
+import hero2 from "@/assets/HPImg/financial-precision-hero.webp";
 import hero4 from "@/assets/HPImg/Cover_img5.jpg";
 import hero5 from "@/assets/HPImg/Leadership Team.jpg";
 import hero6 from "@/assets/HPImg/Cover_img8.jpg";

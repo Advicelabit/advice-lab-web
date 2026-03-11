@@ -4,10 +4,10 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactPopup } from "@/components/ui/ContactPopup";
 
-import paraplanning from "@/assets/HPImg/Cover_img4.jpg";
-import financialPrecision from "@/assets/HPImg/Cover_img6.jpg";
-import smsfAccountingImage from "@/assets/HPImg/hero-smsf-accounting.jpeg";
-import mortgageSupport from "@/assets/HPImg/hero-mortgage-support.jpeg";
+import paraplanning from "@/assets/HPImg/paraplanning-hero.webp";
+import financialPrecision from "@/assets/HPImg/financial-precision-hero.webp";
+import smsfAccountingImage from "@/assets/HPImg/hero-smsf-accounting.webp";
+import mortgageSupport from "@/assets/HPImg/hero-mortgage-support.webp";
 
 const slides = [
   {
@@ -87,6 +87,8 @@ export function HeroSlider() {
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover"
+            loading={index === currentSlide ? "eager" : "lazy"}
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-transparent" />
         </div>
