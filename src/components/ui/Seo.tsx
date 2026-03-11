@@ -155,6 +155,30 @@ export default function Seo({
       },
     ];
 
+    // BreadcrumbList (ensures there are at least 2 items for search engines / AEO)
+    const pageName = title
+      ? title.replace(` | ${SEO.siteName}`, "")
+      : SEO.siteName;
+    const breadcrumbSchema: Record<string, unknown> = {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SEO.siteUrl.replace(/\/$/, "/"),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: pageName,
+          item: url,
+        },
+      ],
+    };
+
+    graphData.push(breadcrumbSchema);
+
     // Add custom schema data if provided
     if (schemaData) {
       graphData.push(schemaData);

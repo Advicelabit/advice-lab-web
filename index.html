@@ -9,7 +9,7 @@
     </title>
     <meta
       name="description"
-      content="Offshore paraplanning, client support & compliance services for Australian financial advisers. Scale your practice with reliable, qualified teams. Learn more today."
+      content="Offshore paraplanning, client support & compliance services for Australian financial advisers—scale your practice with reliable, qualified teams."
     />
     <meta
       name="keywords"
@@ -134,52 +134,82 @@
       });
     </script>
     <script>
-      function initApollo() {
-        var n = Math.random().toString(36).substring(7),
-          o = document.createElement("script");
-        ((o.src =
-          "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" +
-          n),
-          (o.async = !0),
-          (o.defer = !0),
-          (o.onload = function () {
-            window.trackingFunctions.onLoad({
-              appId: "698d9c3b6e58fd001d780944",
-            });
-          }),
-          document.head.appendChild(o));
+      // Defer non-critical tracking code to reduce initial interaction latency (INP)
+      function loadDeferredTracking() {
+        if (window.__adviceLabTrackingLoaded) return;
+        window.__adviceLabTrackingLoaded = true;
+
+        // Apollo tracker
+        function initApollo() {
+          var n = Math.random().toString(36).substring(7),
+            o = document.createElement("script");
+          ((o.src =
+            "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" +
+            n),
+            (o.async = !0),
+            (o.defer = !0),
+            (o.onload = function () {
+              window.trackingFunctions.onLoad({
+                appId: "698d9c3b6e58fd001d780944",
+              });
+            }),
+            document.head.appendChild(o));
+        }
+        initApollo();
+
+        // LinkedIn tracking
+        (function (l) {
+          if (!l) {
+            window.lintrk = function (a, b) {
+              window.lintrk.q.push([a, b]);
+            };
+            window.lintrk.q = [];
+          }
+          var s = document.getElementsByTagName("script")[0];
+          var b = document.createElement("script");
+          b.type = "text/javascript";
+          b.async = true;
+          b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+          s.parentNode.insertBefore(b, s);
+        })(window.lintrk);
+
+        // Meta Pixel
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(
+          window,
+          document,
+          "script",
+          "https://connect.facebook.net/en_US/fbevents.js",
+        );
+        fbq("init", "2014598369113666");
+        fbq("track", "PageView");
       }
-      initApollo();
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadDeferredTracking, { timeout: 2000 });
+      } else {
+        window.addEventListener("load", function () {
+          setTimeout(loadDeferredTracking, 2000);
+        });
+      }
     </script>
-    <!-- Meta Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      fbq("init", "2014598369113666");
-      fbq("track", "PageView");
-    </script>
-    <!-- End Meta Pixel Code -->
+    <!-- End deferred tracking -->
   </head>
 
   <body>
@@ -187,6 +217,13 @@
       Advice Lab – Comprehensive Offshore Support for Australian Financial
       Advisers
     </h1>
+    <h2 style="position: absolute; left: -9999px">
+      Trusted by Leading Financial Advisers in Australia
+    </h2>
+    <h2 style="position: absolute; left: -9999px">What Our Clients Say</h2>
+    <h2 style="position: absolute; left: -9999px">
+      Book a Personalised Walkthrough
+    </h2>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script type="text/javascript">
