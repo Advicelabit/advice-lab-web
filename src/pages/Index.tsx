@@ -1,11 +1,29 @@
+import React, { Suspense } from "react";
 import { Layout } from "@/components/layout/Layout";
 import Seo from "@/components/ui/Seo";
 import { TopBanner } from "@/components/careers/home/TopBanner";
 import { HeroSlider } from "@/components/careers/home/HeroSlider";
-import { ClientLogos } from "@/components/careers/home/ClientLogos";
-import { ServicesOverview } from "@/components/careers/home/ServicesOverview";
-import { WhyChooseUs } from "@/components/careers/home/WhyChooseUs";
-import { Testimonials } from "@/components/careers/home/Testimonials";
+
+const ClientLogos = React.lazy(() =>
+  import("@/components/careers/home/ClientLogos").then((mod) => ({
+    default: mod.ClientLogos,
+  })),
+);
+const ServicesOverview = React.lazy(() =>
+  import("@/components/careers/home/ServicesOverview").then((mod) => ({
+    default: mod.ServicesOverview,
+  })),
+);
+const WhyChooseUs = React.lazy(() =>
+  import("@/components/careers/home/WhyChooseUs").then((mod) => ({
+    default: mod.WhyChooseUs,
+  })),
+);
+const Testimonials = React.lazy(() =>
+  import("@/components/careers/home/Testimonials").then((mod) => ({
+    default: mod.Testimonials,
+  })),
+);
 const Index = () => {
   const organizationSchema = {
     "@type": "Organization",
@@ -45,11 +63,13 @@ const Index = () => {
       />
       {/* <TopBanner /> */}
       <HeroSlider />
-      <ClientLogos />
 
-      <ServicesOverview />
-      <WhyChooseUs />
-      <Testimonials />
+      <Suspense fallback={<div className="h-24" />}>
+        <ClientLogos />
+        <ServicesOverview />
+        <WhyChooseUs />
+        <Testimonials />
+      </Suspense>
     </Layout>
   );
 };
