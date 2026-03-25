@@ -47,6 +47,7 @@ const navigation = [
     ],
   },
   { name: "Careers", href: "/careers" },
+  { name: "Foundation", href: "/al-foundation" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 
