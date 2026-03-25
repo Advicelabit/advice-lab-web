@@ -17,6 +17,7 @@ import { useState } from "react";
 
 import greatPlaceToWorkCertificate1 from "@/assets/About/great-place-to-work-2024.png";
 import greatPlaceToWorkCertificate2 from "@/assets/About/great-place-to-work-2025.png";
+import { CompanyLifeShowcase } from "@/components/careers/home/CompanyLifeShowcase";
 
 const resources = [
   {
@@ -401,6 +402,8 @@ const Careers = () => {
           </div>
         </div>
       </section> */}
+
+      <CompanyLifeShowcase />
 
       {/* Lead Magnets */}
       <section className="py-24 bg-background">

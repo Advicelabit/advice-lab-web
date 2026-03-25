@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { usePageViewTracking } from "@/hooks/usePageViewTracking";
 import { CookieConsent } from "@/components/CookieConsent";
+import { PricingCalculatorProvider } from "@/hooks/usePricingCalculator";
+import { PricingCalculatorPopupWrapper } from "@/components/ui/PricingCalculatorPopupWrapper";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -71,12 +73,15 @@ const AppRoutes = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AppRoutes />
-        <CookieConsent />
-      </BrowserRouter>
+      <PricingCalculatorProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppRoutes />
+          <CookieConsent />
+          <PricingCalculatorPopupWrapper />
+        </BrowserRouter>
+      </PricingCalculatorProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

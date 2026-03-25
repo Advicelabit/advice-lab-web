@@ -30,6 +30,8 @@ interface ServiceCard {
   link: string;
   icon: React.ReactNode;
   color: string;
+  accentColor: string;
+  bgColor: string;
 }
 import smsfAccountingImage from "@/assets/HPImg/smsf-accounting.jpeg";
 import client1 from "@/assets/ClientImg/client1.png";
@@ -42,11 +44,12 @@ const serviceCards: ServiceCard[] = [
     id: "paraplanning",
     title: "Paraplanning",
     description: "On-time, first-pass-ready SOAs so you can see more clients",
-
     image: paraplanning,
     link: "/services/paraplanning",
-    icon: <FileText className="w-4 h-4" />,
+    icon: <FileText className="w-5 h-5" />,
     color: "text-primary",
+    accentColor: "from-primary/30 to-primary/8",
+    bgColor: "bg-primary/10",
   },
   {
     id: "client-support",
@@ -55,8 +58,10 @@ const serviceCards: ServiceCard[] = [
       "A dependable team to keep your client work moving forward - accurate, on time",
     image: clientSupport,
     link: "/services/clientsupport",
-    icon: <Users className="w-4 h-4" />,
+    icon: <Users className="w-5 h-5" />,
     color: "text-primary",
+    accentColor: "from-primary/20 to-primary/5",
+    bgColor: "bg-primary/10",
   },
   {
     id: "smsf-accounting",
@@ -65,8 +70,10 @@ const serviceCards: ServiceCard[] = [
       "A team that works with your rhythm, keeping your workflow stress free",
     image: smsfAccountingImage,
     link: "/services/smsf-accounting",
-    icon: <BarChart3 className="w-4 h-4" />,
+    icon: <BarChart3 className="w-5 h-5" />,
     color: "text-primary",
+    accentColor: "from-primary/25 to-primary/10",
+    bgColor: "bg-primary/10",
   },
   {
     id: "mortgage-support",
@@ -75,8 +82,10 @@ const serviceCards: ServiceCard[] = [
       "Loan pack prep and follow-ups that meet lender-ready standards every time",
     image: mortgageSupport,
     link: "/services/mortgage-support",
-    icon: <Home className="w-4 h-4" />,
+    icon: <Home className="w-5 h-5" />,
     color: "text-primary",
+    accentColor: "from-primary/15 to-primary/5",
+    bgColor: "bg-primary/10",
   },
 ];
 
@@ -306,10 +315,9 @@ This inquiry was submitted through the AdviceLab Services page.
                   >
                     <Link
                       to={service.link}
-                      className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/25 hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+                      className="group relative flex flex-col bg-white rounded-3xl overflow-hidden border-2 border-gray-100 hover:border-primary/15 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)]"
                     >
-                      {/* Image — changed from aspect-[16/9] to aspect-[4/3] for a taller, larger feel */}
-                      <div className="aspect-[4/3] overflow-hidden">
+                      {/* <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={service.image}
                           alt={service.title}
@@ -318,9 +326,8 @@ This inquiry was submitted through the AdviceLab Services page.
                         />
                       </div>
 
-                      {/* Content — increased padding from p-4 to p-5 */}
-                      <div className="p-5 flex flex-col flex-1">
-                        {/* Title row with icon badge */}
+                        <div className="p-5 flex flex-col flex-1">
+                        
                         <div className="flex items-center gap-2.5 mb-3">
                           <span className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center shrink-0 text-white group-hover:shadow-md group-hover:scale-110 transition-all duration-300">
                             {service.icon}
@@ -337,6 +344,48 @@ This inquiry was submitted through the AdviceLab Services page.
                         <div className="mt-4 flex items-center text-primary text-sm font-semibold">
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+
+                      
+                      <div className="h-0.5 w-0 group-hover:w-full transition-all duration-500 gradient-primary" />
+                     */}
+
+                      {/* Curved gradient top band — unique per card */}
+                      <div
+                        className={`relative h-28 bg-gradient-to-br ${service.accentColor} flex items-center justify-start gap-3 px-4 pl-5 overflow-hidden`}
+                      >
+                        {/* decorative blurred circle */}
+                        <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white/20 blur-lg" />
+                        <div className="absolute bottom-0 left-0 w-16 h-16 rounded-full bg-white/15 blur-md" />
+
+                        {/* Icon badge */}
+                        <div
+                          className={`relative z-10 w-10 h-10 rounded-xl gradient-primary flex flex-col items-center justify-center text-white shadow-xl shadow-primary/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}
+                        >
+                          {service.icon}
+                        </div>
+                        <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300 leading-snug mb-1.5 text-center">
+                          {service.title}
+                        </h3>
+                      </div>
+
+                      {/* Content */}
+                      <div className="px-5 pt-4 pb-5 flex flex-col flex-1">
+                        {/* Title */}
+                        {/* <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300 leading-snug mb-1.5 text-center">
+                          {service.title}
+                        </h3> */}
+
+                        {/* Description */}
+                        <p className="text-sm text-muted-foreground line-clamp-2 flex-1 leading-relaxed text-center">
+                          {service.description}
+                        </p>
+
+                        {/* Learn More */}
+                        <div className="mt-4 flex items-center justify-center gap-1.5 text-primary text-xs font-bold uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                          Learn More
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                         </div>
                       </div>
 
@@ -366,7 +415,7 @@ This inquiry was submitted through the AdviceLab Services page.
                 <div className="relative z-10">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full mb-4 border border-white/30">
                     <span className="w-1.5 h-1.5 bg-green-300 rounded-full animate-pulse" />
-                    We’re here for you
+                    We're here for you
                   </span>
                   <h2 className="text-xl md:text-2xl font-display font-bold text-white mb-2 leading-tight">
                     Still unsure outsourcing your back-office would work out the

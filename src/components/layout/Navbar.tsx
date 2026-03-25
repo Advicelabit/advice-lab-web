@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePricingCalculator } from "@/hooks/usePricingCalculator";
 import logo from "@/assets/advicelab-logo.png";
 
 const navigation = [
@@ -57,6 +58,7 @@ export function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
     null,
   );
+  const { open: openPricingCalculator } = usePricingCalculator();
   const location = useLocation();
 
   const isActive = (href: string, parentName?: string) => {
@@ -112,19 +114,33 @@ export function Navbar() {
                 {openDropdown === item.name && (
                   <div className="absolute top-full left-0 pt-2 w-64">
                     <div className="bg-background rounded-2xl shadow-xl border border-border p-2 animate-fade-in">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          to={child.href}
-                          className={`block px-4 py-3 text-sm leading-[0.9rem] hover:bg-secondary rounded-xl transition-colors ${
-                            isActive(child.href, item.name)
-                              ? "text-primary font-semibold"
-                              : "text-muted-foreground hover:text-primary"
-                          }`}
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.name === "Paraplanning Fee Calculator" ? (
+                          <button
+                            key={child.name}
+                            onClick={openPricingCalculator}
+                            className={`block w-full text-left px-4 py-3 text-sm leading-[0.9rem] hover:bg-secondary rounded-xl transition-colors ${
+                              isActive(child.href, item.name)
+                                ? "text-primary font-semibold"
+                                : "text-muted-foreground hover:text-primary"
+                            }`}
+                          >
+                            {child.name}
+                          </button>
+                        ) : (
+                          <Link
+                            key={child.name}
+                            to={child.href}
+                            className={`block px-4 py-3 text-sm leading-[0.9rem] hover:bg-secondary rounded-xl transition-colors ${
+                              isActive(child.href, item.name)
+                                ? "text-primary font-semibold"
+                                : "text-muted-foreground hover:text-primary"
+                            }`}
+                          >
+                            {child.name}
+                          </Link>
+                        ),
+                      )}
                     </div>
                   </div>
                 )}
@@ -211,20 +227,37 @@ export function Navbar() {
               )}
               {item.children && mobileDropdownOpen === item.name && (
                 <div className="pl-4 space-y-1">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.name}
-                      to={child.href}
-                      className={`block py-2 text-sm leading-[0.9rem] transition-colors ${
-                        isActive(child.href, item.name)
-                          ? "text-primary font-semibold"
-                          : "text-muted-foreground hover:text-primary"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {child.name}
-                    </Link>
-                  ))}
+                  {item.children.map((child) =>
+                    child.name === "Paraplanning Fee Calculator" ? (
+                      <button
+                        key={child.name}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          openPricingCalculator();
+                        }}
+                        className={`block w-full text-left py-2 text-sm leading-[0.9rem] transition-colors ${
+                          isActive(child.href, item.name)
+                            ? "text-primary font-semibold"
+                            : "text-muted-foreground hover:text-primary"
+                        }`}
+                      >
+                        {child.name}
+                      </button>
+                    ) : (
+                      <Link
+                        key={child.name}
+                        to={child.href}
+                        className={`block py-2 text-sm leading-[0.9rem] transition-colors ${
+                          isActive(child.href, item.name)
+                            ? "text-primary font-semibold"
+                            : "text-muted-foreground hover:text-primary"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {child.name}
+                      </Link>
+                    ),
+                  )}
                 </div>
               )}
             </div>

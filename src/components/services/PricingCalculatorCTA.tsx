@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { usePricingCalculator } from "@/hooks/usePricingCalculator";
 import {
   Calculator,
   ArrowRight,
@@ -76,6 +77,8 @@ const serviceCategories = [
 ];
 
 export function PricingCalculatorCTA() {
+  const { open: openPricingCalculator } = usePricingCalculator();
+
   return (
     <section className="py-24 bg-muted-foreground/5 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -174,13 +177,11 @@ export function PricingCalculatorCTA() {
                 <Button
                   size="lg"
                   className="w-full h-14 gradient-primary text-primary-foreground hover:opacity-90 font-semibold rounded-xl group shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-xl"
-                  asChild
+                  onClick={openPricingCalculator}
                 >
-                  <Link to="/resources/pricing-calculator">
-                    <Calculator className="mr-2 w-5 h-5" />
-                    Go to the Pricing Calculator
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <Calculator className="mr-2 w-5 h-5" />
+                  Go to the Pricing Calculator
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
 
                 <p className="text-center text-muted-foreground/60 text-xs mt-4">
