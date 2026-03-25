@@ -1,5 +1,6 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import { useMemo } from "react";
+import { useMemo, useState, useCallback, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // ── Facility image imports ──────────────────────────────────────────────────
 import carromImg from "@/assets/CompanyLife/art-books.webp";
@@ -15,8 +16,6 @@ import poolTableImg from "@/assets/CompanyLife/table-tenis-area.webp";
 import terraceChatting from "@/assets/CompanyLife/terrace-chatting.webp";
 import treadmill from "@/assets/CompanyLife/treadmill.webp";
 import weightBench from "@/assets/CompanyLife/weight-bench.webp";
-// import library from "@/assets/CompanyLife/libaray.webp";
-// import librarySelection from "@/assets/CompanyLife/libray_selection.webp";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 const facilityImages = [
@@ -33,8 +32,6 @@ const facilityImages = [
   { src: terraceChatting, alt: "Terrace Chatting Spot" },
   { src: treadmill, alt: "Treadmill Zone" },
   { src: weightBench, alt: "Weight Bench Area" },
-  // { src: library, alt: "library" },
-  // { src: librarySelection, alt: "Selected Books" },
 ];
 
 // ── Shuffle helper ───────────────────────────────────────────────────────────
@@ -49,15 +46,40 @@ function shuffleArray<T>(arr: T[]): T[] {
 
 // ── Component ───────────────────────────────────────────────────────────────
 export function CompanyLifeShowcase() {
-  // Shuffled once per mount/refresh, stable during the session
-  const shuffledImages = useMemo(() => shuffleArray(facilityImages), []);
+  const images = useMemo(() => shuffleArray(facilityImages), []);
+  const total = images.length;
+
+  const [current, setCurrent] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const go = useCallback(
+    (next: number) => {
+      if (transitioning) return;
+      setTransitioning(true);
+      setCurrent((next + total) % total);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => setTransitioning(false), 420);
+    },
+    [transitioning, total],
+  );
+
+  const prev = () => go(current - 1);
+  const next = () => go(current + 1);
+
+  const getOffset = (idx: number) => {
+    let offset = idx - current;
+    if (offset > total / 2) offset -= total;
+    if (offset < -total / 2) offset += total;
+    return offset;
+  };
 
   return (
     <section className="bg-secondary py-12 overflow-hidden">
       {/* ── Header ── */}
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollAnimation animation="fade-up">
-          <div className="flex flex-col items-center justify-center mb-8">
+          <div className="flex flex-col items-center justify-center mb-10">
             <h2 className="text-foreground text-3xl sm:text-4xl md:text-[42px] font-bold text-center leading-tight mb-3">
               A Workplace That Actually Gets You
             </h2>
@@ -68,40 +90,128 @@ export function CompanyLifeShowcase() {
         </ScrollAnimation>
       </div>
 
-      {/* ── Single row marquee ── */}
-      <div className="mt-8 relative overflow-hidden">
-        <div className="inline-flex animate-marqueeCompany whitespace-nowrap will-change-transform">
-          {[shuffledImages, shuffledImages, shuffledImages].map((set, si) =>
-            set.map((img, i) => (
+      {/* ── Carousel Stage ── */}
+      <div className="relative w-full select-none">
+        <div
+          className="relative mx-auto overflow-visible"
+          style={{ height: "320px", maxWidth: "1400px" }}
+        >
+          {images.map((img, idx) => {
+            const offset = getOffset(idx);
+            const isActive = offset === 0;
+            const isAdj = Math.abs(offset) === 1;
+            const isVisible = Math.abs(offset) <= 1;
+
+            const translateX = offset * 104; // % of card width
+            const scale = isActive ? 1 : 0.88;
+            const opacity = isActive ? 1 : isAdj ? 0.72 : 0;
+            const zIndex = isActive ? 10 : isAdj ? 5 : 0;
+            const blur = 0; // no blur — just dimming + scale for depth
+
+            return (
               <div
-                key={`s${si}-${i}`}
-                className="inline-flex flex-shrink-0 mx-4 sm:mx-5 md:mx-6 rounded-xl overflow-hidden"
-                style={{ width: "480px", height: "320px" }}
+                key={idx}
+                onClick={() => !isActive && go(idx)}
+                className="absolute top-0 rounded-xl overflow-hidden"
+                style={{
+                  width: "480px",
+                  height: "320px",
+                  left: "50%",
+                  transform: `translateX(calc(-50% + ${translateX}%)) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                  transition:
+                    "transform 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.42s ease, box-shadow 0.42s ease",
+                  cursor: isActive ? "default" : "pointer",
+                  pointerEvents: isVisible ? "auto" : "none",
+                  boxShadow: isActive
+                    ? "0 20px 60px -10px hsl(var(--foreground) / 0.18)"
+                    : "0 4px 16px -4px hsl(var(--foreground) / 0.08)",
+                }}
               >
                 <img
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover"
+                  draggable={false}
                 />
+                {/* gentle darkening tint on side images only */}
+                {!isActive && (
+                  <div className="absolute inset-0 bg-secondary/20 rounded-xl" />
+                )}
+                {/* active card: thin bottom accent bar */}
+                {/* {isActive && (
+                  <div
+                    className="absolute bottom-0 left-0 h-[3px] rounded-b-xl"
+                    style={{
+                      width: "100%",
+                      background:
+                        "linear-gradient(90deg, hsl(var(--primary)/0.8), hsl(var(--primary)))",
+                    }}
+                  />
+                )} */}
               </div>
-            )),
-          )}
+            );
+          })}
         </div>
+
+        {/* ── Arrow Buttons ── */}
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="
+            absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20
+            flex items-center justify-center
+            w-10 h-10 sm:w-11 sm:h-11 rounded-full
+            bg-background/90 backdrop-blur-sm border border-primary/30
+            text-primary shadow-md
+            hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105
+            active:scale-95
+            transition-all duration-200
+          "
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="
+            absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20
+            flex items-center justify-center
+            w-10 h-10 sm:w-11 sm:h-11 rounded-full
+            bg-background/90 backdrop-blur-sm border border-primary/30
+            text-primary shadow-md
+            hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105
+            active:scale-95
+            transition-all duration-200
+          "
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
 
-      <style>{`
-        @keyframes marqueeCompany {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(calc(-100% / 3)); }
-        }
-        .animate-marqueeCompany {
-          animation: marqueeCompany 150s linear infinite;
-          will-change: transform;
-        }
-        .animate-marqueeCompany:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+      {/* ── Dot Indicators ── */}
+      <div className="flex items-center justify-center gap-2 mt-7">
+        {images.map((_, idx) => {
+          const isActive = idx === current;
+          return (
+            <button
+              key={idx}
+              onClick={() => go(idx)}
+              aria-label={`Go to image ${idx + 1}`}
+              className="transition-all duration-300 rounded-full focus:outline-none"
+              style={{
+                width: isActive ? "24px" : "8px",
+                height: "8px",
+                background: isActive
+                  ? "hsl(var(--primary))"
+                  : "hsl(var(--primary) / 0.25)",
+              }}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 }
