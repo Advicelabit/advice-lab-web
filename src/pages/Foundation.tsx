@@ -214,7 +214,7 @@ const Foundation = () => {
       />
 
       {/* ── Hero ── */}
-      {/* <section className="py-24 gradient-primary">
+      <section className="py-24 gradient-primary">
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">
           <ScrollAnimation animation="fade-up">
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
@@ -228,7 +228,7 @@ const Foundation = () => {
             </p>
           </ScrollAnimation>
         </div>
-      </section> */}
+      </section>
 
       {/* ── Quote ── */}
       {/* <section className="py-8 bg-white">
@@ -333,16 +333,24 @@ const Foundation = () => {
                     >
                       <div className="space-y-6">
                         <div>
-                          <div className="flex items-baseline gap-2 sm:gap-4">
+                          <div className="flex items-end gap-4">
                             {/* Year */}
                             <span className="text-7xl sm:text-8xl xs:text-xl font-display font-black text-primary/10 leading-none select-none">
                               {item.year}
                             </span>
 
                             {/* Month + Date */}
-                            <span className="text-3xl sm:text-4xl font-display font-black text-primary/10 leading-none select-none">
+                            {/* <span className="text-3xl sm:text-4xl font-display font-black text-primary/10 leading-none select-none">
                               March 22nd
-                            </span>
+                            </span> */}
+                            <div className="mb-2 flex flex-col items-center justify-center bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 min-w-[52px]">
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60 leading-none">
+                                March
+                              </span>
+                              <span className="text-xl font-black text-primary leading-tight mt-0.5">
+                                21th
+                              </span>
+                            </div>
                           </div>
                           <div className="flex items-center gap-3 -mt-4">
                             <div className="h-1 w-10 bg-primary rounded-full" />
