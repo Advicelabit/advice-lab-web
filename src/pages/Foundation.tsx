@@ -231,7 +231,7 @@ const Foundation = () => {
       </section>
 
       {/* ── Quote ── */}
-      {/* <section className="py-8 bg-white">
+      <section className="py-8 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollAnimation animation="fade-up">
             <div className="text-center w-full">
@@ -245,10 +245,10 @@ const Foundation = () => {
             </div>
           </ScrollAnimation>
         </div>
-      </section> */}
+      </section>
 
       {/* ── Focus Areas ── */}
-      {/* <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/20 relative overflow-hidden">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/4 right-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
 
@@ -298,7 +298,7 @@ const Foundation = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* ── Initiatives ── */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
@@ -323,6 +323,10 @@ const Foundation = () => {
           <div className="space-y-28">
             {initiatives.map((item, index) => {
               const isEven = index % 2 === 0;
+              // ── FIX: only show the year when it changes from the previous item ──
+              const showYear =
+                index === 0 || initiatives[index - 1].year !== item.year;
+
               return (
                 <div key={index}>
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -334,15 +338,14 @@ const Foundation = () => {
                       <div className="space-y-6">
                         <div>
                           <div className="flex items-end gap-4">
-                            {/* Year */}
-                            <span className="text-7xl sm:text-8xl xs:text-xl font-display font-black text-primary/10 leading-none select-none">
-                              {item.year}
-                            </span>
+                            {/* Year — only rendered once per year group */}
+                            {showYear && (
+                              <span className="text-7xl sm:text-8xl xs:text-xl font-display font-black text-primary/10 leading-none select-none">
+                                {item.year}
+                              </span>
+                            )}
 
-                            {/* Month + Date */}
-                            {/* <span className="text-3xl sm:text-4xl font-display font-black text-primary/10 leading-none select-none">
-                              March 22nd
-                            </span> */}
+                            {/* Date badge */}
                             <div className="mb-2 flex flex-col items-center justify-center bg-primary/8 border border-primary/20 rounded-xl px-3 py-2 min-w-[52px]">
                               <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60 leading-none">
                                 March
@@ -429,7 +432,6 @@ const Foundation = () => {
                   <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-primary/60 rounded-t-2xl" />
 
                   {/* Decorative quote mark */}
-
                   <span
                     className="absolute top-4 right-5 text-7xl font-serif italic text-blue-100 leading-none select-none"
                     aria-hidden="true"
