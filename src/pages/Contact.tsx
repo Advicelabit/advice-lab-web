@@ -222,7 +222,7 @@ This inquiry was submitted through the AdviceLab Contact page.
         //   recipient: "hello@advicelab.com.au",
 
         body: JSON.stringify({
-          sender: "noreply@advicegenie.com.au",
+          sender: "noreply@advicelab.com.au",
           recipient: "hello@advicelab.com.au",
           subject: `New Contact Form Submission: ${formData.name}`,
           body: emailBody,

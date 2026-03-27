@@ -960,8 +960,8 @@ export default function PricingCalculator() {
           "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
-          sender: "noreply@advicegenie.com.au",
-          recipient: "hello@advicelab.com.au",
+          sender: "hello@advicelab.com.au",
+          recipient: recipientEmail,
           subject: `Your AdviceLab Quote — ${quoteNumber} (${adviceType}, ${urgency})`,
           body: emailBody,
           is_html: true,

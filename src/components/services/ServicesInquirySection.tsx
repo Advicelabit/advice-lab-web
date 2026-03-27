@@ -242,7 +242,7 @@ This inquiry was submitted through the AdviceLab Services page.
           "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
-          sender: "noreply@advicegenie.com.au",
+          sender: "noreply@advicelab.com.au",
           recipient: "hello@advicelab.com.au",
           subject: `New Services Inquiry: ${formData.firstName} ${formData.lastName}`,
           body: emailBody,
