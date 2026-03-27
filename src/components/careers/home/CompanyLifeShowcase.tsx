@@ -1,5 +1,5 @@
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
-import { useMemo, useState, useCallback, useRef } from "react";
+import { useMemo, useState, useCallback, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // ── Facility image imports ──────────────────────────────────────────────────
@@ -74,6 +74,18 @@ export function CompanyLifeShowcase() {
   const prev = () => go(current - 1);
   const next = () => go(current + 1);
 
+  // ── ✅ Auto Slide (ADDED ONLY THIS BLOCK) ───────────────────────────────
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!transitioning) {
+        go(current + 1);
+      }
+    }, 3000); // change speed here if needed
+
+    return () => clearInterval(interval);
+  }, [current, transitioning, go]);
+  // ────────────────────────────────────────────────────────────────────────
+
   const getOffset = (idx: number) => {
     let offset = idx - current;
     if (offset > total / 2) offset -= total;
@@ -109,11 +121,10 @@ export function CompanyLifeShowcase() {
             const isAdj = Math.abs(offset) === 1;
             const isVisible = Math.abs(offset) <= 1;
 
-            const translateX = offset * 104; // % of card width
+            const translateX = offset * 104;
             const scale = isActive ? 1 : 0.88;
             const opacity = isActive ? 1 : isAdj ? 0.72 : 0;
             const zIndex = isActive ? 10 : isAdj ? 5 : 0;
-            const blur = 0; // no blur — just dimming + scale for depth
 
             return (
               <div
@@ -142,21 +153,9 @@ export function CompanyLifeShowcase() {
                   className="w-full h-full object-cover"
                   draggable={false}
                 />
-                {/* gentle darkening tint on side images only */}
                 {!isActive && (
                   <div className="absolute inset-0 bg-secondary/20 rounded-xl" />
                 )}
-                {/* active card: thin bottom accent bar */}
-                {/* {isActive && (
-                  <div
-                    className="absolute bottom-0 left-0 h-[3px] rounded-b-xl"
-                    style={{
-                      width: "100%",
-                      background:
-                        "linear-gradient(90deg, hsl(var(--primary)/0.8), hsl(var(--primary)))",
-                    }}
-                  />
-                )} */}
               </div>
             );
           })}
@@ -166,16 +165,7 @@ export function CompanyLifeShowcase() {
         <button
           onClick={prev}
           aria-label="Previous"
-          className="
-            absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20
-            flex items-center justify-center
-            w-10 h-10 sm:w-11 sm:h-11 rounded-full
-            bg-background/90 backdrop-blur-sm border border-primary/30
-            text-primary shadow-md
-            hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105
-            active:scale-95
-            transition-all duration-200
-          "
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 text-primary shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -183,16 +173,7 @@ export function CompanyLifeShowcase() {
         <button
           onClick={next}
           aria-label="Next"
-          className="
-            absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20
-            flex items-center justify-center
-            w-10 h-10 sm:w-11 sm:h-11 rounded-full
-            bg-background/90 backdrop-blur-sm border border-primary/30
-            text-primary shadow-md
-            hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105
-            active:scale-95
-            transition-all duration-200
-          "
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 text-primary shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
