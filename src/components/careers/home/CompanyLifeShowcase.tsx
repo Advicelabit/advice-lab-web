@@ -16,6 +16,10 @@ import poolTableImg from "@/assets/CompanyLife/table-tenis-area.webp";
 import terraceChatting from "@/assets/CompanyLife/terrace-chatting.webp";
 import treadmill from "@/assets/CompanyLife/treadmill.webp";
 import weightBench from "@/assets/CompanyLife/weight-bench.webp";
+import library from "@/assets/CompanyLife/library.webp";
+import librarySelection from "@/assets/CompanyLife/library_selection.webp";
+import pilates from "@/assets/CompanyLife/pilates.webp";
+import pilatesFloor from "@/assets/CompanyLife/pilates_floor.webp";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 const facilityImages = [
@@ -31,6 +35,10 @@ const facilityImages = [
   { src: poolTableImg, alt: "Table Tennis Area" },
   { src: terraceChatting, alt: "Terrace Chatting Spot" },
   { src: treadmill, alt: "Treadmill Zone" },
+  { src: library, alt: "Library" },
+  { src: librarySelection, alt: "Library" },
+  { src: pilates, alt: "Pilates" },
+  { src: pilatesFloor, alt: "Pilates Floor" },
 ];
 
 // ── Shuffle helper ───────────────────────────────────────────────────────────
