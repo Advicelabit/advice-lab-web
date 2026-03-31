@@ -7,7 +7,15 @@ import logo from "@/assets/advicelab-logo.png";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about-us" },
+  {
+    name: "About",
+    href: "/about",
+    children: [
+      { name: "About Us", href: "/about-us" },
+      { name: "AL-Foundation", href: "/al-foundation" },
+    ],
+  },
+
   {
     name: "Services",
     href: "/services",
@@ -48,7 +56,6 @@ const navigation = [
     ],
   },
   { name: "Careers", href: "/careers" },
-  { name: "Foundation", href: "/al-foundation" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 
