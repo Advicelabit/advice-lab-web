@@ -1,5 +1,47 @@
 [
   {
+    "id": "senior-analyst-paraplanning-colombo",
+    "title": "Senior Analyst - Paraplanning",
+    "location": "Colombo",
+    "locationType": "Colombo | On-Site",
+    "type": "Full Time",
+    "category": "Paraplanning",
+    "isActive": true,
+    "datePosted": "2026-04-01",
+    "validThrough": "2026-07-30",
+    "employmentType": "FULL_TIME",
+    "streetAddress": "No.75, Keththarama Mawatha",
+    "addressLocality": "Colombo 14",
+    "addressRegion": "Western Province",
+    "postalCode": "01400",
+    "addressCountry": "LK",
+    "salaryCurrency": "LKR",
+    "salaryMin": 55000,
+    "salaryMax": 80000,
+    "aboutTheRole": "Are you an experienced paraplanner looking for your next opportunity? We're seeking a detail-oriented individual for the position of Senior Analyst - paraplanner to collaborate with Australian Financial Planners in creating effective advice strategies for our clients.\n\n At Advice Lab, we value precision, collaboration, and continuous growth. You'll work closely with financial advisers, contributing to high-quality advice outcomes while being part of a supportive and inclusive workplace that promotes professional development.",
+    "keyResponsibilities": [
+      "Develop and construct high-quality, compliant financial advice documents (SOAs and ROAs) and supporting materials according to adviser preferences and timelines",
+      "Ensure all advice documents are accurate, technically sound, and personalised in line with legislative requirements and guidelines",
+      "Assist in developing complex and comprehensive advice strategies tailored to authorized representatives' needs",
+      "Assess and model both current and recommended financial positions for authorized representatives",
+      "Update systems and workflows in alignment with provided directions",
+      "Build and maintain strong professional relationships with financial advisers",
+      "Support the development and continuous improvement of paraplanning processes and procedures"
+    ],
+    "mustHaves": [
+      "Minimum 1–2 years of experience handling similar paraplanning tasks",
+      "Experience with Xplan Financial Planning Software",
+      "Basic to intermediate proficiency in MS Outlook, Excel, Word, and PowerPoint",
+      "A degree or professional qualification in Finance (CIMA and ACCA students seeking practical training agreements are encouraged to apply)"
+    ],
+    "benefits": [
+      "Competitive salary based on experience and skills",
+      "The opportunity to join a fast-growing organisation with global clients",
+      "A chance to take on meaningful work and accelerate your career",
+      "A workplace culture shaped by employee-driven initiatives — genuine, inclusive, and energetic"
+    ]
+  },
+  {
     "id": "junior-review-associate-paraplanning-advice-support-colombo",
     "title": "Junior Review Associate - Paraplanning & Advice Support",
     "location": "Colombo",
