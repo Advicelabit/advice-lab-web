@@ -7,8 +7,21 @@ import {
   PawPrint,
   TreePine,
   GraduationCap,
+  Handshake,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+
+import cyclone from "@/assets/FoundationImg/cyclone.webp";
+import cycloneRelief from "@/assets/FoundationImg/cyclone-relief.webp";
+import charityRun from "@/assets/FoundationImg/charity-run.webp";
+import charityPacks from "@/assets/FoundationImg/charity-packs.webp";
+import puppyAdopt from "@/assets/FoundationImg/puppy-adopt.jpg";
+import animalFocus from "@/assets/FoundationImg/animal-focus.webp";
+import puppyAdoption from "@/assets/FoundationImg/puppy-adoption.webp";
+import childHomeFront from "@/assets/FoundationImg/child-home-front.webp";
+import childHomeHall from "@/assets/FoundationImg/child-home-hall.webp";
+import childHome from "@/assets/FoundationImg/child-home.webp";
+import teamWithChild from "@/assets/FoundationImg/team-with-child.webp";
 
 type Initiative = {
   year: string;
@@ -21,119 +34,77 @@ type Initiative = {
 
 const focusAreas = [
   {
-    icon: Droplets,
-    title: "Flood Relief",
-    subtitle: "Mobilising fast when communities need it most",
-  },
-  {
-    icon: PawPrint,
-    title: "Animal Welfare",
-    subtitle: "Rescuing and rehoming vulnerable animals",
-  },
-  {
     icon: TreePine,
-    title: "Environmental Care",
-    subtitle: "Reforestation, clean-ups, and sustainable futures",
+    title: "Environment",
+    subtitle:
+      "Supporting projects that protect nature and promote a cleaner, greener planet",
   },
   {
     icon: GraduationCap,
-    title: "Education & Youth",
-    subtitle: "Scholarships and mentorship for the next generation",
+    title: "Children",
+    subtitle:
+      "Helping provide safety, education, and opportunities for every child’s future",
+  },
+
+  {
+    icon: Handshake,
+    title: "Inclusivity",
+    subtitle:
+      "Creating spaces and initiatives where everyone is valued, respected, and empowered",
+  },
+  {
+    icon: PawPrint,
+    title: "Animals",
+    subtitle:
+      "Caring for animals through protection, rescue, and compassionate support",
   },
 ];
 
 const initiatives = [
   {
-    year: "2019",
+    year: "2025",
     month: "Mar",
     day: "14",
-    title: "Flood Relief Drive — Batticaloa",
+    title: "Women in need - cyclone ditwah  releif ",
     subtitle:
-      " A test of the, After devastating monsoon floods swept through Batticaloa, our team mobilised within 48 hours — coordinating food packs, clean water, and temporary shelter for over 300 displaced families. What started as an internal fundraiser became our founding act of community purpose. After devastating monsoon floods swept through Batticaloa, our team mobilised within 48 hours — coordinating food packs, clean water, and temporary shelter for over 300 displaced families. What started as an internal fundraiser became our founding act of community purpose. After devastating monsoon floods swept through Batticaloa, our team mobilised within 48 hours — coordinating food packs, clean water, and temporary shelter for over 300 displaced families. What started as an internal fundraiser became our founding act of community purpose. ",
-    images: [
-      "https://images.unsplash.com/photo-1547683905-f686c993aae5?w=900&q=80",
-      "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=900&q=80",
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80",
-    ],
+      "As an organization rooted in Sri Lanka, we believe in standing together when our communities need us most. In the aftermath of Cyclone Ditwa, many families were left facing significant hardship, and we were committed to offering meaningful support. \n\n Every member of our team contributed generously, enabling us to prepare and donate 50+ care packs containing essential items for affected families. This initiative was carried out in collaboration with Women In Need, Sri Lanka, ensuring that our contributions reached those who needed assistance the most. Through this effort, we continue to uphold our commitment to community resilience and to helping rebuild hope across our nation.",
+    images: [cycloneRelief, cyclone],
   },
   {
-    year: "2019",
+    year: "2025",
     month: "Oct",
     day: "22",
-    title:
-      "Colombo Coastal Clean-Up Colombo Coastal Clean-Up Colombo Coastal Clean-Up",
+    title: "Race 4 change charity run",
     subtitle:
-      "Volunteers from across our Sri Lanka office descended on Colombo's coastline for a full-day clean-up drive. Over two tonnes of plastic waste were collected and sorted, with a portion recycled through a local upcycling partner — turning trash into school supplies.",
-    images: [
-      "https://images.unsplash.com/photo-1547683905-f686c993aae5?w=900&q=80",
-      "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=900&q=80",
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80",
-    ],
-  },
-  {
-    year: "2021",
-    month: "Jun",
-    day: "05",
-    title: "Saving Sri Lanka's Street Dogs",
-    subtitle:
-      "Partnering with local shelters, we funded spay-neuter programmes, vaccination drives, and adoption days across Colombo and Gampaha. Over 400 dogs received medical care, and 120 found forever homes — driven entirely by the compassion of people who showed up on weekends.",
-    images: [
-      "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&q=80",
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&q=80",
-      "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=900&q=80",
-    ],
-  },
-  {
-    year: "2022",
-    month: "Sep",
-    day: "22",
-    title: "10,000 Trees — Central Highlands",
-    subtitle:
-      "In response to deforestation in Sri Lanka's central highlands, our team and volunteers planted 10,000 native trees across degraded hillsides. The project also trained 60 local farmers in sustainable agroforestry — turning conservation into livelihood.",
-    images: [
-      "https://images.unsplash.com/photo-1542601906897-d4bba5df4a80?w=900&q=80",
-      "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=900&q=80",
-      "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=900&q=80",
-    ],
-  },
-  {
-    year: "2019",
-    month: "Mar",
-    day: "14",
-    title: "Relief Drive — Batticaloa",
-    subtitle:
-      "After devastating monsoon floods swept through Batticaloa, our team mobilised within 48 hours — coordinating food packs, clean water, and temporary shelter for over 300 displaced families. What started as an internal fundraiser became our founding act of community purpose.",
-    images: [
-      "https://images.unsplash.com/photo-1547683905-f686c993aae5?w=900&q=80",
-      "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=900&q=80",
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80",
-    ],
+      "We were proud to take part in Race 4 Change, a 5km charity run organized by Interact District 3220 in support of the Lady Ridgeway Children’s Hospital. A dedicated team from our company participated in the event, contributing to a meaningful cause that supports improved healthcare and facilities for children in need. This initiative reflects our ongoing commitment to community welfare and our willingness to actively participate in efforts that create a positive social impact.",
+    images: [charityRun, charityPacks],
   },
   {
     year: "2024",
-    month: "Jan",
-    day: "18",
-    title: "Bright Futures Scholarship Fund",
+    month: "Mar",
+    day: "26",
+    title: "Puppy Adoption Day with Embark",
     subtitle:
-      "We launched a merit-and-need scholarship programme for underprivileged students in the Philippines and Sri Lanka. In its first year, 35 students received full support — covering tuition, books, and direct mentorship from Advice Lab professionals.",
-    images: [
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80",
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80",
-      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&q=80",
-    ],
+      "We hosted an Adoption Day at Advice Lab in collaboration with Embark, reinforcing our commitment to supporting animal welfare initiatives. The Embark team joined us with 10–12 rescue puppies, creating an engaging and compassionate environment for our staff and visitors. The event included a dedicated puppy‑petting session, allowing participants to interact with the puppies and learn more about responsible pet adoption. Those who were interested were given the opportunity to adopt a puppy and provide a safe, loving home. In addition to hosting the event, we made a donation to the Embark Foundation to further support their ongoing efforts in rescuing, rehabilitating, and rehoming street dogs across the country. This initiative reflects our dedication to meaningful community partnerships and promoting positive social impact.",
+    images: [puppyAdoption, puppyAdopt, animalFocus],
   },
   {
-    year: "2019",
-    month: "Mar",
-    day: "14",
-    title: "Flood Relief Drive — Batticaloa",
+    year: "2024",
+    month: "Jun",
+    day: "15",
+    title: "Spent a day at Prithipura special needs Children's home",
     subtitle:
-      "After devastating monsoon floods swept through Batticaloa, our team mobilised within 48 hours — coordinating food packs, clean water, and temporary shelter for over 300 displaced families. What started as an internal fundraiser became our founding act of community purpose.",
-    images: [
-      "https://images.unsplash.com/photo-1547683905-f686c993aae5?w=900&q=80",
-      "https://images.unsplash.com/photo-1580894742597-87bc8789db3d?w=900&q=80",
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=900&q=80",
-    ],
+      "Our team spent a meaningful and joy-filled day with the children, creating an unforgettable experience for everyone involved. We brought along a live band, filling the day with music, dancing, and laughter. To support their daily needs, we also donated lunch for all the children, along with essential items such as sanitary products (pampers), cleaning supplies, and dry rations. Adding a creative touch to the day, we organized a drawing and painting session that allowed the children to express themselves through art. It was a heartwarming experience that strengthened our commitment to making a positive impact in the community.",
+    images: [teamWithChild, childHomeFront, childHomeHall, childHome],
+  },
+  {
+    year: "2024",
+    month: "Nov",
+    day: "23",
+    title: "Beach clean up with Pearl Protectors",
+    subtitle:
+      "Our team spent a meaningful and joy-filled day with the children, creating an unforgettable experience for everyone involved. We brought along a live band, filling the day with music, dancing, and laughter. To support their daily needs, we also donated lunch for all the children, along with essential items such as sanitary products (pampers), cleaning supplies, and dry rations. Adding a creative touch to the day, we organized a drawing and painting session that allowed the children to express themselves through art. It was a heartwarming experience that strengthened our commitment to making a positive impact in the community.",
+    images: [teamWithChild, childHomeFront, childHomeHall, childHome],
   },
 ];
 
@@ -250,11 +221,22 @@ function ImageCarousel({ images }) {
 // ─── Main Page ────────────────────────────────────────────────────────────────
 const Foundation = () => {
   const foundationSchema = {
-    "@type": "WebPage",
+    "@type": "Organization",
     name: "Advice Lab Foundation",
     description:
-      "Discover how Advice Lab gives back to communities through flood relief, animal welfare, environmental projects and education initiatives.",
+      "The Advice Lab Foundation is dedicated to uplifting and supporting communities through flood relief, animal welfare, environmental protection, and education initiatives across Sri Lanka and the Philippines.",
     url: "https://advicelab.com.au/al-foundation",
+    logo: "https://advicelab.com.au/og-image.png",
+    sameAs: [
+      "https://www.facebook.com/advicelab",
+      "https://www.instagram.com/advicelab",
+    ],
+    areaServed: ["Sri Lanka", "Philippines", "Australia"],
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Advice Lab",
+      url: "https://advicelab.com.au",
+    },
   };
 
   // Group initiatives by year, preserving insertion order
@@ -270,10 +252,10 @@ const Foundation = () => {
   return (
     <Layout>
       <Seo
-        title="Foundation — Advice Lab | Giving Back"
+        title="Advice Lab Foundation Supporting Communities"
         description="Discover how Advice Lab gives back — through flood relief, animal rescue, reforestation, and education initiatives across Sri Lanka and the Philippines."
         keywords="Advice Lab Foundation, social responsibility, flood relief, animal welfare, reforestation, scholarship, community, Sri Lanka, Philippines"
-        pathname="/foundation"
+        pathname="/al-foundation"
         schemaData={foundationSchema}
       />
 
@@ -285,10 +267,14 @@ const Foundation = () => {
               Advice Lab Foundation
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl text-center">
-              Being part of Advice Lab means more than delivering great work. It
-              means showing up for communities, for animals, for the planet —
-              because the same integrity and care we bring to our clients, we
-              bring to the world around us.
+              The Advice Lab Foundation(AL Foundation) is dedicated to uplifting
+              communities through focused initiatives in women’s empowerment,
+              child well‑being, environmental sustainability, and mental health
+              advocacy. We work to create safer spaces, stronger futures, and
+              lasting positive impact across Sri Lanka. Our programs are
+              designed to inspire resilience, educate, and enable meaningful
+              change. Together, we strive to build a more compassionate and
+              sustainable society.
             </p>
           </ScrollAnimation>
         </div>
@@ -458,7 +444,7 @@ const Foundation = () => {
                                     <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
                                       {item.title}
                                     </h3>
-                                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
                                       {item.subtitle}
                                     </p>
                                   </div>

@@ -713,7 +713,23 @@ export default function PricingCalculator() {
         <Seo
           title="Pricing Calculator - Advice Lab"
           description="Transparent pricing for Statements or Records of Advice—select strategies and see live costs. Fast-track options and strategy-based fees."
-          keywords="pricing calculator, soa pricing, roa pricing, advice costs, financial advice calculator"
+          keywords="pricing calculator, soa pricing, roa pricing, advice costs, financial advice calculator, paraplanning costs, statement of advice pricing, record of advice pricing"
+          pathname="/resources/pricing-calculator"
+          schemaData={{
+            "@type": "WebApplication",
+            name: "Advice Lab Pricing Calculator",
+            description:
+              "Calculate transparent, strategy-based pricing for Statements or Records of Advice with live updates.",
+            url: "https://advicelab.com.au/resources/pricing-calculator",
+            applicationCategory: "BusinessApplication",
+            offers: {
+              "@type": "AggregateOffer",
+              availability: "https://schema.org/InStock",
+              priceCurrency: "AUD",
+              description:
+                "Strategy-based pricing for financial advice statements",
+            },
+          }}
         />
         <div className="min-h-screen bg-background flex items-center justify-center">
           <div className="max-w-md mx-auto px-4 py-12 text-center">
@@ -1002,7 +1018,23 @@ export default function PricingCalculator() {
       <Seo
         title="Pricing Calculator - Advice Lab"
         description="Transparent pricing for Statements or Records of Advice—select strategies and see live costs. Fast-track options and strategy-based fees."
-        keywords="pricing calculator, soa pricing, roa pricing, advice costs, financial advice calculator"
+        keywords="pricing calculator, soa pricing, roa pricing, advice costs, financial advice calculator, paraplanning costs, statement of advice pricing, record of advice pricing"
+        pathname="/resources/pricing-calculator"
+        schemaData={{
+          "@type": "WebApplication",
+          name: "Advice Lab Pricing Calculator",
+          description:
+            "Calculate transparent, strategy-based pricing for Statements or Records of Advice with live updates.",
+          url: "https://advicelab.com.au/resources/pricing-calculator",
+          applicationCategory: "BusinessApplication",
+          offers: {
+            "@type": "AggregateOffer",
+            availability: "https://schema.org/InStock",
+            priceCurrency: "AUD",
+            description:
+              "Strategy-based pricing for financial advice statements",
+          },
+        }}
       />
       <div className="min-h-screen bg-background">
         {/* Hero */}
