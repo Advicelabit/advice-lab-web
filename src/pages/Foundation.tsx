@@ -1,6 +1,6 @@
 import Seo from "@/components/ui/Seo";
 import { Layout } from "@/components/layout/Layout";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
   Droplets,
@@ -10,6 +10,71 @@ import {
   Handshake,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+
+// ─── Custom Hook for Intersection Observer-based Lazy Loading ────────────────
+const useIntersectionObserver = (options = {}) => {
+  const ref = useRef<HTMLImageElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1, ...options },
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [options]);
+
+  return { ref, isVisible };
+};
+
+// ─── Optimized Lazy Image Component with Loading State ───────────────────────
+interface LazyImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  placeholder?: string;
+  sizes?: string;
+}
+
+const LazyImage: React.FC<LazyImageProps> = ({
+  src,
+  alt,
+  className = "",
+  placeholder = "bg-gray-200",
+  sizes,
+}) => {
+  const { ref, isVisible } = useIntersectionObserver();
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <img
+      ref={ref}
+      src={isVisible ? src : undefined}
+      alt={alt}
+      className={`${className} transition-opacity duration-300 ${
+        loaded ? "opacity-100" : "opacity-0"
+      } ${!isVisible && !loaded ? placeholder : ""}`}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      sizes={sizes}
+    />
+  );
+};
 
 import cyclone from "@/assets/FoundationImg/cyclone.webp";
 import cycloneRelief from "@/assets/FoundationImg/cyclone-relief.webp";
@@ -22,6 +87,8 @@ import childHomeFront from "@/assets/FoundationImg/child-home-front.webp";
 import childHomeHall from "@/assets/FoundationImg/child-home-hall.webp";
 import childHome from "@/assets/FoundationImg/child-home.webp";
 import teamWithChild from "@/assets/FoundationImg/team-with-child.webp";
+import beachCleanup from "@/assets/FoundationImg/beach-cleanup.webp";
+import beachCleanupTeam from "@/assets/FoundationImg/beach-cleanup-team.webp";
 
 type Initiative = {
   year: string;
@@ -63,18 +130,18 @@ const focusAreas = [
 const initiatives = [
   {
     year: "2025",
-    month: "Mar",
-    day: "14",
-    title: "Women in need - cyclone ditwah  releif ",
+    month: "Dec",
+    day: "08",
+    title: "Women in need - Cyclone Ditwa Relief ",
     subtitle:
       "As an organization rooted in Sri Lanka, we believe in standing together when our communities need us most. In the aftermath of Cyclone Ditwa, many families were left facing significant hardship, and we were committed to offering meaningful support. \n\n Every member of our team contributed generously, enabling us to prepare and donate 50+ care packs containing essential items for affected families. This initiative was carried out in collaboration with Women In Need, Sri Lanka, ensuring that our contributions reached those who needed assistance the most. Through this effort, we continue to uphold our commitment to community resilience and to helping rebuild hope across our nation.",
     images: [cycloneRelief, cyclone],
   },
   {
     year: "2025",
-    month: "Oct",
-    day: "22",
-    title: "Race 4 change charity run",
+    month: "Apr",
+    day: "27",
+    title: "Race 4 Change Charity Run",
     subtitle:
       "We were proud to take part in Race 4 Change, a 5km charity run organized by Interact District 3220 in support of the Lady Ridgeway Children’s Hospital. A dedicated team from our company participated in the event, contributing to a meaningful cause that supports improved healthcare and facilities for children in need. This initiative reflects our ongoing commitment to community welfare and our willingness to actively participate in efforts that create a positive social impact.",
     images: [charityRun, charityPacks],
@@ -92,7 +159,7 @@ const initiatives = [
     year: "2024",
     month: "Jun",
     day: "15",
-    title: "Spent a day at Prithipura special needs Children's home",
+    title: "Spent a Day at Prithipura Special Needs Children's Home",
     subtitle:
       "Our team spent a meaningful and joy-filled day with the children, creating an unforgettable experience for everyone involved. We brought along a live band, filling the day with music, dancing, and laughter. To support their daily needs, we also donated lunch for all the children, along with essential items such as sanitary products (pampers), cleaning supplies, and dry rations. Adding a creative touch to the day, we organized a drawing and painting session that allowed the children to express themselves through art. It was a heartwarming experience that strengthened our commitment to making a positive impact in the community.",
     images: [teamWithChild, childHomeFront, childHomeHall, childHome],
@@ -101,24 +168,24 @@ const initiatives = [
     year: "2024",
     month: "Nov",
     day: "23",
-    title: "Beach clean up with Pearl Protectors",
+    title: "Beach Clean Up with Pearl Protectors",
     subtitle:
-      "Our team spent a meaningful and joy-filled day with the children, creating an unforgettable experience for everyone involved. We brought along a live band, filling the day with music, dancing, and laughter. To support their daily needs, we also donated lunch for all the children, along with essential items such as sanitary products (pampers), cleaning supplies, and dry rations. Adding a creative touch to the day, we organized a drawing and painting session that allowed the children to express themselves through art. It was a heartwarming experience that strengthened our commitment to making a positive impact in the community.",
-    images: [teamWithChild, childHomeFront, childHomeHall, childHome],
+      "We carried out a beach clean‑up project at the Dehiwala–Mount Lavinia shoreline in collaboration with Pearl Protectors, reinforcing our commitment to environmental sustainability. Our team worked alongside volunteers to remove plastic waste, debris, and other pollutants from the beach, contributing to the preservation of the coastal ecosystem and promoting cleaner, safer public spaces. This initiative reflects our continued efforts to support marine conservation and partner with organizations dedicated to protecting Sri Lanka’s natural environment.",
+    images: [beachCleanupTeam, beachCleanup],
   },
 ];
 
 const volunteers = [
   {
     name: "Kavindi Perera",
-    role: "Flood Relief Lead · Colombo",
+    role: "Flood Relief Lead",
     quote:
       "Seeing families rebuild after the floods reminded me why we do this. It wasn't just a campaign — it was us showing up.",
     initial: "K",
   },
   {
     name: "Marco Santos",
-    role: "Animal Welfare · Manila",
+    role: "Animal Welfare",
     quote:
       "Every dog we rescued gave our whole team an extra reason to come to work. This is what Advice Lab culture looks like outside the office.",
     initial: "M",
@@ -135,6 +202,7 @@ const volunteers = [
 // ─── Image Carousel ────────────────────────────────────────────────────────────
 function ImageCarousel({ images }) {
   const [current, setCurrent] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const t = setInterval(
@@ -147,8 +215,21 @@ function ImageCarousel({ images }) {
   const prev = () => setCurrent((p) => (p - 1 + images.length) % images.length);
   const next = () => setCurrent((p) => (p + 1) % images.length);
 
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => new Set(prev).add(index));
+  };
+
+  // Preload adjacent images for smooth transitions
+  useEffect(() => {
+    const nextIndex = (current + 1) % images.length;
+    const prevIndex = (current - 1 + images.length) % images.length;
+    // Trigger loads for adjacent images
+    handleImageLoad(nextIndex);
+    handleImageLoad(prevIndex);
+  }, [current, images.length]);
+
   return (
-    <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 aspect-[4/3]">
+    <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 aspect-[4/3] bg-gray-900">
       {images.map((src, i) => (
         <div
           key={i}
@@ -156,7 +237,15 @@ function ImageCarousel({ images }) {
             i === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <img src={src} alt="" className="w-full h-full object-cover" />
+          <img
+            src={src}
+            alt={`Carousel image ${i + 1}`}
+            className="w-full h-full object-cover"
+            loading={i === current ? "eager" : "lazy"}
+            decoding="async"
+            onLoad={() => handleImageLoad(i)}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
       ))}
@@ -267,32 +356,15 @@ const Foundation = () => {
               Advice Lab Foundation
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl text-center">
-              The Advice Lab Foundation(AL Foundation) is dedicated to uplifting
-              communities through focused initiatives in women’s empowerment,
-              child well‑being, environmental sustainability, and mental health
-              advocacy. We work to create safer spaces, stronger futures, and
-              lasting positive impact across Sri Lanka. Our programs are
-              designed to inspire resilience, educate, and enable meaningful
+              The Advice Lab Foundation (AL Foundation) is dedicated to
+              uplifting communities through focused initiatives in women’s
+              empowerment, child well‑being, environmental sustainability, and
+              overall well-being advocacy. We work to create safer spaces,
+              stronger futures, and lasting positive impact across Sri Lanka. We
+              give back to inspire resilience, educate, and enable meaningful
               change. Together, we strive to build a more compassionate and
               sustainable society.
             </p>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* ── Quote ── */}
-      <section className="py-8 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <ScrollAnimation animation="fade-up">
-            <div className="text-center w-full">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-normal text-primary mb-4 w-full">
-                <span className="font-medium">
-                  "We make a living by what we get, but we make a life by what
-                  we give."
-                </span>
-              </h2>
-              <p className="text-lg">— Winston Churchill</p>
-            </div>
           </ScrollAnimation>
         </div>
       </section>
@@ -351,7 +423,6 @@ const Foundation = () => {
       </section>
 
       {/* ── Initiatives ── */}
-      {/* ── Initiatives ── */}
       <section className="py-24 bg-gradient-to-br from-white via-gray-50/50 to-white relative overflow-hidden">
         <div className="absolute top-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -377,56 +448,60 @@ const Foundation = () => {
 
             return (
               <div className="space-y-20 md:space-y-28">
-                {Object.entries(groupedInitiatives).map(([year, items]) => (
-                  <div key={year}>
-                    {/* ── Year Header ── */}
-                    <ScrollAnimation animation="fade-up">
-                      <div className="flex items-center gap-4 mb-12">
-                        <span className="text-7xl sm:text-8xl font-display font-black text-primary/10 leading-none select-none">
-                          {year}
-                        </span>
-
-                        <div className="flex-1 h-[2px] bg-gradient-to-r from-primary/25 to-transparent rounded-full" />
-
-                        {items.length > 1 && (
-                          <span className="text-xs font-semibold uppercase tracking-widest text-primary/70 bg-primary/8 border border-primary/20 rounded-full px-3 py-1.5 whitespace-nowrap">
-                            {items.length} initiatives
+                {Object.entries(groupedInitiatives)
+                  .sort(([a], [b]) => Number(b) - Number(a))
+                  .map(([year, items]) => (
+                    <div key={year}>
+                      {/* ── Year Header ── */}
+                      <ScrollAnimation animation="fade-up">
+                        <div className="flex items-center gap-4 mb-12">
+                          <span className="text-7xl sm:text-8xl font-display font-black text-primary/10 leading-none select-none">
+                            {year}
                           </span>
-                        )}
-                      </div>
-                    </ScrollAnimation>
 
-                    {/* ── Initiatives ── */}
-                    <div className="space-y-16 md:space-y-20">
-                      {items.map((item, index) => {
-                        const isEven = globalIndex % 2 === 0;
-                        globalIndex++;
+                          <div className="flex-1 h-[2px] bg-gradient-to-r from-primary/25 to-transparent rounded-full" />
 
-                        return (
-                          <div key={index}>
-                            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                              {/* TEXT */}
-                              <ScrollAnimation
-                                animation={isEven ? "fade-right" : "fade-left"}
-                                className={!isEven ? "lg:order-2" : ""}
-                              >
-                                <div className="space-y-5">
-                                  <div className="flex items-center gap-3">
-                                    <div className="flex-shrink-0 w-[64px] rounded-2xl overflow-hidden shadow-lg border border-primary/15 ring-1 ring-black/5">
-                                      {/* Month strip */}
-                                      <div className="gradient-primary py-[5px] text-center">
-                                        <span className="block text-[9px] font-extrabold tracking-[0.18em] text-primary-foreground uppercase leading-none">
-                                          {item.month}
-                                        </span>
+                          {items.length > 1 && (
+                            <span className="text-xs font-semibold uppercase tracking-widest text-primary/70 bg-primary/8 border border-primary/20 rounded-full px-3 py-1.5 whitespace-nowrap">
+                              {items.length} initiatives
+                            </span>
+                          )}
+                        </div>
+                      </ScrollAnimation>
+
+                      {/* ── Initiatives ── */}
+                      <div className="space-y-16 md:space-y-20">
+                        {items.map((item, index) => {
+                          const isEven = globalIndex % 2 === 0;
+                          globalIndex++;
+
+                          return (
+                            <div key={index}>
+                              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                {/* TEXT */}
+                                <ScrollAnimation
+                                  animation={
+                                    isEven ? "fade-right" : "fade-left"
+                                  }
+                                  className={!isEven ? "lg:order-2" : ""}
+                                >
+                                  <div className="space-y-5">
+                                    <div className="flex items-center gap-3">
+                                      <div className="flex-shrink-0 w-[64px] rounded-2xl overflow-hidden shadow-lg border border-primary/15 ring-1 ring-black/5">
+                                        {/* Month strip */}
+                                        <div className="gradient-primary py-[5px] text-center">
+                                          <span className="block text-[9px] font-extrabold tracking-[0.18em] text-primary-foreground uppercase leading-none">
+                                            {item.month}
+                                          </span>
+                                        </div>
+                                        {/* Day */}
+                                        <div className="bg-white py-2 text-center">
+                                          <span className="block text-[28px] font-black text-foreground leading-none tabular-nums">
+                                            {item.day}
+                                          </span>
+                                        </div>
                                       </div>
-                                      {/* Day */}
-                                      <div className="bg-white py-2 text-center">
-                                        <span className="block text-[28px] font-black text-foreground leading-none tabular-nums">
-                                          {item.day}
-                                        </span>
-                                      </div>
-                                    </div>
-                                    {/* <div className="flex items-center gap-2 bg-primary/8 border border-primary/20 rounded-xl px-3 py-2">
+                                      {/* <div className="flex items-center gap-2 bg-primary/8 border border-primary/20 rounded-xl px-3 py-2">
                                       <span className="text-[10px] font-bold uppercase tracking-widest text-primary/60">
                                         {item.month}
                                       </span>
@@ -434,48 +509,50 @@ const Foundation = () => {
                                         {item.day}
                                       </span>
                                     </div> */}
-                                    <div className="h-[2px] w-8 bg-primary/40 rounded-full" />
-                                    <span className="text-xs font-semibold uppercase tracking-widest text-primary/60">
-                                      Initiative
-                                    </span>
-                                  </div>
+                                      <div className="h-[2px] w-8 bg-primary/40 rounded-full" />
+                                      <span className="text-xs font-semibold uppercase tracking-widest text-primary/60">
+                                        Initiative
+                                      </span>
+                                    </div>
 
-                                  <div className="relative pl-5 border-l-4 border-primary/30">
-                                    <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
-                                      {item.title}
-                                    </h3>
-                                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
-                                      {item.subtitle}
-                                    </p>
-                                  </div>
+                                    <div className="relative pl-5 border-l-4 border-primary/30">
+                                      <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
+                                        {item.title}
+                                      </h3>
+                                      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
+                                        {item.subtitle}
+                                      </p>
+                                    </div>
 
-                                  {/* <button className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all duration-200 group">
+                                    {/* <button className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all duration-200 group">
                                     Read Full Story
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                   </button> */}
-                                </div>
-                              </ScrollAnimation>
-
-                              {/* IMAGE */}
-                              <ScrollAnimation
-                                animation={isEven ? "fade-left" : "fade-right"}
-                                delay={200}
-                                className={!isEven ? "lg:order-1" : ""}
-                              >
-                                <div className="relative group">
-                                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
-                                  <div className="relative">
-                                    <ImageCarousel images={item.images} />
                                   </div>
-                                </div>
-                              </ScrollAnimation>
+                                </ScrollAnimation>
+
+                                {/* IMAGE */}
+                                <ScrollAnimation
+                                  animation={
+                                    isEven ? "fade-left" : "fade-right"
+                                  }
+                                  delay={200}
+                                  className={!isEven ? "lg:order-1" : ""}
+                                >
+                                  <div className="relative group">
+                                    <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                                    <div className="relative">
+                                      <ImageCarousel images={item.images} />
+                                    </div>
+                                  </div>
+                                </ScrollAnimation>
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             );
           })()}
@@ -483,7 +560,7 @@ const Foundation = () => {
       </section>
 
       {/* ── ALian Voices ── */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      {/* <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(219,234,254,0.3)_0%,_transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(219,234,254,0.2)_0%,_transparent_60%)]" />
 
@@ -539,7 +616,7 @@ const Foundation = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 };
