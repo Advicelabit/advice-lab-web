@@ -78,6 +78,7 @@ export const CareersPageTemplate = ({
     "Paraplanning",
     "Review Associate",
     "Mortgage",
+    "Accounting",
   ];
 
   // Filter jobs based on all criteria and sort by datePosted (newest first)
