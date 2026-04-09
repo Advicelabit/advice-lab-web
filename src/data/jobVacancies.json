@@ -1,6 +1,6 @@
 [
   {
-    "id": "accountant-colombo",
+    "id": "accountant-manila",
     "title": "Accountant",
     "location": "Manila",
     "locationType": "Metro Manila | On-Site",
@@ -47,7 +47,7 @@
     ]
   },
   {
-    "id": "assistant-accountant-colombo",
+    "id": "assistant-accountant-manila",
     "title": "Assistant Accountant",
     "location": "Manila",
     "locationType": "Metro Manila | On-Site",
@@ -94,7 +94,7 @@
     ]
   },
   {
-    "id": "accounts-executive-colombo",
+    "id": "accounts-executive-manila",
     "title": "Accounts Executive",
     "location": "Manila",
     "locationType": "Metro Manila | On-Site",
