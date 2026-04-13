@@ -89,6 +89,7 @@ import childHome from "@/assets/FoundationImg/child-home.webp";
 import teamWithChild from "@/assets/FoundationImg/team-with-child.webp";
 import beachCleanup from "@/assets/FoundationImg/beach-cleanup.webp";
 import beachCleanupTeam from "@/assets/FoundationImg/beach-cleanup-team.webp";
+import reliefTeam from "@/assets/FoundationImg/relief-team.webp";
 
 type Initiative = {
   year: string;
@@ -135,7 +136,7 @@ const initiatives = [
     title: "Women in need - Cyclone Ditwa Relief ",
     subtitle:
       "As an organization rooted in Sri Lanka, we believe in standing together when our communities need us most. In the aftermath of Cyclone Ditwa, many families were left facing significant hardship, and we were committed to offering meaningful support. \n\n Every member of our team contributed generously, enabling us to prepare and donate 50+ care packs containing essential items for affected families. This initiative was carried out in collaboration with Women In Need, Sri Lanka, ensuring that our contributions reached those who needed assistance the most. Through this effort, we continue to uphold our commitment to community resilience and to helping rebuild hope across our nation.",
-    images: [cycloneRelief, cyclone],
+    images: [reliefTeam, cycloneRelief, cyclone],
   },
   {
     year: "2025",
@@ -445,7 +446,6 @@ const Foundation = () => {
           {/* GLOBAL INDEX FIX */}
           {(() => {
             let globalIndex = 0;
-
             return (
               <div className="space-y-20 md:space-y-28">
                 {Object.entries(groupedInitiatives)
