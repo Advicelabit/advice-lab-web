@@ -17,7 +17,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact-us" },
+    { name: "Contact Us", href: "/contact-us" },
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
@@ -54,7 +54,8 @@ export function Footer() {
     pathname.startsWith("/careers") ||
     pathname.startsWith("/contact-us") ||
     pathname.startsWith("/cookies-policy") ||
-    pathname.startsWith("/services/pricing-calculator");
+    pathname.startsWith("/services/pricing-calculator") ||
+    pathname.startsWith("/al-foundation");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();

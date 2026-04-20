@@ -26,6 +26,7 @@ import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "./pages/NotFound";
 import SMSFAccounting from "./pages/services/SMSFAccounting";
 import PricingCalculator from "./pages/services/PricingCalculator";
+import Foundation from "./pages/Foundation";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const AppRoutes = () => {
         <Route path="/resources/blogs" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/giving-back" element={<Foundation />} />
         <Route path="/careers/philippines" element={<PhilippinesVacancies />} />
         <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
         <Route path="/careers/job/:jobId" element={<JobDetail />} />
