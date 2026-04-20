@@ -149,12 +149,12 @@ const initiatives = [
   },
   {
     year: "2024",
-    month: "Mar",
-    day: "26",
-    title: "Puppy Adoption Day with Embark",
+    month: "Nov",
+    day: "23",
+    title: "Beach Clean Up with Pearl Protectors",
     subtitle:
-      "We hosted an Adoption Day at Advice Lab in collaboration with Embark, reinforcing our commitment to supporting animal welfare initiatives. The Embark team joined us with 10–12 rescue puppies, creating an engaging and compassionate environment for our staff and visitors. The event included a dedicated puppy‑petting session, allowing participants to interact with the puppies and learn more about responsible pet adoption. Those who were interested were given the opportunity to adopt a puppy and provide a safe, loving home. In addition to hosting the event, we made a donation to the Embark Foundation to further support their ongoing efforts in rescuing, rehabilitating, and rehoming street dogs across the country. This initiative reflects our dedication to meaningful community partnerships and promoting positive social impact.",
-    images: [puppyAdopt, animalFocus],
+      "We carried out a beach clean‑up project at the Dehiwala–Mount Lavinia shoreline in collaboration with Pearl Protectors, reinforcing our commitment to environmental sustainability. Our team worked alongside volunteers to remove plastic waste, debris, and other pollutants from the beach, contributing to the preservation of the coastal ecosystem and promoting cleaner, safer public spaces. This initiative reflects our continued efforts to support marine conservation and partner with organizations dedicated to protecting Sri Lanka’s natural environment.",
+    images: [beachCleanupTeam, beachCleanup],
   },
   {
     year: "2024",
@@ -167,12 +167,12 @@ const initiatives = [
   },
   {
     year: "2024",
-    month: "Nov",
-    day: "23",
-    title: "Beach Clean Up with Pearl Protectors",
+    month: "Mar",
+    day: "26",
+    title: "Puppy Adoption Day with Embark",
     subtitle:
-      "We carried out a beach clean‑up project at the Dehiwala–Mount Lavinia shoreline in collaboration with Pearl Protectors, reinforcing our commitment to environmental sustainability. Our team worked alongside volunteers to remove plastic waste, debris, and other pollutants from the beach, contributing to the preservation of the coastal ecosystem and promoting cleaner, safer public spaces. This initiative reflects our continued efforts to support marine conservation and partner with organizations dedicated to protecting Sri Lanka’s natural environment.",
-    images: [beachCleanupTeam, beachCleanup],
+      "We hosted an Adoption Day at Advice Lab in collaboration with Embark, reinforcing our commitment to supporting animal welfare initiatives. The Embark team joined us with 10–12 rescue puppies, creating an engaging and compassionate environment for our staff and visitors. The event included a dedicated puppy‑petting session, allowing participants to interact with the puppies and learn more about responsible pet adoption. Those who were interested were given the opportunity to adopt a puppy and provide a safe, loving home. In addition to hosting the event, we made a donation to the Embark Foundation to further support their ongoing efforts in rescuing, rehabilitating, and rehoming street dogs across the country. This initiative reflects our dedication to meaningful community partnerships and promoting positive social impact.",
+    images: [puppyAdopt, animalFocus],
   },
 ];
 
