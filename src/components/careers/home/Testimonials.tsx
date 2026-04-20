@@ -3,7 +3,6 @@ import { Quote, Play } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
 
-import clientVideo from "@/assets/CLVideo.mp4";
 import clientVideoPoster from "@/assets/ClientImg/client-video-poster.png";
 
 import client1 from "@/assets/ClientImg/client1.png";
@@ -225,7 +224,10 @@ export function Testimonials() {
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                 >
-                  <source src={clientVideo} type="video/mp4" />
+                  <source
+                    src="/discovery-wealth-advisers.mp4"
+                    type="video/mp4"
+                  />
                   Your browser does not support the video tag.
                 </video>
 

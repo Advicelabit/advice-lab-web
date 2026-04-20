@@ -17,7 +17,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact-us" },
+    { name: "Contact Us", href: "/contact-us" },
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },

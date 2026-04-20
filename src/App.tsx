@@ -57,7 +57,7 @@ const AppRoutes = () => {
         <Route path="/resources/blogs" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/al-foundation" element={<Foundation />} />
+        <Route path="/giving-back" element={<Foundation />} />
         <Route path="/careers/philippines" element={<PhilippinesVacancies />} />
         <Route path="/careers/srilanka" element={<SriLankaVacancies />} />
         <Route path="/careers/job/:jobId" element={<JobDetail />} />

@@ -12,7 +12,7 @@ const navigation = [
     href: "/about",
     children: [
       { name: "About Us", href: "/about-us" },
-      { name: "AL-Foundation", href: "/al-foundation" },
+      { name: "Giving Back", href: "/giving-back" },
     ],
   },
 

@@ -80,9 +80,9 @@ import cyclone from "@/assets/FoundationImg/cyclone.webp";
 import cycloneRelief from "@/assets/FoundationImg/cyclone-relief.webp";
 import charityRun from "@/assets/FoundationImg/charity-run.webp";
 import charityPacks from "@/assets/FoundationImg/charity-packs.webp";
-import puppyAdopt from "@/assets/FoundationImg/puppy-adopt.jpg";
+import puppyAdopt from "@/assets/FoundationImg/puppy-adopt.webp";
 import animalFocus from "@/assets/FoundationImg/animal-focus.webp";
-import puppyAdoption from "@/assets/FoundationImg/puppy-adoption.webp";
+import prithipura from "@/assets/FoundationImg/prithipura.webp";
 import childHomeFront from "@/assets/FoundationImg/child-home-front.webp";
 import childHomeHall from "@/assets/FoundationImg/child-home-hall.webp";
 import childHome from "@/assets/FoundationImg/child-home.webp";
@@ -136,7 +136,7 @@ const initiatives = [
     title: "Women in need - Cyclone Ditwa Relief ",
     subtitle:
       "As an organization rooted in Sri Lanka, we believe in standing together when our communities need us most. In the aftermath of Cyclone Ditwa, many families were left facing significant hardship, and we were committed to offering meaningful support. \n\n Every member of our team contributed generously, enabling us to prepare and donate 50+ care packs containing essential items for affected families. This initiative was carried out in collaboration with Women In Need, Sri Lanka, ensuring that our contributions reached those who needed assistance the most. Through this effort, we continue to uphold our commitment to community resilience and to helping rebuild hope across our nation.",
-    images: [reliefTeam, cycloneRelief, cyclone],
+    images: [cyclone, reliefTeam, cycloneRelief],
   },
   {
     year: "2025",
@@ -154,7 +154,7 @@ const initiatives = [
     title: "Puppy Adoption Day with Embark",
     subtitle:
       "We hosted an Adoption Day at Advice Lab in collaboration with Embark, reinforcing our commitment to supporting animal welfare initiatives. The Embark team joined us with 10–12 rescue puppies, creating an engaging and compassionate environment for our staff and visitors. The event included a dedicated puppy‑petting session, allowing participants to interact with the puppies and learn more about responsible pet adoption. Those who were interested were given the opportunity to adopt a puppy and provide a safe, loving home. In addition to hosting the event, we made a donation to the Embark Foundation to further support their ongoing efforts in rescuing, rehabilitating, and rehoming street dogs across the country. This initiative reflects our dedication to meaningful community partnerships and promoting positive social impact.",
-    images: [puppyAdoption, puppyAdopt, animalFocus],
+    images: [puppyAdopt, animalFocus],
   },
   {
     year: "2024",
@@ -163,7 +163,7 @@ const initiatives = [
     title: "Spent a Day at Prithipura Special Needs Children's Home",
     subtitle:
       "Our team spent a meaningful and joy-filled day with the children, creating an unforgettable experience for everyone involved. We brought along a live band, filling the day with music, dancing, and laughter. To support their daily needs, we also donated lunch for all the children, along with essential items such as sanitary products (pampers), cleaning supplies, and dry rations. Adding a creative touch to the day, we organized a drawing and painting session that allowed the children to express themselves through art. It was a heartwarming experience that strengthened our commitment to making a positive impact in the community.",
-    images: [teamWithChild, childHomeFront, childHomeHall, childHome],
+    images: [prithipura],
   },
   {
     year: "2024",
@@ -354,17 +354,16 @@ const Foundation = () => {
         <div className="container mx-auto px-4 lg:px-8 flex justify-center">
           <ScrollAnimation animation="fade-up">
             <h1 className="text-4xl text-center md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Advice Lab Foundation
+              Purpose, People & Impact
             </h1>
             <p className="text-xl text-primary-foreground/80 max-w-3xl text-center">
-              The Advice Lab Foundation (AL Foundation) is dedicated to
-              uplifting communities through focused initiatives in women’s
-              empowerment, child well‑being, environmental sustainability, and
-              overall well-being advocacy. We work to create safer spaces,
-              stronger futures, and lasting positive impact across Sri Lanka. We
-              give back to inspire resilience, educate, and enable meaningful
-              change. Together, we strive to build a more compassionate and
-              sustainable society.
+              The Advice Lab is dedicated to give back to communities through
+              focused initiatives in women’s empowerment, child well‑being,
+              environmental sustainability, and overall well-being advocacy. We
+              work to create safer spaces, stronger futures, and lasting
+              positive impact across Sri Lanka. We give back to inspire
+              resilience, educate, and enable meaningful change. Together, we
+              strive to build a more compassionate and sustainable society.
             </p>
           </ScrollAnimation>
         </div>
@@ -507,7 +506,7 @@ const Foundation = () => {
                                       </span>
                                       <span className="text-xl font-black text-primary">
                                         {item.day}
-                                      </span>
+                                      </span>             
                                     </div> */}
                                       <div className="h-[2px] w-8 bg-primary/40 rounded-full" />
                                       <span className="text-xs font-semibold uppercase tracking-widest text-primary/60">
@@ -560,6 +559,7 @@ const Foundation = () => {
       </section>
 
       {/* ── ALian Voices ── */}
+      {/* Commented No Content for this */}
       {/* <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(219,234,254,0.3)_0%,_transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(219,234,254,0.2)_0%,_transparent_60%)]" />
