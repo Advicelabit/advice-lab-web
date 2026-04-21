@@ -55,6 +55,7 @@ export function Footer() {
     pathname.startsWith("/contact-us") ||
     pathname.startsWith("/cookies-policy") ||
     pathname.startsWith("/services/pricing-calculator") ||
+    pathname.startsWith("/giving-back") ||
     pathname.startsWith("/al-foundation");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
