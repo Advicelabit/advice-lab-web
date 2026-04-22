@@ -379,7 +379,7 @@ function generateQuoteHTML({
       </div>
     </div>
     <div class="amount-hero">
-      <div class="amount-hero-text">AUD $${basePrice.toLocaleString()} (exc. GST)</div>
+      <div class="amount-hero-text">AUD ${basePrice.toLocaleString()} (exc. GST)</div>
       ${urgency === "Fast Track" ? `<span class="fast-track-badge">⚡ Fast Track surcharge applied</span>` : ""}
     </div>
     <table class="items">
@@ -390,7 +390,7 @@ function generateQuoteHTML({
       <table class="totals-table">
         <tr class="total-row">
           <td>Total (exc. GST)</td>
-          <td>AUD $${basePrice.toLocaleString()}</td>
+          <td>AUD ${basePrice.toLocaleString()}</td>
         </tr>
       </table>
     </div>
@@ -932,7 +932,7 @@ export default function PricingCalculator() {
                   </tr>
                   <tr>
                     <td style="padding:12px 0 4px;font-size:15px;font-weight:700;color:#1a2e5a;border-top:1.5px solid #e5e7eb;">Total (exc. GST)</td>
-                    <td style="padding:12px 0 4px;font-size:15px;font-weight:700;color:#1a2e5a;border-top:1.5px solid #e5e7eb;">AUD $${calculated?.price?.toLocaleString() ?? "\u2014"}</td>
+                    <td style="padding:12px 0 4px;font-size:15px;font-weight:700;color:#1a2e5a;border-top:1.5px solid #e5e7eb;">AUD ${calculated?.price?.toLocaleString() ?? "\u2014"}</td>
                   </tr>
                 </table>
               </td></tr>
