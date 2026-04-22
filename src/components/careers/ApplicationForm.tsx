@@ -9,7 +9,7 @@ import { AlertCircle, CheckCircle, Upload } from "lucide-react";
 // careers page submit resume
 
 const API_BASE_URL =
-  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
 
 interface ApplicationFormProps {
   jobTitle: string;
@@ -285,7 +285,7 @@ This application was submitted through the AdviceLab Careers page.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
+          // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
           sender: "noreply@advicelab.com.au",
