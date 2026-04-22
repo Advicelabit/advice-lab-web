@@ -31,7 +31,7 @@ import {
 
 // ─── Constants ─────────────────────────────────────────────────────────────────
 const API_BASE_URL =
-  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
 
 const STRATEGIES = {
   superannuation: {
@@ -973,7 +973,7 @@ export default function PricingCalculator() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
+          // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
           sender: "hello@advicelab.com.au",

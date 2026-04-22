@@ -8,7 +8,7 @@ import { CheckCircle, X } from "lucide-react";
 import { trackFormSubmission } from "@/lib/analytics";
 
 const API_BASE_URL =
-  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/dev";
+  "https://oxch4uog7g.execute-api.ap-southeast-2.amazonaws.com/prod";
 
 const serviceOptions = [
   { id: "paraplanning", label: "Paraplanning Services" },
@@ -228,7 +228,7 @@ This inquiry was submitted through the AdviceLab Popup Form.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
+          // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
         },
         body: JSON.stringify({
           sender: "noreply@advicelab.com.au",
