@@ -16,6 +16,26 @@ const BlogPost = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  useEffect(() => {
+    if (!post) return;
+
+    // Only run for this specific blog post
+    if (id !== "7622052791739422162") return;
+
+    const script = document.createElement("script");
+    script.src = "https://advicelab.activehosted.com/f/embed.php?id=5";
+    script.async = true;
+
+    // wait until DOM renders blog content
+    setTimeout(() => {
+      document.body.appendChild(script);
+    }, 100);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [post, id]);
+
   return (
     <Layout>
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-secondary/40">
