@@ -1002,6 +1002,7 @@ export default function PricingCalculator() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload("rasanjali@advicelab.com.au", true)),
+        // Copy of the pdf receiver email
       });
 
       if (!internalResponse.ok) {
