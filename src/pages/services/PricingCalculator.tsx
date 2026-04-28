@@ -969,30 +969,43 @@ export default function PricingCalculator() {
 </html>`;
 
       // Step 4 — POST to the same API endpoint used in JobDetail
-      const response = await fetch(`${API_BASE_URL}/send-email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
-        },
-        body: JSON.stringify({
-          sender: "hello@advicelab.com.au",
-          recipient: recipientEmail,
-          subject: `Your AdviceLab Quote — ${quoteNumber} (${adviceType}, ${urgency})`,
-          body: emailBody,
-          is_html: true,
-          attachments: [
-            {
-              filename: `AdviceLab-Quote-${quoteNumber}.pdf`,
-              contentType: "application/pdf",
-              content: pdfBase64,
-            },
-          ],
-        }),
+      const payload = (recipient: string, isInternal = false) => ({
+        sender: "hello@advicelab.com.au",
+        recipient,
+        subject: isInternal
+          ? `[🔗 INTERNAL COPY] AdviceLab Quote — ${quoteNumber} (${adviceType}, ${urgency})`
+          : `Your AdviceLab Quote — ${quoteNumber} (${adviceType}, ${urgency})`,
+        body: emailBody,
+        is_html: true,
+        attachments: [
+          {
+            filename: `AdviceLab-Quote-${quoteNumber}.pdf`,
+            contentType: "application/pdf",
+            content: pdfBase64,
+          },
+        ],
       });
 
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
+      // Send to client
+      const clientResponse = await fetch(`${API_BASE_URL}/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload(recipientEmail, false)),
+      });
+
+      if (!clientResponse.ok) {
+        throw new Error(`Client email failed: ${clientResponse.status}`);
+      }
+
+      // Send internal copy
+      const internalResponse = await fetch(`${API_BASE_URL}/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload("rasanjali@advicelab.com.au", true)),
+      });
+
+      if (!internalResponse.ok) {
+        throw new Error(`Internal email failed: ${internalResponse.status}`);
       }
 
       setEmailSent(true);
