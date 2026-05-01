@@ -18,6 +18,7 @@ const footerLinks = {
     { name: "About Us", href: "/about-us" },
     { name: "Careers", href: "/careers" },
     { name: "Contact Us", href: "/contact-us" },
+    { name: "Giving Back", href: "/giving-back" },
   ],
   services: [
     { name: "Paraplanning ", href: "/services/paraplanning" },
@@ -55,8 +56,7 @@ export function Footer() {
     pathname.startsWith("/contact-us") ||
     pathname.startsWith("/cookies-policy") ||
     pathname.startsWith("/services/pricing-calculator") ||
-    pathname.startsWith("/giving-back") ||
-    pathname.startsWith("/al-foundation");
+    pathname.startsWith("/giving-back");
 
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
   const { ref: mainRef, isVisible: mainVisible } = useScrollAnimation();
@@ -69,11 +69,11 @@ export function Footer() {
         <div id="book-walkthrough">
           <BookWalkthrough />
           {/* onClick={() => {
-    const element = document.getElementById("book-walkthrough");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }} */}
+              const element = document.getElementById("book-walkthrough");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }} */}
         </div>
       )}
 

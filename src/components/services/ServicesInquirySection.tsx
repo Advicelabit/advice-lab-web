@@ -38,6 +38,7 @@ import client1 from "@/assets/ClientImg/client1.png";
 import paraplanning from "@/assets/HPImg/paraplanning.jpg";
 import clientSupport from "@/assets/HPImg/client-support.jpg";
 import mortgageSupport from "@/assets/HPImg/mortgage-support.jpeg";
+import { PricingCalculatorCTALeftSection } from "./PricingCalculatorCTALeftSection";
 
 const serviceCards: ServiceCard[] = [
   {
@@ -396,6 +397,10 @@ This inquiry was submitted through the AdviceLab Services page.
                 ))}
               </div>
             </div>
+
+            <section id="left-calculator-cta">
+              <PricingCalculatorCTALeftSection />
+            </section>
           </ScrollAnimation>
 
           {/* ── Right Side ── */}

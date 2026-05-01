@@ -342,7 +342,7 @@ const Foundation = () => {
   return (
     <Layout>
       <Seo
-        title="Advice Lab Foundation Supporting Communities"
+        title="Giving Back with Advice Lab: Stories of Purpose, People & Impact"
         description="Discover how Advice Lab gives back — through flood relief, animal rescue, reforestation, and education initiatives across Sri Lanka and the Philippines."
         keywords="Advice Lab, social responsibility, flood relief, animal welfare, reforestation, scholarship, community impact, Sri Lanka, Philippines"
         pathname="/giving-back"
