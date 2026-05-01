@@ -315,7 +315,7 @@ const Foundation = () => {
     name: "Advice Lab Foundation",
     description:
       "The Advice Lab Foundation is dedicated to uplifting and supporting communities through flood relief, animal welfare, environmental protection, and education initiatives across Sri Lanka and the Philippines.",
-    url: "https://advicelab.com.au/al-foundation",
+    url: "https://advicelab.com.au/giving-back",
     logo: "https://advicelab.com.au/og-image.png",
     sameAs: [
       "https://www.facebook.com/advicelab",
@@ -344,8 +344,8 @@ const Foundation = () => {
       <Seo
         title="Advice Lab Foundation Supporting Communities"
         description="Discover how Advice Lab gives back — through flood relief, animal rescue, reforestation, and education initiatives across Sri Lanka and the Philippines."
-        keywords="Advice Lab Foundation, social responsibility, flood relief, animal welfare, reforestation, scholarship, community, Sri Lanka, Philippines"
-        pathname="/al-foundation"
+        keywords="Advice Lab, social responsibility, flood relief, animal welfare, reforestation, scholarship, community impact, Sri Lanka, Philippines"
+        pathname="/giving-back"
         schemaData={foundationSchema}
       />
 

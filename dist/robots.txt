@@ -16,4 +16,4 @@ User-agent: facebookexternalhit
 Allow: /
 
 # Sitemap location
-Sitemap: https://advicelab.com.au/sitemap.xml
+Sitemap: https://advicelab.com.au/sitemap_index.xml
