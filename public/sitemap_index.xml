@@ -83,6 +83,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
+
+   <!-- Giving Back Pages -->
+  <url>
+    <loc>https://advicelab.com.au/giving-back</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
   
   <!-- Contact Page -->
   <url>
